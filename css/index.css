@@ -62,12 +62,12 @@ body {
     border-radius: 10px;
 }
 
-.main_content_text {
+.main_content--text {
     font-family: "Rajdhani Semibold", sans-serif;
     font-size: 1.5em;
 }
 
-.main_content_hr {
+.main_content--hr {
     margin-top: 10px;
     margin-bottom: 30px;
     height: 1px;

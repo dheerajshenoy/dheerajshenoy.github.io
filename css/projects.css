@@ -1,13 +1,29 @@
 .item_card {
-
     width: auto;
-    margin: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
     background-color: gray;
-    height: 100px;
     border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 20px 2px black;
 }
 
-.item_card_title {
+.item_card:hover {
+    transform: scale(1.1, 1.1);
+    box-shadow: 2px 2px 40px 10px gray;
+}
+
+.item_card--title {
+    font-family: Rajdhani Semibold;
+    font-size: 1.5em;
+}
+
+.item_card--desc {
+
+
+}
+
+.item_card--link {
 
 
 }
