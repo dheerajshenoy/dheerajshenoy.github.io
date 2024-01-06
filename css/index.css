@@ -69,12 +69,14 @@ body {
 
 .main_content_hr {
     margin-top: 10px;
+    margin-bottom: 30px;
     height: 1px;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 31%, rgba(0,212,255,1) 63%);
 }
 
 .footer {
-
+    width: auto;
+    margin: auto;
     margin-bottom: 120px;
 }
