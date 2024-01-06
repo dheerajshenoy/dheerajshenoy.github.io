@@ -1,0 +1,80 @@
+body {
+    margin: auto;
+    width: 70%;
+    background-image: url("../images/background.jpg");
+}
+
+.header {
+    margin: 0px;
+    margin-top: 120px;
+    margin-bottom: 30px;
+    width: auto;
+    background-color: #d8dee9;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #8fbcbb;
+    font-family: "Rajdhani Semibold", sans-serif;
+    color: #bf616a;
+    font-size: 2em;
+}
+
+.header_title {
+}
+
+.navbar {
+    margin: 0px;
+    margin-bottom: 30px;
+    width: auto;
+    background-color: #d8dee9;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline-block;
+}
+
+.navbar li :hover {
+    background-color: #bf616a;
+    color: #d8dee9;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-family: "Rajdhani Semibold", sans-serif;
+    font-size: 1em;
+    padding: 10px;
+    display: block;
+    color: #2e3440;
+}
+
+.main_content {
+
+    padding: 20px;
+    margin: auto;
+    width: auto;
+    background-color: #d8dee9;
+    height: 1000px;
+    border-radius: 10px;
+}
+
+.main_content_text {
+    font-family: "Rajdhani Semibold", sans-serif;
+    font-size: 1.5em;
+}
+
+.main_content_hr {
+    margin-top: 10px;
+    height: 1px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 31%, rgba(0,212,255,1) 63%);
+}
+
+.footer {
+
+    margin-bottom: 120px;
+}
