@@ -1,13 +1,15 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Dheeraj Shenoy - Github Page | Projects</title>
         <link rel="stylesheet" href="./css/index.css">
         <link rel="stylesheet" href="./css/projects.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="header">
-            dheerajshenoy
+            <span id="header_title">dheerajshenoy.github.io</span>
         </div>
         <div class="navbar">
             <ul>
@@ -16,21 +18,17 @@
                 <li><a href="about_me.html">About Me</a></li>
             </ul>
         </div>
-        
-        <div class="main_content">
+
+        <div class="main_content" id="project-main-content">
             <span class="main_content--text">Projects</span>
             <div class="main_content--hr"></div>
-
-            <div class="item_card">
-                <span class="item_card--title">Sonify</span><br>
-                <span class="item_card--desc">Program that converts images to sound through a process called sonification</span>
-                <span class="item_card--link"></span>
-            </div>
-
+            <center><h4>Total projects: <span id='project_count'></h4></center>
+            <script type="module" src="./js/add_projects.js"></script>
         </div>
 
         <div class="footer">
             Footer
         </div>
+        <script src="./js/index.js"></script>
     </body>
 </html>

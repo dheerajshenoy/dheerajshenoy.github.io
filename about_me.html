@@ -1,13 +1,15 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Dheeraj Shenoy - Github Page | About Me</title>
         <link rel="stylesheet" href="./css/index.css">
         <link rel="stylesheet" href="./css/about_me.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="header">
-            dheerajshenoy
+            <span id="header_title">dheerajshenoy.github.io</span>
         </div>
         <div class="navbar">
             <ul>
@@ -21,18 +23,26 @@
             <span class="main_content--text">About Me</span>
             <div class="main_content--hr"></div>
     
-            <h3>Introduction</h3>
+            <h1>Introduction</h1>
             
-            <img src="./images/dheeraj.jpg" alt="Avatar" id="avatar">
-            I'm a post-graduate student of Physics with specialisation in Astrophysics and Data Analysis. I'm fond of computer science and programming. I'm currently working in the area of Solar Physics on Coronal Mass Ejections (CMEs) for my Masters Thesis at the Indian Institute of Astrophysics (IIA), Bangalore.
+            <div id="info-container">
+
+                <div id="info-text">
+                    I'm a post-graduate student of Physics with specialisation in Astrophysics and Data Analysis. I'm fond of computer science and programming. I'm currently working in the area of Solar Physics on Coronal Mass Ejections (CMEs) for my Masters Thesis at the Indian Institute of Astrophysics (IIA), Bangalore.
+                </div>
+                <img src="./images/dheeraj.jpg" alt="Avatar" id="avatar">
+            </div>
 
             <br><br>
 
-            Visit my <a href="https://www.everydingeverydong.blogspot.com/" target="_blank">blog</a> for updates on few topics like open source softwares, my personal experiences etc.
+            Visit my <a href="https://www.everydingeverydong.blogspot.com/" target="_blank">blog</a> for updates on topics like open source softwares, physics, my personal experiences etc.
 
             <h3>Interests</h3>
 
             <ul>
+                <li>Physics</li>
+                <li>Computer Science</li>
+                <li>Mathematics</li>
                 <li>Computational Physics</li>
                 <li>Creative Programming</li>
                 <li>Scientific Programming</li>
@@ -69,5 +79,6 @@
         <div class="footer">
             This is just a footer
         </div>
+            <script src="./js/index.js"></script>
     </body>
 </html>

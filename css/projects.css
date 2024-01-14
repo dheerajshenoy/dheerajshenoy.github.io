@@ -1,29 +1,57 @@
-.item_card {
+.project-card {
+    background-color: #5e81ac;
     width: auto;
-    margin-left: 40px;
-    margin-right: 40px;
-    background-color: gray;
+    margin: 10px;
+    height: auto;
+    padding: 10px;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 2px 2px 20px 2px black;
 }
 
-.item_card:hover {
-    transform: scale(1.1, 1.1);
-    box-shadow: 2px 2px 40px 10px gray;
+.custom-hr {
+    width: auto;
+    margin: 10px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 31%, rgba(0,212,255,1) 63%);
+    height: 1px;
 }
 
-.item_card--title {
-    font-family: Rajdhani Semibold;
-    font-size: 1.5em;
+.project-state {
+    color: #2e3440;
 }
 
-.item_card--desc {
-
-
+.project-heading-div {
+    display: flex;
+    justify-content: space-between;
 }
 
-.item_card--link {
+.project-heading-div .project-title {
+}
 
+.project-heading-div .project-state {
+}
+
+.git_img {
+    margin: 0;
+    padding: 0;
+}
+
+
+.git_img :hover {
+    transform: scale(1.5);
+    margin: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .project-heading-div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .project-heading-div .project-title {
+    }
+
+    .project-heading-div .project-state {
+    }
 
 }

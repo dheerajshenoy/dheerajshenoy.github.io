@@ -1,11 +1,10 @@
 #avatar {
     border-radius: 50%;
     border: 5px solid #2e3440;
-    height: 20%;
-    float: right;
-    margin: -40px;
-    margin-left: 20px;
-    margin-right: 40px;
+    width: 20vw;
+    height: 40vh;
+    max-width: 20vw;
+    margin: 10px;
 }
 
 #contact_list ul {
@@ -22,4 +21,31 @@
 #contact_list li:hover {
     transform: scale(1.5);
     margin: 10px;
+}
+
+#info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#info-text {
+    max-width: 80vw;
+}
+
+@media only screen and (max-width : 768px) {
+
+    #info-container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    #info-text {
+        max-width: 80vw;
+    }
+
+    #avatar {
+        display: none;
+    }
+
 }
