@@ -47,7 +47,6 @@ class Project {
 
         _project_heading_div.classList.add("project-heading-div");
 
-        // div.appendChild(_project_label);
         div.appendChild(_project_heading_div);
         div.appendChild(_img_link);
         div.appendChild(_hr);
