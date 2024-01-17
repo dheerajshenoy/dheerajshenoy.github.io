@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Dheeraj Shenoy - Github Page | Home</title>
         <link rel="stylesheet" href="./css/index.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./js/jquery-3.7.1.js"></script>
     </head>
     <body>
         <div class="header">
@@ -21,13 +22,25 @@
 
         <div class="main_content">
             <span class="main_content--text">Home</span>
-            <div class="main_content_ur"></div>
-            Just a simple github project homepage
+            <div class="main_content--hr"></div>
+            Just a simple github project homepage. I'm still learning web development in my free time, so this might not be a beautiful website, but I like it.
+            <br>
+            <br>
+            <button onclick="todo_btn_click()">See TODO for this website</button>
+            <!-- Not Shown --!>
+                <div id="todo-box">
+                <h2>TODO</h2>
+                    <ul>
+                        <li>Add Github API for fetching projects</li>
+                        <li>Make website beautiful</li>
+                        <li>Learn more about writing good code</li>
+                    </ul>
+                </div>
         </div>
 
-        <div class="footer">
-            Footer
-        </div>
-        <script src="./js/index.js"></script>
+                <div class="footer">
+                Footer
+                </div>
+                <script src="./js/index.js"></script>
     </body>
 </html>

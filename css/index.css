@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 body {
     margin: auto;
     box-sizing: border-box;
@@ -31,6 +33,7 @@ body {
 }
 
 #header_title {
+    font-family: 'Orbitron', sans-serif;
 }
 
 .navbar {
@@ -97,4 +100,14 @@ body {
     padding: 10px;
     background-color: #d8dee9;
     border-radius: 10px;
+}
+
+#todo-box {
+    display: none;
+    background-color: #bf616a;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 1px;
+    margin: 10px;
+    font-family: "Rajdhani Semibold";
 }
