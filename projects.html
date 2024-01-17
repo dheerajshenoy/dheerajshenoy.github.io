@@ -10,27 +10,25 @@
         <script src="./js/jquery-3.7.1.js"></script>
     </head>
     <body>
-        <div class="header">
-            <span id="header_title">dheerajshenoy.github.io</span>
-            <script src="./js/index.js"></script>
-        </div>
-        <div class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="about_me.html">About Me</a></li>
-            </ul>
+        <script src="./js/index.js"></script>
+        <div id="navbar">
+            <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
+            <div id="navbar--buttons">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
+                </ul>
+            </div>
         </div>
 
         <div class="main_content" id="project-main-content">
             <span class="main_content--text">Projects</span>
             <div class="main_content--hr"></div>
-            <center><h4>Total projects: <span id='project_count'></h4></center>
+            <h4>Total projects: <span id='project_count'></h4>
             <script type="module" src="./js/add_projects.js"></script>
+            <h4><a href="https://github.com/dheerajshenoy" target="_blank">Github Link</href></h4>
         </div>
 
-        <div class="footer">
-            Footer
-        </div>
     </body>
 </html>

@@ -6,7 +6,7 @@ function updateTitleOnResize() {
     var small_text = "dheerajshenoy";
     var very_small_text = "djs";
 
-    var text_element = document.getElementById("header_title");
+    var text_element = document.getElementById("navbar--title");
     var windowWidth = window.innerWidth;
 
     if (windowWidth >= 600) {
@@ -25,7 +25,15 @@ function updateTitleOnResize() {
 // Handle todo button behaviour
 function todo_btn_click() {
     var todo_box = $("#todo-box");
-    todo_box.toggle("slow");
+    var todo_btn = $("#todo-btn");
+    todo_box.toggle(375);
+    if (todo_btn.css("left") === "0px") {
+        todo_btn.css("left", $(".main_content").width() - todo_btn.width() - 50, 500);
+        todo_btn.text("Close TODO");
+    } else {
+        todo_btn.css("left", "0px");
+        todo_btn.text("See TODO");
+    }
 }
 
 window.onload = function () {

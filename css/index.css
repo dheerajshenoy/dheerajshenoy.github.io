@@ -1,66 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 body {
-    margin: auto;
     box-sizing: border-box;
     background-image: url("../images/background.jpg");
-    width: 80%;
-    font-size: 1em;
+    font-size: 1.25em;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* remove margin on mobile phones */
 @media only screen and (max-width: 768px) {
     body {
-        width: auto;
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
-.header {
-
-    border-radius: 10px;
-    margin: 0px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: auto;
-    background-color: #d8dee9;
-    padding: 20px;
-    border: 1px solid #8fbcbb;
-    font-family: "Rajdhani Semibold", sans-serif;
-    color: #bf616a;
-    font-size: 2em;
+#navbar {
+    /* background-color: #bf616a; */
+    background-color: #a3be8c;
+    width: 100vw;
+    box-shadow: 0px 0px 20px 0px black;
 }
 
-#header_title {
+#navbar--title {
+    float: left;
     font-family: 'Orbitron', sans-serif;
+    padding: 10px;
 }
 
-.navbar {
-    margin: 0px;
-    margin-bottom: 30px;
-    width: auto;
-    background-color: #d8dee9;
-    margin-left: 30px;
-    margin-right: 30px;
+#navbar--title--link  {
+    text-decoration: none;
+    color: black;
 }
 
-.navbar ul {
+#navbar--title--link :hover {
+    text-decoration: underline;
+    color: black;
+}
+
+#navbar--title--link :visited {
+    text-decoration: none;
+    color: black;
+}
+
+#navbar--title--link :link {
+    text-decoration: none;
+    color: black;
+}
+
+#navbar--title--link :active {
+    text-decoration: none;
+    color: black;
+}
+
+
+#navbar--buttons {
+    float: right;
+    box-sizing: border-box;
+}
+
+#navbar--buttons ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.navbar li {
+#navbar--buttons li {
     display: inline-block;
 }
 
-.navbar li :hover {
-    background-color: #bf616a;
-    color: #d8dee9;
-}
-
-.navbar a {
+#navbar--buttons a {
     text-decoration: none;
     font-family: "Rajdhani Semibold", sans-serif;
     font-size: 1em;
@@ -69,11 +88,16 @@ body {
     color: #2e3440;
 }
 
+#navbar a:hover {
+    background-color: #222222;
+    color: #d8dee9;
+}
+
 .main_content {
     padding: 20px;
-    margin: auto;
+    margin: 50px;
     height: auto;
-    width: auto;
+    width: 80%;
     border-radius: 10px;
     background-color: #d8dee9;
     margin-left: 30px;
@@ -93,21 +117,31 @@ body {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 31%, rgba(0,212,255,1) 63%);
 }
 
-.footer {
-    margin: 30px;
-    margin-bottom: 40px;
-    margin-top: 30px;
-    padding: 10px;
-    background-color: #d8dee9;
-    border-radius: 10px;
-}
-
 #todo-box {
     display: none;
     background-color: #bf616a;
     border-radius: 10px;
     padding: 10px;
     padding-top: 1px;
-    margin: 10px;
     font-family: "Rajdhani Semibold";
+}
+
+.stylish-button {
+    background-color: #a3be8c;
+    padding: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+    border: none;
+}
+
+.stylish-button:hover {
+    box-shadow: 5px 5px 40px 5px black;
+}
+
+#todo-btn {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transition: left 0.5s ease; /* Add a smooth transition effect */
 }

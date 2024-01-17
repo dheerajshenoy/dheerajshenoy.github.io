@@ -1,10 +1,6 @@
 #avatar {
-    border-radius: 50%;
-    border: 5px solid #2e3440;
-    width: 20vw;
-    height: 40vh;
-    max-width: 20vw;
-    margin: 10px;
+    height: 20vw;
+    margin: 20px;
 }
 
 #contact_list ul {
@@ -25,12 +21,11 @@
 
 #info-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
 }
 
 #info-text {
-    max-width: 80vw;
+    float: left;
 }
 
 @media only screen and (max-width : 768px) {
