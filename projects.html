@@ -26,9 +26,19 @@
             <span class="main_content--text">Projects</span>
             <div class="main_content--hr"></div>
             <h4>Total projects: <span id='project_count'></h4>
-            <script type="module" src="./js/add_projects.js"></script>
-            <h4><a href="https://github.com/dheerajshenoy" target="_blank">Github Link</href></h4>
-        </div>
+            <h4><a href="https://github.com/dheerajshenoy" target="_blank">Github Account Link</a></h4>
 
+            <br>
+
+        <script src="./js/projects.js"></script>
+
+        <template id="repo-template">
+            <div id="repoBox">
+                <span id="repoTitle">REPO TITLE</span>
+                <hr>
+                <a id="repoLink" target="_blank"><img src="./images/github.svg" /></a>
+            </div>
+        </template>
+        </div>
     </body>
 </html>

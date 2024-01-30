@@ -24,6 +24,19 @@ body {
         flex-direction: column;
         align-items: center;
     }
+
+}
+
+#navbar--mini--button {
+    display: none;
+}
+
+@media only screen and (max-width: 200px) {
+
+    #navbar--buttons {
+        display: none;
+    }
+
 }
 
 #navbar {
@@ -63,7 +76,6 @@ body {
     text-decoration: none;
     color: black;
 }
-
 
 #navbar--buttons {
     float: right;
