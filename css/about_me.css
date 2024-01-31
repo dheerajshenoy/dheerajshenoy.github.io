@@ -1,6 +1,9 @@
 #avatar {
+    float: right;
+    max-height: 200px;
     height: 20vw;
-    margin: 20px;
+    border: 10px solid black;
+    margin: 0px 0px 20px 15px;
 }
 
 #contact_list ul {
@@ -20,8 +23,6 @@
 }
 
 #info-container {
-    display: flex;
-    justify-content: left;
 }
 
 #info-text {

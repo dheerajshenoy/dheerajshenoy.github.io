@@ -15,7 +15,7 @@ fetch(apiUrl)
         // set the project count
         document.getElementById("project_count").innerHTML = data.length;
 
-        let repoTemplate = document.getElementById("repo-template");
+        let repoTemplate = document.getElementById("project-template");
         const mainContentContainer = document.getElementById("project-main-content");
 
         let gridContainer = document.createElement("div");
@@ -25,11 +25,12 @@ fetch(apiUrl)
         data.forEach(repo => {
 
             let repoBox = repoTemplate.content.cloneNode(true);
+            repoBox.className = "project-card";
 
-            let repoTitle = repoBox.querySelector('#repoTitle');
+            let repoTitle = repoBox.querySelector('#project-title');
             repoTitle.textContent = repo.name;
 
-            let repoGitImg = repoBox.querySelector('#repoLink');
+            let repoGitImg = repoBox.querySelector('#project-link');
             repoGitImg.href = repo.url;
 
             gridContainer.appendChild(repoBox);
