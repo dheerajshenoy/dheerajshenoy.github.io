@@ -148,7 +148,7 @@ body {
 }
 
 .stylish-button:hover {
-    box-shadow: 5px 5px 40px 5px black;
+    box-shadow: 0 10px 20px 0 black;
 }
 
 #todo-btn {
@@ -156,5 +156,4 @@ body {
     top: 0;
     bottom: 0;
     left: 0;
-    transition: left 0.5s ease; /* Add a smooth transition effect */
 }
