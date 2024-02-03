@@ -10,14 +10,14 @@ function updateTitleOnResize() {
     var text_element = document.getElementById("navbar--title");
     var windowWidth = window.innerWidth;
 
-    if (windowWidth >= 600) {
+    if (windowWidth >= 400) {
         text_element.innerHTML= default_text;
     }
-    else if (windowWidth < 600 && windowWidth > 400) {
+    else if (windowWidth < 600 && windowWidth > 200) {
         text_element.innerHTML= small_text;
     }
 
-    else if (windowWidth <= 400) {
+    else if (windowWidth <= 200) {
         text_element.innerHTML= very_small_text;
     }
 
@@ -39,28 +39,40 @@ function todo_btn_click() {
     }
 }
 
-// Handle animation of the background
-function animate_background() {
-    const time = Date.now() * 0.01; // Use time for animation
+function closeSideNav() {
+    const sideNav = document.getElementById("sidenav");
+    sideNav.style.width = "0px";
+}
 
-    // Example: Move a gradient background
-    const gradientX = Math.sin(time) * 50;
-    const gradientY = Math.cos(time) * 50;
-    
+function openSideNav() {
+    const sideNav = document.getElementById("sidenav");
+    sideNav.style.width = "150px";
+}
 
-    wallpaper.style.background = `radial-gradient(circle at ${50 + gradientX}% ${50 + gradientY}%, #d08770, #bf616a`;
+function toggleSideNav() {
 
-    requestAnimationFrame(animate);
-    console.log(gradientX);
+}
+
+function gradientBG() {
+    var granimInstance = new Granim({
+        element: '#bg-canvas',
+        name: 'granim',
+        opacity: [1, 1],
+        states : {
+            "default-state": {
+                gradients: [
+                    ['#834D9B', '#D04ED6'],
+                    ['#1CD8D2', '#93EDC7']
+                ]
+            }
+        }
+    });
 }
 
 window.onload = function () {
     window.addEventListener("input", updateTitleOnResize);
     window.addEventListener("resize", updateTitleOnResize);
     window.dispatchEvent(new Event('resize'));
-    Particles.init({
-        selector: '.background',
-        connectParticles: true
-    });
-    animate_background()
+    gradientBG();
+
 }

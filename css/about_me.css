@@ -15,6 +15,7 @@
 #contact_list li {
     display: inline-block;
     margin: 10px;
+    transition: ease-out 0.3s;
 }
 
 #contact_list li:hover {
@@ -44,4 +45,24 @@
         display: none;
     }
 
+}
+
+.linkedin-icon {
+    border-radius: 10px;
+    background-color: lightblue;
+    transition: ease-out 0.3s;
+}
+
+.linkedin-icon:hover {
+    box-shadow: 0 5px 10px 0 black;
+}
+
+.x-icon {
+    border-radius: 10px;
+    transition: ease-out 0.3s;
+    background-color: #08a0e9;
+}
+
+.x-icon:hover {
+    box-shadow: 0 5px 10px 0 black;
 }

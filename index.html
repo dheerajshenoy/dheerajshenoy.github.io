@@ -8,8 +8,12 @@
         <script src="./js/jquery-3.7.1.js"></script>
     </head>
     <body>
+        <script src="./js/index.js"></script>
+        <script src="./js/granim.min.js"></script>
+        <canvas id="bg-canvas"></canvas>
         <div id="navbar">
             <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
+            <button id="sidenav-menu-button" onclick="openSideNav()"></button>
             <div id="navbar--buttons">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -17,34 +21,28 @@
                     <li><a href="about_me.html">About Me</a></li>
                 </ul>
             </div>
-            <div id="navbar--mini--button">
-                BB
-            </div>
+
+
         </div>
-        <div class="main_content restrict_width">
+
+        <div id="sidenav">
+            <a class="close-btn" href="javascript:void(0)" onclick="closeSideNav()">🗙</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about_me.html">About Me</a></li>
+            </ul>
+        </div>
+
+        <div class="main_content">
             <span class="main_content--text">Home</span>
             <div class="main_content--hr"></div>
             Just a simple github project homepage. I'm still learning web development in my free time, so this might not be a beautiful website, but I like it.
             <br><br>
 
-            Colorscheme for the website is from <a href="https://www.nordtheme.com" target="_blank"><i>Nord</i></a>
-            <br><br>
-            Super cool particle effects are done using the javascript library <a href="https://github.com/marcbruederlin/particles.js"><i>Particles.js</i></a>
-            <br>
-            <br>
-            <button id="todo-btn" class="stylish-button" onclick="todo_btn_click()">See TODO</button>
-            <!-- Not Shown --!>
-                <div id="todo-box">
-                <h2>TODO</h2>
-                <ul>
-                <li>Add contents</li>
-                <li>Learn more about writing good code</li>
-                </ul>
-                </div>
-                </div>
-
-                <script src="./js/index.js"></script>
-                <canvas class="background"></canvas>
-                <script src="./js/particles.min.js"></script>
+            <div id="selected-projects-box">
+                HELLO WORLD
+            </div>
+        </div>
     </body>
 </html>

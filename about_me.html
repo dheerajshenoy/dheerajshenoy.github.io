@@ -10,8 +10,13 @@
         <script src="./js/jquery-3.7.1.js"></script>
     </head>
     <body>
+
+        <script src="./js/index.js"></script>
+        <script src="./js/granim.min.js"></script>
+        <canvas id="bg-canvas"></canvas>
         <div id="navbar">
             <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
+            <button id="sidenav-menu-button" onclick="openSideNav()"></button>
             <div id="navbar--buttons">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -20,19 +25,26 @@
                 </ul>
             </div>
         </div>
+
+        <div id="sidenav">
+            <a class="close-btn" href="javascript:void(0)" onclick="closeSideNav()">🗙</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about_me.html">About Me</a></li>
+            </ul>
+        </div>
         
         <div class="main_content">
             <span class="main_content--text">About Me</span>
             <div class="main_content--hr"></div>
     
-            <h1>Introduction</h1>
-            
             <div id="info-container">
 
                 <img src="./images/dheeraj.jpg" alt="Avatar" id="avatar">
-                <p>I'm a post-graduate student of Physics with specialisation in Astrophysics and Data Analysis. I'm fond of computer science and programming. I'm currently working in the area of Solar Physics on Coronal Mass Ejections (CMEs) for my Masters Thesis at the Indian Institute of Astrophysics (IIA), Bangalore.
+                <p>I'm a post-graduate student of Physics with specialisation in Astrophysics and Data Analysis. I'm fond of computer science and programming. I'm currently working in the area of Solar Physics on Coronal Mass Ejections (CMEs) for my Masters Thesis.
 
-                Visit my <a href="https://www.everydingeverydong.blogspot.com/" target="_blank">blog</a> for updates on topics like open source softwares, physics, my personal experiences etc.
+                Visit my <a href="https://everydingeverydong.blogspot.com/" target="_blank">blog</a> for updates on topics like open source softwares, physics, my personal experiences etc.
 
                 </p>
 
@@ -70,15 +82,13 @@
             <h3>Contact</h3>
             <div id="contact_list">
                 <ul>
-                    <li><a href="https://www.linkedin.com/in/dheeraj-vittal-shenoy" target="_blank"><img src="./images/linkedin.svg" class="contact_img" /></a></li>
-                    <li><a href="https://twitter.com/dheerajshenoy22" target="_blank"><img src="./images/twitter.svg" class="contact_img" /></a></li>
-                    <li><a href="https://github.com/dheerajshenoy" target="_blank"><img src="./images/github.svg" class="contact_img" /></a></li>
+                    <li><a href="https://www.linkedin.com/in/dheeraj-vittal-shenoy" target="_blank"><img class="linkedin-icon" src="./images/linkedin.svg" class="contact_img" /></a></li>
+                    <li><a href="https://twitter.com/dheerajshenoy22" target="_blank"><img src="./images/twitter.svg" class="contact_img x-icon" /></a></li>
+                    <li><a href="https://github.com/dheerajshenoy" target="_blank"><img class="git-img" src="./images/github.svg" class="contact_img" /></a></li>
                 </ul>
             </div>
         </div>
 
         <script src="./js/index.js"></script>
-        <canvas class="background"></canvas>
-        <script src="./js/particles.min.js"></script>
     </body>
 </html>

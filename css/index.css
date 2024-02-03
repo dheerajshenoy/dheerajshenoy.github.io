@@ -8,11 +8,11 @@ body {
     padding: 0;
     width: 100vw;
     display: flex;
-    background-image: url("../images/bg.png");
+    /* background-image: url("../images/bg.png"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #d8dee9;
+    /* background-color: black; */
     color: white;
     background-size: cover;
     background-position: center;
@@ -21,10 +21,10 @@ body {
 }
 
 a {
+    color: #FF5000;
 }
 
 a:visited {
-    color: #2e3440;
 }
 
 /* remove margin on mobile phones */
@@ -38,19 +38,10 @@ a:visited {
         flex-direction: column;
         align-items: center;
     }
-
 }
 
 #navbar--mini--button {
     display: none;
-}
-
-@media only screen and (max-width: 200px) {
-
-    #navbar--buttons {
-        display: none;
-    }
-
 }
 
 #navbar {
@@ -59,6 +50,7 @@ a:visited {
     width: 100vw;
     box-shadow: 0px 0px 20px 0px black;
     z-index: 2;
+    position: relative;
 }
 
 #navbar--title {
@@ -121,6 +113,18 @@ a:visited {
     background-color: #4c566a;
 }
 
+.main-container {
+    padding: 20px;
+    margin: 50px;
+    height: auto;
+    width: 80%;
+    border-radius: 10px;
+    background-color: rgba(12, 23, 12, 0.3);
+    box-shadow: 0 2px 10px 0 black;
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
 .main_content {
     padding: 20px;
     margin: 50px;
@@ -175,11 +179,103 @@ a:visited {
     left: 0;
 }
 
-
-.background {
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  z-index: 0;
+#bg-canvas {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
 }
+
+.git-img {
+    border-radius: 30px;
+    background-color: white;
+    transition: ease-out 0.3s;
+}
+
+.git-img:hover {
+    box-shadow: 0 5px 10px 0 black;
+}
+
+#sidenav {
+    right: 0;
+    top: 0;
+    overflow-x: hidden;
+    position: fixed;
+    height: 100%;
+    width: 0;
+    background-color: black;
+    z-index: 2;
+    padding: 0;
+    transition: ease-out 0.3s;
+}
+
+#sidenav li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#sidenav a {
+    text-decoration: none;
+    font-family: "Rajdhani Semibold", sans-serif;
+    font-size: 1em;
+    padding: 10px;
+    display: block;
+    transition: 0.3s;
+    color: gray;
+}
+
+#sidenav a:hover {
+    color: white;
+}
+
+#sidenav ul {
+    padding: 0;
+}
+
+.close-btn {
+    top: 0;
+    font-family: Rajdhani Semibold;
+    background-color: gray;
+}
+
+#sidenav .close-btn {
+    color: white;
+}
+
+#sidenav .close-btn:hover {
+    color: black;
+}
+
+#sidenav-menu-button {
+    float: right;
+    border: none;
+    font-size: 1.25em;
+    width: 20px;
+    border-radius: 20px;
+    height: 20px;
+    background-color: orange;
+    pading: 20px;
+    margin: 10px;
+    display: none;
+}
+
+#sidenav-menu-button:hover {
+    background-color: gold;
+}
+
+/* Toggle the menu button for switching between sidenav and navbar */
+@media only screen and (max-width: 700px) {
+
+    #navbar--buttons {
+        display: none;
+    }
+
+    #sidenav-menu-button {
+        display: block;
+    }
+
+}
+

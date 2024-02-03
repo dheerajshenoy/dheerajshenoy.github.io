@@ -10,9 +10,13 @@
         <script src="./js/jquery-3.7.1.js"></script>
     </head>
     <body>
+
         <script src="./js/index.js"></script>
+        <script src="./js/granim.min.js"></script>
+        <canvas id="bg-canvas"></canvas>
         <div id="navbar">
             <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
+            <button id="sidenav-menu-button" onclick="openSideNav()"></button>
             <div id="navbar--buttons">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -22,29 +26,36 @@
             </div>
         </div>
 
+        <div id="sidenav">
+            <a class="close-btn" href="javascript:void(0)" onclick="closeSideNav()">🗙</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about_me.html">About Me</a></li>
+            </ul>
+        </div>
+
+
         <div class="main_content" id="project-main-content">
             <span class="main_content--text">Projects</span>
             <div class="main_content--hr"></div>
+
+            <a href="https://github.com/dheerajshenoy" target="_blank"><img class="git-img" src="./images/github.svg"/></a>
             <h4>Total projects: <span id='project_count'></h4>
-            <h4><a href="https://github.com/dheerajshenoy" target="_blank">Github Account Link</a></h4>
 
-            <br>
+            <script src="./js/projects.js"></script>
 
-        <script src="./js/projects.js"></script>
-
-        <!-- template for the projects card -->
-        <template id="project-template">
-            <div class="project-card">
-                <div class="project-container">
-                    <span id="project-title">REPO TITLE</span>
-                    <hr>
-                    <a id="project-link" target="_blank"><img src="./images/github.svg" /></a>
-                </div>
-            </div>
-        </template>
+            <!-- template for the projects card -->
+            <template id="project-template">
+                <a id="project-link" target="_blank">
+                    <div class="project-card">
+                        <div class="project-container">
+                            <span id="project-title">REPO TITLE</span>
+                        </div>
+                    </div>
+                </a>
+            </template>
 
         </div>
-        <canvas class="background"></canvas>
-        <script src="./js/particles.min.js"></script>
     </body>
 </html>

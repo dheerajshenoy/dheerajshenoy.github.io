@@ -1,5 +1,6 @@
 const username = 'dheerajshenoy';
 const apiUrl = `https://api.github.com/users/${username}/repos`;
+const gitUrl = "https://github.com/dheerajshenoy/";
 
 fetch(apiUrl)
     .then(response => {
@@ -28,10 +29,10 @@ fetch(apiUrl)
             repoBox.className = "project-card";
 
             let repoTitle = repoBox.querySelector('#project-title');
-            repoTitle.textContent = repo.name;
+            repoTitle.textContent = repo.name.charAt(0).toUpperCase() + repo.name.slice(1);
 
             let repoGitImg = repoBox.querySelector('#project-link');
-            repoGitImg.href = repo.url;
+            repoGitImg.href = gitUrl + repo.name;
 
             gridContainer.appendChild(repoBox);
         });
