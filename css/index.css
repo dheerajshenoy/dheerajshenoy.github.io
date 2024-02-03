@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 body {
     box-sizing: border-box;
@@ -55,7 +55,8 @@ a:visited {
 
 #navbar--title {
     float: left;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.25em;
     padding: 10px;
 }
 
@@ -135,6 +136,7 @@ a:visited {
     box-shadow: 0 2px 10px 0 black;
     backdrop-filter: blur(4px);
     z-index: 1;
+    font-family: "Comfortaa", sans-serif;
 }
 
 .main_content--text {
