@@ -53,6 +53,10 @@ a:visited {
     position: relative;
 }
 
+#navbar .active {
+    border-bottom: 1px solid orange;
+}
+
 #navbar--title {
     float: left;
     font-family: 'Russo One', sans-serif;
@@ -107,7 +111,7 @@ a:visited {
     padding: 10px;
     display: block;
     color: white;
-    transition: 0.5s;
+    transition: ease-out 0.5s;
 }
 
 #navbar a:hover {
@@ -211,6 +215,10 @@ a:visited {
     z-index: 2;
     padding: 0;
     transition: ease-out 0.3s;
+}
+
+#sidenav .active {
+    color: white;
 }
 
 #sidenav li {

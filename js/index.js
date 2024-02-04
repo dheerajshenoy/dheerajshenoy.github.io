@@ -20,7 +20,6 @@ function updateTitleOnResize() {
     else if (windowWidth <= 200) {
         text_element.innerHTML= very_small_text;
     }
-
 }
 
 // Handle todo button behaviour
@@ -74,5 +73,4 @@ window.onload = function () {
     window.addEventListener("resize", updateTitleOnResize);
     window.dispatchEvent(new Event('resize'));
     gradientBG();
-
 }
