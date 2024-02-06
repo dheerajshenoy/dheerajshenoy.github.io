@@ -1,6 +1,6 @@
 var windowWidth = window.innerWidth;
-const wallpaper = document.getElementById('wallpaper-container');
 
+// Handle updation of the title text on the top left of the top navigation bar with screen size
 function updateTitleOnResize() {
 
     const default_text = "dheerajshenoy.github.io";
@@ -38,20 +38,19 @@ function todo_btn_click() {
     }
 }
 
+// Close Sidenav
 function closeSideNav() {
     const sideNav = document.getElementById("sidenav");
     sideNav.style.width = "0px";
 }
 
+// Open sidenav
 function openSideNav() {
     const sideNav = document.getElementById("sidenav");
     sideNav.style.width = "150px";
 }
 
-function toggleSideNav() {
-
-}
-
+// Handle the gradient BG of the webpage
 function gradientBG() {
     var granimInstance = new Granim({
         element: '#bg-canvas',

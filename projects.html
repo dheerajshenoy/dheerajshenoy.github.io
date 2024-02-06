@@ -7,54 +7,55 @@
         <link rel="stylesheet" href="./css/projects.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="./js/jquery-3.7.1.js"></script>
+        <script src="./js/projects.js"></script>
     </head>
-    <body>
+    <body onload="projectsPageOnLoad()">
+        <div id="main-container">
+            <script src="./js/index.js"></script>
+            <script src="./js/granim.min.js"></script>
+            <canvas id="bg-canvas"></canvas>
+            <div id="navbar">
+                <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
+                <button id="sidenav-menu-button" onclick="openSideNav()"></button>
+                <div id="navbar--buttons">
+                    <ul>
+                        <li><a href="index.html">Home</a>
+                            <li><a class="active" href="projects.html">Projects</a>
+                                <li><a href="about_me.html">About Me</a></li>
+                    </ul>
+                </div>
+            </div>
 
-        <script src="./js/index.js"></script>
-        <script src="./js/granim.min.js"></script>
-        <canvas id="bg-canvas"></canvas>
-        <div id="navbar">
-            <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
-            <button id="sidenav-menu-button" onclick="openSideNav()"></button>
-            <div id="navbar--buttons">
+            <div id="sidenav">
+                <a class="close-btn" href="javascript:void(0)" onclick="closeSideNav()">🗙</a>
                 <ul>
-                    <li><a href="index.html">Home</a>
-                    <li><a class="active" href="projects.html">Projects</a>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="projects.html">Projects</a></li>
                     <li><a href="about_me.html">About Me</a></li>
                 </ul>
             </div>
-        </div>
-
-        <div id="sidenav">
-            <a class="close-btn" href="javascript:void(0)" onclick="closeSideNav()">🗙</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a class="active" href="projects.html">Projects</a></li>
-                <li><a href="about_me.html">About Me</a></li>
-            </ul>
-        </div>
 
 
-        <div class="main_content" id="project-main-content">
-            <span class="main_content--text">Projects</span>
-            <div class="main_content--hr"></div>
+            <div class="main_content" id="project-main-content">
+                <span class="main_content--text">Projects</span>
+                <div class="main_content--hr"></div>
 
-            <a href="https://github.com/dheerajshenoy" target="_blank"><img class="git-img" src="./images/github.svg"/></a>
-            <h4>Total projects: <span id='project_count'></h4>
+                <a href="https://github.com/dheerajshenoy" target="_blank"><img class="git-img" src="./images/github.svg"/></a>
+                <h4>Total projects: <span id='project_count'></h4>
 
-            <script src="./js/projects.js"></script>
 
-            <!-- template for the projects card -->
-            <template id="project-template">
-                <a id="project-link" target="_blank">
-                    <div class="project-card">
-                        <div class="project-container">
-                            <span id="project-title">REPO TITLE</span>
+                <!-- template for the projects card -->
+                <template id="project-template">
+                    <a id="project-link" target="_blank">
+                        <div class="project-card">
+                            <div class="project-container">
+                                <span id="project-title">REPO TITLE</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </template>
+                    </a>
+                </template>
 
+            </div>
         </div>
     </body>
 </html>
