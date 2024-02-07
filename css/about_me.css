@@ -24,7 +24,8 @@
     background-color: white;
     border: 2px solid red;
     color: black;
-    height: 250px;
+    width: auto;
+    height: auto;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 5px 20px 0 black;
@@ -46,13 +47,8 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 25px;
 }
-@media only screen and (max-width : 768px) {
 
-    #info-container {
-        justify-content: center;
-        align-items: center;
-        height: 175px;
-    }
+@media only screen and (max-width : 768px) {
 
     #info-text {
         max-width: 80vw;
@@ -133,23 +129,26 @@
     #interests-image {
         margin-left: auto;
         margin-right: auto;
-        height: 75%;
+        height: 50%;
+    }
+
+    .interests-card {
+        background-color: white;
+        border-radius: 10px;
+        height: 100px;
+        box-shadow: 0 5px 10px 0 black;
+        padding: 40px;
+        transition: 0.3s ease-out;
     }
 }
 
 .interests-card {
     background-color: white;
     border-radius: 10px;
-    width: auto;
-    height: 200px;
+    height: 100px;
     box-shadow: 0 5px 10px 0 black;
     padding: 40px;
     transition: 0.3s ease-out;
-}
-
-.interests-card:hover {
-    scale: 1.25;
-    box-shadow: 0 20px 20px 0 black;
 }
 
 #interests-title {
@@ -162,7 +161,7 @@
 }
 
 #interests-image-container {
-    height: 75%;
+    height: 50%;
     padding: 10px;
 }
 
@@ -176,6 +175,5 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 75%;
+    height: 100%;
 }
-
