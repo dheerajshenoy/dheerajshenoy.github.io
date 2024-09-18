@@ -19,8 +19,16 @@
 }
 
 
-a {
-    color: #FF5000;
+#main-container a {
+    color: #FAF312;
+    text-decoration: none;
+    border-bottom:1px #75abea solid;
+    padding-bottom: 1px;
+}
+
+#main-container a:hover {
+    /*color: green;*/
+    border-bottom: 3px solid orange;
 }
 
 a:visited {
@@ -333,9 +341,9 @@ a:visited {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    50% { border-top: 10px solid green; }
-    100% { transform: rotate(360deg); }
+0% { transform: rotate(0deg); }
+50% { border-top: 10px solid green; }
+100% { transform: rotate(360deg); }
 }
 
 .loading-spinner-container {

@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Dheeraj Shenoy - Github Page | Projects</title>
-        <link rel="stylesheet" href="./css/index.min.css">
-        <link rel="stylesheet" href="./css/projects.min.css">
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/projects.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="./js/jquery-3.7.1.min.js"></script>
-        <script src="./js/projects.min.js"></script>
+        <script src="./js/jquery-3.7.1.js"></script>
+        <script src="./js/projects.js"></script>
     </head>
     <body onload="projectsPageOnLoad()">
         <div id="main-container">
-            <script src="./js/index.min.js"></script>
-            <script src="./js/granim.min.js"></script>
+            <script src="./js/index.js"></script>
+            <script src="./js/granim.js"></script>
             <canvas id="bg-canvas"></canvas>
             <div id="navbar">
                 <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
@@ -20,8 +20,8 @@
                 <div id="navbar--buttons">
                     <ul>
                         <li><a href="index.html">Home</a>
-                            <li><a class="active" href="projects.min.html">Projects</a>
-                                <li><a href="about_me.min.html">About Me</a></li>
+                            <li><a class="active" href="projects.html">Projects</a>
+                                <li><a href="about_me.html">About Me</a></li>
                     </ul>
                 </div>
             </div>
@@ -30,19 +30,20 @@
                 <a class="close-btn" href="javascript:void(0)" onclick="closeSideNav()">🗙</a>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a class="active" href="projects.min.html">Projects</a></li>
-                    <li><a href="about_me.min.html">About Me</a></li>
+                    <li><a class="active" href="projects.html">Projects</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
                 </ul>
             </div>
 
 
             <div class="main_content" id="project-main-content">
+
                 <span class="main_content--text">Projects</span>
                 <div class="main_content--hr"></div>
 
                 <a href="https://github.com/dheerajshenoy" target="_blank"><img class="git-img" src="./images/github.svg"/></a>
-                <h4>Total projects: <span id='project_count'></h4>
 
+                <h4>Total projects: <span id='project_count'></h4>
 
                 <!-- template for the projects card -->
                 <template id="project-template">

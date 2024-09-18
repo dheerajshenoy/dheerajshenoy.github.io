@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Dheeraj Shenoy - Github Page | Home</title>
-        <link rel="stylesheet" href="./css/index.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="./js/jquery-3.7.1.min.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dheeraj Shenoy - Github Page | Home</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="./js/jquery-3.7.1.js"></script>
     </head>
-    <body>
-        <div id="main-container">
-            <script src="./js/index.min.js"></script>
-            <script src="./js/granim.min.js"></script>
-            <canvas id="bg-canvas"></canvas>
+  <body>
+    <div id="main-container">
+      <script src="./js/index.js"></script>
+      <script src="./js/granim.js"></script>
+      <canvas id="bg-canvas"></canvas>
 
-            <div id="navbar">
-                <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
-                <button id="sidenav-menu-button" onclick="openSideNav()"></button>
-                <div id="navbar--buttons">
+      <div id="navbar">
+        <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
+        <button id="sidenav-menu-button" onclick="openSideNav()"></button>
+        <div id="navbar--buttons">
+          <ul>
+            <li><a class="active" href="index.html">Home</a>
+              <li><a href="projects.html">Projects</a>
+                <li><a href="about_me.html">About Me</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="sidenav">
+            <span class="sidenav-close-btn" href="javascript:void(0)" onclick="closeSideNav()">&times;</span>
+            <ul>
+              <li><a class="active" href="index.html">Home</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="about_me.html">About Me</a></li>
+            </ul>
+          </div>
+
+          <div class="main_content">
+            <span class="main_content--text">Home</span>
+            <div class="main_content--hr"></div>
+                 Just a simple github project homepage. I'm still learning web development in my free time, so this might not be a beautiful website, but I like it.
+            <br><br>
+                      Tools used to build the website
+                  <div id="index-logo-container">
                     <ul>
-                        <li><a class="active" href="index.html">Home</a>
-                            <li><a href="projects.min.html">Projects</a>
-                                <li><a href="about_me.min.html">About Me</a></li>
+                      <li><div class="logo-card"><img src="./images/html.svg" style="height: 50px; "/></div></li>
+                      <li><div class="logo-card"><img src="./images/css.svg" style="height: 50px; "/></div></li>
+                      <li><div class="logo-card"><img src="./images/js.svg" style="height: 50px; "/></div></li>
                     </ul>
+                  </div>
+
+                  <br>
+                  <div>
+                    New project: <a href="balls.html">Balls</a><br>
+                    <i>Written in Rust using <b>Macroquad</b> library and compiled to WASM</i>
+                  </div>
+
                 </div>
-
             </div>
-
-            <div id="sidenav">
-                <span class="sidenav-close-btn" href="javascript:void(0)" onclick="closeSideNav()">&times;</span>
-                <ul>
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="projects.min.html">Projects</a></li>
-                    <li><a href="about_me.min.html">About Me</a></li>
-                </ul>
-            </div>
-
-            <div class="main_content">
-                <span class="main_content--text">Home</span>
-                <div class="main_content--hr"></div>
-                Just a simple github project homepage. I'm still learning web development in my free time, so this might not be a beautiful website, but I like it.
-                <br><br>
-                Tools used to build the website
-                <div id="index-logo-container">
-                    <ul>
-                        <li><div class="logo-card"><img src="./images/html.svg" style="height: 50px; "/></div></li>
-                        <li><div class="logo-card"><img src="./images/css.svg" style="height: 50px; "/></div></li>
-                        <li><div class="logo-card"><img src="./images/js.svg" style="height: 50px; "/></div></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </body>
-</html>
+          </body>
+        </html>

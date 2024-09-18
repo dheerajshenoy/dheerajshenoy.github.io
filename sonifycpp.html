@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Dheeraj Shenoy - Github Page | SonifyCPP</title>
+        <link rel="stylesheet" href="./css/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./js/jquery-3.7.1.js"></script>
+    </head>
+    <body>
+        <div id="main-container">
+            <script src="./js/index.js"></script>
+            <script src="./js/granim.js"></script>
+            <canvas id="bg-canvas"></canvas>
+
+            <div id="navbar">
+                <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
+                <button id="sidenav-menu-button" onclick="openSideNav()"></button>
+                <div id="navbar--buttons">
+                    <ul>
+                        <li><a class="active" href="index.html">Home</a>
+                            <li><a href="projects.html">Projects</a>
+                                <li><a href="about_me.html">About Me</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div id="sidenav">
+                <span class="sidenav-close-btn" href="javascript:void(0)" onclick="closeSideNav()">&times;</span>
+                <ul>
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
+                </ul>
+            </div>
+
+            <div class="main_content">
+                <span class="main_content--text">SonifyCPP</span>
+                <div class="main_content--hr"></div>
+                This is a software that converts image into audio signals a.k.a music. It's written in C++ to leverage the performance, which is handy when dealing with large dimension images.
+
+                <h2>Table of Contents</h2>
+
+                1. <a href="#introduction">Introduction</a>
+
+                <h2 id="#introduction">Introduction</h2>
+
+                Image sonification refers to the process of converting images to audio signals. This is done by mapping the pixels of the image to frequencies of sound. The way in which the image is traversed changes the resultant audio, and the way in which the pixels are mapped to frequencies also changes the audio. So, there can be an infinite possibilites of mapping things.
+
+                This project is a performant successor to another project of mine called Sonify which was written in Python.
+
+                <h2>Features</h2>
+
+                Apart from sonifying the images, sonifyCPP ships with few features.
+
+                <ul>
+
+                    <li><b>Tone Generator</b></li>
+
+                    <br>
+                    Just generate single frequency tones. It's fun
+
+                    <br><br>
+
+                    <li><b>Waveform visualizer</b></li>
+
+                    Visualize the sonified sound waveform
+
+                    <li>Frequency Spectrum Analyzer</li>
+
+                    Visualize the frequency vs amplitude plot
+
+                    <li>Lua scripting</li>
+
+                    Able to set options of the program in a script file. For now, only defaults can be set. In the future, I am planning to add the ability to create mapping functions from within lua to call in the C++ code for sonifying. Script file should be placed at /home/<USER>/.config/sonifycpp/ on linux and C:/Users/<USER>/AppData/Local/sonifycpp/, The file can look something like this.
+
+            </div>
+        </div>
+    </body>
+</html>
