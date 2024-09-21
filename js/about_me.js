@@ -2,6 +2,7 @@ let img_path = './images/'
 
 
 const interests = {
+    "Astrophysics" : "astrophysics",
     "Physics": "physics",
     "Computer Science": "programming",
     "Mathematics": "math",
@@ -9,11 +10,12 @@ const interests = {
     "Creative Programming": "creative_prog",
     "Web Development": "webdev",
     "Open Source Softwares": "foss",
-    "Vim": "vim",
-    "Playing Drums": "drums",
+    "Neovim": "neovim",
+    "Emacs" : "emacs",
+    "Drums": "drums",
     "Drawing": "drawing",
     "Blogging": "blog",
-    "Music" : "music", 
+    "Music" : "music",
 };
 
 const OS = {
