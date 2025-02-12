@@ -1,54 +1,113 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Dheeraj Shenoy - Github Page | Home</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/jquery-3.7.1.js"></script>
-  </head>
-  <body>
-    <div id="main-container">
-      <script src="./js/index.js"></script>
-      <script src="./js/granim.js"></script>
-      <canvas id="bg-canvas"></canvas>
-      <div id="navbar">
-        <a href="./index.html" id="navbar--title--link"><span id="navbar--title">dheerajshenoy.github.io</span></a>
-        <button id="sidenav-menu-button" onclick="openSideNav()"></button>
-        <div id="navbar--buttons">
-          <ul>
-            <li><a class="active" href="index.html">Home</a>
-            <li><a href="projects.html">Projects</a>
-            <li><a href="about_me.html">About Me</a></li>
-          </ul>
-        </div>
-      </div>
-      <div id="sidenav">
-        <span class="sidenav-close-btn" href="javascript:void(0)" onclick="closeSideNav()">&times;</span>
-        <ul>
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about_me.html">About Me</a></li>
-        </ul>
-      </div>
-      <div class="main_content">
-        <span class="main_content--text">Home</span>
-        <div class="main_content--hr"></div>
-        Just a simple github project homepage. I'm still learning web development in my free time, so this might not be a beautiful website, but I like it.
-        <br><br>
-        Tools used to build the website
-        <div id="index-logo-container">
-          <ul>
-            <li><div class="logo-card"><img src="./images/html.svg" style="height: 50px; "/></div></li>
-            <li><div class="logo-card"><img src="./images/css.svg" style="height: 50px; "/></div></li>
-            <li><div class="logo-card"><img src="./images/js.svg" style="height: 50px; "/></div></li>
-          </ul>
-        </div>
-        <br>
-        <div>
-          New project: <a href="balls.html">Balls</a><br>
-                    <i>Written in Rust using <b>Macroquad</b> library and compiled to WASM</i><br><br>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./css/index.css">
+    </head>
 
-          New project: <a href="fluid-simple.html">Fluid Simulation</a><br>
-          <i>Written in C++ using <b>RayLib</b> game engine library and compiled to Web Assembly (WASM). Uses Navier-Stokes equation to simulate fluid in a box</i>
+    <div class="header">
+        <h1>Dheeraj's Home Page</h1>
+    </div>
+    </header>
+
+    <div class="container">
+
+
+        <!-- Projects -->
+        <div class="section">
+            <div class="section-heading">Projects</div>
+            <br>
+            <p>
+            Some of my personal favourite projects are listed below. You can check out all of my projects over at <a href="https://github.com/dheerajshenoy?tab=repositories">github</a>.
+            </p>
+
+            <ul>
+                <li>
+                    <dl>
+                        <dt>Navi</dt>
+                        <dd>Extensible and customizable file manager</dd>
+                        <dd>Language: C++</dd>
+                        <dd><a href="https://github.com/dheerajshenoy/navi">repo</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>SonifyCPP</dt>
+                        <dd>Convert Images to Audio signals</dd>
+                        <dd>Language: C++</dd>
+                        <dd><a href="https://github.com/dheerajshenoy/sonifycpp-readme">repo</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+
         </div>
-        </html>
+
+        <!-- About Me -->
+        <div class="section">
+            <div class="section-heading">About Me</div>
+            <br>
+
+            I am a physics graduate specializing in Astronomy and Astrophysics.
+            I love science & computers .... honestly, who doesn't ?
+            Aside from science and computers, I enjoy playing percussion instruments like drums etc. 
+
+            <ul class="prog-list">
+                <li><span id="prompt">OS:</span>
+                    <span id="response">Arch Linux</span>
+                </li>
+                <li><span id="prompt">LANG:</span>
+                    <span id="response">C/C++, Python, Rust, ...</span>
+                </li>
+                <li><span id="prompt">EDITOR:</span>
+                    <span id="response">Emacs, Neovim</span>
+                </li>
+                <li><span id="prompt">TERMINAL:</span>
+                    <span id="response">alacritty, ghostty, kitty</span></li>
+                <li><span id="prompt">SHELL:</span>
+                    <span id="response">zsh</span></li>
+                <li><span id="prompt">SOFTWARES_I_CREATED:</span>
+                    <span id="response">NaviFM, IMGV, FITSExplorer, SonifyCPP</span>
+                </li>
+                <li><span id="prompt">MUSIC_GENRE:</span>
+                    <span id="response">Heavy Metal, Rock, Synth Wave</span>
+                </li>
+                <li><span id="prompt">GITHUB:</span>
+                    <span id="response"><a href="https://github.com/dheerajshenoy">https://github.com/dheerajshenoy</a></span>
+                <li><span id="prompt">LINKEDIN:</span>
+                    <span id="response"><a href="https://linkedin.com/in/dheeraj-vittal-shenoy">https://linkedin.com/in/dheeraj-vittal-shenoy</a></span>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div class="section">
+            <div class="section-heading">Fun & Games</div>
+            <br>
+
+            <ul>
+                <li>
+                    <dl>
+                        <dt>Balls</dt>
+                        <dd>Small web assembly bouncing ball game</dd>
+                        <dd>Language: Rust</dd>
+                        <dd><a target="_blank" href="./balls.html">play</a></dd>
+                    </dl>
+                </li>
+                <br>
+
+                <li>
+                    <dl>
+                        <dt>Fluid Simulation</dt>
+                        <dd>Simulation using Navier-Stokes equation to simulate fluid in a box</dd>
+                        <dd>Language: C++</dd>
+                        <dd><a target="_blank" href="./fluid-simple.html">play</a></dd>
+                    </dl>
+
+                </li>
+        </div>
+
+    </div>
+</html>
