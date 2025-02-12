@@ -4,6 +4,14 @@
     --link: lightgreen;
 }
 
+@font-face {
+    font-family: "Space Mono";
+    src: url("../fonts/Space_Mono/SpaceMono-Regular.ttf"),
+        url("../fonts/Space_Mono/SpaceMono-Bold.ttf"),
+        url("../fonts/Space_Mono/SpaceMono-Italic.ttf"),
+        url("../fonts/Space_Mono/SpaceMono-BoldItalic.ttf");
+}
+
 * {
     font-family: "Space Mono";
 }
