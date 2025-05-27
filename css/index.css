@@ -1,66 +1,157 @@
 :root {
-    --accent-fg: #8fa;
-    --important-fg: #88c0d0;
-    --important-bg: none;
+    --accent: #8fa;
     --link: #ebcb8b;
-    --body-bg: #2e3440;
+    --bg: #2e3440;
+    --fg: #d8dee9;
+    --welcome: #b48ead;
+    --nav-bg: #3b4252;
+    --nav-fg: #eceff4;
+    --quote-border: #4CAF50;
+    --quote-bg: #434c5e;
+    --link-hover: orange;
+    --footer-fg: #999;
+}
+
+body.light {
+    --accent: #006666;
+    --link: #5566cc;
+    --link-hover: #004499; /* Optional: hover color */
+    --bg: #eceff4;
+    --fg: #2e3440;
+    --welcome: #6a5acd;
+    --nav-bg: #f0f0f0;
+    --nav-fg: #2e3440;
+    --quote-border: #4CAF50;
+    --quote-bg: #f9f9f9;
+    --footer-fg: #666;
+}
+
+body.dark {
+    --accent: #8fa;
+    --link: #ebcb8b;
+    --bg: #2e3440;
+    --fg: #d8dee9;
+    --welcome: #b48ead;
+    --nav-bg: #3b4252;
+    --nav-fg: #eceff4;
+    --quote-border: #4CAF50;
+    --quote-bg: #434c5e;
+    --link-hover: orange;
+    --footer-fg: #999;
 }
 
 @font-face {
-    font-family: "Rubik";
-    src: url("../fonts/Rubik/Rubik-Regular.ttf"),
-         url("../fonts/Rubik/Rubik-Italic.ttf"),
-         url("../fonts/Rubik/Rubik-Bold.ttd");
+    font-family: "Comfortaa";
+    src: url("../fonts/Comfortaa/Comfortaa-Regular.ttf"),
+    url("../fonts/Comfortaa/Comfortaa-Light.ttf"),
+    url("../fonts/Comfortaa/Comfortaa-Medium.ttf"),
+    url("../fonts/Comfortaa/Comfortaa-SemiBold.ttf"),
+    url("../fonts/Comfortaa/Comfortaa-Bold.ttf");
 }
 
-* {
-    font-family: "Rubik";
-    margin: 5px;
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Regular.ttf"),
+    url("../fonts/Poppins/Poppins-Light.ttf"),
+    url("../fonts/Poppins/Poppins-Medium.ttf"),
+    url("../fonts/Poppins/Poppins-SemiBold.ttf"),
+    url("../fonts/Poppins/Poppins-Italic.ttf"),
+    url("../fonts/Poppins/Poppins-BoldItalic.ttf"),
+    url("../fonts/Poppins/Poppins-ThinItalic.ttf"),
+    url("../fonts/Poppins/Poppins-LightItalic.ttf"),
+    url("../fonts/Poppins/Poppins-Bold.ttf");
 }
 
-.header {
-    color: var(--accent-fg);
-    font-size: 2.0em;
-    margin: 10px;
-    /* font-weight: bold; */
+.container {
+    max-width: 900px;
+    padding: 1rem;
+    margin: 0 auto;
 }
 
-.header2 {
-    color: var(--accent-fg);
-    font-size: 1.1em;
-    font-weight: bold;
-    margin: 10px;
-}
-
-.important {
-    color: var(--important-fg);
-    background-color: var(--important-bg);
-}
-
-.separator {
-    padding: 5px;
-}
-
-.navbar {
-    padding: 0px;
-    margin: 0px;
-    display: block;
+#welcome {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--welcome);
 }
 
 body {
-    margin: 10px;
-    padding: 10px;
-    background-color: var(--body-bg);
-    color: white;
+    font-family: "Poppins";
+    background-color: var(--bg);
+    hyphens: auto;
     font-size: 14pt;
+    margin: 0;
+    color: var(--fg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* padding: 2rem; */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav {
+    background-color: var(--nav-bg);
+    padding: 1rem 0;
+    text-align: center;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--nav-fg);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.theme-switch-btn {
+    position: fixed;
+    cursor: pointer;
+    color: var(--fg);
+    background: none;
+    border: none;
+    top: 1rem;
+    padding: 8px;
+    right: 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    color: var(--link);
+}
+
+header {
+    font-family: "Comfortaa", sans-serif;
+    color: var(--accent);
+    text-align: center;
+}
+
+.header2 {
+    color: var(--accent);
+    font-size: 1.1em;
+}
+
+.separator {
+    padding: 5px 0;
 }
 
 footer {
-    margin: 0 auto;
+    margin: 0;
     text-align: center;
-    color: #4c566a;
-    padding-top: 50px;
-    max-width: 1000px;
+    padding: 25px 0;
+    max-width: 100%;
+    color: var(--footer-fg);
+    font-size: 0.8rem;
 }
 
 a {
@@ -69,14 +160,81 @@ a {
     transition: color 0.3s;
 }
 
-/* a::before { */
-/*     content: "["; */
-/* } */
-
-/* a::after { */
-/*     content: "]"; */
-/* } */
-
 a:hover {
-    color: orange;
+    color: var(--link-hover);
+}
+
+.quote {
+    border-left: 4px solid var(--quote-border);
+    padding: 1.5em;
+    margin: 1em;
+    text-align: center;
+    font-style: italic;
+    background-color: var(--quote-bg);
+    hyphens: auto;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+#theme-icon {
+    transition: opacity 0.2s ease;
+}
+
+/* 2. Responsive tweaks */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px; /* bigger font for readability */
+    }
+
+    .container {
+        max-width: 90%;
+        padding: 0 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+    }
+
+    /* Avoid horizontal scroll from long content */
+    body, html {
+        overflow-x: hidden;
+    }
+
+    /* Make quote padding smaller for narrow screens */
+    .quote {
+        margin: 1rem 0.5rem;
+        padding: 1rem;
+    }
+
+    header {
+        padding: 0 1rem;          /* add some side padding */
+    }
+
+    header h1 {
+        text-align: left;
+        font-size: 1.5rem;        /* smaller font on small screens */
+        word-wrap: break-word;    /* force line breaks if too long */
+        overflow-wrap: break-word;
+        white-space: normal;      /* allow wrapping */
+    }
+
+
+    .theme-switch-btn {
+        top: auto;
+        bottom: 1rem;
+        right: 1rem;
+    }
 }
