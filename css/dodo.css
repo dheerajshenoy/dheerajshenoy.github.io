@@ -7,24 +7,30 @@
 /* outfit-regular - latin */
 @font-face {
     font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/Outfit/outfit-v15-latin-regular.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* outfit-700 - latin */
 @font-face {
     font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 700;
     src: url('../fonts/Outfit/outfit-v15-latin-700.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+/* jetbrainsmono-regul */
+@font-face {
+    font-display: swap;
+    font-family: 'JetBrainsMono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
+}
+
 
 :root {
     --bg: #3a4568;
@@ -35,7 +41,7 @@
     --line: #24304d;
     --accent: #7aa2ff;
     --accent2: #7dffb2;
-    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    --shadow: 0 10px 50px 10px rgba(0, 0, 0, .35);
     --radius: 16px;
     --max: 1100px;
     --header-h: 80px;
@@ -133,9 +139,6 @@ header {
 
 .container {
     padding: 14px;
-    max-width: var(--max);
-    margin: 0 auto;
-    overflow: hidden;
 }
 
 .headline {
@@ -229,4 +232,123 @@ header {
 
 #features {
     scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 18px;
+}
+
+.muted {
+    opacity: 0.8;
+}
+
+.callout {
+    display: block;
+    margin: 24px auto;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 14px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: var(--shadow);
+}
+
+.callout strong {
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.callout.note {
+    border-left: 4px solid rgba(100, 160, 255, 0.9);
+}
+
+.callout.warn {
+    border-left: 4px solid rgba(255, 140, 90, 0.95);
+}
+
+pre {
+    margin: 12px 0 0;
+    padding: 14px;
+    border-radius: 14px;
+    overflow: auto;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+code {
+    font-family: JetBrainsMono, ui-monospace, monospace;
+}
+
+.bullets {
+    padding: 0 0 0 18px;
+}
+
+.bullets li {
+    margin-bottom: 6px;
+}
+
+code.inline {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 95%;
+}
+
+.tabs {
+    margin-top: 8px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.tab {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+    color: inherit;
+    padding: 10px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+.panel {
+    display: none;
+}
+
+.panel.active {
+    display: block;
+}
+
+.steps {
+    margin: 10px 0 0 18px;
+}
+
+
+pre code.language-shell,
+pre code.language-bash {
+    display: block;
+    counter-reset: line;
+}
+
+pre code.language-shell span,
+pre code.language-bash span {
+    display: block;
+    padding-left: 1.2em;
+    position: relative;
+}
+
+pre code.language-shell span::before,
+pre code.language-bash span::before {
+    content: "$";
+    position: absolute;
+    left: 0;
+    opacity: 0.6;
 }

@@ -5,21 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dodo PDF Reader</title>
         <link rel="stylesheet" href="css/dodo.css">
+        <script src="dodo.js" defer></script>
     </head>
     <body id="top">
 
         <header>
-                <div class="logo-text"><a href="dodo.html">dodo</a></div>
-                <div class="stretcher"></div>
-                <div class="navlinks">
-                    <a href="#top" class="navlinks">Home</a>
-                    <a href="#install" class="navlinks">Install</a>
-                    <a href="#documentation" class="navlinks">Docs</a>
-                    <a href="#configuration" class="navlinks">Configure</a>
-                    <a href="https://github.com/dheerajshenoy/dodo" class="navlinks" target="_blank" rel="noopener noreferrer">
-                        <img src="files/github.png" alt="GitHub Logo" class="github-logo" width="50px">
-                    </a>
-                </div>
+            <div class="logo-text"><a href="dodo.html">dodo</a></div>
+            <div class="stretcher"></div>
+            <div class="navlinks">
+                <a href="#top" class="navlinks">Home</a>
+                <a href="#install" class="navlinks">Install</a>
+                <a href="dodo-docs.html" class="navlinks">Docs</a>
+                <a href="dodo-configuration.html" class="navlinks">Configure</a>
+                <a href="https://github.com/dheerajshenoy/dodo" class="navlinks" target="_blank" rel="noopener noreferrer">
+                    <img src="files/github.png" alt="GitHub Logo" class="github-logo" width="50px">
+                </a>
+            </div>
         </header>
 
         <div class="container">
@@ -107,12 +108,63 @@
             </div>
 
             <div id="install" class="section">
-                <div class="headline">Install</div>
-                <div class="installation-steps">
+
+                <div class="headline">Installation</div>
+
+                <div class="callout note">
+                    <strong>MuPDF is pinned</strong>
+                    <p>
+                        dodo downloads and builds MuPDF <code class="inline">1.27.0</code> automatically.
+                        If a newer MuPDF breaks the build, edit <code class="inline">MUPDF_VERSION</code> inside <code class="inline">install.sh</code>
+                        and pin a known working version.
+                    </p>
                 </div>
-            </div>
 
-        </div>
+                <details class="details">
+                    <summary><strong>Installer options</strong></summary>
+                    <pre><code class="language-shell">$ ./install.sh --help</code></pre>
+                    <ul class="bullets">
+                        <li><code class="inline">--prefix &lt;path&gt;</code> install prefix (default: <code>/usr/local</code>)</li>
+                        <li><code class="inline">--skip-mupdf-build</code> skip building MuPDF (only if MuPDF is already available under the prefix)</li>
+                        <li><code class="inline">--debug</code> / <code class="inline">--release</code> — set CMake build type</li>
+                        <li><code class="inline">--with-llm-support</code> — enable LLM support at configure time</li>
+                        <li><code class="inline">--cmake-arg</code> / <code class="inline">--cmake-args</code> — pass extra CMake flags (useful for weird setups)</li>
+                    </ul>
+                </details>
 
-    </ody>
+                <div class="tabs" data-tabs>
+                    <div class="tab-buttons" role="tablist" aria-label="Installation instructions">
+                        <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-arch" id="tabbtn-arch">
+                            Arch Linux
+                        </button>
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-deb" id="tabbtn-deb">
+                            Debian / Ubuntu
+                        </button>
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-other" id="tabbtn-other">
+                            Other distros
+                        </button>
+                    </div>
+
+                    <div class="tab-panels">
+                        <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
+                            <pre><code class="language-shell"><span>sudo pacman -Syu qt6-base qt6-svg libsynctex cmake ninja glu</span><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh</span></code></pre>
+                        </div>
+
+                        <div class="panel" role="tabpanel" id="tab-deb" aria-labelledby="tabbtn-deb">
+                            <pre><code class="language-shell"><span>sudo apt update &amp;&amp; sudo apt install qt6-base-dev qt6-svg-dev libsynctex-dev cmake ninja-build freeglut3-dev</span><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh </span></code></pre>
+                        </div>
+
+                        <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
+                            <ol class="steps">
+                                <li>Install the required dependencies for your distro (Qt6, CMake, Ninja, OpenGL/GLU, SyncTeX).</li>
+                                <li>Clone the repository.</li>
+                                <li>Run the installer script:</li>
+                            </ol>
+                            <pre><code class="language-shell"><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- Container End -->
+    </body>
 </html>
