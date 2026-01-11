@@ -51,7 +51,6 @@
     box-sizing: border-box
 }
 
-
 html,
 body {
     height: 100%;
@@ -351,4 +350,9 @@ pre code.language-bash span::before {
     position: absolute;
     left: 0;
     opacity: 0.6;
+}
+
+p {
+    font-family: 'Outfit';
+    font-size: 20px;
 }
