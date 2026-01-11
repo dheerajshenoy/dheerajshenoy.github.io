@@ -116,6 +116,13 @@ header {
     background: rgba(36, 48, 77, .35);
 }
 
+.navlinks a.active,
+.navlinks a[aria-current="page"] {
+    color: var(--text);
+    background: rgba(36, 48, 77, .55);
+}
+
+
 .github-logo {
     vertical-align: middle;
 }
@@ -161,18 +168,10 @@ header {
 }
 
 .toc {
+    font-family: 'Outfit';
     position: sticky;
     top: calc(var(--header-h) + 16px);
     padding: 14px;
-}
-
-.toc h3 {
-    font-family: 'Outfit';
-    margin: 0 0 10px;
-    font-size: 16px;
-    letter-spacing: .2px;
-    color: var(--muted);
-    text-transform: uppercase;
 }
 
 .toc a {
@@ -187,6 +186,8 @@ header {
     background: rgba(255, 255, 255, 0.06);
     color: var(--text);
 }
+
+
 
 .toc .small {
     font-size: 14px;

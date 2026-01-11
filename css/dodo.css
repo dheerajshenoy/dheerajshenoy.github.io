@@ -136,6 +136,13 @@ header {
     background: rgba(36, 48, 77, .35)
 }
 
+.navlinks a.active,
+.navlinks a[aria-current="page"] {
+    color: var(--text);
+    background: rgba(36, 48, 77, .55);
+}
+
+
 .container {
     padding: 14px;
 }

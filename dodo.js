@@ -19,4 +19,6 @@ function tabController() {
     tabs.forEach(t => t.addEventListener("click", () => activate(t)));
 };
 
-document.addEventListener("DOMContentLoaded", tabController);
+document.addEventListener("DOMContentLoaded", () => {
+    tabController();
+});
