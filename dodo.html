@@ -1,59 +1,118 @@
-<!-- Create a website under progress for my pdf reader dodo -->
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodo PDF Reader - Under Construction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f4f4f4;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dodo PDF Reader</title>
+        <link rel="stylesheet" href="css/dodo.css">
+    </head>
+    <body id="top">
 
-        h1 {
-            color: #333;
-        }
+        <header>
+                <div class="logo-text"><a href="dodo.html">dodo</a></div>
+                <div class="stretcher"></div>
+                <div class="navlinks">
+                    <a href="#top" class="navlinks">Home</a>
+                    <a href="#install" class="navlinks">Install</a>
+                    <a href="#documentation" class="navlinks">Docs</a>
+                    <a href="#configuration" class="navlinks">Configure</a>
+                    <a href="https://github.com/dheerajshenoy/dodo" class="navlinks" target="_blank" rel="noopener noreferrer">
+                        <img src="files/github.png" alt="GitHub Logo" class="github-logo" width="50px">
+                    </a>
+                </div>
+        </header>
 
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-        }
+        <div class="container">
 
-        .progress {
-            margin: 20px 0;
-            font-size: 18px;
-            color: #666;
-        }
+            <div class="section">
+                <div class="headline">
+                    Fast, keyboard-friendly PDF reader built for smooth reading, quick navigation, and deep customization.</h1>
+                </div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/Scrolling.gif" alt="Dodo Scrolling Demo" class="demo-gif" width="800px" />
+                    <span class="caption">
+                        Smooth, high-performance scrolling with keyboard and mouse support.
+                    </span>
+                </div>
+            </div>
 
-        .contact {
-            margin-top: 30px;
-            font-size: 16px;
-        }
+            <div class="section">
+                <div class="headline">Layouts</div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/Layouts.gif" alt="Dodo Layouts Demo" class="demo-gif" width="800px">
+                    <span class="caption">
+                        Choose between <b>top to bottom</b>, <b>left to right</b> or <b>single</b> layouts.
+                    </span>
+                </div>
+            </div>
 
-        .contact a {
-            color: #007BFF;
-            text-decoration: none;
-        }
+            <div class="section">
+                <div class="headline">Search</div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/Search-Hits-Scrollbar.gif" alt="Search Hits in Scrollbar" class="demo-gif" width="800px">
+                    <span class="caption">
+                        Instantly search through the document with highlighted results and a scrollbar overview.
+                    </span>
+                </div>
+            </div>
 
-        .contact a:hover {
-            text-decoration: underline;
-        }
+            <div class="section">
+                <div class="headline">Jump Marker &  History Navigation</div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/Jump-Marker.gif" alt="Jump Marker" class="demo-gif" width="800px">
+                    <span class="caption">
+                        Easily track jump destinations with a marker and navigate back and forth through your reading history.
+                    </span>
+                </div>
+            </div>
 
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Dodo PDF Reader</h1>
-        <p class="progress">Website is currently under construction.</p>
-    </div>
-</body>
+            <div class="section">
+                <div class="headline">SyncTeX support</div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/synctex.gif" alt="Synctex support" class="demo-gif" width="800px">
+                    <span class="caption">
+                        SyncTeX support for LaTeX documents to jump between source and PDF.
+                    </span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="headline">Annotation Support</div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/Highlight Annotation.gif" alt="Highlight Annotation" class="demo-gif" width="800px">
+                    <span class="caption">
+                        Highlight, rectangle and popup annotations supported.<br><b>(Only highlight shown here)</b>
+                    </span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="headline">Searchable Text Highlight</div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/Search Text Highlight.gif" alt="Search Text Highlight" class="demo-gif" width="800px">
+                    <span class="caption">
+                        Highlighted text can be searched.
+                    </span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="headline">Configured using TOML</div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/config.png" alt="TOML config" class="demo-gif" width="800px">
+                    <span class="caption">
+                        Highly customizable through a simple TOML configuration file.
+                    </span>
+                </div>
+            </div>
+
+            <div id="install" class="section">
+                <div class="headline">Install</div>
+                <div class="installation-steps">
+                </div>
+            </div>
+
+        </div>
+
+    </ody>
 </html>
-
-
