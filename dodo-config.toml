@@ -1,0 +1,195 @@
+# ===== UI =====
+[ui.window]
+fullscreen = false
+menubar = false
+startup_tab = false
+window_title = "{} - dodo" # '{}' replaced with base file name
+
+[ui.statusbar]
+visible = true
+padding = 4
+show_session_name = true # show current session name in statusbar (if in session)
+show_file_name = true # show current file name in statusbar
+show_mode = true # show current interaction mode in statusbar
+show_page_number = true # show current page number in statusbar
+
+[ui.command_palette]
+show_shortcuts = false
+height = 400
+width = 600
+
+[ui.llm_widget]
+visible = false
+panel_width = 400
+
+[ui.layout]
+mode = "top_to_bottom" # "single", "top_to_bottom", "left_to_right"
+initial_fit = "width" # "none", "width", "height", "window"
+auto_resize = false # fit document to window
+spacing = 0
+
+[ui.zoom]
+level = 1.0 # default zoom factor
+factor = 1.25 # factor for zoom in/out
+
+[ui.selection]
+drag_threshold = 100
+
+[ui.scrollbars]
+horizontal = true
+vertical = true
+auto_hide = true
+search_hits = true # show/hide search hits on scrollbar
+size = 12 # scrollbar thickness in pixels
+hide_timeout = 1000 # time in ms to hide scrollbars when auto_hide is true
+
+[ui.markers]
+jump_marker = true
+
+[ui.links]
+boundary = false # show link boundary box
+detect_urls = true # detect and create links for URLs in text that are not PDF link objects (http, https, mailto etc.)
+url_regex = "(https?://|www\\.)[^\\s<>()\\\"']+" # regex for URL detection (if detect_urls is true)
+
+[ui.link_hints]
+size = 0.25 # relative scale for link hint labels
+
+[ui.tabs]
+visible = true
+auto_hide = true
+closable = true
+movable = true
+elide_mode = "middle" # "none", "start", "middle", "end"
+bar_position = "top" # "top", "bottom", "left", "right"
+
+[ui.outline]
+visible = false
+panel_position = "left" # "left", "right"
+type = "overlay" # "overlay", "dialog", "side_panel"
+panel_width = 300
+
+[ui.highlight_search]
+visible = false
+panel_position = "right" # or "left"
+type = "overlay" # or "overlay", "dialog", "side_panel"
+panel_width = 300
+
+
+# ===== Colors (ARGB) =====
+[colors]
+accent = "#3daee9FF"
+background = "#00000000"
+search_match = "#55500033"
+search_index = "#55FF0055"
+link_hint_bg = "#000000FF"
+link_hint_fg = "#ea3ee9FF"
+selection = "#33000055"
+highlight = "#55FF0055"
+jump_marker = "#FF0000FF"
+annot_rect = "#55FF5500"
+annot_popup = "#FFFFFFAA"
+
+# ===== Rendering =====
+[rendering]
+dpi = 72.0
+dpr = { "eDP-1" = 1.25, "DP-5" = 1.0, "DP-7" = 1.0 } # float or map
+cache_pages = 4
+antialiasing_bits = 8 # 4=good, 8=high
+icc_color_profile = true
+
+# ===== Behavior =====
+[behavior]
+initial_mode = "text_select_mode" # { "region_select_mode", "annot_rect_mode", "annot_select_mode", "text_select_mode", "text_highlight_mode", "annot_popup_mode" }
+always_open_in_new_window = false
+remember_last_visited = true
+page_history = 100
+confirm_on_quit = false
+invert_mode = false
+auto_reload = true
+recent_files = true
+num_recent_files = 25
+undo_limit = 25
+synctex_editor_command = "zeditor %f:+%l"
+# page_nav_with_mouse = true
+
+# ===== LLM Configuration =====
+# Works only if compiled with LLM support
+[llm]
+provider = "ollama"
+model = "llama3.2:3b"
+max_tokens = 512
+
+
+# ===== Shortcuts =====
+[keybindings]
+command_palette = "Ctrl+Shift+P"
+open_file = "o"
+close_file = "Ctrl+w"
+link_hint_visit = "f"
+link_hint_copy = "Shift+F"
+scroll_left = "h"
+scroll_down = "j"
+scroll_up = "k"
+scroll_right = "l"
+prev_location = "Ctrl+o"
+next_page = "Shift+J"
+prev_page = "Shift+K"
+first_page = "g,g"
+last_page = "Shift+G"
+goto_page = "b"
+outline = "t"
+search = "/"
+search_this_page = "?" # TODO
+search_next = "n"
+search_prev = "Shift+N"
+zoom_reset = "0"
+zoom_in = "="
+zoom_out = "-"
+tab1 = "Alt+1"
+tab2 = "Alt+2"
+tab3 = "Alt+3"
+tab4 = "Alt+4"
+tab5 = "Alt+5"
+tab6 = "Alt+6"
+tab7 = "Alt+7"
+tab8 = "Alt+8"
+tab9 = "Alt+9"
+tab_next = "Ctrl+Period"
+tab_prev = "Ctrl+Comma"
+text_select_mode = "1"
+region_select_mode = "2"
+annot_rect_mode = "3"
+annot_edit_mode = "4"
+text_highlight_mode = "5"
+annot_pen_mode = "6"
+annot_popup_mode = "7"
+delete = "d"
+file_properties = "Ctrl+Shift+F"
+invert_color = "i"
+fullscreen = "F11"
+fit_height = "Ctrl+Shift+H"
+fit_width = "Ctrl+Shift+W"
+fit_window = "Ctrl+Shift+="
+auto_resize = "Ctrl+Shift+R"
+toggle_menubar = "Ctrl+Shift+M"
+toggle_panel = "Ctrl+Shift+B"
+toggle_tabs = "Ctrl+Shift+T"
+cancel_selection = "escape"
+yank = "y"
+about = "F12"
+save = "Ctrl+S"
+select_all = "Ctrl+A"
+rotate_clock = ">"
+rotate_anticlock = "<"
+list_text_highlights = "]"
+undo = "u"
+redo = "Ctrl+R"
+toggle_focus_mode = "Ctrl+Space"
+reselect_last_selection = "g,v"
+highlight_annot_search = "Alt+Shift+H"
+
+# Completion navigation
+completion_next = "Ctrl+n"
+completion_prev = "Ctrl+p"
+toggle_llm_widget = "Ctrl+Shift+L"
+toggle_statusbar = "Ctrl+Shift+S"
