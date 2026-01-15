@@ -124,8 +124,12 @@ header {
 
 
 .github-logo {
+    width: 30px;
+    height: 30px;
     vertical-align: middle;
+    fill: var(--muted);
 }
+
 
 .container {
     max-width: var(--max);
@@ -172,6 +176,8 @@ header {
     position: sticky;
     top: calc(var(--header-h) + 16px);
     padding: 14px;
+    max-height: calc(100vh - var(--header-h) - 32px);
+    overflow-y: auto;
 }
 
 .toc a {
@@ -201,6 +207,9 @@ header {
 
 .section {
     padding: 8px 0 22px;
+}
+
+[id] {
     scroll-margin-top: calc(var(--header-h) + 14px);
 }
 
@@ -249,8 +258,6 @@ pre {
     padding: 14px;
     border-radius: 14px;
     overflow: auto;
-    border: 1px solid var(--line);
-    background: rgba(0, 0, 0, 0.35);
 }
 
 code {

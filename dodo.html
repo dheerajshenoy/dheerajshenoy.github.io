@@ -15,8 +15,9 @@
             <div class="navlinks">
                 <a href="#top" class="navlinks active" aria-current="page">Home</a>
                 <a href="#install" class="navlinks">Install</a>
-                <a href="dodo-docs.html" class="navlinks">Docs</a>
+                <a href="dodo-getting-started.html" class="navlinks">Getting Started</a>
                 <a href="dodo-configuration.html" class="navlinks">Configure</a>
+                <a href="#FAQ" class="navlinks">FAQ</a>
                 <a href="https://github.com/dheerajshenoy/dodo" class="navlinks" target="_blank" rel="noopener noreferrer">
                     <img src="files/github-white.svg" alt="GitHub Logo" class="github-logo" >
                 </a>
@@ -88,6 +89,16 @@
             </div>
 
             <div class="section">
+                <div class="headline">Link Hints</div>
+                <div class="image-block">
+                    <img class="image" src="dodo-files/link_hint.png" alt="Link Hint" class="demo-gif" width="800px">
+                    <span class="caption">
+                        Navigate links quickly with keyboard using link hints.
+                    </span>
+                </div>
+            </div>
+
+            <div class="section">
                 <div class="headline">Searchable Text Highlight</div>
                 <div class="image-block">
                     <img class="image" src="dodo-files/Search Text Highlight.gif" alt="Search Text Highlight" class="demo-gif" width="800px">
@@ -107,64 +118,121 @@
                 </div>
             </div>
 
-            <div id="install" class="section">
+            <hr>
 
-                <div class="headline">Installation</div>
+            <div class="section">
+                <div class="headline">Other Features</div>
+                <ul class="bullets">
+                    <li>Session management (save and restore open documents and their states)</li>
+                    <li>Keyboard-centric navigation with customizable keybindings</li>
+                    <li>Auto URL Non-PDF link detection</li>
+                </ul>
 
-                <div class="callout note">
-                    <strong>MuPDF is pinned</strong>
+                <hr>
+
+                <div id="install" class="section">
+
+                    <div class="headline">Installation</div>
+
+                    <!--<div class="callout note">
+                    <strong>mupdf is pinned</strong>
                     <p>
-                        dodo downloads and builds MuPDF <code class="inline">1.27.0</code> automatically.
-                        If a newer MuPDF breaks the build, edit <code class="inline">MUPDF_VERSION</code> inside <code class="inline">install.sh</code>
-                        and pin a known working version.
+                    dodo downloads and builds mupdf <code class="inline">1.27.0</code> automatically.
+                    if a newer mupdf breaks the build, edit <code class="inline">mupdf_version</code> inside <code class="inline">install.sh</code>
+                    and pin a known working version.
                     </p>
-                </div>
+                    </div>-->
 
-                <details class="details">
-                    <summary><strong>Installer options</strong></summary>
-                    <pre><code class="language-shell">$ ./install.sh --help</code></pre>
-                    <ul class="bullets">
-                        <li><code class="inline">--prefix &lt;path&gt;</code> install prefix (default: <code>/usr/local</code>)</li>
-                        <li><code class="inline">--skip-mupdf-build</code> skip building MuPDF (only if MuPDF is already available under the prefix)</li>
-                        <li><code class="inline">--debug</code> / <code class="inline">--release</code> — set CMake build type</li>
-                        <li><code class="inline">--with-llm-support</code> — enable LLM support at configure time</li>
-                        <li><code class="inline">--cmake-arg</code> / <code class="inline">--cmake-args</code> — pass extra CMake flags (useful for weird setups)</li>
-                    </ul>
-                </details>
-
-                <div class="tabs" data-tabs>
-                    <div class="tab-buttons" role="tablist" aria-label="Installation instructions">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-arch" id="tabbtn-arch">
-                            Arch Linux
-                        </button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-deb" id="tabbtn-deb">
-                            Debian / Ubuntu
-                        </button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-other" id="tabbtn-other">
-                            Other distros
-                        </button>
+                    <div class="callout warn">
+                        <strong>Warning</strong>
+                        <hr>
+                        <p><b>dodo</b> is still in alpha, crashes and bugs expected. Please submit issues through Github</p>
                     </div>
 
-                    <div class="tab-panels">
-                        <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
-                            <pre><code class="language-shell"><span>sudo pacman -Syu qt6-base qt6-svg libsynctex cmake ninja glu</span><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh</span></code></pre>
+                    <div class="tabs" data-tabs>
+                        <div class="tab-buttons" role="tablist" aria-label="Installation instructions">
+                            <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-arch" id="tabbtn-arch">
+                                Arch Linux
+                            </button>
+                            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-deb" id="tabbtn-deb">
+                                Debian / Ubuntu
+                            </button>
+                            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-other" id="tabbtn-other">
+                                Other distros
+                            </button>
                         </div>
 
-                        <div class="panel" role="tabpanel" id="tab-deb" aria-labelledby="tabbtn-deb">
-                            <pre><code class="language-shell"><span>sudo apt update &amp;&amp; sudo apt install qt6-base-dev qt6-svg-dev libsynctex-dev cmake ninja-build freeglut3-dev</span><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh </span></code></pre>
+                        <div class="tab-panels">
+                            <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
+                                <pre><code class="language-shell"><span>sudo pacman -Syu qt6-base qt6-svg libsynctex cmake ninja glu</span><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh</span></code></pre>
+                            </div>
+
+                            <div class="panel" role="tabpanel" id="tab-deb" aria-labelledby="tabbtn-deb">
+                                <pre><code class="language-shell"><span>sudo apt update &amp;&amp; sudo apt install qt6-base-dev qt6-svg-dev libsynctex-dev cmake ninja-build freeglut3-dev</span><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh </span></code></pre>
+                            </div>
+
+                            <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
+                                <ol class="steps">
+                                    <li>Install the required dependencies for your distro (Qt6, CMake, Ninja, OpenGL/GLU, SyncTeX).</li>
+                                    <li>Clone the repository.</li>
+                                    <li>Run the installer script:</li>
+                                </ol>
+                                <pre><code class="language-shell"><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh</span></code></pre>
+                            </div>
                         </div>
 
-                        <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
-                            <ol class="steps">
-                                <li>Install the required dependencies for your distro (Qt6, CMake, Ninja, OpenGL/GLU, SyncTeX).</li>
-                                <li>Clone the repository.</li>
-                                <li>Run the installer script:</li>
-                            </ol>
-                            <pre><code class="language-shell"><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh</span></code></pre>
+                        <pre><code class="language-shell">$ ./install.sh --help</code></pre>
+                        <ul class="bullets">
+                            <li><code class="inline">--prefix &lt;path&gt;</code> install prefix (default: <code class="inline">/usr/local</code>)</li>
+                            <li><code class="inline">--debug</code> / <code class="inline">--release</code> — set CMake build type (default: <code class="inline">Release</code>)</li>
+                            <li><code class="inline">--with-llm-support</code> — enable LLM support at configure time</li>
+                            <li><code class="inline">--cmake-arg</code> / <code class="inline">--cmake-args</code> — pass extra CMake flags (useful for weird setups)</li>
+                        </ul>
+                    </div>
+                </div> <!-- Installation Section -->
+
+                <br><br>
+                <hr>
+
+                <div class="section" id="FAQ">
+                    <div class="headline">FAQ</div>
+
+                    <div class="question">
+                        <strong>Why dodo ?</strong>
+                        <div class="answer">
+                            <p><b>dodo</b> is designed to be a fast, keyboard-friendly PDF reader with great customization options.
+                                There's good wayland support (thanks to qt6). Features like <b>Jump Markers</b>, <b>History Navigation</b>, <b>Sessions</b> etc. are something
+                                I personally couldn't find in any other PDF readers.</p>
+
+                            <p>If you are looking for a lightweight yet powerful
+                                PDF reader that can be tailored to your preferences, dodo is a great choice.</p>
                         </div>
                     </div>
-                </div>
 
+                    <div class="question">
+                        <strong>What is dodo using ?</strong>
+                        <div class="answer">
+                            <p>Dodo mainly uses MuPDF as the PDF library and Qt6 as the Graphical User Interface library.
+                                Other than these, it also uses the following libraries:
+                            </p>
+                            <ul>
+                                <li><a href="https://marzer.github.io/tomlplusplus">TOML++</a></li>
+                                <li><a href="https://github.com/nlohmann/json">JSON for Modern C++</a></li>
+                                <li><a href="https://github.com/p-ranav/argparse">Argparse</a></li>
+                                <li><a href="https://curl.se/libcurl">cURL</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <strong>How do I report bugs or request features?</strong>
+                        <div class="answer">
+                            <p>Please report bugs and request features through the <a href="">GitHub Issues page</a>
+                                of the dodo repository.</p>
+                        </div>
+                    </div>
+
+                </div> <!-- FAQ Section End -->
             </div> <!-- Container End -->
     </body>
 </html>
