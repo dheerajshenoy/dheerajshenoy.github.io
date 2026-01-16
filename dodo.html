@@ -6,6 +6,11 @@
         <title>Dodo PDF Reader</title>
         <link rel="stylesheet" href="css/dodo.css">
         <script src="dodo.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script>
+        hljs.highlightAll();
+        </script>
     </head>
     <body id="top">
 
@@ -134,15 +139,6 @@
 
                     <div class="headline">Installation</div>
 
-                    <!--<div class="callout note">
-                    <strong>mupdf is pinned</strong>
-                    <p>
-                    dodo downloads and builds mupdf <code class="inline">1.27.0</code> automatically.
-                    if a newer mupdf breaks the build, edit <code class="inline">mupdf_version</code> inside <code class="inline">install.sh</code>
-                    and pin a known working version.
-                    </p>
-                    </div>-->
-
                     <div class="callout warn">
                         <strong>Warning</strong>
                         <hr>
@@ -151,24 +147,58 @@
 
                     <div class="tabs" data-tabs>
                         <div class="tab-buttons" role="tablist" aria-label="Installation instructions">
+
                             <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-arch" id="tabbtn-arch">
-                                Arch Linux
+                                <img src="files/archlinux.png"/>
+                                <span>Arch Linux</span>
                             </button>
+
                             <button class="tab" role="tab" aria-selected="false" aria-controls="tab-deb" id="tabbtn-deb">
-                                Debian / Ubuntu
+                                <img src="files/ubuntu.png"/>
+                                <span>Ubuntu or Debian</span>
                             </button>
+
+                            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-appimage" id="tabbtn-appimage">
+                                <img src="files/appimage.png"/>
+                                <span>AppImage</span>
+                            </button>
+
                             <button class="tab" role="tab" aria-selected="false" aria-controls="tab-other" id="tabbtn-other">
-                                Other distros
+                                <span>Other distros</span>
                             </button>
+
                         </div>
 
                         <div class="tab-panels">
                             <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
-                                <pre><code class="language-shell"><span>sudo pacman -Syu qt6-base libsynctex cmake ninja glu</span><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh</span></code></pre>
+                                <p>dodo is available in the <a href="https://aur.archlinux.org/packages/dodo-pdf-reader-git">Arch User Repository (AUR)</a></p>
+                                <pre><code class="language-bash">paru dodo-pdf-reader-git # yay -S dodo-pdf-reader-git</code></pre>
                             </div>
 
                             <div class="panel" role="tabpanel" id="tab-deb" aria-labelledby="tabbtn-deb">
-                                <pre><code class="language-shell"><span>sudo apt update &amp;&amp; sudo apt install qt6-base-dev libsynctex-dev cmake ninja-build freeglut3-dev</span><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh </span></code></pre>
+                                <pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt install qt6-base-dev libsynctex-dev cmake ninja-build freeglut3-dev
+                                    git clone https://github.com/dheerajshenoy/dodo
+                                    cd dodo
+                                    ./install.sh</code></pre>
+
+                                <pre><code class="language-bash">./install.sh --help</code></pre>
+                                <ul class="bullets">
+                                    <li><code class="inline">--prefix &lt;path&gt;</code> install prefix (default: <code class="inline">/usr/local</code>)</li>
+                                    <li><code class="inline">--debug</code> / <code class="inline">--release</code> — set CMake build type (default: <code class="inline">Release</code>)</li>
+                                    <li><code class="inline">--with-llm-support</code> — enable LLM support at configure time</li>
+                                    <li><code class="inline">--cmake-arg</code> / <code class="inline">--cmake-args</code> — pass extra CMake flags (useful for weird setups)</li>
+                                </ul>
+                            </div>
+
+                            <div class="panel" role="tabpanel" id="tab-appimage" aria-labelledby="tabbtn-appimage">
+                                <p>Check out the <a href="https://github.com/dheerajshenoy/dodo/releases">releases</a> page and download the latest appimage for dodo.</p>
+                                <p>After downloading the AppImage file, you run <code class="inline">chmod a+x &lt;path to the appimage&gt;</code></p>
+
+                                <div class="callout note">
+                                    <strong>NOTE</strong>
+                                    <p>You might need to install the FUSE library for your distribution in order for appimages to work.</p>
+                                </div>
+
                             </div>
 
                             <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
@@ -177,21 +207,15 @@
                                     <li>Clone the repository.</li>
                                     <li>Run the installer script:</li>
                                 </ol>
-                                <pre><code class="language-shell"><span>git clone https://github.com/dheerajshenoy/dodo</span><span>cd dodo</span><span>./install.sh</span></code></pre>
+                                <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/dodo
+                                    cd dodo
+                                    ./install.sh</code></pre>
                             </div>
                         </div>
 
-                        <pre><code class="language-shell">$ ./install.sh --help</code></pre>
-                        <ul class="bullets">
-                            <li><code class="inline">--prefix &lt;path&gt;</code> install prefix (default: <code class="inline">/usr/local</code>)</li>
-                            <li><code class="inline">--debug</code> / <code class="inline">--release</code> — set CMake build type (default: <code class="inline">Release</code>)</li>
-                            <li><code class="inline">--with-llm-support</code> — enable LLM support at configure time</li>
-                            <li><code class="inline">--cmake-arg</code> / <code class="inline">--cmake-args</code> — pass extra CMake flags (useful for weird setups)</li>
-                        </ul>
                     </div>
                 </div> <!-- Installation Section -->
 
-                <br><br>
                 <hr>
 
                 <div class="section" id="FAQ">
@@ -231,7 +255,6 @@
                                 of the dodo repository.</p>
                         </div>
                     </div>
-
                 </div> <!-- FAQ Section End -->
             </div> <!-- Container End -->
     </body>

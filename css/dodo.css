@@ -252,15 +252,6 @@ header {
     font-size: 1.4em;
 }
 
-pre {
-    margin: 12px 0 0;
-    padding: 14px;
-    border-radius: 14px;
-    overflow: auto;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(0, 0, 0, 0.35);
-}
-
 .bullets {
     font-size: 24px;
     padding: 0 0 0 18px;
@@ -272,10 +263,19 @@ pre {
 
 code.inline {
     font-family: 'JetBrainsMono', monospace;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(200, 200, 200, 0.4);
     padding: 2px 6px;
     border-radius: 6px;
     font-size: 95%;
+}
+
+pre,
+pre code,
+code.hljs,
+pre code.hljs,
+.hljs,
+.hljs * {
+    font-family: 'JetBrainsMono', monospace;
 }
 
 .tabs {
@@ -294,8 +294,16 @@ code.inline {
     background: rgba(255, 255, 255, 0.04);
     color: inherit;
     padding: 10px 12px;
-    border-radius: 999px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab img {
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 .tab.active {
@@ -319,24 +327,8 @@ code.inline {
 pre code.language-shell,
 pre code.language-bash {
     display: block;
-    counter-reset: line;
     font-family: 'JetBrainsMono', monospace;
-}
-
-pre code.language-shell span,
-pre code.language-bash span {
-    display: block;
-    padding-left: 1.2em;
-    position: relative;
-    font-family: 'JetBrainsMono', monospace;
-}
-
-pre code.language-shell span::before,
-pre code.language-bash span::before {
-    content: "$";
-    position: absolute;
-    left: 0;
-    opacity: 0.6;
+    white-space: pre;
 }
 
 p {
