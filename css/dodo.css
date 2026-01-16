@@ -298,6 +298,7 @@ pre code.hljs,
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    font-size: 17px;
 }
 
 .tab img {
@@ -320,9 +321,8 @@ pre code.hljs,
 }
 
 .steps {
-    margin: 10px 0 0 18px;
+    font-size: 20px;
 }
-
 
 pre code.language-shell,
 pre code.language-bash {
