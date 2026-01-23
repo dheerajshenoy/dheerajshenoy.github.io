@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>dodo — Configure</title>
-        <link rel="stylesheet" href="css/dodo-configuration.css">
-        <script src="dodo.js" defer></script>
+        <title>Lektra | Configuration</title>
+        <link rel="stylesheet" href="css/lektra.css">
+        <link rel="stylesheet" href="css/lektra-configuration.css">
+        <script src="lektra.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <script>
@@ -14,16 +15,15 @@
     </head>
     <body id="top">
         <header>
-            <div class="logo-text"><a href="dodo.html">dodo</a></div>
+            <div class="logo-text"><a href="lektra.html">lektra</a></div>
             <div class="stretcher"></div>
-            <div class="navlinks">
-                <a href="dodo.html#top" class="navlinks">Home</a>
-                <a href="dodo.html#install" class="navlinks">Install</a>
-                <a href="dodo-getting-started.html" class="navlinks">Getting Started</a>
-                <a href="dodo-configuration.html" class="navlinks active" aria-current="page">Configure</a>
-                <a href="dodo.html#FAQ" class="navlinks">FAQ</a>
-                <a href="https://github.com/dheerajshenoy/dodo" class="navlinks" target="_blank" rel="noopener noreferrer">
-                    <img src="files/github-white.svg" alt="GitHub Logo" class="github-logo" width="50px">
+            <nav>
+                <a href="lektra.html#top" class="navlink">Home</a>
+                <a href="lektra-installation.html" class="navlink">Install</a>
+                <a href="lektra-configuration.html" class="navlink active" aria-current="page">Configuration</a>
+                <a href="lektra-faq.html" class="navlink">FAQ</a>
+                <a href="https://github.com/dheerajshenoy/lektra" class="navlink" target="_blank" rel="noopener noreferrer">
+            Github
                 </a>
             </div>
         </header>
@@ -32,8 +32,8 @@
             <div class="hero">
                 <div class="hero-title">Configuration</div>
                 <div class="hero-sub">
-                    dodo is configured through a single TOML file. No GUI wizards, no hidden state.
-                    Edit the file, restart dodo, and you're done.
+                    lektra is configured through a single TOML file. No GUI wizards, no hidden state.
+                    Edit the file, restart lektra, and you're done.
                 </div>
             </div>
 
@@ -68,13 +68,13 @@
                     <section id="introduction" class="section">
                         <h2>Introduction</h2>
                         <p>
-                            By default, dodo looks for:
-                            <code class="inline">~/.config/dodo/config.toml</code>
+                            By default, lektra looks for:
+                            <code class="inline">~/.config/lektra/config.toml</code>
                         </p>
-                        <p class="muted">If the file doesn't exist, dodo falls back to defaults.</p>
+                        <p class="muted">If the file doesn't exist, lektra falls back to defaults.</p>
 
                         <p>
-                            You can look at this complete config file for reference: <a href="https://github.com/dheerajshenoy/dodo/config.toml">config.toml</a>.
+                            You can look at this complete config file for reference: <a href="https://github.com/dheerajshenoy/lektra/config.toml">config.toml</a>.
                         </p>
 
                         <p>The config is split into sections:</p>
@@ -106,7 +106,7 @@
                                 <tr><td><code class="inline">fullscreen</code></td><td>bool</td><td>Start fullscreen.</td><td>false</td></tr>
                                 <tr><td><code class="inline">menubar</code></td><td>bool</td><td>Show menubar.</td><td>false</td></tr>
                                 <tr><td><code class="inline">startup_tab</code></td><td>bool</td><td>Show startup tab.</td><td>false</td></tr>
-                                <tr><td><code class="inline">window_title</code></td><td>string</td><td>Template string. <code class="inline">{}</code> is replaced by base file name.</td><td><code class="inline">"{} - dodo"</code></td></tr>
+                                <tr><td><code class="inline">window_title</code></td><td>string</td><td>Template string. <code class="inline">{}</code> is replaced by base file name.</td><td><code class="inline">"{} - lektra"</code></td></tr>
                             </tbody>
                         </table>
 
@@ -114,7 +114,7 @@
 fullscreen = false
 menubar = false
 startup_tab = false
-window_title = "{} - dodo"</code></pre>
+window_title = "{} - lektra"</code></pre>
 
                         <h3 id="ui-statusbar">Statusbar</h3>
                         <table class="table">
@@ -463,7 +463,7 @@ synctex_editor_command = "zeditor %f:+%l"</code></pre>
                     <section id="llm" class="section">
                         <h2>LLM (Optional)</h2>
                         <p>
-                            Works only if dodo is compiled with LLM support.
+                            Works only if lektra is compiled with LLM support.
                         </p>
 
                         <table class="table">

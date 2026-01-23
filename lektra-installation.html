@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lektra | Installation</title>
+        <link rel="stylesheet" href="css/lektra.css">
+        <script src="lektra.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script>
+        hljs.highlightAll();
+        </script>
+    </head>
+    <body id="top">
+
+        <header>
+            <div class="logo-text"><a href="lektra.html">lektra</a></div>
+            <div class="stretcher"></div>
+            <nav>
+                <a href="lektra.html" class="navlink" >Home</a>
+                <a href="lektra-installation.html" class="navlink active" aria-current="page">Install</a>
+                <a href="lektra-configuration.html" class="navlink">Configuration</a>
+                <a href="lektra-faq.html" class="navlink">FAQ</a>
+                <a href="https://github.com/dheerajshenoy/lektra" class="navlink" target="_blank">Github</a>
+            </nav>
+
+        </header>
+
+        <div class="container">
+            <div id="install" class="section">
+
+                <div class="headline">Installation</div>
+
+                <div class="callout warn">
+                    <strong>Warning</strong>
+                    <p><b>lektra</b> is still in alpha, crashes and bugs expected. Please submit issues through Github</p>
+                </div>
+
+                <div class="tabs" data-tabs>
+                    <div class="tab-buttons" role="tablist" aria-label="Installation instructions">
+
+                        <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-arch" id="tabbtn-arch">
+                            <img src="files/archlinux.png"/>
+                            <span>Arch Linux</span>
+                        </button>
+
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-deb" id="tabbtn-deb">
+                            <img src="files/ubuntu.png"/>
+                            <span>Ubuntu or Debian</span>
+                        </button>
+
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-appimage" id="tabbtn-appimage">
+                            <img src="files/appimage.png"/>
+                            <span>AppImage</span>
+                        </button>
+
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-other" id="tabbtn-other">
+                            <span>Build from Source</span>
+                        </button>
+
+                    </div>
+
+                    <div class="tab-panels">
+                        <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
+                            <p>lektra is available in the <a href="https://aur.archlinux.org/packages/lektra-git"><b>Arch User Repository (AUR)</b></a></p>
+                            <p>For the binary package, run:</p>
+                            <pre><code class="language-bash">paru lektra-bin # yay -S lektra-bin</code></pre>
+                            <p>For the latest git version, run:</p>
+                            <pre><code class="language-bash">paru lektra-git # yay -S lektra-git</code></pre>
+                        </div>
+
+                        <div class="panel" role="tabpanel" id="tab-deb" aria-labelledby="tabbtn-deb">
+                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases">releases</a> page and download the latest <b>DEB</b> package for lektra.</p>
+                            <p>After downloading the DEB file, run: <code class="inline">sudo apt install &lt;path to the deb&gt;</code></p>
+
+                            <div class="callout note">
+                                <strong>Note</strong>
+                                <p>Tested successfully on <b>Ubuntu 24.04</b></p>
+                            </div>
+                        </div>
+
+                        <div class="panel" role="tabpanel" id="tab-appimage" aria-labelledby="tabbtn-appimage">
+                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases">releases</a> page and download the latest <b>AppImage</b> for lektra.</p>
+                            <p>After downloading the AppImage file, you run <code class="inline">chmod a+x &lt;path to the appimage&gt;</code></p>
+
+                            <div class="callout note">
+                                <strong>Note</strong>
+                                <p>You might need to install the FUSE library for your distribution in order for appimages to work.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
+                            <ol class="steps">
+                                <li>Install the required dependencies for your distro:</li>
+                                <ol class="steps">
+                                    <li>qt6-base</li>
+                                    <li>curl (<b>OPTIONAL</b>: if you want the LLM support (Work in Progress)</li>
+                                    <li>synctex (<b>OPTIONAL</b>)</li>
+                                </ol>
+                                <li>Clone the repository.</li>
+                                <li>Run the installer script:</li>
+                            </ol>
+                            <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/lektra
+                                cd lektra
+                                ./install.sh</code></pre>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- Installation Section -->
+        </div> <!-- Container End -->
+    </body>
+</html>
