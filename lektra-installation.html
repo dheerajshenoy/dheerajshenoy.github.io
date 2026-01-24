@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <script>
-        hljs.highlightAll();
+            hljs.highlightAll();
         </script>
     </head>
     <body id="top">
@@ -22,19 +22,18 @@
                 <a href="lektra-installation.html" class="navlink active" aria-current="page">Install</a>
                 <a href="lektra-configuration.html" class="navlink">Configuration</a>
                 <a href="lektra-faq.html" class="navlink">FAQ</a>
-                <a href="https://github.com/dheerajshenoy/lektra" class="navlink" target="_blank">Github</a>
+                <a href="https://codeberg.org/lektra/lektra" class="navlink" target="_blank">Source Code</a>
             </nav>
-
         </header>
 
         <div class="container">
             <div id="install" class="section">
-
-                <div class="headline">Installation</div>
-
+                <div class="heading">Installation</div>
                 <div class="callout warn">
                     <strong>Warning</strong>
-                    <p><b>lektra</b> is still in alpha, crashes and bugs expected. Please submit issues through Github</p>
+                    <p><b>lektra</b> is still in alpha, crashes and bugs expected. Please submit issues
+                    <a href="https://codeberg.org/lektra/lektra/issues">here</a>
+                    </p>
                 </div>
 
                 <div class="tabs" data-tabs>
@@ -63,15 +62,15 @@
 
                     <div class="tab-panels">
                         <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
-                            <p>lektra is available in the <a href="https://aur.archlinux.org/packages/lektra-git"><b>Arch User Repository (AUR)</b></a></p>
+                            <p>Lektra is available in the <a href="https://aur.archlinux.org/packages/lektra-git"><b>Arch User Repository (AUR)</b></a></p>
                             <p>For the binary package, run:</p>
-                            <pre><code class="language-bash">paru lektra-bin # yay -S lektra-bin</code></pre>
+                            <pre><code class="language-bash">paru lektra-bin # (or) yay -S lektra-bin</code></pre>
                             <p>For the latest git version, run:</p>
-                            <pre><code class="language-bash">paru lektra-git # yay -S lektra-git</code></pre>
+                            <pre><code class="language-bash">paru lektra-git # (or) yay -S lektra-git</code></pre>
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-deb" aria-labelledby="tabbtn-deb">
-                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases">releases</a> page and download the latest <b>DEB</b> package for lektra.</p>
+                            <p>Check out the <a href="https://codeberg.org/lektra/lektra/releases">releases</a> page and download the latest <b>DEB</b> package for lektra.</p>
                             <p>After downloading the DEB file, run: <code class="inline">sudo apt install &lt;path to the deb&gt;</code></p>
 
                             <div class="callout note">
@@ -81,7 +80,7 @@
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-appimage" aria-labelledby="tabbtn-appimage">
-                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases">releases</a> page and download the latest <b>AppImage</b> for lektra.</p>
+                            <p>Check out the <a href="https://codeberg.org/lektra/lektra/releases">releases</a> page and download the latest <b>AppImage</b> for lektra.</p>
                             <p>After downloading the AppImage file, you run <code class="inline">chmod a+x &lt;path to the appimage&gt;</code></p>
 
                             <div class="callout note">
@@ -102,10 +101,12 @@
                                 <li>Clone the repository.</li>
                                 <li>Run the installer script:</li>
                             </ol>
-                            <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/lektra
-                                cd lektra
-                                ./install.sh</code></pre>
-                        </div>
+                            <pre><code class="language-bash">git clone https://codeberg.org/lektra/lektra.git
+cd lektra
+</code></pre>
+You'll have <code class="inline">install.sh</code> in the directory. Run <code class="inline">--help</code> to see the available options.
+                            <pre><code class="language-bash">./install.sh --help
+</code></pre>
                     </div>
 
                 </div>

@@ -394,6 +394,7 @@ pre code.hljs,
 
 .tabs {
     margin-top: 8px;
+    font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 .tab-buttons {
@@ -468,6 +469,13 @@ p {
     color: var(--muted);
     font-family: "Raleway";
 }
+
+.heading {
+    font-family: "Raleway";
+    padding-top: 20px;
+    font-size: 2.0rem;
+}
+
 
 .hero {
     padding: 5px 0 20px 20px;
