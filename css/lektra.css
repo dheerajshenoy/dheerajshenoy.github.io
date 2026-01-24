@@ -392,42 +392,6 @@ pre code.hljs,
     font-family: 'JetBrainsMono', monospace;
 }
 
-.tabs {
-    margin-top: 8px;
-    font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-}
-
-.tab-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-}
-
-.tab {
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.04);
-    color: inherit;
-    padding: 10px 12px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 17px;
-    font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-}
-
-.tab img {
-    width: 20px;
-    height: 20px;
-    display: block;
-}
-
-.tab.active {
-    background: rgba(255, 255, 255, 0.10);
-    border-color: rgba(255, 255, 255, 0.22);
-}
-
 .panel {
     display: none;
 }
