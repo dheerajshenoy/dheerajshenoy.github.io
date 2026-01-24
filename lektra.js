@@ -1,5 +1,5 @@
 // Tiny tabs controller (no dependencies)
-function tabController() {
+async function tabController() {
     const root = document.querySelector("[data-tabs]");
     if (!root) return;
 
@@ -21,4 +21,5 @@ function tabController() {
 
 document.addEventListener("DOMContentLoaded", () => {
     tabController();
+    getLatestVersion();
 });

@@ -1,3 +1,12 @@
+/* major-mono-display-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Major Mono Display';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/major-mono-display-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 @font-face {
     font-family: 'Victor Mono';
     src: url('../fonts/VictorMono-Regular.woff2') format('woff2');
@@ -252,7 +261,7 @@ header {
 }
 
 .logo-text {
-    font-family: "Raleway";
+    font-family: "Major Mono Display";
     font-weight: 200;
     font-size: 30px;
     color: var(--logo-text);
@@ -265,15 +274,6 @@ header {
 
 .stretcher {
     flex-grow: 1
-}
-
-.banner {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    letter-spacing: .2px;
-    font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 .nav {
@@ -413,12 +413,6 @@ pre code.language-bash {
 
 p {
     font-size: 20px;
-}
-
-.github-logo {
-    height: 30px;
-    vertical-align: middle;
-    fill: var(--muted);
 }
 
 .question {
