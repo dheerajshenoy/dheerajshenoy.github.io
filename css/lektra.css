@@ -301,7 +301,7 @@ header {
     right: 8px;
     bottom: 4px;
     height: 2px;
-    background: #FF5000;
+    background: pink;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 180ms ease;

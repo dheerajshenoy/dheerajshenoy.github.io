@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <script>
-          hljs.highlightAll();
+            hljs.highlightAll();
         </script>
     </head>
     <body id="top">
@@ -23,560 +23,313 @@
                 <a href="lektra-configuration.html" class="navlink active" aria-current="page">Configuration</a>
                 <a href="lektra-faq.html" class="navlink">FAQ</a>
                 <a href="https://codeberg.org/lektra/lektra" class="navlink" target="_blank">Source Code</a>
-            </div>
+            </nav>
         </header>
 
         <div class="container">
-            <div class="hero">
-                <div class="hero-title">Configuration</div>
-                <div class="hero-sub">
-                    lektra is configured through a single TOML file. No GUI wizards, no hidden state.
-                    Edit the file, restart lektra, and you're done.
-                </div>
-            </div>
+            <div class="heading">Configuration</div>
+            <main class="content">
+                <section id="introduction" class="section">
+                    <h2>Introduction</h2>
+                    <p>
+                    By default, lektra looks for:
+                    <code class="inline">~/.config/lektra/config.toml</code>
+                    </p>
+                    <p class="muted">If the file doesn't exist, lektra falls back to defaults.</p>
 
-            <div class="layout">
-                <nav class="toc card" aria-label="Table of contents">
-                    <a href="#introduction">Introduction</a>
-                    <a href="#ui">UI</a>
-                    <a class="small" href="#ui-window">Window</a>
-                    <a class="small" href="#ui-statusbar">Statusbar</a>
-                    <a class="small" href="#ui-command-palette">Command Palette</a>
-                    <a class="small" href="#ui-llm-widget">LLM Widget</a>
-                    <a class="small" href="#ui-layout">Layout</a>
-                    <a class="small" href="#ui-zoom">Zoom</a>
-                    <a class="small" href="#ui-selection">Selection</a>
-                    <a class="small" href="#ui-scrollbars">Scrollbars</a>
-                    <a class="small" href="#ui-markers">Markers</a>
-                    <a class="small" href="#ui-links">Links</a>
-                    <a class="small" href="#ui-link-hints">Link Hints</a>
-                    <a class="small" href="#ui-tabs">Tabs</a>
-                    <a class="small" href="#ui-outline">Outline</a>
-                    <a class="small" href="#ui-highlight-search">Highlight Search</a>
-                    <a href="#colors">Colors</a>
-                    <a href="#rendering">Rendering</a>
-                    <a href="#behavior">Behavior</a>
-                    <a href="#llm">LLM</a>
-                    <a href="#keys">Keybindings</a>
-                    <a href="#theming">Theming</a>
-                    <a href="#notes">Notes</a>
-                </nav>
+                    <p>
+                    You can look at this complete config file for reference: <a href="https://codeberg.org/lektra/lektra/config.toml">config.toml</a>.
+                    </p>
+                </section>
 
-                <main class="content card">
-                    <section id="introduction" class="section">
-                        <h2>Introduction</h2>
-                        <p>
-                            By default, lektra looks for:
-                            <code class="inline">~/.config/lektra/config.toml</code>
-                        </p>
-                        <p class="muted">If the file doesn't exist, lektra falls back to defaults.</p>
+                <section id="ui" class="section">
+                    <h2>UI</h2>
 
-                        <p>
-                            You can look at this complete config file for reference: <a href="https://codeberg.org/lektra/lektra/config.toml">config.toml</a>.
-                        </p>
+                    <h3 id="ui-window">Window</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">fullscreen</code></td><td>bool</td><td>Start fullscreen.</td><td>false</td></tr>
+                            <tr><td><code class="inline">menubar</code></td><td>bool</td><td>Show menubar.</td><td>false</td></tr>
+                            <tr><td><code class="inline">startup_tab</code></td><td>bool</td><td>Show startup tab.</td><td>false</td></tr>
+                            <tr><td><code class="inline">window_title</code></td><td>string</td><td>Template string. <code class="inline">{}</code> is replaced by base file name.</td><td><code class="inline">"{} - lektra"</code></td></tr>
+                        </tbody>
+                    </table>
 
-                        <p>The config is split into sections:</p>
-                        <pre><code class="language-toml">[ui.*]
-[colors]
-[rendering]
-[behavior]
-[llm]
-[keybindings]</code></pre>
-                        <div class="callout note">
-                            <strong>NOTE</strong>
-                            <div>
-                                Each section is independent. Remove what you don't need.
-                            </div>
+                    <h3 id="ui-statusbar">Statusbar</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show statusbar.</td><td>true</td></tr>
+                            <tr><td><code class="inline">padding</code></td><td>array</td><td>Padding [top, right, bottom, left].</td><td>[5, 5, 5, 5]</td></tr>
+                            <tr><td><code class="inline">show_session_name</code></td><td>bool</td><td>Show current session name.</td><td>true</td></tr>
+                            <tr><td><code class="inline">show_file_name</code></td><td>bool</td><td>Show current file name.</td><td>true</td></tr>
+                            <tr><td><code class="inline">show_mode</code></td><td>bool</td><td>Show current interaction mode.</td><td>true</td></tr>
+                            <tr><td><code class="inline">show_page_number</code></td><td>bool</td><td>Show current page number.</td><td>true</td></tr>
+                            <tr><td><code class="inline">show_progress</code></td><td>bool</td><td>Show reading progress.</td><td>true</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-command-palette">Command Palette</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">show_shortcuts</code></td><td>bool</td><td>Display keyboard shortcuts.</td><td>false</td></tr>
+                            <tr><td><code class="inline">height</code></td><td>int</td><td>Palette height in pixels.</td><td>400</td></tr>
+                            <tr><td><code class="inline">width</code></td><td>int</td><td>Palette width in pixels.</td><td>600</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-llm-widget">LLM Widget</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show LLM widget by default.</td><td>false</td></tr>
+                            <tr><td><code class="inline">panel_width</code></td><td>int</td><td>Widget panel width in pixels.</td><td>400</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-layout">Layout</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">mode</code></td><td>string</td><td><code class="inline">"single"</code>, <code class="inline">"top_to_bottom"</code>, <code class="inline">"left_to_right"</code></td><td><code class="inline">"top_to_bottom"</code></td></tr>
+                            <tr><td><code class="inline">initial_fit</code></td><td>string</td><td><code class="inline">"none"</code>, <code class="inline">"width"</code>, <code class="inline">"height"</code>, <code class="inline">"window"</code></td><td><code class="inline">"width"</code></td></tr>
+                            <tr><td><code class="inline">auto_resize</code></td><td>bool</td><td>Fit document to window on resize.</td><td>false</td></tr>
+                            <tr><td><code class="inline">spacing</code></td><td>int</td><td>Spacing between pages.</td><td>0</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-zoom">Zoom</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">level</code></td><td>float</td><td>Default zoom factor.</td><td>1.0</td></tr>
+                            <tr><td><code class="inline">factor</code></td><td>float</td><td>Factor for zoom in/out.</td><td>1.25</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-selection">Selection</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">drag_threshold</code></td><td>int</td><td>Drag threshold in pixels.</td><td>100</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-scrollbars">Scrollbars</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">horizontal</code></td><td>bool</td><td>Show horizontal scrollbar.</td><td>true</td></tr>
+                            <tr><td><code class="inline">vertical</code></td><td>bool</td><td>Show vertical scrollbar.</td><td>true</td></tr>
+                            <tr><td><code class="inline">auto_hide</code></td><td>bool</td><td>Auto-hide scrollbars.</td><td>true</td></tr>
+                            <tr><td><code class="inline">search_hits</code></td><td>bool</td><td>Show search hits on scrollbar.</td><td>true</td></tr>
+                            <tr><td><code class="inline">size</code></td><td>int</td><td>Scrollbar thickness in pixels.</td><td>12</td></tr>
+                            <tr><td><code class="inline">hide_timeout</code></td><td>int</td><td>Time in ms to hide when auto_hide is true.</td><td>1000</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-markers">Markers</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">jump_marker</code></td><td>bool</td><td>Show jump marker.</td><td>true</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-links">Links</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">boundary</code></td><td>bool</td><td>Show link boundary box.</td><td>false</td></tr>
+                            <tr><td><code class="inline">detect_urls</code></td><td>bool</td><td>Detect and create links for URLs in text.</td><td>true</td></tr>
+                            <tr><td><code class="inline">url_regex</code></td><td>string</td><td>Regex for URL detection.</td><td>(see below)</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-link-hints">Link Hints</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">size</code></td><td>float</td><td>Relative scale for link hint labels.</td><td>0.25</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-tabs">Tabs</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show tab bar.</td><td>true</td></tr>
+                            <tr><td><code class="inline">auto_hide</code></td><td>bool</td><td>Hide tab bar when only one tab.</td><td>true</td></tr>
+                            <tr><td><code class="inline">closable</code></td><td>bool</td><td>Allow closing tabs.</td><td>true</td></tr>
+                            <tr><td><code class="inline">movable</code></td><td>bool</td><td>Allow reordering tabs.</td><td>true</td></tr>
+                            <tr><td><code class="inline">elide_mode</code></td><td>string</td><td><code class="inline">"none"</code>, <code class="inline">"start"</code>, <code class="inline">"middle"</code>, <code class="inline">"end"</code></td><td><code class="inline">"middle"</code></td></tr>
+                            <tr><td><code class="inline">location</code></td><td>string</td><td><code class="inline">"top"</code>, <code class="inline">"bottom"</code>, <code class="inline">"left"</code>, <code class="inline">"right"</code></td><td><code class="inline">"top"</code></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-outline">Outline</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show outline by default.</td><td>false</td></tr>
+                            <tr><td><code class="inline">panel_position</code></td><td>string</td><td><code class="inline">"left"</code>, <code class="inline">"right"</code></td><td><code class="inline">"left"</code></td></tr>
+                            <tr><td><code class="inline">type</code></td><td>string</td><td><code class="inline">"overlay"</code>, <code class="inline">"dialog"</code>, <code class="inline">"side_panel"</code></td><td><code class="inline">"overlay"</code></td></tr>
+                            <tr><td><code class="inline">panel_width</code></td><td>int</td><td>Panel width in pixels.</td><td>300</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="ui-highlight-search">Highlight Search</h3>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show highlight search by default.</td><td>false</td></tr>
+                            <tr><td><code class="inline">panel_position</code></td><td>string</td><td><code class="inline">"left"</code>, <code class="inline">"right"</code></td><td><code class="inline">"right"</code></td></tr>
+                            <tr><td><code class="inline">type</code></td><td>string</td><td><code class="inline">"overlay"</code>, <code class="inline">"dialog"</code>, <code class="inline">"side_panel"</code></td><td><code class="inline">"overlay"</code></td></tr>
+                            <tr><td><code class="inline">panel_width</code></td><td>int</td><td>Panel width in pixels.</td><td>300</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <hr class="sep">
+
+                <section id="colors" class="section">
+                    <h2>Colors</h2>
+                    <p>All colors are RGBA hex strings.</p>
+
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">accent</code></td><td>Accent UI color.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #3daee9FF; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#3daee9FF</code></td></tr>
+                            <tr><td><code class="inline">background</code></td><td>Background color.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #00000000; border: 1px solid rgba(0, 0, 0, 0.35); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#00000000</code></td></tr>
+                            <tr><td><code class="inline">search_match</code></td><td>Search match highlight.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #55500033; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#55500033</code></td></tr>
+                            <tr><td><code class="inline">search_index</code></td><td>Current search hit highlight.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #55FF0055; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#55FF0055</code></td></tr>
+                            <tr><td><code class="inline">link_hint_bg</code></td><td>Link hint background.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #000000FF; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#000000FF</code></td></tr>
+                            <tr><td><code class="inline">link_hint_fg</code></td><td>Link hint foreground.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #ea3ee9FF; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#ea3ee9FF</code></td></tr>
+                            <tr><td><code class="inline">selection</code></td><td>Selection overlay.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #33000055; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#33000055</code></td></tr>
+                            <tr><td><code class="inline">highlight</code></td><td>Highlight color.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #55FF0055; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#55FF0055</code></td></tr>
+                            <tr><td><code class="inline">jump_marker</code></td><td>Jump marker indicator.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #FF0000FF; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#FF0000FF</code></td></tr>
+                            <tr><td><code class="inline">annot_rect</code></td><td>Rectangle annotation color.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #55FF5588; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#55FF5588</code></td></tr>
+                            <tr><td><code class="inline">annot_popup</code></td><td>Popup annotation background.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #FFFFFFAA; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#FFFFFFAA</code></td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <hr class="sep">
+
+                <section id="rendering" class="section">
+                    <h2>Rendering</h2>
+
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">dpi</code></td><td>float</td><td>Base render DPI.</td><td>72.0</td></tr>
+                            <tr><td><code class="inline">dpr</code></td><td>float or map</td><td>Device pixel ratio (global or per-output).</td><td>1.0</td></tr>
+                            <tr><td><code class="inline">cache_pages</code></td><td>int</td><td>How many pages to keep in cache.</td><td>4</td></tr>
+                            <tr><td><code class="inline">antialiasing_bits</code></td><td>int</td><td>4=good, 8=high.</td><td>8</td></tr>
+                            <tr><td><code class="inline">icc_color_profile</code></td><td>bool</td><td>Enable ICC color management.</td><td>true</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="callout note">
+                        <strong>DPR</strong>
+                        <div>
+                            Use a map if you run mixed DPI monitors. Use a single float if you don't care.
                         </div>
-                    </section>
+                    </div>
+                </section>
 
-                    <hr class="sep">
+                <hr class="sep">
 
-                    <section id="ui" class="section">
-                        <h2>UI</h2>
+                <section id="behavior" class="section">
+                    <h2>Behavior</h2>
 
-                        <h3 id="ui-window">Window</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">fullscreen</code></td><td>bool</td><td>Start fullscreen.</td><td>false</td></tr>
-                                <tr><td><code class="inline">menubar</code></td><td>bool</td><td>Show menubar.</td><td>false</td></tr>
-                                <tr><td><code class="inline">startup_tab</code></td><td>bool</td><td>Show startup tab.</td><td>false</td></tr>
-                                <tr><td><code class="inline">window_title</code></td><td>string</td><td>Template string. <code class="inline">{}</code> is replaced by base file name.</td><td><code class="inline">"{} - lektra"</code></td></tr>
-                            </tbody>
-                        </table>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">initial_mode</code></td><td>string</td><td>Startup mode.</td><td><code class="inline">"text_select_mode"</code></td></tr>
+                            <tr><td><code class="inline">always_open_in_new_window</code></td><td>bool</td><td>Open files in a new window.</td><td>false</td></tr>
+                            <tr><td><code class="inline">remember_last_visited</code></td><td>bool</td><td>Restore last visited file.</td><td>true</td></tr>
+                            <tr><td><code class="inline">page_history</code></td><td>int</td><td>History depth.</td><td>100</td></tr>
+                            <tr><td><code class="inline">confirm_on_quit</code></td><td>bool</td><td>Ask before quitting.</td><td>false</td></tr>
+                            <tr><td><code class="inline">invert_mode</code></td><td>bool</td><td>Invert colors.</td><td>false</td></tr>
+                            <tr><td><code class="inline">auto_reload</code></td><td>bool</td><td>Auto reload file when it changes.</td><td>true</td></tr>
+                            <tr><td><code class="inline">recent_files</code></td><td>bool</td><td>Track recent files.</td><td>true</td></tr>
+                            <tr><td><code class="inline">num_recent_files</code></td><td>int</td><td>Max recent files count.</td><td>25</td></tr>
+                            <tr><td><code class="inline">undo_limit</code></td><td>int</td><td>Undo history size.</td><td>25</td></tr>
+                            <tr><td><code class="inline">synctex_editor_command</code></td><td>string</td><td>Editor command using <code class="inline">%f</code> and <code class="inline">%l</code>.</td><td><code class="inline">"zeditor %f:+%l"</code></td></tr>
+                        </tbody>
+                    </table>
+                </section>
 
-                        <pre><code class="language-toml">[ui.window]
-fullscreen = false
-menubar = false
-startup_tab = false
-window_title = "{} - lektra"</code></pre>
+                <hr class="sep">
 
-                        <h3 id="ui-statusbar">Statusbar</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show statusbar.</td><td>true</td></tr>
-                                <tr><td><code class="inline">padding</code></td><td>array</td><td>Padding [top, right, bottom, left].</td><td>[5, 5, 5, 5]</td></tr>
-                                <tr><td><code class="inline">show_session_name</code></td><td>bool</td><td>Show current session name.</td><td>true</td></tr>
-                                <tr><td><code class="inline">show_file_name</code></td><td>bool</td><td>Show current file name.</td><td>true</td></tr>
-                                <tr><td><code class="inline">show_mode</code></td><td>bool</td><td>Show current interaction mode.</td><td>true</td></tr>
-                                <tr><td><code class="inline">show_page_number</code></td><td>bool</td><td>Show current page number.</td><td>true</td></tr>
-                                <tr><td><code class="inline">show_progress</code></td><td>bool</td><td>Show reading progress.</td><td>true</td></tr>
-                            </tbody>
-                        </table>
+                <section id="llm" class="section">
+                    <h2>LLM (Optional)</h2>
+                    <p>
+                    Works only if lektra is compiled with LLM support.
+                    </p>
 
-                        <pre><code class="language-toml">[ui.statusbar]
-visible = true
-padding = [ 5, 5, 5, 5 ]
-show_session_name = true
-show_file_name = true
-show_mode = true
-show_page_number = true
-show_progress = true</code></pre>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="inline">provider</code></td><td>string</td><td>LLM backend.</td><td><code class="inline">"ollama"</code></td></tr>
+                            <tr><td><code class="inline">model</code></td><td>string</td><td>Provider model name.</td><td><code class="inline">"llama3.2:3b"</code></td></tr>
+                            <tr><td><code class="inline">max_tokens</code></td><td>int</td><td>Response length limit.</td><td><code class="inline">512</code></td></tr>
+                        </tbody>
+                    </table>
+                </section>
 
-                        <h3 id="ui-command-palette">Command Palette</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">show_shortcuts</code></td><td>bool</td><td>Display keyboard shortcuts.</td><td>false</td></tr>
-                                <tr><td><code class="inline">height</code></td><td>int</td><td>Palette height in pixels.</td><td>400</td></tr>
-                                <tr><td><code class="inline">width</code></td><td>int</td><td>Palette width in pixels.</td><td>600</td></tr>
-                            </tbody>
-                        </table>
+                <hr class="sep">
 
-                        <pre><code class="language-toml">[ui.command_palette]
-show_shortcuts = false
-height = 400
-width = 600</code></pre>
+                <section id="theming" class="section">
+                    <h2>Theming</h2>
+                    <p><a href="https://github.com/tsujan/Kvantum/tree/master/Kvantum" target="_blank">Kvantum</a> is a powerful SVG-based theme engine for Qt. It supports dark themes, custom widgets, and integrates well with Qt6.
+                                It is available in the standard repository for your distribution. Once installed, select a theme in
+                                <code class="inline">kvantummanager</code> and set:
+                    </p>
+                    <pre><code class="language-bash">export QT_STYLE_OVERRIDE=kvantum</code></pre>
 
-                        <h3 id="ui-llm-widget">LLM Widget</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show LLM widget by default.</td><td>false</td></tr>
-                                <tr><td><code class="inline">panel_width</code></td><td>int</td><td>Widget panel width in pixels.</td><td>400</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.llm_widget]
-visible = false
-panel_width = 400</code></pre>
-
-                        <h3 id="ui-layout">Layout</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">mode</code></td><td>string</td><td><code class="inline">"single"</code>, <code class="inline">"top_to_bottom"</code>, <code class="inline">"left_to_right"</code></td><td><code class="inline">"top_to_bottom"</code></td></tr>
-                                <tr><td><code class="inline">initial_fit</code></td><td>string</td><td><code class="inline">"none"</code>, <code class="inline">"width"</code>, <code class="inline">"height"</code>, <code class="inline">"window"</code></td><td><code class="inline">"width"</code></td></tr>
-                                <tr><td><code class="inline">auto_resize</code></td><td>bool</td><td>Fit document to window on resize.</td><td>false</td></tr>
-                                <tr><td><code class="inline">spacing</code></td><td>int</td><td>Spacing between pages.</td><td>0</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.layout]
-mode = "top_to_bottom"
-initial_fit = "width"
-auto_resize = false
-spacing = 0</code></pre>
-
-                        <h3 id="ui-zoom">Zoom</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">level</code></td><td>float</td><td>Default zoom factor.</td><td>1.0</td></tr>
-                                <tr><td><code class="inline">factor</code></td><td>float</td><td>Factor for zoom in/out.</td><td>1.25</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.zoom]
-level = 1.0
-factor = 1.25</code></pre>
-
-                        <h3 id="ui-selection">Selection</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">drag_threshold</code></td><td>int</td><td>Drag threshold in pixels.</td><td>100</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.selection]
-drag_threshold = 100</code></pre>
-
-                        <h3 id="ui-scrollbars">Scrollbars</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">horizontal</code></td><td>bool</td><td>Show horizontal scrollbar.</td><td>true</td></tr>
-                                <tr><td><code class="inline">vertical</code></td><td>bool</td><td>Show vertical scrollbar.</td><td>true</td></tr>
-                                <tr><td><code class="inline">auto_hide</code></td><td>bool</td><td>Auto-hide scrollbars.</td><td>true</td></tr>
-                                <tr><td><code class="inline">search_hits</code></td><td>bool</td><td>Show search hits on scrollbar.</td><td>true</td></tr>
-                                <tr><td><code class="inline">size</code></td><td>int</td><td>Scrollbar thickness in pixels.</td><td>12</td></tr>
-                                <tr><td><code class="inline">hide_timeout</code></td><td>int</td><td>Time in ms to hide when auto_hide is true.</td><td>1000</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.scrollbars]
-horizontal = true
-vertical = true
-auto_hide = true
-search_hits = true
-size = 12
-hide_timeout = 1000</code></pre>
-
-                        <h3 id="ui-markers">Markers</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">jump_marker</code></td><td>bool</td><td>Show jump marker.</td><td>true</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.markers]
-jump_marker = true</code></pre>
-
-                        <h3 id="ui-links">Links</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">boundary</code></td><td>bool</td><td>Show link boundary box.</td><td>false</td></tr>
-                                <tr><td><code class="inline">detect_urls</code></td><td>bool</td><td>Detect and create links for URLs in text.</td><td>true</td></tr>
-                                <tr><td><code class="inline">url_regex</code></td><td>string</td><td>Regex for URL detection.</td><td>(see below)</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.links]
-boundary = false
-detect_urls = true
-url_regex = "(https?://|www\\.)[^\\s<>()\\\"']+"</code></pre>
-
-                        <h3 id="ui-link-hints">Link Hints</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">size</code></td><td>float</td><td>Relative scale for link hint labels.</td><td>0.25</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.link_hints]
-size = 0.25</code></pre>
-
-                        <h3 id="ui-tabs">Tabs</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show tab bar.</td><td>true</td></tr>
-                                <tr><td><code class="inline">auto_hide</code></td><td>bool</td><td>Hide tab bar when only one tab.</td><td>true</td></tr>
-                                <tr><td><code class="inline">closable</code></td><td>bool</td><td>Allow closing tabs.</td><td>true</td></tr>
-                                <tr><td><code class="inline">movable</code></td><td>bool</td><td>Allow reordering tabs.</td><td>true</td></tr>
-                                <tr><td><code class="inline">elide_mode</code></td><td>string</td><td><code class="inline">"none"</code>, <code class="inline">"start"</code>, <code class="inline">"middle"</code>, <code class="inline">"end"</code></td><td><code class="inline">"middle"</code></td></tr>
-                                <tr><td><code class="inline">bar_position</code></td><td>string</td><td><code class="inline">"top"</code>, <code class="inline">"bottom"</code>, <code class="inline">"left"</code>, <code class="inline">"right"</code></td><td><code class="inline">"top"</code></td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.tabs]
-visible = true
-auto_hide = true
-closable = true
-movable = true
-elide_mode = "middle"
-bar_position = "top"</code></pre>
-
-                        <h3 id="ui-outline">Outline</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show outline by default.</td><td>false</td></tr>
-                                <tr><td><code class="inline">panel_position</code></td><td>string</td><td><code class="inline">"left"</code>, <code class="inline">"right"</code></td><td><code class="inline">"left"</code></td></tr>
-                                <tr><td><code class="inline">type</code></td><td>string</td><td><code class="inline">"overlay"</code>, <code class="inline">"dialog"</code>, <code class="inline">"side_panel"</code></td><td><code class="inline">"overlay"</code></td></tr>
-                                <tr><td><code class="inline">panel_width</code></td><td>int</td><td>Panel width in pixels.</td><td>300</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.outline]
-visible = false
-panel_position = "left"
-type = "overlay"
-panel_width = 300</code></pre>
-
-                        <h3 id="ui-highlight-search">Highlight Search</h3>
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">visible</code></td><td>bool</td><td>Show highlight search by default.</td><td>false</td></tr>
-                                <tr><td><code class="inline">panel_position</code></td><td>string</td><td><code class="inline">"left"</code>, <code class="inline">"right"</code></td><td><code class="inline">"right"</code></td></tr>
-                                <tr><td><code class="inline">type</code></td><td>string</td><td><code class="inline">"overlay"</code>, <code class="inline">"dialog"</code>, <code class="inline">"side_panel"</code></td><td><code class="inline">"overlay"</code></td></tr>
-                                <tr><td><code class="inline">panel_width</code></td><td>int</td><td>Panel width in pixels.</td><td>300</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[ui.highlight_search]
-visible = false
-panel_position = "right"
-type = "overlay"
-panel_width = 300</code></pre>
-                    </section>
-
-                    <hr class="sep">
-
-                    <section id="colors" class="section">
-                        <h2>Colors</h2>
-                        <p>All colors are RGBA hex strings.</p>
-
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">accent</code></td><td>Accent UI color.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #3daee9FF; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#3daee9FF</code></td></tr>
-                                <tr><td><code class="inline">background</code></td><td>Background color.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #00000000; border: 1px solid rgba(0, 0, 0, 0.35); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#00000000</code></td></tr>
-                                <tr><td><code class="inline">search_match</code></td><td>Search match highlight.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #55500033; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#55500033</code></td></tr>
-                                <tr><td><code class="inline">search_index</code></td><td>Current search hit highlight.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #55FF0055; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#55FF0055</code></td></tr>
-                                <tr><td><code class="inline">link_hint_bg</code></td><td>Link hint background.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #000000FF; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#000000FF</code></td></tr>
-                                <tr><td><code class="inline">link_hint_fg</code></td><td>Link hint foreground.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #ea3ee9FF; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#ea3ee9FF</code></td></tr>
-                                <tr><td><code class="inline">selection</code></td><td>Selection overlay.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #33000055; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#33000055</code></td></tr>
-                                <tr><td><code class="inline">highlight</code></td><td>Highlight color.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #55FF0055; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#55FF0055</code></td></tr>
-                                <tr><td><code class="inline">jump_marker</code></td><td>Jump marker indicator.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #FF0000FF; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#FF0000FF</code></td></tr>
-                                <tr><td><code class="inline">annot_rect</code></td><td>Rectangle annotation color.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #55FF5588; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#55FF5588</code></td></tr>
-                                <tr><td><code class="inline">annot_popup</code></td><td>Popup annotation background.</td><td><span style="display: inline-block; width: 0.75rem; height: 0.75rem; background-color: #FFFFFFAA; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 3px; vertical-align: -0.05rem; margin-right: 0.4rem;"></span><code class="inline">#FFFFFFAA</code></td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[colors]
-accent = "#3daee9FF"
-background = "#00000000"
-search_match = "#55500033"
-search_index = "#55FF0055"
-link_hint_bg = "#000000FF"
-link_hint_fg = "#ea3ee9FF"
-selection = "#33000055"
-highlight = "#55FF0055"
-jump_marker = "#FF0000FF"
-annot_rect = "#55FF5588"
-annot_popup = "#FFFFFFAA"</code></pre>
-                    </section>
-
-                    <hr class="sep">
-
-                    <section id="rendering" class="section">
-                        <h2>Rendering</h2>
-
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">dpi</code></td><td>float</td><td>Base render DPI.</td><td>72.0</td></tr>
-                                <tr><td><code class="inline">dpr</code></td><td>float or map</td><td>Device pixel ratio (global or per-output).</td><td>(see example)</td></tr>
-                                <tr><td><code class="inline">cache_pages</code></td><td>int</td><td>How many pages to keep in cache.</td><td>4</td></tr>
-                                <tr><td><code class="inline">antialiasing_bits</code></td><td>int</td><td>4=good, 8=high.</td><td>8</td></tr>
-                                <tr><td><code class="inline">icc_color_profile</code></td><td>bool</td><td>Enable ICC color management.</td><td>true</td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[rendering]
-dpi = 72.0
-dpr = { "eDP-1" = 1.25, "DP-5" = 1.0, "DP-7" = 1.0 }
-cache_pages = 4
-antialiasing_bits = 8
-icc_color_profile = true</code></pre>
-
-                        <div class="callout note">
-                            <strong>DPR</strong>
-                            <div>
-                                Use a map if you run mixed DPI monitors. Use a single float if you don't care.
-                            </div>
-                        </div>
-                    </section>
-
-                    <hr class="sep">
-
-                    <section id="behavior" class="section">
-                        <h2>Behavior</h2>
-
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">initial_mode</code></td><td>string</td><td>Startup mode.</td><td><code class="inline">"text_select_mode"</code></td></tr>
-                                <tr><td><code class="inline">always_open_in_new_window</code></td><td>bool</td><td>Open files in a new window.</td><td>false</td></tr>
-                                <tr><td><code class="inline">remember_last_visited</code></td><td>bool</td><td>Restore last visited file.</td><td>true</td></tr>
-                                <tr><td><code class="inline">page_history</code></td><td>int</td><td>History depth.</td><td>100</td></tr>
-                                <tr><td><code class="inline">confirm_on_quit</code></td><td>bool</td><td>Ask before quitting.</td><td>false</td></tr>
-                                <tr><td><code class="inline">invert_mode</code></td><td>bool</td><td>Invert colors.</td><td>false</td></tr>
-                                <tr><td><code class="inline">auto_reload</code></td><td>bool</td><td>Auto reload file when it changes.</td><td>true</td></tr>
-                                <tr><td><code class="inline">recent_files</code></td><td>bool</td><td>Track recent files.</td><td>true</td></tr>
-                                <tr><td><code class="inline">num_recent_files</code></td><td>int</td><td>Max recent files count.</td><td>25</td></tr>
-                                <tr><td><code class="inline">undo_limit</code></td><td>int</td><td>Undo history size.</td><td>25</td></tr>
-                                <tr><td><code class="inline">synctex_editor_command</code></td><td>string</td><td>Editor command using <code class="inline">%f</code> and <code class="inline">%l</code>.</td><td><code class="inline">"zeditor %f:+%l"</code></td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[behavior]
-initial_mode = "text_select_mode"
-always_open_in_new_window = false
-remember_last_visited = true
-page_history = 100
-confirm_on_quit = false
-invert_mode = false
-auto_reload = true
-recent_files = true
-num_recent_files = 25
-undo_limit = 25
-synctex_editor_command = "zeditor %f:+%l"</code></pre>
-                    </section>
-
-                    <hr class="sep">
-
-                    <section id="llm" class="section">
-                        <h2>LLM (Optional)</h2>
-                        <p>
-                            Works only if lektra is compiled with LLM support.
-                        </p>
-
-                        <table class="table">
-                            <thead>
-                                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><code class="inline">provider</code></td><td>string</td><td>LLM backend.</td><td><code class="inline">"ollama"</code></td></tr>
-                                <tr><td><code class="inline">model</code></td><td>string</td><td>Provider model name.</td><td><code class="inline">"llama3.2:3b"</code></td></tr>
-                                <tr><td><code class="inline">max_tokens</code></td><td>int</td><td>Response length limit.</td><td><code class="inline">512</code></td></tr>
-                            </tbody>
-                        </table>
-
-                        <pre><code class="language-toml">[llm]
-provider = "ollama"
-model = "llama3.2:3b"
-max_tokens = 512</code></pre>
-                    </section>
-
-                    <hr class="sep">
-
-                    <section id="keys" class="section">
-                        <h2>Keybindings</h2>
-                        <p>
-                            Keybindings are plain strings. Multi-key chords are supported (comma-separated).
-                        </p>
-
-                        <details class="details">
-                            <summary><strong>Full shipped defaults</strong></summary>
-                            <pre><code class="language-toml">[keybindings]
-command_palette = "Ctrl+Shift+P"
-open_file = "o"
-close_file = "Ctrl+w"
-link_hint_visit = "f"
-link_hint_copy = "Shift+F"
-scroll_left = "h"
-scroll_down = "j"
-scroll_up = "k"
-scroll_right = "l"
-prev_location = "Ctrl+o"
-next_page = "Shift+J"
-prev_page = "Shift+K"
-first_page = "g,g"
-last_page = "Shift+G"
-goto_page = "b"
-outline = "t"
-search = "/"
-search_this_page = "?"
-search_next = "n"
-search_prev = "Shift+N"
-zoom_reset = "0"
-zoom_in = "="
-zoom_out = "-"
-tab1 = "Alt+1"
-tab2 = "Alt+2"
-tab3 = "Alt+3"
-tab4 = "Alt+4"
-tab5 = "Alt+5"
-tab6 = "Alt+6"
-tab7 = "Alt+7"
-tab8 = "Alt+8"
-tab9 = "Alt+9"
-tab_next = "Ctrl+Period"
-tab_prev = "Ctrl+Comma"
-text_select_mode = "1"
-region_select_mode = "2"
-annot_rect_mode = "3"
-annot_edit_mode = "4"
-text_highlight_mode = "5"
-annot_pen_mode = "6"
-annot_popup_mode = "7"
-delete = "d"
-file_properties = "Ctrl+Shift+F"
-invert_color = "i"
-fullscreen = "F11"
-fit_height = "Ctrl+Shift+H"
-fit_width = "Ctrl+Shift+W"
-fit_window = "Ctrl+Shift+="
-auto_resize = "Ctrl+Shift+R"
-toggle_menubar = "Ctrl+Shift+M"
-toggle_panel = "Ctrl+Shift+B"
-toggle_tabs = "Ctrl+Shift+T"
-cancel_selection = "escape"
-yank = "y"
-about = "F12"
-save = "Ctrl+S"
-select_all = "Ctrl+A"
-rotate_clock = ">"
-rotate_anticlock = "<"
-list_text_highlights = "]"
-undo = "u"
-redo = "Ctrl+R"
-toggle_focus_mode = "Ctrl+Space"
-reselect_last_selection = "g,v"
-highlight_annot_search = "Alt+Shift+H"
-completion_next = "Ctrl+n"
-completion_prev = "Ctrl+p"
-toggle_llm_widget = "Ctrl+Shift+L"
-toggle_statusbar = "Ctrl+Shift+S"</code></pre>
-                        </details>
-                    </section>
-
-                    <hr class="sep">
-
-                    <section id="theming" class="section">
-                        <h2>Theming</h2>
-                        <p><a href="https://github.com/tsujan/Kvantum/tree/master/Kvantum" target="_blank">Kvantum</a> is a powerful SVG-based theme engine for Qt. It supports dark themes, custom widgets, and integrates well with Qt6.
-                        It is available in the standard repository for your distribution. Once installed, select a theme in
-                        <code class="inline">kvantummanager</code> and set:
-                        </p>
-                        <pre><code class="language-bash">export QT_STYLE_OVERRIDE=kvantum</code></pre>
-
-                    </section>
-                </main>
-            </div>
+                </section>
+            </main>
+        </div>
         </div>
     </body>
 </html>
