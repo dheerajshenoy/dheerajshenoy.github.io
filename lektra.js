@@ -1,5 +1,4 @@
-// Tiny tabs controller (no dependencies)
-async function tabController() {
+function tabController() {
     const root = document.querySelector("[data-tabs]");
     if (!root) return;
 
@@ -17,9 +16,107 @@ async function tabController() {
     }
 
     tabs.forEach(t => t.addEventListener("click", () => activate(t)));
-};
+}
+
+const features = [
+    {
+        title: "Performance",
+        desc: "Smooth, high-performance scrolling with keyboard and mouse support.",
+        media: { type: "img", src: "lektra-files/Scrolling.gif", alt: "Scrolling Demo" }
+    },
+    {
+        title: "Tabs and Splits",
+        desc: "Open multiple documents in tabs and splits, with customizable layouts.",
+        media: { type: "img", src: "lektra-files/Tabs_and_Splits.gif", alt: "Tabs and Splits Demo" }
+    },
+    {
+        title: "Layouts",
+        desc: "Choose between <b>top to bottom</b>, <b>left to right</b> or <b>single</b> layouts.",
+        media: { type: "img", src: "lektra-files/Layouts.gif", alt: "Layouts Demo" }
+    },
+    {
+        title: "Portals",
+        desc: "Open \"portal\" to view different sections of the same document side by side.",
+        media: { type: "img", src: "lektra-files/Portals.gif", alt: "Portals Demo" }
+    },
+    {
+        title: "Search",
+        desc: "Instantly search through the document with highlighted results and a scrollbar overview.",
+        media: { type: "img", src: "lektra-files/Search-Hits-Scrollbar.gif", alt: "Search Hits in Scrollbar" }
+    },
+    {
+        title: "Jump Marker &amp; History Navigation",
+        desc: "Track jump destinations and move back and forth through your reading history.",
+        media: { type: "img", src: "lektra-files/Jump-Marker.gif", alt: "Jump Marker" }
+    },
+    {
+        title: "SyncTeX Support",
+        desc: "Jump seamlessly between LaTeX source and the corresponding PDF location.",
+        media: { type: "img", src: "lektra-files/synctex.gif", alt: "SyncTeX support" }
+    },
+    {
+        title: "Annotation Support",
+        desc: "Highlight, rectangle and popup annotations supported.<br><b>(Only highlight shown here)</b>",
+        media: { type: "img", src: "lektra-files/Highlight Annotation.gif", alt: "Highlight Annotation" }
+    },
+    {
+        title: "Link Hints",
+        desc: "Navigate links quickly using the keyboard with hint overlays.",
+        media: { type: "img", src: "lektra-files/link_hint.png", alt: "Link Hint" }
+    },
+    {
+        title: "Searchable Text Highlight",
+        desc: "Highlighted text remains searchable across the document.",
+        media: { type: "img", src: "lektra-files/Search Text Highlight.gif", alt: "Search Text Highlight" }
+    },
+    {
+        title: "Configured Using TOML",
+        desc: "Fully customizable through a clean, readable TOML configuration file.",
+        media: { type: "img", src: "lektra-files/config.png", alt: "TOML config" }
+    },
+];
+
+const otherFeatures = [
+    "Lazy loading",
+    "Session management",
+    "Customizable keybindings",
+    "Automatic non-PDF URL detection",
+];
+
+function addFeatures() {
+    const showcase = document.getElementById("features");
+
+    features.forEach((feature, index) => {
+        const div = document.createElement("div");
+        div.className = `feature${index % 2 !== 0 ? " reverse" : ""}`;
+        div.innerHTML = `
+            <div class="feature-media">
+                <img src="${feature.media.src}" alt="${feature.media.alt}">
+            </div>
+            <div class="feature-body">
+                <h3 class="feature-title">${feature.title}</h3>
+                <p class="feature-desc">${feature.desc}</p>
+            </div>
+        `;
+        showcase.appendChild(div);
+    });
+
+    const fullCard = document.createElement("div");
+    fullCard.className = "feature full";
+    fullCard.innerHTML = `
+        <div class="feature-body">
+            <h3 class="feature-title">Other Features</h3>
+            <ul class="bullets">
+                ${otherFeatures.map(f => `<li>${f}</li>`).join("")}
+            </ul>
+        </div>
+    `;
+    showcase.appendChild(fullCard);
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
+    hljs.highlightAll(); // add this
     tabController();
-    getLatestVersion();
+    addFeatures();
 });
