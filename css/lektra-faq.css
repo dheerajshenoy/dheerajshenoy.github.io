@@ -1,0 +1,15 @@
+.question > strong {
+    color: pink;
+}
+
+
+.heading {
+    color: pink;
+    text-align: center;
+}
+
+.content {
+    padding: 18px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
