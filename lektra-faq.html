@@ -5,12 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lektra | FAQ</title>
         <link rel="stylesheet" href="css/lektra.css">
-        <script src="lektra.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
+        <link rel="stylesheet" href="css/lektra-faq.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-        <script>
-        hljs.highlightAll();
-        </script>
     </head>
     <body id="top">
 
@@ -21,7 +18,7 @@
                 <a href="./lektra.html" class="navlink">Home</a>
                 <a href="./lektra-installation.html" class="navlink">Install</a>
                 <a href="./lektra-configuration.html" class="navlink">Configuration</a>
-                <a href="#FAQ" class="navlink active" aria-current="page">FAQ</a>
+                <a href="./lektra-faq.html" class="navlink active" aria-current="page">FAQ</a>
                 <a href="https://github.com/dheerajshenoy/lektra" class="navlink" target="_blank">Source</a>
             </nav>
 
@@ -29,25 +26,25 @@
 
         <div class="container">
 
-            <div class="section">
-                <div class="headline">FAQ</div>
+            <div class="heading">FAQ</div>
 
+            <main class="content">
                 <div class="question">
                     <strong>Why lektra ?</strong>
                     <div class="answer">
                         <p><b>lektra</b> is designed with focus on high performance, providing as much screen real-estate as possible and with no sacrifice on configurability.
-                            There's good wayland support (thanks to qt6). Features like <b>Jump Markers</b>, <b>History Navigation</b>, <b>Sessions</b> etc. are something
-                            I personally couldn't find in any other PDF readers.</p>
+                        There's good wayland support (thanks to qt6). Features like <b>Jump Markers</b>, <b>History Navigation</b>, <b>Sessions</b> etc. are something
+                        I personally couldn't find in any other PDF readers.</p>
 
                         <p>If you are looking for a lightweight yet powerful
-                            PDF reader that can be tailored to your preferences, lektra is a great choice.</p>
+                        PDF reader that can be tailored to your preferences, lektra is a great choice.</p>
                     </div>
                 </div>
 
                 <div class="question">
                     <strong>What is lektra using ?</strong>
                     <div class="answer">
-                        Lektra uses the following libraries:
+                        <p>Lektra uses the following libraries:</p>
                         <ul>
                             <li><a href="https://mupdf.com" target="_blank">MuPDF</a> as the PDF library</li>
                             <li><a href="https://www.qt.io/development/qt-framework/qt6" target="_blank">Qt6</a> as the Graphical User Interface library</li>
@@ -66,7 +63,7 @@
                         <p>Please report bugs and request features through the <b><a href="">GitHub Issues page</a></b></p>
                     </div>
                 </div>
-            </div> <!-- FAQ Section End -->
+            </main>
         </div> <!-- Container End -->
     </body>
 </html>
