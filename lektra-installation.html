@@ -53,6 +53,11 @@
                             <span>AppImage</span>
                         </button>
 
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-gentoo" id="tabbtn-gentoo">
+                            <img src="files/gentoo.png"/>
+                            <span>Gentoo</span>
+                        </button>
+
                         <button class="tab" role="tab" aria-selected="false" aria-controls="tab-other" id="tabbtn-other">
                             <span>Build from Source</span>
                         </button>
@@ -77,6 +82,16 @@
                         <div class="panel" role="tabpanel" id="tab-appimage" aria-labelledby="tabbtn-appimage">
                             <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases">releases</a> page and download the latest <b>AppImage</b> for lektra.</p>
 
+                        </div>
+
+                      <div class="panel" role="tabpanel" id="tab-gentoo" aria-labelledby="tabbtn-gentoo">
+                        <pre><code class="language-bash">eselect repository enable gentoo-zh
+emaint sync -r gentoo-zh
+emerge lektra</code></pre>
+                        <div class="callout note">
+                          <strong>NOTE</strong>
+                          <p>This package is maintained by <a href="https://github.com/douglarek">douglarek</a>, not by the upstream project. Please report Gentoo-specific issues to the <a href="https://github.com/microcai/gentoo-zh">gentoo-zh</a> repository.</p>
+                        </div>
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
