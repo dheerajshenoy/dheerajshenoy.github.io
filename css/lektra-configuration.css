@@ -102,15 +102,16 @@ code.inline {
 
 .table th {
     font-family: 'Outfit';
-    text-align: left;
     color: var(--muted);
     background: rgba(0, 0, 0, 0.18);
     font-weight: 700;
 }
 
+
 .table td {
     font-family: 'Outfit';
     font-size: 17px;
+    text-align: center;
 }
 
 .table tr:last-child td {
@@ -155,4 +156,9 @@ hr.sep {
 .heading {
     color: pink;
     text-align: center;
+}
+
+.choices strong {
+    padding-top: 10px;
+    display: block;
 }
