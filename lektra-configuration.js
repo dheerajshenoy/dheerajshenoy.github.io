@@ -28,14 +28,14 @@ function renderSection(section) {
 
 
     const rows = section.fields.map(f => `
-    <li class="field-item">
-            <code class="field-name">${f.name}</code>
+    <div class="field-item">
+        <code class="field-name">${f.name}</code>
         ${f.desc ? `<p class="field-desc">${f.desc}</p>` : '<p class="field-desc">—</p>'}
         ${f.type ? `<span class="field-type">Type: ${renderType(f.type)}</span>` : ''}
         ${f.default ? `<span class="field-default">Default: ${renderDefault(f.default)}</span>` : ''}
         ${f.choice ? `<div class="field-choices">${renderChoices(f.choice)}</div>` : ''}
         ${f.note ? `<div class="callout note"><strong>Note</strong><br>${f.note}</div>` : ''}
-    </li>
+    </div>
 `).join('');
 
 
@@ -45,7 +45,8 @@ function renderSection(section) {
             <!-- ${section.name} -->
             <code class="inline">[${slug}]</code>
             </h2>
-            ${desc}
+            <div class="desc">${desc}</div>
+            ${section.section_note ? `<div class="callout note"><strong>Note</strong><br>${section.section_note}</div>` : ''}
             <div class="fields">
             <ol>
                 ${rows}
@@ -62,16 +63,34 @@ function renderChoices(choice) {
     </div>`;
 }
 
-
 function renderDefault(value) {
-    if (!value && value !== 0) return '—';
-    const clean = String(value).replace(/^(-?\d+\.?\d*)f$/, '$1');
-    const colors = {
+    if (value === null || value === undefined) return '—';
+
+    const strVal = String(value).trim();
+
+    // Numbers with optional 'f'
+    const numClean = strVal.replace(/^(-?\d+\.?\d*)f$/, '$1');
+
+    // Boolean colors
+    const boolColors = {
         'true':  '#79c0ff',
         'false': '#ffa657',
     };
-    const color = colors[clean] || 'var(--text, #fff)';
-    return `<code class="inline" style="color:${color}">${clean}</code>`;
+
+    // Detect string literals (e.g., quoted strings)
+    const isString = /^["'].*["']$/.test(strVal);
+
+    let color = 'var(--text, #fff)'; // default
+
+    if (boolColors.hasOwnProperty(strVal)) {
+        color = boolColors[strVal];
+    } else if (isString) {
+        color = '#c792ea'; // any color you want for strings
+    }
+
+    const display = isString ? strVal : numClean;
+
+    return `<code class="inline" style="color:${color}">${display}</code>`;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {

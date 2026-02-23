@@ -2,8 +2,13 @@
     --line: rgba(255, 255, 255, 0.10);
     --text: rgba(255, 255, 255, 0.85);
     /* --field-item-bg: rgba(255, 255, 255, 0.1); */
-    --field-name-bg: #e9ecef;
-    --field-name-fg: #212529;
+
+    --desc-fg: #adb5bd;
+
+    /* dark nord theme color */
+    --field-item-bg: #2e3440;
+    --field-name-fg: #e9ecef;
+    --field-name-bg: #212529;
     --field-type-fg: #6c757d;
     --field-desc-fg: #FFFFFF;
     --field-default-fg: #adb5bd;
@@ -137,6 +142,7 @@ hr.sep {
     background-color: var(--field-item-bg);
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Outfit', sans-serif;
 }
 
 /* Field name styling */
@@ -159,7 +165,7 @@ hr.sep {
 
 /* Description */
 .field-desc {
-    margin-top: 0.2rem 0 0.5rem 0;
+    margin-top: 1.0rem;
     color: var(--field-desc-fg);
     line-height: 1.4;
 }
@@ -169,18 +175,9 @@ hr.sep {
     font-size: 18px;
 }
 
-/* Choices / options block */
-.field-choices {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-}
-
-.field-choices span {
-    background-color: #dee2e6;
-    color: #495057;
-    font-family: 'Fira Code', monospace;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
+/* Description */
+.desc {
+    margin-left: 2.0rem;
+    color: var(--desc-fg);
+    line-height: 1.4;
 }
