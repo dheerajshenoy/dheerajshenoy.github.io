@@ -20,33 +20,37 @@ function renderType(type) {
 }
 
 function renderSection(section) {
+    console.log(section);
     const slug = slugify(section.name);
     const desc = section.section_desc
         ? `<p>${section.section_desc}</p>`
         : '';
 
-    const rows = section.fields.map(f => `
-        <tr>
-            <td><code class="inline">${f.name}</code></td>
-            <td>${renderType(f.type)}</td>
-            <td>${f.desc || '—'}${f.choice ? renderChoices(f.choice) : ''}</td>
-            <td>${renderDefault(f.default)}</td>
-        </tr>`
-    ).join('');
 
-    const table = section.fields.length > 0 ? `
-        <table class="table">
-            <thead>
-                <tr><th>Key</th><th>Type</th><th>Description</th><th>Default</th></tr>
-            </thead>
-            <tbody>${rows}</tbody>
-        </table>` : '';
+    const rows = section.fields.map(f => `
+    <li class="field-item">
+            <code class="field-name">${f.name}</code>
+        ${f.desc ? `<p class="field-desc">${f.desc}</p>` : '<p class="field-desc">—</p>'}
+        ${f.type ? `<span class="field-type">Type: ${renderType(f.type)}</span>` : ''}
+        ${f.default ? `<span class="field-default">Default: ${renderDefault(f.default)}</span>` : ''}
+        ${f.choice ? `<div class="field-choices">${renderChoices(f.choice)}</div>` : ''}
+        ${f.note ? `<div class="callout note"><strong>Note</strong><br>${f.note}</div>` : ''}
+    </li>
+`).join('');
+
 
     return `
         <section id="${slug}" class="section">
-            <h2>${section.name}</h2>
+            <h2>
+            <!-- ${section.name} -->
+            <code class="inline">[${slug}]</code>
+            </h2>
             ${desc}
-            ${table}
+            <div class="fields">
+            <ol>
+                ${rows}
+            </ol>
+            </div>
         </section>
         <hr class="sep">`;
 }

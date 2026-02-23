@@ -1,3 +1,14 @@
+:root {
+    --line: rgba(255, 255, 255, 0.10);
+    --text: rgba(255, 255, 255, 0.85);
+    /* --field-item-bg: rgba(255, 255, 255, 0.1); */
+    --field-name-bg: #e9ecef;
+    --field-name-fg: #212529;
+    --field-type-fg: #6c757d;
+    --field-desc-fg: #FFFFFF;
+    --field-default-fg: #adb5bd;
+}
+
 .layout {
     display: grid;
     grid-template-columns: 280px minmax(0, 1fr);
@@ -76,52 +87,6 @@ code.inline {
     font-size: 95%;
 }
 
-.table {
-    width: 100%;
-    margin-top: 10px;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-collapse: collapse;
-}
-
-.table th + th,
-.table td + td {
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.table th,
-.table td {
-    padding: 12px 12px;
-    vertical-align: top;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.table tbody tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.table th {
-    font-family: 'Outfit';
-    color: var(--muted);
-    background: rgba(0, 0, 0, 0.18);
-    font-weight: 700;
-}
-
-
-.table td {
-    font-family: 'Outfit';
-    font-size: 17px;
-    text-align: center;
-}
-
-.table tr:last-child td {
-    border-bottom: 0;
-}
-
-.table tbody tr:last-child {
-    border-bottom: 0;
-}
-
 details.details {
     margin-top: 12px;
     border: 1px solid var(--line);
@@ -161,4 +126,61 @@ hr.sep {
 .choices strong {
     padding-top: 10px;
     display: block;
+}
+
+
+/* Container for each field */
+.field-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background-color: var(--field-item-bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Field name styling */
+.field-name {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    color: var(--field-name-fg);
+    background-color: var(--field-name-bg);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+}
+
+/* Field type styling */
+.field-type {
+    font-size: 0.85rem;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 1.0rem;
+}
+
+/* Description */
+.field-desc {
+    margin-top: 0.2rem 0 0.5rem 0;
+    color: var(--field-desc-fg);
+    line-height: 1.4;
+}
+
+/* Default value */
+.field-default {
+    font-size: 18px;
+}
+
+/* Choices / options block */
+.field-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.field-choices span {
+    background-color: #dee2e6;
+    color: #495057;
+    font-family: 'Fira Code', monospace;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
 }
