@@ -31,7 +31,7 @@ const features = [
     },
     {
         title: "Layouts",
-        desc: "Choose between <b>top to bottom</b>, <b>left to right</b> or <b>single</b> layouts.",
+        desc: "Choose between <b>top to bottom</b>, <b>left to right</b>, <b>book</b> and <b>single</b> layouts.",
         media: { type: "img", src: "lektra-files/Layouts.gif", alt: "Layouts Demo" }
     },
     {
