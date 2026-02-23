@@ -3,7 +3,7 @@ function slugify(name) {
 }
 
 async function read_config() {
-    const response = await fetch("lektra-files/config.json");
+    const response = await fetch("files/config.json");
     return await response.json();
 }
 

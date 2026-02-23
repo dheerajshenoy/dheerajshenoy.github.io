@@ -22,57 +22,57 @@ const features = [
     {
         title: "Performance",
         desc: "Smooth, high-performance scrolling with keyboard and mouse support.",
-        media: { type: "img", src: "lektra-files/Scrolling.gif", alt: "Scrolling Demo" }
+        media: { type: "img", src: "files/Scrolling.gif", alt: "Scrolling Demo" }
     },
     {
         title: "Tabs and Splits",
         desc: "Open multiple documents in tabs and splits, with customizable layouts.",
-        media: { type: "img", src: "lektra-files/Tabs_and_Splits.gif", alt: "Tabs and Splits Demo" }
+        media: { type: "img", src: "files/Tabs_and_Splits.gif", alt: "Tabs and Splits Demo" }
     },
     {
         title: "Layouts",
         desc: "Choose between <b>top to bottom</b>, <b>left to right</b>, <b>book</b> and <b>single</b> layouts.",
-        media: { type: "img", src: "lektra-files/Layouts.gif", alt: "Layouts Demo" }
+        media: { type: "img", src: "files/Layouts.gif", alt: "Layouts Demo" }
     },
     {
         title: "Portals",
         desc: "Open \"portal\" to view different sections of the same document side by side.",
-        media: { type: "img", src: "lektra-files/Portals.gif", alt: "Portals Demo" }
+        media: { type: "img", src: "files/Portals.gif", alt: "Portals Demo" }
     },
     {
         title: "Search",
         desc: "Instantly search through the document with highlighted results and a scrollbar overview.",
-        media: { type: "img", src: "lektra-files/Search-Hits-Scrollbar.gif", alt: "Search Hits in Scrollbar" }
+        media: { type: "img", src: "files/Search-Hits-Scrollbar.gif", alt: "Search Hits in Scrollbar" }
     },
     {
         title: "Jump Marker &amp; History Navigation",
         desc: "Track jump destinations and move back and forth through your reading history.",
-        media: { type: "img", src: "lektra-files/Jump-Marker.gif", alt: "Jump Marker" }
+        media: { type: "img", src: "files/Jump-Marker.gif", alt: "Jump Marker" }
     },
     {
         title: "SyncTeX Support",
         desc: "Jump seamlessly between LaTeX source and the corresponding PDF location.",
-        media: { type: "img", src: "lektra-files/synctex.gif", alt: "SyncTeX support" }
+        media: { type: "img", src: "files/synctex.gif", alt: "SyncTeX support" }
     },
     {
         title: "Annotation Support",
         desc: "Highlight, rectangle and popup annotations supported.<br><b>(Only highlight shown here)</b>",
-        media: { type: "img", src: "lektra-files/Highlight Annotation.gif", alt: "Highlight Annotation" }
+        media: { type: "img", src: "files/Highlight Annotation.gif", alt: "Highlight Annotation" }
     },
     {
         title: "Link Hints",
         desc: "Navigate links quickly using the keyboard with hint overlays.",
-        media: { type: "img", src: "lektra-files/link_hint.png", alt: "Link Hint" }
+        media: { type: "img", src: "files/link_hint.png", alt: "Link Hint" }
     },
     {
         title: "Searchable Text Highlight",
         desc: "Highlighted text remains searchable across the document.",
-        media: { type: "img", src: "lektra-files/Search Text Highlight.gif", alt: "Search Text Highlight" }
+        media: { type: "img", src: "files/Search Text Highlight.gif", alt: "Search Text Highlight" }
     },
     {
         title: "Configured Using TOML",
         desc: "Fully customizable through a clean, readable TOML configuration file.",
-        media: { type: "img", src: "lektra-files/config.png", alt: "TOML config" }
+        media: { type: "img", src: "files/config.png", alt: "TOML config" }
     },
 ];
 
