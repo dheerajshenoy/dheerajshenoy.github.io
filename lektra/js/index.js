@@ -40,6 +40,11 @@ const features = [
         media: { type: "img", src: "files/Portals.gif", alt: "Portals Demo" }
     },
     {
+        title: "Visual Line Mode",
+        desc: "Highlights your active line and subtly dim the rest of the document, navigatable with keyboard or mouse click)",
+        media: { type: "img", src: "files/visual_line_mode.gif", alt: "Visual Line Mode Demo" }
+    },
+    {
         title: "Search",
         desc: "Instantly search through the document with highlighted results and a scrollbar overview.",
         media: { type: "img", src: "files/Search-Hits-Scrollbar.gif", alt: "Search Hits in Scrollbar" }
@@ -77,9 +82,10 @@ const features = [
 ];
 
 const otherFeatures = [
-    "Lazy loading",
+    "Lazy loading tabs",
     "Session management",
-    "Customizable keybindings",
+    "Completely customizable keybindings",
+    "Supported formats: PDF, XPS, OpenXPS, EPUB, MOBI, FB2, CBZ, CBT, TIFF, JPEG, PNG, SVG, ... <a href='https://mupdf.readthedocs.io/en/1.27.2/guide/what-is-mupdf.html#formats'>More info</a>",
     "Automatic non-PDF URL detection",
 ];
 
