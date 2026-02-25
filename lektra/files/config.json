@@ -79,6 +79,12 @@
                 "type": "str",
                 "default": "\"#FFFFFFAA\"",
                 "name": "annot_popup"
+            },
+            {
+                "desc": "Portal border color",
+                "type": "str",
+                "default": "\"#FFFFFFAA\"",
+                "name": "portal_border"
             }
         ],
         "section_desc": "Color options struct",
@@ -278,6 +284,12 @@
                 "type": "bool",
                 "default": "true",
                 "name": "focus_follows_mouse"
+            },
+            {
+                "desc": "Moving mouse changes the focus",
+                "type": "bool",
+                "default": "true",
+                "name": "mouse_follows_focus"
             },
             {
                 "desc": "Dims splits that are not currently focused",
@@ -673,19 +685,6 @@
                 "type": "bool",
                 "default": "true",
                 "name": "confirm_on_quit"
-            },
-            {
-                "desc": " Smart jump to non-pdf internal links (e.g. page 5 or section 2.3) ",
-                "note": " This is disabled by default because it is resource intensive to detect these links, especially in large documents. Enabling it may cause performance issues. ",
-                "type": "bool",
-                "default": "false",
-                "name": "smart_jump"
-            },
-            {
-                "desc": "Regex to detect smart jump links",
-                "type": "str",
-                "default": "page|section|chapter)\\s+\\d+(\\.\\d+)*)",
-                "name": "smart_jump_regex"
             },
             {
                 "desc": "Undo limit",
