@@ -85,7 +85,6 @@ const otherFeatures = [
     "Lazy loading tabs",
     "Session management",
     "Completely customizable keybindings",
-    "Supported formats: PDF, XPS, OpenXPS, EPUB, MOBI, FB2, CBZ, CBT, TIFF, JPEG, PNG, SVG, ... <a href='https://mupdf.readthedocs.io/en/1.27.2/guide/what-is-mupdf.html#formats'>More info</a>",
     "Automatic non-PDF URL detection",
 ];
 
