@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lektra | Commands</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/commands.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script src="js/commands.js" defer></script>
+    </head>
+    <body id="top">
+        <header>
+            <div class="logo-text"><a href="index.html">lektra</a></div>
+            <div class="stretcher"></div>
+            <nav>
+                <a href="index.html#top" class="navlink">Home</a>
+                <a href="installation.html" class="navlink">Install</a>
+                <a href="configuration.html" class="navlink">Configuration</a>
+                <a href="commands.html" class="navlink active" aria-current="page">Commands</a>
+                <a href="faq.html" class="navlink">FAQ</a>
+                <a href="https://github.com/dheerajshenoy/lektra" class="navlink" target="_blank">Source</a>
+                <a href="https://buymeacoffee.com/dheerajshenoy" class="navlink" target="_blank">Support</a>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="heading">Commands</div>
+            <main class="content">
+
+                <details class="info">
+                    <summary>Commands (click to expand)</summary>
+                    <p>Commands are the core actions that Lektra can perform, such as copying text, navigating pages, or opening the command palette. Each command is associated with a unique identifier and can be triggered through various input methods.</p>
+                <p>Command palette - <code class="inline">Ctrl + Shift + P</code> (on a default configuration).</p>
+
+                <p>Example usage in config:</p>
+                <pre><code class="language-toml">[keybindings]
+selection_copy = "y,y"
+scroll_down= "j"</code></pre>
+                </details>
+                <br>
+                <input type="text" id="command-search" placeholder="Search for commands..." aria-label="Search for commands">
+                <center><span style="font-family: Outfit">Showing <span id="result-count">0</span> results</span></center>
+
+              <div id="sections">
+                <!-- Template Holder -->
+              </div>
+
+            </main>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,190 @@
+:root {
+    --line: rgba(255, 255, 255, 0.10);
+    --text: rgba(255, 255, 255, 0.85);
+    /* --field-item-bg: rgba(255, 255, 255, 0.1); */
+
+    --desc-fg: #adb5bd;
+
+    /* dark nord theme color */
+    --field-item-bg: #2e3440;
+    --field-name-fg: #e9ecef;
+    --field-name-bg: #212529;
+    --field-type-fg: #6c757d;
+    --field-desc-fg: #FFFFFF;
+    --field-default-fg: #adb5bd;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    margin-top: 18px;
+}
+
+.content {
+    padding: 18px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.content p {
+    font-family: 'Outfit';
+}
+
+#sections {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section h2 {
+    font-family: 'Outfit';
+    font-size: 28px;
+    margin: 6px 0 10px;
+    letter-spacing: -.2px;
+    color: pink;
+}
+
+.section h3 {
+    font-family: 'Outfit';
+    font-size: 20px;
+    margin: 18px 0 8px;
+    padding: 20px 0 20px 0;
+}
+
+.section p,
+.section li {
+    font-family: 'Outfit';
+    font-size: 18px;
+}
+
+.callout {
+    margin: 14px 0;
+    padding: 14px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.callout.note {
+    border-left: 4px solid rgba(100, 160, 255, 0.9);
+}
+
+.callout.warn {
+    border-left: 4px solid rgba(255, 140, 90, 0.95);
+}
+
+.callout strong {
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+pre {
+    margin: 12px 0 0;
+    padding: 14px;
+    border-radius: 14px;
+    overflow: auto;
+}
+
+code {
+    font-family: JetBrainsMono, ui-monospace, monospace;
+}
+
+code.inline {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 95%;
+}
+
+details.details {
+    margin-top: 12px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+details.details summary {
+    cursor: pointer;
+    font-family: 'Outfit';
+    color: var(--text);
+}
+
+hr.sep {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    margin: 22px 0;
+}
+
+@media (max-width: 980px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .toc {
+        position: relative;
+        top: 0;
+    }
+}
+
+.heading {
+    color: pink;
+    text-align: center;
+}
+
+.choices strong {
+    padding-top: 10px;
+    display: block;
+}
+
+
+/* Container for each field */
+.command-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    background-color: var(--field-item-bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Field name styling */
+.command-name {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    color: var(--field-name-fg);
+    background-color: var(--field-name-bg);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+}
+
+/* Description */
+.command-desc {
+    margin-top: 1.0rem;
+    color: var(--command-desc-fg);
+    line-height: 1.4;
+}
+
+#command-search {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 28px;
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+}
+
+.info {
+    margin-top: 0.5rem;
+    font-size: 1.0rem;
+    color: var(--field-desc-fg);
+    font-family: 'Outfit', sans-serif;
+}
