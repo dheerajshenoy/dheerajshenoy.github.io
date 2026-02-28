@@ -236,6 +236,10 @@
     "description": "Toggle text highlight mode"
   },
   {
+    "name": "none_mode",
+    "description": "Toggle none interaction mode"
+  },
+  {
     "name": "selection_mode_text",
     "description": "Switch to text selection mode"
   },
@@ -384,11 +388,11 @@
     "description": "Single page layout"
   },
   {
-    "name": "layout_left_to_right",
+    "name": "layout_horizontal",
     "description": "Horizontal (left to right) layout"
   },
   {
-    "name": "layout_top_to_bottom",
+    "name": "layout_vertical",
     "description": "Vertical (top to bottom) layout"
   },
   {
