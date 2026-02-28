@@ -99,7 +99,7 @@
             {
                 "desc": "Window options struct",
                 "type": "struct",
-                "name": "window"
+                "name": "Window"
             },
             {
                 "desc": "Set the window fullscreen",
@@ -144,7 +144,7 @@
             {
                 "desc": "Initial page layout mode",
                 "type": "str",
-                "choice": "top_to_bottom, left_to_right, single, book",
+                "choice": "vertical, horizontal, single, book",
                 "default": "top_to_bottom",
                 "name": "mode"
             },
@@ -478,7 +478,19 @@
     },
     {
         "name": "Outline",
-        "fields": [],
+        "fields": [
+            {
+                "desc": "Indent width",
+                "type": "int",
+                "default": "10",
+                "name": "indent_width"
+            },
+            {
+                "desc": "Show page numbers",
+                "type": "bool",
+                "name": "show_page_numbers"
+            }
+        ],
         "section_desc": "Outline options struct",
         "section_choice": "",
         "section_type": "struct",
@@ -526,6 +538,12 @@
                 "type": "bool",
                 "default": "true",
                 "name": "shortcuts"
+            },
+            {
+                "desc": "Show command description",
+                "type": "bool",
+                "default": "false",
+                "name": "description"
             },
             {
                 "desc": "Show grids",
