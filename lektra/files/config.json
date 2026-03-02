@@ -1,97 +1,169 @@
 [
     {
-        "name": "Colors",
+        "name": "Search",
         "fields": [
-            {
-                "desc": "Accent color",
-                "type": "str",
-                "default": "\"#3daee9FF\"",
-                "name": "accent"
-            },
-            {
-                "desc": "Background color",
-                "type": "str",
-                "default": "\"#00000000\"",
-                "name": "background"
-            },
-            {
-                "desc": "Page background color",
-                "type": "str",
-                "default": "\"#FFFFFFFF\"",
-                "name": "page_background"
-            },
-            {
-                "desc": "Page foreground color",
-                "type": "str",
-                "default": "\"#000000FF\"",
-                "name": "page_foreground"
-            },
             {
                 "desc": "Search match count color",
                 "type": "str",
                 "default": "\"#55500033\"",
-                "name": "search_match"
+                "name": "match_color"
             },
             {
                 "desc": "Search match index color",
                 "type": "str",
                 "default": "\"#55FF0055\"",
-                "name": "search_index"
+                "name": "index_color"
+            }
+        ],
+        "section_desc": "Search options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": ""
+    },
+    {
+        "name": "Popup",
+        "fields": [
+            {
+                "desc": "Enable hover effect (e.g., glow on highlight)",
+                "type": "bool",
+                "default": "true",
+                "name": "hover_glow"
             },
             {
-                "desc": "Link hint background color",
+                "desc": "Annotation glow color (on hover)",
                 "type": "str",
-                "default": "\"#000000FF\"",
-                "name": "link_hint_bg"
+                "default": "\"#FF5000AA\"",
+                "name": "glow_color"
             },
             {
-                "desc": "Link hint foreground color",
-                "type": "str",
-                "default": "\"#ea3ee9FF\"",
-                "name": "link_hint_fg"
+                "desc": "Glow width in pixels",
+                "type": "int",
+                "default": "5",
+                "name": "glow_width"
             },
             {
-                "desc": "Selection color",
-                "type": "str",
-                "default": "\"#0000FF55\"",
-                "name": "selection"
+                "desc": "Show comment text in tooltip on hover (if comment exists)",
+                "type": "bool",
+                "default": "true",
+                "name": "comment"
             },
             {
-                "desc": "Highlight annotation color",
-                "type": "str",
-                "default": "\"#55FF0055\"",
-                "name": "highlight"
+                "desc": "Font size for the comment tooltip (in points)",
+                "type": "int",
+                "default": "12",
+                "name": "comment_font_size"
+            }
+        ],
+        "section_desc": "Popup annotation options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": ""
+    },
+    {
+        "name": "Rect",
+        "fields": [
+            {
+                "desc": "Enable hover effect (e.g., glow on highlight)",
+                "type": "bool",
+                "default": "true",
+                "name": "hover_glow"
             },
             {
-                "desc": "Jump marker color",
+                "desc": "Annotation glow color (on hover)",
                 "type": "str",
-                "default": "\"#FF0000FF\"",
-                "name": "jump_marker"
+                "default": "\"#FF5000AA\"",
+                "name": "glow_color"
             },
             {
                 "desc": "Rect annotation color",
                 "type": "str",
                 "default": "\"#55FF5588\"",
-                "name": "annot_rect"
+                "name": "color"
             },
             {
-                "desc": "Popup annotation color",
-                "type": "str",
-                "default": "\"#FFFFFFAA\"",
-                "name": "annot_popup"
+                "desc": "Glow width in pixels",
+                "type": "int",
+                "default": "5",
+                "name": "glow_width"
             },
             {
-                "desc": "Portal border color",
-                "type": "str",
-                "default": "\"#FFFFFFAA\"",
-                "name": "portal_border"
+                "desc": "Show comment text in tooltip on hover (if comment exists)",
+                "type": "bool",
+                "default": "true",
+                "name": "comment"
+            },
+            {
+                "desc": "Font size for the comment tooltip (in points)",
+                "type": "int",
+                "default": "12",
+                "name": "comment_font_size"
+            },
+            {
+                "desc": "Show marker in the corner of the rect (if comment exists)",
+                "type": "bool",
+                "default": "true",
+                "name": "comment_marker"
             }
         ],
-        "section_desc": "Color options struct",
+        "section_desc": "Rect annotation options struct",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": " Colors can be specified in hex format (e.g. #RRGGBBAA) or as a color name "
+        "section_note": ""
+    },
+    {
+        "name": "Highlight",
+        "fields": [
+            {
+                "desc": "Show comment text in tooltip on hover (if commentb exists)",
+                "type": "bool",
+                "default": "true",
+                "name": "comment"
+            },
+            {
+                "desc": "Font size for the comment tooltip (in points)",
+                "type": "int",
+                "default": "12",
+                "name": "comment_font_size"
+            },
+            {
+                "desc": "Annotation glow color (on hover)",
+                "type": "str",
+                "default": "\"#FF5000AA\"",
+                "name": "glow_color"
+            },
+            {
+                "desc": "Highlight annotation color",
+                "type": "str",
+                "default": "\"#55FF0055\"",
+                "name": "color"
+            },
+            {
+                "desc": "Glow width in pixels",
+                "type": "int",
+                "default": "5",
+                "name": "glow_width"
+            },
+            {
+                "desc": "Enable hover effect (e.g., glow on highlight)",
+                "type": "bool",
+                "default": "true",
+                "name": "hover_glow"
+            },
+            {
+                "desc": "Show marker at the highlight (if comment exists)",
+                "type": "bool",
+                "default": "true",
+                "name": "comment_marker"
+            }
+        ],
+        "section_desc": "Highlight annotation options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": ""
     },
     {
         "name": "Window",
@@ -100,6 +172,18 @@
                 "desc": "Window options struct",
                 "type": "struct",
                 "name": "Window"
+            },
+            {
+                "desc": "Background color",
+                "type": "str",
+                "default": "\"#00000000\"",
+                "name": "bg"
+            },
+            {
+                "desc": "Accent color",
+                "type": "str",
+                "default": "\"#3daee9FF\"",
+                "name": "accent"
             },
             {
                 "desc": "Set the window fullscreen",
@@ -268,6 +352,12 @@
                 "type": "bool",
                 "default": "false",
                 "name": "copy_on_select"
+            },
+            {
+                "desc": "Selection color",
+                "type": "str",
+                "default": "\"#0000FF55\"",
+                "name": "color"
             }
         ],
         "section_desc": "Selection options struct",
@@ -357,13 +447,19 @@
         "section_note": ""
     },
     {
-        "name": "Markers",
+        "name": "Jump Marker",
         "fields": [
             {
                 "desc": "Show the jump marker",
                 "type": "bool",
                 "default": "true",
-                "name": "jump_marker"
+                "name": "enabled"
+            },
+            {
+                "desc": "Jump marker color",
+                "type": "str",
+                "default": "\"#FF0000FF\"",
+                "name": "color"
             }
         ],
         "section_desc": "Jump marker options struct",
@@ -375,6 +471,12 @@
     {
         "name": "Links",
         "fields": [
+            {
+                "desc": "Enable link support (both pdf links and detected URLs)",
+                "type": "bool",
+                "default": "true",
+                "name": "enabled"
+            },
             {
                 "desc": "Show the rect boundary for links",
                 "type": "bool",
@@ -408,6 +510,18 @@
                 "type": "float",
                 "default": "0.5f",
                 "name": "size"
+            },
+            {
+                "desc": "Link hint background color",
+                "type": "str",
+                "default": "\"#000000FF\"",
+                "name": "bg"
+            },
+            {
+                "desc": "Link hint foreground color",
+                "type": "str",
+                "default": "\"#ea3ee9FF\"",
+                "name": "fg"
             }
         ],
         "section_desc": "Link hint options struct",
