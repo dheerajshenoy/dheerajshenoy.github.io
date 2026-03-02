@@ -29,12 +29,6 @@
         <div class="container">
             <div class="section">
                 <div class="heading">Installation</div>
-                <div class="callout warn">
-                    <strong>Warning</strong>
-                    <p><b>lektra</b> is still in alpha, crashes and bugs expected. Please submit issues
-                    <a href="https://github.com/dheerajshenoy/lektra/issues">here</a>
-                    </p>
-                </div>
 
                 <div class="tabs" data-tabs>
                     <div class="tab-buttons" role="tablist" aria-label="Installation instructions">
@@ -67,6 +61,7 @@
 
                     <div class="tab-panels">
                         <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
+                            <p>Install dependencies: <code class="inline">sudo pacman -S qt6-base curl synctex djvulibre</code></p>
                             <p>Lektra is available in the <a href="https://aur.archlinux.org/packages/lektra-git"><b>Arch User Repository (AUR)</b></a></p>
                             <p>For the latest git version, run:</p>
                             <pre><code class="language-bash">paru lektra-git # (or) yay -S lektra-git</code></pre>
@@ -85,14 +80,14 @@
 
                         </div>
 
-                      <div class="panel" role="tabpanel" id="tab-gentoo" aria-labelledby="tabbtn-gentoo">
-                        <pre><code class="language-bash">eselect repository enable gentoo-zh
+                        <div class="panel" role="tabpanel" id="tab-gentoo" aria-labelledby="tabbtn-gentoo">
+                            <pre><code class="language-bash">eselect repository enable gentoo-zh
 emaint sync -r gentoo-zh
 emerge lektra</code></pre>
-                        <div class="callout note">
-                          <strong>NOTE</strong>
-                          <p>This package is maintained by <a href="https://github.com/douglarek">douglarek</a>, not by the upstream project. Please report Gentoo-specific issues to the <a href="https://github.com/microcai/gentoo-zh">gentoo-zh</a> repository.</p>
-                        </div>
+                            <div class="callout note">
+                                <strong>NOTE</strong>
+                                <p>This package is maintained by <a href="https://github.com/douglarek">douglarek</a>, not by the upstream project. Please report Gentoo-specific issues to the <a href="https://github.com/microcai/gentoo-zh">gentoo-zh</a> repository.</p>
+                            </div>
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
@@ -111,6 +106,22 @@ cd lektra</code></pre>
 
                     </div>
                 </div> <!-- Installation Section -->
+
+                <div class="callout note">
+                    <strong>Note about dependencies</strong>
+                    <p>The SyncTeX, DjVu and LLM features are <b><i>OPTIONAL</i></b> and can be disabled during installation to save space and reduce dependencies.</p>
+                </div>
+
+                <div class="callout warn">
+                    <strong>Alpha software warning</strong>
+                    <p>LEKTRA is still in alpha, crashes and bugs expected.<br>
+                    Please submit issues
+                    <a href="https://github.com/dheerajshenoy/lektra/issues">here (GitHub mirror)</a>
+                    or
+                    <a href="https://codeberg.org/lektra/lektra/issues">here (Codeberg mirror)</a>
+                    </p>
+                </div>
+                <br>
             </div> <!-- Container End -->
     </body>
 </html>
