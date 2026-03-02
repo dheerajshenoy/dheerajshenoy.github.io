@@ -52,8 +52,7 @@ function renderSection(section) {
                 ${rows}
             </ol>
             </div>
-        </section>
-        <hr class="sep">`;
+        </section>`
 }
 
 function renderChoices(choice) {
