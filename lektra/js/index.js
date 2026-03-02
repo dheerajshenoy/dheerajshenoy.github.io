@@ -82,6 +82,7 @@ const features = [
 ];
 
 const otherFeatures = [
+    "Full support for both local and global bookmarks (similar to Vim's)",
     "Lazy loading tabs",
     "Session management",
     "Completely customizable keybindings",
