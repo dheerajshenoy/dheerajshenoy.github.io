@@ -364,6 +364,10 @@
     "description": "Search within highlights"
   },
   {
+    "name": "picker_annot_comment_search",
+    "description": "Search annotation comments"
+  },
+  {
     "name": "search",
     "description": "Search document"
   },
