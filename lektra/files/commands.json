@@ -44,6 +44,10 @@
     "description": "Toggle visual line mode"
   },
   {
+    "name": "toggle_comment_markers",
+    "description": "Toggle comment markers"
+  },
+  {
     "name": "llm_widget",
     "description": "Toggle LLM assistant widget"
   },
