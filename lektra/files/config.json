@@ -50,7 +50,7 @@
         "section_added": "0.6.0"
     },
     {
-        "name": "Popup",
+        "name": "Annotations.Popup",
         "fields": [
             {
                 "desc": "Enable hover effect (e.g., glow on highlight)",
@@ -96,7 +96,7 @@
         "section_added": "0.6.5"
     },
     {
-        "name": "Rect",
+        "name": "Annotations.Rect",
         "fields": [
             {
                 "desc": "Enable hover effect (e.g., glow on highlight)",
@@ -156,7 +156,7 @@
         "section_added": "0.6.5"
     },
     {
-        "name": "Highlight",
+        "name": "Annotations.Highlight",
         "fields": [
             {
                 "desc": "Show comment text in tooltip on hover (if commentb exists)",
