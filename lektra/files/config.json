@@ -523,7 +523,7 @@
         "section_type": "struct",
         "section_default": "",
         "section_note": "",
-        "section_added": "0.6.4"
+        "section_added": "0.6.2"
     },
     {
         "name": "Scrollbars",
@@ -576,7 +576,7 @@
         "section_type": "struct",
         "section_default": "",
         "section_note": "",
-        "section_added": "0.5.4"
+        "section_added": "0.5.1"
     },
     {
         "name": "Jump Marker",
@@ -832,13 +832,8 @@
         "section_added": "0.5.4"
     },
     {
-        "name": "Shadow",
+        "name": "Picker.Shadow",
         "fields": [
-            {
-                "added": "0.6.0",
-                "name": "shadow",
-                "type": "struct"
-            },
             {
                 "desc": "Enable shadow",
                 "type": "bool",
@@ -880,7 +875,7 @@
         "section_type": "struct",
         "section_default": "",
         "section_note": "",
-        "section_added": ""
+        "section_added": "0.6.0"
     },
     {
         "name": "LLM Widget",
