@@ -1,5 +1,27 @@
 [
     {
+        "name": "Page",
+        "fields": [
+            {
+                "desc": "Page background color",
+                "type": "str",
+                "default": "\"#FFFFFFFF\"",
+                "name": "bg"
+            },
+            {
+                "desc": "Page foreground color",
+                "type": "str",
+                "default": "\"#000000FF\"",
+                "name": "fg"
+            }
+        ],
+        "section_desc": "Page options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": ""
+    },
+    {
         "name": "Search",
         "fields": [
             {
@@ -160,6 +182,46 @@
             }
         ],
         "section_desc": "Highlight annotation options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": ""
+    },
+    {
+        "name": "Portal",
+        "fields": [
+            {
+                "desc": "Portal border color",
+                "type": "str",
+                "default": "\"#FFFFFFAA\"",
+                "name": "border_color"
+            },
+            {
+                "desc": "Enable portal ability",
+                "type": "bool",
+                "default": "true",
+                "name": "enabled"
+            },
+            {
+                "desc": "Portal border width",
+                "type": "int",
+                "default": "5",
+                "name": "border_width"
+            },
+            {
+                "desc": " Respect parent's destruction (if parent closes, close the portal too) ",
+                "type": "bool",
+                "default": "true",
+                "name": "respect_parent"
+            },
+            {
+                "desc": "Dim inactive for portal views too",
+                "type": "bool",
+                "default": "false",
+                "name": "dim_inactive"
+            }
+        ],
+        "section_desc": "Portal options struct",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
@@ -801,6 +863,13 @@
                 "type": "bool",
                 "default": "true",
                 "name": "smooth_pixmap_transform"
+            },
+            {
+                "desc": "Rendering backend to use",
+                "type": "str",
+                "choice": "auto, raster, opengl",
+                "default": "auto",
+                "name": "backend"
             }
         ],
         "section_desc": "Rendering options struct",
