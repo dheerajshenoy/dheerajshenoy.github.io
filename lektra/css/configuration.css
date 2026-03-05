@@ -175,6 +175,18 @@ hr.sep {
     font-size: 18px;
 }
 
+.field-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.field-added {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+}
+
 /* Description */
 .desc {
     margin-left: 2.0rem;

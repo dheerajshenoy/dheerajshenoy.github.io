@@ -6,12 +6,14 @@
                 "desc": "Page background color",
                 "type": "str",
                 "default": "\"#FFFFFFFF\"",
+                "added": "0.6.4",
                 "name": "bg"
             },
             {
                 "desc": "Page foreground color",
                 "type": "str",
                 "default": "\"#000000FF\"",
+                "added": "0.6.4",
                 "name": "fg"
             }
         ],
@@ -19,7 +21,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.6.4"
     },
     {
         "name": "Search",
@@ -28,12 +31,14 @@
                 "desc": "Search match count color",
                 "type": "str",
                 "default": "\"#55500033\"",
+                "added": "0.6.5",
                 "name": "match_color"
             },
             {
                 "desc": "Search match index color",
                 "type": "str",
                 "default": "\"#55FF0055\"",
+                "added": "0.6.5",
                 "name": "index_color"
             }
         ],
@@ -41,7 +46,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.6.0"
     },
     {
         "name": "Popup",
@@ -50,30 +56,35 @@
                 "desc": "Enable hover effect (e.g., glow on highlight)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "hover_glow"
             },
             {
                 "desc": "Annotation glow color (on hover)",
                 "type": "str",
                 "default": "\"#FF5000AA\"",
+                "added": "0.6.5",
                 "name": "glow_color"
             },
             {
                 "desc": "Glow width in pixels",
                 "type": "int",
                 "default": "5",
+                "added": "0.6.5",
                 "name": "glow_width"
             },
             {
                 "desc": "Show comment text in tooltip on hover (if comment exists)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "comment"
             },
             {
                 "desc": "Font size for the comment tooltip (in points)",
                 "type": "int",
                 "default": "12",
+                "added": "0.6.5",
                 "name": "comment_font_size"
             }
         ],
@@ -81,7 +92,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.6.5"
     },
     {
         "name": "Rect",
@@ -90,42 +102,49 @@
                 "desc": "Enable hover effect (e.g., glow on highlight)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "hover_glow"
             },
             {
                 "desc": "Annotation glow color (on hover)",
                 "type": "str",
                 "default": "\"#FF5000AA\"",
+                "added": "0.6.5",
                 "name": "glow_color"
             },
             {
                 "desc": "Rect annotation color",
                 "type": "str",
                 "default": "\"#55FF5588\"",
+                "added": "0.6.5",
                 "name": "color"
             },
             {
                 "desc": "Glow width in pixels",
                 "type": "int",
                 "default": "5",
+                "added": "0.6.5",
                 "name": "glow_width"
             },
             {
                 "desc": "Show comment text in tooltip on hover (if comment exists)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "comment"
             },
             {
                 "desc": "Font size for the comment tooltip (in points)",
                 "type": "int",
                 "default": "12",
+                "added": "0.6.5",
                 "name": "comment_font_size"
             },
             {
                 "desc": "Show marker in the corner of the rect (if comment exists)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "comment_marker"
             }
         ],
@@ -133,7 +152,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.6.5"
     },
     {
         "name": "Highlight",
@@ -142,42 +162,49 @@
                 "desc": "Show comment text in tooltip on hover (if commentb exists)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "comment"
             },
             {
                 "desc": "Font size for the comment tooltip (in points)",
                 "type": "int",
                 "default": "12",
+                "added": "0.6.5",
                 "name": "comment_font_size"
             },
             {
                 "desc": "Annotation glow color (on hover)",
                 "type": "str",
                 "default": "\"#FF5000AA\"",
+                "added": "0.6.5",
                 "name": "glow_color"
             },
             {
                 "desc": "Highlight annotation color",
                 "type": "str",
                 "default": "\"#55FF0055\"",
+                "added": "0.6.5",
                 "name": "color"
             },
             {
                 "desc": "Glow width in pixels",
                 "type": "int",
                 "default": "5",
+                "added": "0.6.5",
                 "name": "glow_width"
             },
             {
                 "desc": "Enable hover effect (e.g., glow on highlight)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "hover_glow"
             },
             {
                 "desc": "Show marker at the highlight (if comment exists)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "comment_marker"
             }
         ],
@@ -185,7 +212,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.6.5"
     },
     {
         "name": "Portal",
@@ -194,30 +222,35 @@
                 "desc": "Portal border color",
                 "type": "str",
                 "default": "\"#FFFFFFAA\"",
+                "added": "0.6.4",
                 "name": "border_color"
             },
             {
                 "desc": "Enable portal ability",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.4",
                 "name": "enabled"
             },
             {
                 "desc": "Portal border width",
                 "type": "int",
                 "default": "5",
+                "added": "0.6.4",
                 "name": "border_width"
             },
             {
                 "desc": " Respect parent's destruction (if parent closes, close the portal too) ",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.4",
                 "name": "respect_parent"
             },
             {
                 "desc": "Dim inactive for portal views too",
                 "type": "bool",
                 "default": "false",
+                "added": "0.6.5",
                 "name": "dim_inactive"
             }
         ],
@@ -225,64 +258,68 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.6.4"
     },
     {
         "name": "Window",
         "fields": [
             {
-                "desc": "Window options struct",
-                "type": "struct",
-                "name": "Window"
-            },
-            {
                 "desc": "Background color",
                 "type": "str",
                 "default": "\"#00000000\"",
+                "added": "0.3.0",
                 "name": "bg"
             },
             {
                 "desc": "Accent color",
                 "type": "str",
                 "default": "\"#3daee9FF\"",
+                "added": "0.3.0",
                 "name": "accent"
             },
             {
                 "desc": "Set the window fullscreen",
                 "type": "bool",
                 "default": "false",
+                "added": "0.3.0",
                 "name": "fullscreen"
             },
             {
                 "desc": "Show the menubar",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "menubar"
             },
             {
                 "desc": "Show startup widget tab",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "startup_tab"
             },
             {
                 "desc": "Title format for the window title",
                 "type": "str",
                 "default": "\"{} - lektra\"",
+                "added": "0.3.0",
                 "name": "title_format"
             },
             {
                 "desc": "Initial size of the window",
                 "type": "table",
                 "default": "600,400",
+                "added": "0.6.3",
                 "name": "initial_size"
             }
         ],
-        "section_desc": "",
+        "section_desc": "Window options struct",
         "section_choice": "",
-        "section_type": "",
+        "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.3.0"
     },
     {
         "name": "Layout",
@@ -291,13 +328,15 @@
                 "desc": "Initial page layout mode",
                 "type": "str",
                 "choice": "vertical, horizontal, single, book",
-                "default": "top_to_bottom",
+                "default": "vertical",
+                "added": "0.5.1",
                 "name": "mode"
             },
             {
                 "desc": "Initial page fit mode",
                 "default": "width",
                 "choice": "width, height, window",
+                "added": "0.5.1",
                 "name": "initial_fit",
                 "type": "DocumentView::FitMode"
             },
@@ -305,12 +344,14 @@
                 "desc": "Apply auto fit when resizing window",
                 "type": "bool",
                 "default": "false",
+                "added": "0.5.1",
                 "name": "auto_resize"
             },
             {
                 "desc": "Page spacing in pixels",
                 "type": "int",
                 "default": "10",
+                "added": "0.5.1",
                 "name": "spacing"
             }
         ],
@@ -318,7 +359,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.5.1"
     },
     {
         "name": "Statusbar",
@@ -327,48 +369,56 @@
                 "desc": "Show statusbar",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.5",
                 "name": "visible"
             },
             {
                 "desc": "Padding",
                 "type": "table",
                 "default": "[5, 5, 5, 5]",
+                "added": "0.5.5",
                 "name": "padding"
             },
             {
                 "desc": "Show session name (if in session)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.5",
                 "name": "show_session_name"
             },
             {
                 "desc": "Show file name only (as opposed to full path)",
                 "type": "bool",
                 "default": "false",
+                "added": "0.5.5",
                 "name": "file_name_only"
             },
             {
                 "desc": "Show file info",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.5",
                 "name": "show_file_info"
             },
             {
                 "desc": "Show page number",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.5",
                 "name": "show_page_number"
             },
             {
                 "desc": "Show interaction mode",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.5",
                 "name": "show_mode"
             },
             {
                 "desc": "Show page read progress",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.5",
                 "name": "show_progress"
             }
         ],
@@ -376,7 +426,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.5.5"
     },
     {
         "name": "Zoom",
@@ -385,12 +436,14 @@
                 "desc": "Default zoom level",
                 "type": "float",
                 "default": "0.5f",
+                "added": "0.3.0",
                 "name": "level"
             },
             {
                 "desc": "Zoom factor",
                 "type": "float",
                 "default": "1.25f",
+                "added": "0.3.0",
                 "name": "factor"
             }
         ],
@@ -398,7 +451,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.3.0"
     },
     {
         "name": "Selection",
@@ -407,18 +461,21 @@
                 "desc": "Threshold in pixels before actually starting the selection",
                 "type": "int",
                 "default": "50",
+                "added": "0.5.1",
                 "name": "drag_threshold"
             },
             {
                 "desc": "Copy on text selection",
                 "type": "bool",
                 "default": "false",
+                "added": "0.6.3",
                 "name": "copy_on_select"
             },
             {
                 "desc": "Selection color",
                 "type": "str",
                 "default": "\"#0000FF55\"",
+                "added": "0.5.1",
                 "name": "color"
             }
         ],
@@ -426,7 +483,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.5.1"
     },
     {
         "name": "Split",
@@ -435,24 +493,28 @@
                 "desc": "Focus of split follows the mouse",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.2",
                 "name": "focus_follows_mouse"
             },
             {
                 "desc": "Moving mouse changes the focus",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.2",
                 "name": "mouse_follows_focus"
             },
             {
                 "desc": "Dims splits that are not currently focused",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.2",
                 "name": "dim_inactive"
             },
             {
                 "desc": "Set the inactive split dim opacity [0-1]",
                 "type": "float",
                 "default": "0.5f",
+                "added": "0.6.2",
                 "name": "dim_inactive_opacity"
             }
         ],
@@ -460,7 +522,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.6.4"
     },
     {
         "name": "Scrollbars",
@@ -469,36 +532,42 @@
                 "desc": "Show the horizontal scrollbar",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.4",
                 "name": "horizontal"
             },
             {
                 "desc": "Show the vertical scrollbar",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.4",
                 "name": "vertical"
             },
             {
                 "desc": "Show the search hits in scrollbar",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.1",
                 "name": "search_hits"
             },
             {
                 "desc": "Auto hide after timeout",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.4",
                 "name": "auto_hide"
             },
             {
                 "desc": "Size of the scrollbar in pixels",
                 "type": "int",
                 "default": "12",
+                "added": "0.5.4",
                 "name": "size"
             },
             {
                 "desc": "Inactive timeout after which to hide the scrollbar",
                 "type": "float",
                 "default": "1.5",
+                "added": "0.5.4",
                 "name": "hide_timeout"
             }
         ],
@@ -506,7 +575,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.5.4"
     },
     {
         "name": "Jump Marker",
@@ -515,12 +585,14 @@
                 "desc": "Show the jump marker",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.1",
                 "name": "enabled"
             },
             {
                 "desc": "Jump marker color",
                 "type": "str",
                 "default": "\"#FF0000FF\"",
+                "added": "0.3.1",
                 "name": "color"
             }
         ],
@@ -528,7 +600,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.3.1"
     },
     {
         "name": "Links",
@@ -537,24 +610,28 @@
                 "desc": "Enable link support (both pdf links and detected URLs)",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.5",
                 "name": "enabled"
             },
             {
                 "desc": "Show the rect boundary for links",
                 "type": "bool",
                 "default": "false",
+                "added": "0.3.1",
                 "name": "boundary"
             },
             {
                 "desc": "Detect non-pdf link objects that are valid links",
                 "type": "bool",
                 "default": "false",
+                "added": "0.5.3",
                 "name": "detect_urls"
             },
             {
                 "desc": "Valid regular expression that detects URLs",
                 "type": "str",
                 "default": "R\"((https?://|www\\.)[^\\s<>()\\\"']+)\"",
+                "added": "0.5.3",
                 "name": "url_regex"
             }
         ],
@@ -562,7 +639,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.3.1"
     },
     {
         "name": "Link Hints",
@@ -571,18 +649,21 @@
                 "desc": "Size of the link hint rects",
                 "type": "float",
                 "default": "0.5f",
+                "added": "0.3.0",
                 "name": "size"
             },
             {
                 "desc": "Link hint background color",
                 "type": "str",
                 "default": "\"#000000FF\"",
+                "added": "0.6.4",
                 "name": "bg"
             },
             {
                 "desc": "Link hint foreground color",
                 "type": "str",
                 "default": "\"#ea3ee9FF\"",
+                "added": "0.6.4",
                 "name": "fg"
             }
         ],
@@ -590,7 +671,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.3.0"
     },
     {
         "name": "Tabs",
@@ -599,24 +681,28 @@
                 "desc": "Show tabs",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "visible"
             },
             {
                 "desc": "Auto hide tabs when tab count equals 1",
                 "type": "bool",
                 "default": "false",
+                "added": "0.3.0",
                 "name": "auto_hide"
             },
             {
                 "desc": "Show the tab close buttons",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "closable"
             },
             {
                 "desc": "Tabs can be rearranged",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "movable"
             },
             {
@@ -624,6 +710,7 @@
                 "type": "str",
                 "choice": "right, left, middle, none",
                 "default": "right",
+                "added": "0.3.0",
                 "name": "elide_mode"
             },
             {
@@ -631,18 +718,21 @@
                 "type": "str",
                 "choice": "top, bottom, left, right",
                 "default": "top",
+                "added": "0.3.0",
                 "name": "location"
             },
             {
                 "desc": "Show full file path",
                 "type": "bool",
                 "default": "false",
+                "added": "0.3.0",
                 "name": "full_path"
             },
             {
                 "desc": "Lazy load tabs",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.0",
                 "name": "lazy_load"
             }
         ],
@@ -650,7 +740,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.3.0"
     },
     {
         "name": "Outline",
@@ -659,19 +750,23 @@
                 "desc": "Indent width",
                 "type": "int",
                 "default": "10",
+                "added": "0.6.5",
                 "name": "indent_width"
             },
             {
                 "desc": "Show page numbers",
                 "type": "bool",
-                "name": "show_page_numbers"
+                "default": "true",
+                "added": "0.6.5",
+                "name": "show_page_number"
             }
         ],
         "section_desc": "Outline options struct",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.5.3"
     },
     {
         "name": "Highlight",
@@ -680,7 +775,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.5.3"
     },
     {
         "name": "Command Palette",
@@ -689,82 +785,93 @@
                 "desc": "Width of the command palette picker",
                 "type": "int",
                 "default": "500",
+                "added": "0.5.4",
                 "name": "width"
             },
             {
                 "desc": "Height of the command palette picker",
                 "type": "int",
                 "default": "300",
+                "added": "0.5.4",
                 "name": "height"
             },
             {
                 "desc": "Placeholder text for the input field",
                 "type": "str",
                 "default": "\"Type a command...\"",
+                "added": "0.5.4",
                 "name": "placeholder_text"
             },
             {
                 "desc": "Show the vertical scrollbar in the picker",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.4",
                 "name": "vscrollbar"
             },
             {
                 "desc": "Show shortcuts",
                 "type": "bool",
                 "default": "true",
+                "added": "0.5.4",
                 "name": "shortcuts"
             },
             {
                 "desc": "Show command description",
                 "type": "bool",
                 "default": "false",
+                "added": "0.6.5",
                 "name": "description"
-            },
-            {
-                "desc": "Show grids",
-                "type": "bool",
-                "default": "false",
-                "name": "grid"
             }
         ],
         "section_desc": "Command Palette options struct",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.5.4"
     },
     {
         "name": "Shadow",
         "fields": [
             {
+                "added": "0.6.0",
+                "name": "shadow",
+                "type": "struct"
+            },
+            {
                 "desc": "Enable shadow",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.0",
                 "name": "enabled"
             },
             {
                 "desc": "Blur radius of shadow in pixels",
                 "type": "int",
                 "default": "18",
+                "added": "0.6.0",
                 "name": "blur_radius"
             },
             {
                 "desc": "X-offset of the shadow",
                 "type": "int",
                 "default": "0",
+                "added": "0.6.0",
                 "name": "offset_x"
             },
             {
                 "desc": "Y-offset of the shadow",
                 "type": "int",
                 "default": "6",
+                "added": "0.6.0",
                 "name": "offset_y"
             },
             {
                 "desc": "Opacity of the shadow",
                 "type": "int",
                 "default": "120",
+                "added": "0.6.0",
                 "name": "opacity"
             }
         ],
@@ -772,7 +879,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": ""
     },
     {
         "name": "LLM Widget",
@@ -781,6 +889,7 @@
                 "desc": "Show the LLM Widget",
                 "type": "bool",
                 "default": "false",
+                "added": "0.5.4",
                 "name": "visible"
             },
             {
@@ -788,12 +897,14 @@
                 "type": "str",
                 "choice": "left, right, top, bottom",
                 "default": "right",
+                "added": "0.5.4",
                 "name": "panel_position"
             },
             {
                 "desc": "LLM Widget Panel width",
                 "type": "int",
                 "default": "400",
+                "added": "0.5.4",
                 "name": "panel_width"
             }
         ],
@@ -801,7 +912,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": " This is still a work in progress and subject to change, but the options are here for documentation purposes ",
+        "section_added": "0.5.4"
     },
     {
         "name": "LLM",
@@ -810,18 +922,21 @@
                 "desc": "LLM Provider",
                 "type": "str",
                 "default": "ollama",
+                "added": "0.5.4",
                 "name": "provider"
             },
             {
                 "desc": "LLM Model to use",
                 "type": "str",
                 "default": "\"llama2-7b-chat\"",
+                "added": "0.5.4",
                 "name": "model"
             },
             {
                 "desc": "Max tokens",
                 "type": "int",
                 "default": "512",
+                "added": "0.5.4",
                 "name": "max_tokens"
             }
         ],
@@ -829,7 +944,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": " This is still a work in progress and subject to change, but the options are here for documentation purposes ",
+        "section_added": "0.5.4"
     },
     {
         "name": "Rendering",
@@ -838,36 +954,42 @@
                 "desc": "Device Pixel Ratio",
                 "type": "float or table",
                 "default": "1.0",
+                "added": "0.3.0",
                 "name": "dpr"
             },
             {
                 "desc": "Enable Antialiasing",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.3",
                 "name": "antialiasing"
             },
             {
                 "desc": "Antialiasing bits",
                 "type": "int",
                 "default": "8",
+                "added": "0.3.0",
                 "name": "antialiasing_bits"
             },
             {
                 "desc": "Enable text antialiasing",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.3",
                 "name": "text_antialiasing"
             },
             {
                 "desc": "Smooth pixmap transform",
                 "type": "bool",
                 "default": "true",
+                "added": "0.6.3",
                 "name": "smooth_pixmap_transform"
             },
             {
                 "desc": "Rendering backend to use",
                 "type": "str",
                 "choice": "auto, raster, opengl",
+                "added": "0.6.6",
                 "default": "auto",
                 "name": "backend"
             }
@@ -876,7 +998,8 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.3.0"
     },
     {
         "name": "Behavior",
@@ -885,72 +1008,84 @@
                 "desc": "Confirm before quitting",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "confirm_on_quit"
             },
             {
                 "desc": "Undo limit",
                 "type": "int",
                 "default": "25",
+                "added": "0.3.1",
                 "name": "undo_limit"
             },
             {
                 "desc": "Number of pages to cache page",
                 "type": "int",
                 "default": "10",
+                "added": "0.5.3",
                 "name": "cache_pages"
             },
             {
                 "desc": "Preload pages",
                 "type": "int",
                 "default": "2",
+                "added": "0.6.3",
                 "name": "preload_pages"
             },
             {
                 "desc": "Auto-reload file upon detecting file change",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "auto_reload"
             },
             {
                 "desc": "Invert color mode (aka dark mode)",
                 "type": "bool",
                 "default": "false",
+                "added": "0.3.0",
                 "name": "invert_mode"
             },
             {
                 "desc": "Open last visited file when launching new instance",
                 "type": "bool",
                 "default": "false",
+                "added": "0.3.0",
                 "name": "open_last_visited"
             },
             {
                 "desc": "Always open files in new window",
                 "type": "bool",
                 "default": "false",
+                "added": "0.5.3",
                 "name": "always_open_in_new_window"
             },
             {
                 "desc": "Remembers last visited page number",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "remember_last_visited"
             },
             {
                 "desc": "Keep track of recent files",
                 "type": "bool",
                 "default": "true",
+                "added": "0.3.0",
                 "name": "recent_files"
             },
             {
                 "desc": "Max number of recent files to keep track",
                 "type": "int",
                 "default": "10",
+                "added": "0.3.0",
                 "name": "num_recent_files"
             },
             {
                 "desc": "Page history location limit to keep track",
                 "type": "int",
                 "default": "5",
+                "added": "0.3.0",
                 "name": "page_history_limit"
             },
             {
@@ -958,12 +1093,14 @@
                 "type": "str",
                 "choice": " text_selection, region_selection, annot_rect, annot_popup, annot_highlight ",
                 "default": "text_selection",
+                "added": "0.3.0",
                 "name": "initial_mode"
             },
             {
                 "desc": "Synctex editor command",
                 "type": "str",
                 "default": "\"\"",
+                "added": "0.3.0",
                 "name": "synctex_editor_command"
             }
         ],
@@ -971,6 +1108,7 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": ""
+        "section_note": "",
+        "section_added": "0.3.0"
     }
 ]

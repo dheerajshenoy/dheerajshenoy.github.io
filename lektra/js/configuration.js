@@ -27,9 +27,14 @@ function renderSection(section) {
         : '';
 
 
-    const rows = section.fields.map(f => `
+    const rows = section.fields
+        .filter(f => f.type !== "struct") // skip struct fields
+        .map(f => `
     <div class="field-item">
-        <code class="field-name">${f.name}</code>
+        <div class="field-header">
+            <code class="field-name">${f.name}</code>
+            ${f.added ? `<span class="field-added">Added in ${f.added}</span>` : ''}
+        </div>
         ${f.desc ? `<p class="field-desc">${f.desc}</p>` : '<p class="field-desc">—</p>'}
         ${f.type ? `<span class="field-type">Type: ${renderType(f.type)}</span>` : ''}
         ${f.default ? `<span class="field-default">Default: ${renderDefault(f.default)}</span>` : ''}
@@ -43,7 +48,10 @@ function renderSection(section) {
         <section id="${slug}" class="section">
             <h2>
             <!-- ${section.name} -->
+            <div class="field-header">
             <code class="inline">[${slug}]</code>
+            <span class="field-added">Added in ${section.section_added}</span>
+            </div>
             </h2>
             <div class="desc">${desc}</div>
             ${section.section_note ? `<div class="callout note"><strong>Note</strong><br>${section.section_note}</div>` : ''}
