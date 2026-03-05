@@ -62,3 +62,12 @@
         opacity: 1;
     }
 }
+
+.section p {
+    font-family: 'Outfit', ui-sans-serif;
+}
+
+.tab-panels {
+    max-width: 70%;
+    margin: 0 auto;
+}

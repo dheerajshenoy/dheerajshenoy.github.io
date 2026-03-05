@@ -61,10 +61,12 @@
 
                     <div class="tab-panels">
                         <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
-                            <p>Install dependencies: <code class="inline">sudo pacman -S qt6-base curl synctex djvulibre</code></p>
                             <p>Lektra is available in the <a href="https://aur.archlinux.org/packages/lektra-git"><b>Arch User Repository (AUR)</b></a></p>
-                            <p>For the latest git version, run:</p>
                             <pre><code class="language-bash">paru lektra-git # (or) yay -S lektra-git</code></pre>
+                            <div class="callout note">
+                                <strong>Note</strong>
+                                <p>SyncTeX and DjVu support is included by default.</p>
+                            </div>
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-deb" aria-labelledby="tabbtn-deb">
@@ -91,35 +93,28 @@ emerge lektra</code></pre>
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
-                            <p>Install the dependencies for your distro</p>
-                            <ol class="steps">
-                                <li>qt6-base</li>
-                                <li>curl (<b>OPTIONAL</b>: if you want the LLM support (Work in Progress))</li>
-                                <li>synctex (<b>OPTIONAL</b>)</li>
-                                <li>djvulibre (<b>OPTIONAL for djvu file support</b>)</li>
-                            </ol>
+                            <b><p>This is the best way to get the latest features and bug fixes, and also contribute to the project.</p></b>
+                            <p>Install the required dependency: <code class="inline">qt6-base</code></p>
+                            <p>Optionally install for extra features:</p>
+                            <ul>
+                                <li><code class="inline">curl</code> — LLM support <em>(work in progress)</em></li>
+                                <li><code class="inline">synctex</code> — SyncTeX support</li>
+                                <li><code class="inline">djvulibre</code> — DjVu file support</li>
+                            </ul>
                             <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/lektra.git
-cd lektra</code></pre>
-                            You'll have <code class="inline">install.sh</code> in the directory. Run <code class="inline">--help</code> to see the available options.
-                            <pre><code class="language-bash">./install.sh --help</code></pre>
+cd lektra
+./install.sh</code></pre>
+                            <p>Run <code class="inline">./install.sh --help</code> to see available options.</p>
                         </div>
-
                     </div>
                 </div> <!-- Installation Section -->
+                <div class="section">
+                    <div class="heading">Getting Started</div>
+                    <p>After installation, you can launch Lektra from your application menu or by running <code class="inline">lektra</code> in the terminal. For details about command line options, run <code class="inline">lektra --help</code></p>
 
-                <div class="callout note">
-                    <strong>Note about dependencies</strong>
-                    <p>The SyncTeX, DjVu and LLM features are <b><i>OPTIONAL</i></b> and can be disabled during installation to save space and reduce dependencies.</p>
-                </div>
+                    <p>You can use LEKTRA as is, the default configuration is designed to be a good starting point for most users. However, you can customize it to your liking. Check out the <a href="configuration.html">configuration</a> page for more details.</p>
 
-                <div class="callout warn">
-                    <strong>Alpha software warning</strong>
-                    <p>LEKTRA is still in alpha, crashes and bugs expected.<br>
-                    Please submit issues
-                    <a href="https://github.com/dheerajshenoy/lektra/issues">here (GitHub mirror)</a>
-                    or
-                    <a href="https://codeberg.org/lektra/lektra/issues">here (Codeberg mirror)</a>
-                    </p>
+                    <p>Once you start configuring, you might want to check out the <a href="commands.html">commands</a> page to see all the available commands and their default keybindings.</p>
                 </div>
                 <br>
             </div> <!-- Container End -->
