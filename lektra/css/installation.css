@@ -71,3 +71,13 @@
     max-width: 70%;
     margin: 0 auto;
 }
+
+ul {
+    font-size: 20px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
