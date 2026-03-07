@@ -128,7 +128,7 @@ hr.sep {
     text-align: center;
 }
 
-.choices strong {
+.field-choices strong {
     padding-top: 10px;
     display: block;
 }
@@ -192,4 +192,14 @@ hr.sep {
     margin-left: 2.0rem;
     color: var(--desc-fg);
     line-height: 1.4;
+}
+
+ul {
+    font-size: 20px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
 }
