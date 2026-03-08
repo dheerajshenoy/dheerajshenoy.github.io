@@ -40,6 +40,11 @@ const features = [
         media: { type: "img", src: "files/Portals.gif", alt: "Portals Demo" }
     },
     {
+        title: "Preview",
+        desc: "Open floating \"preview\" to target location and toggle it's visibility.",
+        media: { type: "img", src: "files/preview.gif", alt: "Preview Demo" }
+    },
+    {
         title: "Visual Line Mode",
         desc: "Highlights your active line and subtly dim the rest of the document, navigatable with keyboard or mouse click)",
         media: { type: "img", src: "files/visual_line_mode.gif", alt: "Visual Line Mode Demo" }
