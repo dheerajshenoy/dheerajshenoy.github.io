@@ -445,6 +445,13 @@
                 "default": "1.25f",
                 "added": "0.3.0",
                 "name": "factor"
+            },
+            {
+                "desc": "Anchor zoom to mouse position (instead of center of the view)",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.7",
+                "name": "anchor_to_mouse"
             }
         ],
         "section_desc": "Zoom options struct",
