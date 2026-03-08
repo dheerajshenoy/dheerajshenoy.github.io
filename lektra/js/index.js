@@ -66,7 +66,7 @@ const features = [
     },
     {
         title: "Annotation Support",
-        desc: "Highlight, rectangle and popup annotations supported.<br><b>(Only highlight shown here)</b>",
+        desc: "Highlight, rectangle and popup annotations support with ability to comment.",
         media: { type: "img", src: "files/Highlight Annotation.gif", alt: "Highlight Annotation" }
     },
     {
