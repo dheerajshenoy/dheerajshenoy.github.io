@@ -1042,6 +1042,13 @@
                 "name": "invert_mode"
             },
             {
+                "desc": " Preserve images when in invert color mode. When enabled, images in the PDF will retain their original colors even when invert mode is active. This prevents photos and diagrams from appearing inverted. ",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.6",
+                "name": "dont_invert_images"
+            },
+            {
                 "desc": "Open last visited file when launching new instance",
                 "type": "bool",
                 "default": "false",
@@ -1109,7 +1116,46 @@
     {
         "name": "MouseBindings",
         "fields": [],
-        "section_desc": " Mouse binding options struct<br> <p>Valid commands are: <ul> <li><code class=\"inline\">synctex_jump</code> - Takes to the source code if opened in SyncTeX mode</li> <li><code class=\"inline\">portal</code> - Opens a portal pointing to the clicked link</li> </ul> Example of how to define a mouse binding in the config file:</p> <pre><code class=\"language-toml\"> [mousebindings]&#10; # Format: mouse_command_name = \"Modifier(s)+MouseButton\"&#10; synctex_jump = \"Shift+LeftButton\" </code></pre> ",
+        "section_desc": " Mouse binding options struct<br> <p>Valid commands are: <ul> <li><code class=\"inline\">preview</code> - Shows a preview of the link location in a floating window</li> <li><code class=\"inline\">synctex_jump</code> - Takes to the source code if opened in SyncTeX mode</li> <li><code class=\"inline\">portal</code> - Opens a portal pointing to the clicked link</li> </ul> Example of how to define a mouse binding in the config file:</p> <pre><code class=\"language-toml\"> [mousebindings]&#10; # Format: mouse_command_name = \"Modifier(s)+MouseButton\"&#10; synctex_jump = \"Shift+LeftButton\" </code></pre> ",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.6.6"
+    },
+    {
+        "name": "Preview",
+        "fields": [
+            {
+                "desc": " Size of the preview window as a ratio of the main window size (width, height) ",
+                "type": "table",
+                "default": "width = 0.6, height = 0.7",
+                "added": "0.6.6",
+                "name": "size_ratio"
+            },
+            {
+                "desc": "Border radius of the preview window in pixels",
+                "type": "int",
+                "default": "8",
+                "added": "0.6.6",
+                "name": "border_radius"
+            },
+            {
+                "desc": "Close the preview window when clicking outside of it",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.6",
+                "name": "close_on_click_outside"
+            },
+            {
+                "desc": "Opacity of the preview window (0.0 to 1.0)",
+                "type": "float",
+                "default": "0.95",
+                "added": "0.6.6",
+                "name": "opacity"
+            }
+        ],
+        "section_desc": "Preview options struct",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
