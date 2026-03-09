@@ -53,6 +53,11 @@
                             <span>Gentoo</span>
                         </button>
 
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-macos" id="tabbtn-macos">
+                            <img src="files/macos.png"/>
+                            <span>MacOS</span>
+                        </button>
+
                         <button class="tab" role="tab" aria-selected="false" aria-controls="tab-other" id="tabbtn-other">
                             <span>Build from Source</span>
                         </button>
@@ -89,6 +94,26 @@ emerge lektra</code></pre>
                             <div class="callout note">
                                 <strong>NOTE</strong>
                                 <p>This package is maintained by <a href="https://github.com/douglarek">douglarek</a>, not by the upstream project. Please report Gentoo-specific issues to the <a href="https://github.com/microcai/gentoo-zh">gentoo-zh</a> repository.</p>
+                            </div>
+                        </div>
+
+                        <div class="panel" role="tabpanel" id="tab-macos" aria-labelledby="tabbtn-macos">
+                            <p>Requires Xcode or Xcode Command Line Tools to be installed.</p>
+                            <p>Install the required dependencies: </p>
+
+                            <pre><code class="language-bash">brew install cmake ninja pkg-config qt
+git clone https://github.com/dheerajshenoy/lektra.git
+cd lektra
+git submodule update --init --recursive
+./build_dmg.sh</code></pre>
+                            <p>This will create a DMG file in the project directory which you can use to install Lektra on your Mac as follows:</p>
+                            <pre><code class="language-bash">codesign --verify --deep --strict build-macos/lektra.app
+hdiutil verify dist/*.dmg</code></pre>
+                            <p>Mount the generated DMG and verify the bundled lektra.app with:</p>
+                            <pre><code class="language-bash">codesign --verify --deep --strict</code></pre>
+                            <div class="callout note">
+                                <strong>NOTE</strong>
+                                <p>Tested on Apple Silicon macOS.</p>
                             </div>
                         </div>
 
