@@ -6,7 +6,7 @@
         <title>Lektra | Installation</title>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/installation.css">
-        <script src="js/index.js" defer></script>
+        <script src="js/installation.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
     </head>
@@ -121,8 +121,12 @@ hdiutil verify dist/*.dmg</code></pre>
                             <b><p>This is the best way to get the latest features and bug fixes, and also contribute to the project.</p></b>
                             <p>Install the required dependency:</p>
                             <ul>
-                                <li>Arch Linux : <code class="inline">base-devel qt6-base cmake pkgconf</code></li>
-                                <li>Debian/Ubuntu : <code class="inline">build-essential pkgconf qt6-base-dev qt6-tools-dev qt6-l10n-tools unzip zlib1g-dev cmake libgl1-mesa-dri mesa-common-dev g++</code></li>
+                                <li>Arch Linux:
+                                    <pre><code class="language-shell">pacman -S base-devel qt6-base cmake pkgconf</code></pre>
+                                </li>
+                                <li>Debian/Ubuntu:
+                                    <pre><code class="language-bash">apt install build-essential pkgconf qt6-base-dev qt6-tools-dev qt6-l10n-tools unzip zlib1g-dev cmake libgl1-mesa-dri mesa-common-dev g++</code></pre>
+                                    </li>
                                 <li>Other distros : Check your package manager for the equivalent packages</li>
                             </ul>
                             <p>Optionally install for extra features:</p>
@@ -133,8 +137,8 @@ hdiutil verify dist/*.dmg</code></pre>
                             </ul>
                             <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/lektra.git
 cd lektra
-./configure # --help for options
-./install&gt; ; defaults to /usr/local</code></pre>
+./configure # --help for options; prefix defaults to /usr
+./install</code></pre>
                             <em><b>NOTE</b>: You might need to run the install command with <code class="inline">sudo</code> to install to system directories.</em>
                         </div>
                     </div>
