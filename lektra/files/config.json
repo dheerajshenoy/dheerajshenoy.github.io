@@ -601,6 +601,13 @@
                 "default": "\"#FF0000FF\"",
                 "added": "0.3.1",
                 "name": "color"
+            },
+            {
+                "desc": "Jump marker fade duration in seconds",
+                "type": "float",
+                "default": "1.0",
+                "added": "0.6.7",
+                "name": "fade_duration"
             }
         ],
         "section_desc": "Jump marker options struct",
