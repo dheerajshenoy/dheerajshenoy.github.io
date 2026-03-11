@@ -408,6 +408,10 @@
     "description": "Book (two page spread) layout"
   },
   {
+    "name": "preview",
+    "description": "Show the preview window"
+  },
+  {
     "name": "set_dpr",
     "description": "Set device pixel ratio"
   },
