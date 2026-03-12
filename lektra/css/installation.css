@@ -47,12 +47,12 @@
     border-color: pink;
 }
 
-.tab-content {
+.panel {
     display: none;
     animation: fadeIn 0.3s ease-in-out;
 }
 
-.tab-content.active {
+.panel.active {
     display: block;
 }
 
