@@ -52,6 +52,6 @@ window.addEventListener('hashchange', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    hljs.highlightAll(); // add this
+    hljs.highlightAll();
     tabController();
 });
