@@ -1,3 +1,5 @@
+@import "common.css";
+
 :root {
     --line: rgba(255, 255, 255, 0.10);
     --text: rgba(255, 255, 255, 0.85);
