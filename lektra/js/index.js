@@ -107,8 +107,8 @@ function addFeatures() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    hljs.highlightAll(); // add this
-    tabController();
+    hljs.highlightAll();
     addFeatures();
+
 });
 
