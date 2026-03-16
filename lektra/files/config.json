@@ -375,6 +375,7 @@
             {
                 "desc": "Padding",
                 "type": "table",
+                "note": "This is left, top, right, down",
                 "default": "[5, 5, 5, 5]",
                 "added": "0.5.5",
                 "name": "padding"
