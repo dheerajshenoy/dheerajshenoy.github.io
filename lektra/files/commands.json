@@ -108,6 +108,14 @@
     "description": "Scroll right"
   },
   {
+    "name": "scroll_down_half_page",
+    "description": "Scroll down"
+  },
+  {
+    "name": "scroll_up_half_page",
+    "description": "Scroll up"
+  },
+  {
     "name": "rotate_clock",
     "description": "Rotate page clockwise"
   },
@@ -410,6 +418,10 @@
   {
     "name": "preview",
     "description": "Show the preview window"
+  },
+  {
+    "name": "open_config",
+    "description": "Open configuration file"
   },
   {
     "name": "set_dpr",

@@ -40,6 +40,20 @@
                 "default": "\"#55FF0055\"",
                 "added": "0.6.5",
                 "name": "index_color"
+            },
+            {
+                "desc": " Progressive search (renders results progressively when enabled, which can speed up search on large documents) ",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.8",
+                "name": "progressive"
+            },
+            {
+                "desc": " Highlight all search matches (if false, only the current match is highlighted) ",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.8",
+                "name": "highlight_matches"
             }
         ],
         "section_desc": "Search options struct",
@@ -375,8 +389,8 @@
             {
                 "desc": "Padding",
                 "type": "table",
-                "note": "This is left, top, right, down",
-                "default": "[5, 5, 5, 5]",
+                "note": "Order is left, top, right, down",
+                "default": "[2, 2, 2, 2]",
                 "added": "0.5.5",
                 "name": "padding"
             },
