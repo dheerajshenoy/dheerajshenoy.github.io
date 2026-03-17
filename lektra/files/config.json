@@ -64,7 +64,7 @@
         "section_added": "0.6.0"
     },
     {
-        "name": "Annotations.Popup",
+        "name": "Annotations.[Type]",
         "fields": [
             {
                 "desc": "Enable hover effect (e.g., glow on highlight)",
@@ -102,6 +102,16 @@
                 "name": "comment_font_size"
             }
         ],
+        "section_desc": " Base annotation options struct (common to all annotation types) ",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.6.5"
+    },
+    {
+        "name": "Annotations.Popup",
+        "fields": [],
         "section_desc": "Popup annotation options struct",
         "section_choice": "",
         "section_type": "struct",
@@ -113,53 +123,18 @@
         "name": "Annotations.Rect",
         "fields": [
             {
-                "desc": "Enable hover effect (e.g., glow on highlight)",
-                "type": "bool",
-                "default": "true",
-                "added": "0.6.5",
-                "name": "hover_glow"
-            },
-            {
-                "desc": "Annotation glow color (on hover)",
-                "type": "str",
-                "default": "\"#FF5000AA\"",
-                "added": "0.6.5",
-                "name": "glow_color"
-            },
-            {
-                "desc": "Rect annotation color",
-                "type": "str",
-                "default": "\"#55FF5588\"",
-                "added": "0.6.5",
-                "name": "color"
-            },
-            {
-                "desc": "Glow width in pixels",
-                "type": "int",
-                "default": "5",
-                "added": "0.6.5",
-                "name": "glow_width"
-            },
-            {
-                "desc": "Show comment text in tooltip on hover (if comment exists)",
-                "type": "bool",
-                "default": "true",
-                "added": "0.6.5",
-                "name": "comment"
-            },
-            {
-                "desc": "Font size for the comment tooltip (in points)",
-                "type": "int",
-                "default": "12",
-                "added": "0.6.5",
-                "name": "comment_font_size"
-            },
-            {
                 "desc": "Show marker in the corner of the rect (if comment exists)",
                 "type": "bool",
                 "default": "true",
                 "added": "0.6.5",
                 "name": "comment_marker"
+            },
+            {
+                "desc": "Fill color for rect annotations",
+                "type": "str",
+                "default": "\"#55FF5588\"",
+                "added": "0.6.5",
+                "name": "color"
             }
         ],
         "section_desc": "Rect annotation options struct",
@@ -173,53 +148,18 @@
         "name": "Annotations.Highlight",
         "fields": [
             {
-                "desc": "Show comment text in tooltip on hover (if commentb exists)",
-                "type": "bool",
-                "default": "true",
-                "added": "0.6.5",
-                "name": "comment"
-            },
-            {
-                "desc": "Font size for the comment tooltip (in points)",
-                "type": "int",
-                "default": "12",
-                "added": "0.6.5",
-                "name": "comment_font_size"
-            },
-            {
-                "desc": "Annotation glow color (on hover)",
-                "type": "str",
-                "default": "\"#FF5000AA\"",
-                "added": "0.6.5",
-                "name": "glow_color"
-            },
-            {
-                "desc": "Highlight annotation color",
-                "type": "str",
-                "default": "\"#55FF0055\"",
-                "added": "0.6.5",
-                "name": "color"
-            },
-            {
-                "desc": "Glow width in pixels",
-                "type": "int",
-                "default": "5",
-                "added": "0.6.5",
-                "name": "glow_width"
-            },
-            {
-                "desc": "Enable hover effect (e.g., glow on highlight)",
-                "type": "bool",
-                "default": "true",
-                "added": "0.6.5",
-                "name": "hover_glow"
-            },
-            {
-                "desc": "Show marker at the highlight (if comment exists)",
+                "desc": "Show marker in the corner of the rect (if comment exists)",
                 "type": "bool",
                 "default": "true",
                 "added": "0.6.5",
                 "name": "comment_marker"
+            },
+            {
+                "desc": "Fill color for rect annotations",
+                "type": "str",
+                "default": "\"#55FF5588\"",
+                "added": "0.6.5",
+                "name": "color"
             }
         ],
         "section_desc": "Highlight annotation options struct",
@@ -773,6 +713,52 @@
         "section_added": "0.3.0"
     },
     {
+        "name": "Picker.Shadow",
+        "fields": [
+            {
+                "desc": "Enable shadow",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.0",
+                "name": "enabled"
+            },
+            {
+                "desc": "Blur radius of shadow in pixels",
+                "type": "int",
+                "default": "18",
+                "added": "0.6.0",
+                "name": "blur_radius"
+            },
+            {
+                "desc": "X-offset of the shadow",
+                "type": "int",
+                "default": "0",
+                "added": "0.6.0",
+                "name": "offset_x"
+            },
+            {
+                "desc": "Y-offset of the shadow",
+                "type": "int",
+                "default": "6",
+                "added": "0.6.0",
+                "name": "offset_y"
+            },
+            {
+                "desc": "Opacity of the shadow",
+                "type": "int",
+                "default": "120",
+                "added": "0.6.0",
+                "name": "opacity"
+            }
+        ],
+        "section_desc": "Picker shadow struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.6.0"
+    },
+    {
         "name": "Outline",
         "fields": [
             {
@@ -859,52 +845,6 @@
         "section_default": "",
         "section_note": "",
         "section_added": "0.5.4"
-    },
-    {
-        "name": "Picker.Shadow",
-        "fields": [
-            {
-                "desc": "Enable shadow",
-                "type": "bool",
-                "default": "true",
-                "added": "0.6.0",
-                "name": "enabled"
-            },
-            {
-                "desc": "Blur radius of shadow in pixels",
-                "type": "int",
-                "default": "18",
-                "added": "0.6.0",
-                "name": "blur_radius"
-            },
-            {
-                "desc": "X-offset of the shadow",
-                "type": "int",
-                "default": "0",
-                "added": "0.6.0",
-                "name": "offset_x"
-            },
-            {
-                "desc": "Y-offset of the shadow",
-                "type": "int",
-                "default": "6",
-                "added": "0.6.0",
-                "name": "offset_y"
-            },
-            {
-                "desc": "Opacity of the shadow",
-                "type": "int",
-                "default": "120",
-                "added": "0.6.0",
-                "name": "opacity"
-            }
-        ],
-        "section_desc": "Picker shadow struct",
-        "section_choice": "",
-        "section_type": "struct",
-        "section_default": "",
-        "section_note": "",
-        "section_added": "0.6.0"
     },
     {
         "name": "LLM Widget",

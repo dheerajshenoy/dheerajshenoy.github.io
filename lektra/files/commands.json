@@ -388,6 +388,10 @@
     "description": "Search document using regex"
   },
   {
+    "name": "search_from_here",
+    "description": "Search from current position"
+  },
+  {
     "name": "search_next",
     "description": "Jump to next search result"
   },
@@ -398,6 +402,10 @@
   {
     "name": "search_args",
     "description": "Search with inline query argument"
+  },
+  {
+    "name": "search_cancel",
+    "description": "Cancel current search and clear highlights"
   },
   {
     "name": "layout_single",
