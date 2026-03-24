@@ -42,14 +42,14 @@
                 "name": "index_color"
             },
             {
-                "desc": " Progressive search (renders results progressively when enabled, which can speed up search on large documents) ",
+                "desc": "Progressive search (renders results progressively when enabled, which can speed up search on large documents)",
                 "type": "bool",
                 "default": "true",
                 "added": "0.6.8",
                 "name": "progressive"
             },
             {
-                "desc": " Highlight all search matches (if false, only the current match is highlighted) ",
+                "desc": "Highlight all search matches (if false, only the current match is highlighted)",
                 "type": "bool",
                 "default": "true",
                 "added": "0.6.8",
@@ -102,7 +102,7 @@
                 "name": "comment_font_size"
             }
         ],
-        "section_desc": " Base annotation options struct (common to all annotation types) ",
+        "section_desc": "Base annotation options struct (common to all annotation types)",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
@@ -194,7 +194,7 @@
                 "name": "border_width"
             },
             {
-                "desc": " Respect parent's destruction (if parent closes, close the portal too) ",
+                "desc": "Respect parent's destruction (if parent closes, close the portal too)",
                 "type": "bool",
                 "default": "true",
                 "added": "0.6.4",
@@ -713,6 +713,16 @@
         "section_added": "0.3.0"
     },
     {
+        "name": "Picker.Keys",
+        "fields": [],
+        "section_desc": "<p>Picker keyboard binding options struct.</p> <p> Valid actions are:</p> <ul> <li><code class=\"inline\">up</code></li> <li><code class=\"inline\">down</code></li> <li><code class=\"inline\">select</code></li> <li><code class=\"inline\">dismiss</code></li> </ul> <p>Example:</p> <pre><code class=\"language-toml\">[picker.keys]<br>\n# Format: command_name = \"KeyCombination\"\n# Single key\nup = \"Up\"\n# Multiple keys\ndown = [\"j\", \"Down\"] # Added in 0.6.9\n</code></pre>",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.6.0"
+    },
+    {
         "name": "Picker.Shadow",
         "fields": [
             {
@@ -876,7 +886,7 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": " This is still a work in progress and subject to change, but the options are here for documentation purposes ",
+        "section_note": "This is still a work in progress and subject to change, but the options are here for documentation purposes",
         "section_added": "0.5.4"
     },
     {
@@ -908,7 +918,7 @@
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
-        "section_note": " This is still a work in progress and subject to change, but the options are here for documentation purposes ",
+        "section_note": "This is still a work in progress and subject to change, but the options are here for documentation purposes",
         "section_added": "0.5.4"
     },
     {
@@ -1011,7 +1021,7 @@
                 "name": "invert_mode"
             },
             {
-                "desc": " Preserve images when in invert color mode. When enabled, images in the PDF will retain their original colors even when invert mode is active. This prevents photos and diagrams from appearing inverted. ",
+                "desc": "Preserve images when in invert color mode. When enabled, images in the PDF will retain their original colors even when invert mode is active. This prevents photos and diagrams from appearing inverted.",
                 "type": "bool",
                 "default": "true",
                 "added": "0.6.6",
@@ -1062,7 +1072,7 @@
             {
                 "desc": "Initial interaction mode",
                 "type": "str",
-                "choice": " text_selection, region_selection, annot_rect, annot_popup, annot_highlight ",
+                "choice": "text_selection, region_selection, annot_rect, annot_popup, annot_highlight",
                 "default": "text_selection",
                 "added": "0.3.0",
                 "name": "initial_mode"
@@ -1085,7 +1095,7 @@
     {
         "name": "MouseBindings",
         "fields": [],
-        "section_desc": " Mouse binding options struct<br> <p>Valid commands are: <ul> <li><code class=\"inline\">preview</code> - Shows a preview of the link location in a floating window</li> <li><code class=\"inline\">synctex_jump</code> - Takes to the source code if opened in SyncTeX mode</li> <li><code class=\"inline\">portal</code> - Opens a portal pointing to the clicked link</li> </ul> Example of how to define a mouse binding in the config file:</p> <pre><code class=\"language-toml\"> [mousebindings]&#10; # Format: mouse_command_name = \"Modifier(s)+MouseButton\"&#10; synctex_jump = \"Shift+LeftButton\" </code></pre> ",
+        "section_desc": "Mouse binding options struct. <p>Valid commands are: <ul> <li><code class=\"inline\">preview</code> - Shows a preview of the link location in a floating window</li> <li><code class=\"inline\">synctex_jump</code> - Takes to the source code if opened in SyncTeX mode</li> <li><code class=\"inline\">portal</code> - Opens a portal pointing to the clicked link</li> </ul> <p><b>Example</b>:</p> <pre><code class=\"language-toml\">[mousebindings]\n# Format: mouse_command_name = \"Modifier(s)+MouseButton\"\nsynctex_jump = \"Shift+LeftButton\"\n</code></pre>",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
@@ -1095,7 +1105,7 @@
     {
         "name": "KeyBindings",
         "fields": [],
-        "section_desc": " Keyboard binding options struct<br> By default, LEKTRA loads the default keybindings, which can be disabled by setting <code class=\"inline\">load_defaults</code> to <code class=\"inline\">false</code> in the config file. <p>Example of how to define a key binding in the config file:</p> <pre><code class=\"language-toml\"> [keybindings]&#10; # Format: command_name = \"KeyCombination\"&#10; open_outline = \"Ctrl+O\"&#10; </code></pre> Commands can be seen using the `--list-commands` command line option, or in the <a href=\"https://dheerajshenoy.github.io/lektra/commands\">Commands Reference Webpage</a>, or in the command palette inside LEKTRA.",
+        "section_desc": "<p>Keyboard binding options struct.</p> <p>By default, Lektra loads the default keybindings. You can disable this by setting <code class=\"inline\">load_defaults</code> to <code class=\"inline\">false</code> in the config file.</p> <p>Example:</p> <pre><code class=\"language-toml\">[keybindings]<br>\n# Format: command_name = \"KeyCombination\"\n# Single key\nopen_outline = \"Ctrl+O\"\n# Multiple keys\nscroll_down = [\"j\", \"Down\"] # Added in 0.6.9\n</code></pre> Commands can be viewed via: <ul> <li>The <code class=\"inline\">--list-commands</code> command line option</li> <li>The <a href=\"https://dheerajshenoy.github.io/lektra/commands\">Commands Reference</a></li> <li>The command palette inside Lektra</li> </ul>",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
@@ -1106,7 +1116,7 @@
         "name": "Preview",
         "fields": [
             {
-                "desc": " Size of the preview window as a ratio of the main window size (width, height) ",
+                "desc": "Size of the preview window as a ratio of the main window size (width, height)",
                 "type": "table",
                 "default": "width = 0.6, height = 0.7",
                 "added": "0.6.6",
