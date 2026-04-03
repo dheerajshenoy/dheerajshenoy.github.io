@@ -12,6 +12,10 @@
     "description": "Reselect the last text selection"
   },
   {
+    "name": "thumbnail_panel",
+    "description": "Toggle thumbnail panel"
+  },
+  {
     "name": "presentation_mode",
     "description": "Toggle presentation mode"
   },
