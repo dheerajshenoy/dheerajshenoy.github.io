@@ -54,6 +54,13 @@
                 "default": "true",
                 "added": "0.6.8",
                 "name": "highlight_matches"
+            },
+            {
+                "desc": "When true, the \"next\" match is always the next index in the results list. When false, the \"next\" match is the one physically closest to the cursor.",
+                "type": "bool",
+                "default": "false",
+                "added": "0.6.9",
+                "name": "absolute_jump"
             }
         ],
         "section_desc": "Search options struct",
@@ -168,6 +175,31 @@
         "section_default": "",
         "section_note": "",
         "section_added": "0.6.5"
+    },
+    {
+        "name": "ThumbnailPanel",
+        "fields": [
+            {
+                "desc": "Show page number below page thumbnail",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.9",
+                "name": "show_page_numbers"
+            },
+            {
+                "desc": "Relative width of the thumbnail panel (compared to the main",
+                "type": "float",
+                "default": "0.15",
+                "added": "0.6.9",
+                "name": "panel_width"
+            }
+        ],
+        "section_desc": "Thumbnail panel options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.6.9"
     },
     {
         "name": "Portal",
@@ -292,7 +324,7 @@
                 "choice": "width, height, window",
                 "added": "0.5.1",
                 "name": "initial_fit",
-                "type": "DocumentView::FitMode"
+                "type": "DocumentView::FitMode initial_fit ="
             },
             {
                 "desc": "Apply auto fit when resizing window",
@@ -468,7 +500,7 @@
             {
                 "desc": "Dims splits that are not currently focused",
                 "type": "bool",
-                "default": "true",
+                "default": "false",
                 "added": "0.6.2",
                 "name": "dim_inactive"
             },
@@ -807,20 +839,6 @@
         "name": "Command Palette",
         "fields": [
             {
-                "desc": "Width of the command palette picker",
-                "type": "int",
-                "default": "500",
-                "added": "0.5.4",
-                "name": "width"
-            },
-            {
-                "desc": "Height of the command palette picker",
-                "type": "int",
-                "default": "300",
-                "added": "0.5.4",
-                "name": "height"
-            },
-            {
                 "desc": "Placeholder text for the input field",
                 "type": "str",
                 "default": "\"Type a command...\"",
@@ -839,7 +857,7 @@
                 "type": "bool",
                 "default": "true",
                 "added": "0.5.4",
-                "name": "shortcuts"
+                "name": "show_shortcuts"
             },
             {
                 "desc": "Show command description",
@@ -981,7 +999,7 @@
             {
                 "desc": "Confirm before quitting",
                 "type": "bool",
-                "default": "true",
+                "default": "false",
                 "added": "0.3.0",
                 "name": "confirm_on_quit"
             },
@@ -1076,13 +1094,6 @@
                 "default": "text_selection",
                 "added": "0.3.0",
                 "name": "initial_mode"
-            },
-            {
-                "desc": "Synctex editor command",
-                "type": "str",
-                "default": "\"\"",
-                "added": "0.3.0",
-                "name": "synctex_editor_command"
             }
         ],
         "section_desc": "Behavior options struct",
