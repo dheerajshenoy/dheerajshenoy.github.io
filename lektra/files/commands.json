@@ -52,10 +52,6 @@
     "description": "Toggle comment markers"
   },
   {
-    "name": "llm_widget",
-    "description": "Toggle LLM assistant widget"
-  },
-  {
     "name": "link_hint_visit",
     "description": "Open link using keyboard hint"
   },
