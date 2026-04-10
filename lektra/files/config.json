@@ -1,6 +1,24 @@
 [
     {
-        "name": "Page",
+        "name": "misc",
+        "fields": [
+            {
+                "desc": "Colors shown in the color dialog (when picking annotation colors, etc.)",
+                "type": "list[str]",
+                "default": "[\"#FFFF0080\", \"#FFA50080\", \"#FF000080\", \"#00FF0080\", \"#00C8FF80\", \"#8000FF80\", \"#FF69B480\", \"#0000FF80\", \"#FFFFFF80\"]",
+                "added": "0.7.0",
+                "name": "color_dialog_colors"
+            }
+        ],
+        "section_desc": "Misc options struct (for options that don't fit in other",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.0"
+    },
+    {
+        "name": "page",
         "fields": [
             {
                 "desc": "Page background color",
@@ -25,7 +43,7 @@
         "section_added": "0.6.4"
     },
     {
-        "name": "Search",
+        "name": "search",
         "fields": [
             {
                 "desc": "Search match count color",
@@ -117,7 +135,7 @@
         "section_added": "0.6.5"
     },
     {
-        "name": "Annotations.Popup",
+        "name": "annotations.popup",
         "fields": [],
         "section_desc": "Popup annotation options struct",
         "section_choice": "",
@@ -152,7 +170,7 @@
         "section_added": "0.6.5"
     },
     {
-        "name": "Annotations.Highlight",
+        "name": "annotations.highlight",
         "fields": [
             {
                 "desc": "Show marker in the corner of the rect (if comment exists)",
@@ -177,7 +195,7 @@
         "section_added": "0.6.5"
     },
     {
-        "name": "ThumbnailPanel",
+        "name": "thumbnail_panel",
         "fields": [
             {
                 "desc": "Show page number below page thumbnail",
@@ -202,7 +220,7 @@
         "section_added": "0.6.9"
     },
     {
-        "name": "Portal",
+        "name": "portal",
         "fields": [
             {
                 "desc": "Portal border color",
@@ -248,7 +266,7 @@
         "section_added": "0.6.4"
     },
     {
-        "name": "Window",
+        "name": "window",
         "fields": [
             {
                 "desc": "Background color",
@@ -308,7 +326,7 @@
         "section_added": "0.3.0"
     },
     {
-        "name": "Layout",
+        "name": "layout",
         "fields": [
             {
                 "desc": "Initial page layout mode",
@@ -349,75 +367,118 @@
         "section_added": "0.5.1"
     },
     {
-        "name": "Statusbar",
+        "name": "statusbar.component.filename",
         "fields": [
-            {
-                "desc": "Show statusbar",
-                "type": "bool",
-                "default": "true",
-                "added": "0.5.5",
-                "name": "visible"
-            },
-            {
-                "desc": "Padding",
-                "type": "table",
-                "note": "Order is left, top, right, down",
-                "default": "[2, 2, 2, 2]",
-                "added": "0.5.5",
-                "name": "padding"
-            },
-            {
-                "desc": "Show session name (if in session)",
-                "type": "bool",
-                "default": "true",
-                "added": "0.5.5",
-                "name": "show_session_name"
-            },
-            {
-                "desc": "Show file name only (as opposed to full path)",
-                "type": "bool",
-                "default": "false",
-                "added": "0.5.5",
-                "name": "file_name_only"
-            },
             {
                 "desc": "Show file info",
                 "type": "bool",
                 "default": "true",
-                "added": "0.5.5",
-                "name": "show_file_info"
+                "added": "0.7.0",
+                "name": "show"
             },
             {
-                "desc": "Show page number",
+                "desc": "Show full path",
                 "type": "bool",
                 "default": "true",
-                "added": "0.5.5",
-                "name": "show_page_number"
-            },
-            {
-                "desc": "Show interaction mode",
-                "type": "bool",
-                "default": "true",
-                "added": "0.5.5",
-                "name": "show_mode"
-            },
-            {
-                "desc": "Show page read progress",
-                "type": "bool",
-                "default": "true",
-                "added": "0.5.5",
-                "name": "show_progress"
+                "added": "0.7.0",
+                "name": "full_path"
             }
         ],
-        "section_desc": "Statusbar options struct",
+        "section_desc": "File name component options struct",
         "section_choice": "",
         "section_type": "struct",
         "section_default": "",
         "section_note": "",
-        "section_added": "0.5.5"
+        "section_added": "0.7.0"
     },
     {
-        "name": "Zoom",
+        "name": "statusbar.component.pagenumber",
+        "fields": [
+            {
+                "desc": "Show page number",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.0",
+                "name": "show"
+            }
+        ],
+        "section_desc": "Page number component options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.0"
+    },
+    {
+        "name": "statusbar.component.zoom",
+        "fields": [
+            {
+                "desc": "Show page number",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.0",
+                "name": "show"
+            }
+        ],
+        "section_desc": "Zoom component options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.0"
+    },
+    {
+        "name": "statusbar.component.progress",
+        "fields": [
+            {
+                "desc": "Show page progress",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.0",
+                "name": "show"
+            }
+        ],
+        "section_desc": "Page progress component options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.0"
+    },
+    {
+        "name": "statusbar.component.mode",
+        "fields": [
+            {
+                "desc": "Show interaction mode in the statusbar",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.0",
+                "name": "show"
+            },
+            {
+                "desc": "Show interaction mode in text (e.g., \"Select\", \"Pan\")",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.0",
+                "name": "text"
+            },
+            {
+                "desc": "Show interaction mode as an icon",
+                "type": "bool",
+                "default": "false",
+                "added": "0.7.0",
+                "name": "icon"
+            }
+        ],
+        "section_desc": "Interaction mode options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.0"
+    },
+    {
+        "name": "zoom",
         "fields": [
             {
                 "desc": "Default zoom level",
@@ -449,7 +510,7 @@
         "section_added": "0.3.0"
     },
     {
-        "name": "Selection",
+        "name": "selection",
         "fields": [
             {
                 "desc": "Threshold in pixels before actually starting the selection",
@@ -481,7 +542,7 @@
         "section_added": "0.5.1"
     },
     {
-        "name": "Split",
+        "name": "split",
         "fields": [
             {
                 "desc": "Focus of split follows the mouse",
@@ -520,7 +581,7 @@
         "section_added": "0.6.2"
     },
     {
-        "name": "Scrollbars",
+        "name": "scrollbars",
         "fields": [
             {
                 "desc": "Show the horizontal scrollbar",
@@ -573,7 +634,7 @@
         "section_added": "0.5.1"
     },
     {
-        "name": "Jump Marker",
+        "name": "jump_marker",
         "fields": [
             {
                 "desc": "Show the jump marker",
@@ -605,7 +666,7 @@
         "section_added": "0.3.1"
     },
     {
-        "name": "Links",
+        "name": "links",
         "fields": [
             {
                 "desc": "Enable link support (both pdf links and detected URLs)",
@@ -644,7 +705,7 @@
         "section_added": "0.3.1"
     },
     {
-        "name": "Link Hints",
+        "name": "link_hints",
         "fields": [
             {
                 "desc": "Size of the link hint rects",
@@ -676,7 +737,7 @@
         "section_added": "0.3.0"
     },
     {
-        "name": "Tabs",
+        "name": "tabs",
         "fields": [
             {
                 "desc": "Show tabs",
@@ -755,7 +816,7 @@
         "section_added": "0.6.0"
     },
     {
-        "name": "Picker.Shadow",
+        "name": "picker.shadow",
         "fields": [
             {
                 "desc": "Enable shadow",
@@ -801,7 +862,7 @@
         "section_added": "0.6.0"
     },
     {
-        "name": "Outline",
+        "name": "outline",
         "fields": [
             {
                 "desc": "Indent width",
@@ -816,6 +877,13 @@
                 "default": "true",
                 "added": "0.6.5",
                 "name": "show_page_number"
+            },
+            {
+                "desc": "if true, show the outline in a flat menu instead of a hierarchical one",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.9",
+                "name": "flat_menu"
             }
         ],
         "section_desc": "Outline options struct",
@@ -826,8 +894,16 @@
         "section_added": "0.5.3"
     },
     {
-        "name": "Highlight",
-        "fields": [],
+        "name": "highlight_search",
+        "fields": [
+            {
+                "desc": "if true, show the outline in a flat menu instead of a hierarchical one",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.9",
+                "name": "flat_menu"
+            }
+        ],
         "section_desc": "Highlight Search options struct",
         "section_choice": "",
         "section_type": "struct",
@@ -836,7 +912,7 @@
         "section_added": "0.5.3"
     },
     {
-        "name": "Command Palette",
+        "name": "command_palette",
         "fields": [
             {
                 "desc": "Placeholder text for the input field",
@@ -875,7 +951,7 @@
         "section_added": "0.5.4"
     },
     {
-        "name": "LLM Widget",
+        "name": "llm_widget",
         "fields": [
             {
                 "desc": "Show the LLM Widget",
@@ -908,7 +984,7 @@
         "section_added": "0.5.4"
     },
     {
-        "name": "LLM",
+        "name": "llm",
         "fields": [
             {
                 "desc": "LLM Provider",
@@ -940,7 +1016,7 @@
         "section_added": "0.5.4"
     },
     {
-        "name": "Rendering",
+        "name": "rendering",
         "fields": [
             {
                 "desc": "Device Pixel Ratio",
@@ -994,7 +1070,7 @@
         "section_added": "0.3.0"
     },
     {
-        "name": "Behavior",
+        "name": "behavior",
         "fields": [
             {
                 "desc": "Confirm before quitting",
@@ -1104,7 +1180,7 @@
         "section_added": "0.3.0"
     },
     {
-        "name": "MouseBindings",
+        "name": "mousebindings",
         "fields": [],
         "section_desc": "Mouse binding options struct. <p>Valid commands are: <ul> <li><code class=\"inline\">preview</code> - Shows a preview of the link location in a floating window</li> <li><code class=\"inline\">synctex_jump</code> - Takes to the source code if opened in SyncTeX mode</li> <li><code class=\"inline\">portal</code> - Opens a portal pointing to the clicked link</li> </ul> <p><b>Example</b>:</p> <pre><code class=\"language-toml\">[mousebindings]\n# Format: mouse_command_name = \"Modifier(s)+MouseButton\"\nsynctex_jump = \"Shift+LeftButton\"\n</code></pre>",
         "section_choice": "",
@@ -1114,7 +1190,7 @@
         "section_added": "0.6.6"
     },
     {
-        "name": "KeyBindings",
+        "name": "keybindings",
         "fields": [],
         "section_desc": "<p>Keyboard binding options struct.</p> <p>By default, Lektra loads the default keybindings. You can disable this by setting <code class=\"inline\">load_defaults</code> to <code class=\"inline\">false</code> in the config file.</p> <p>Example:</p> <pre><code class=\"language-toml\">[keybindings]<br>\n# Format: command_name = \"KeyCombination\"\n# Single key\nopen_outline = \"Ctrl+O\"\n# Multiple keys\nscroll_down = [\"j\", \"Down\"] # Added in 0.6.9\n</code></pre> Commands can be viewed via: <ul> <li>The <code class=\"inline\">--list-commands</code> command line option</li> <li>The <a href=\"https://dheerajshenoy.github.io/lektra/commands\">Commands Reference</a></li> <li>The command palette inside Lektra</li> </ul>",
         "section_choice": "",
@@ -1124,7 +1200,7 @@
         "section_added": "0.3.0"
     },
     {
-        "name": "Preview",
+        "name": "preview",
         "fields": [
             {
                 "desc": "Size of the preview window as a ratio of the main window size (width, height)",
