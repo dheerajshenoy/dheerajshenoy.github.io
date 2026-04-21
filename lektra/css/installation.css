@@ -1,7 +1,7 @@
 @import "common.css";
 
 .container {
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -77,6 +77,11 @@
 ul {
     font-size: 20px;
     list-style-type: disc;
+    padding-left: 20px;
+}
+
+ol {
+    font-size: 20px;
     padding-left: 20px;
 }
 

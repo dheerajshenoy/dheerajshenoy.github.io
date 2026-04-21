@@ -11,8 +11,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
     </head>
     <body id="top">
-
-
         <header>
             <div class="logo-text"><a href="index.html">lektra</a></div>
             <div class="stretcher"></div>
@@ -151,26 +149,45 @@ hdiutil verify dist/*.dmg</code></pre>
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
-                            <b><p>This is the best way to get the latest features and bug fixes, and also contribute to the project.</p></b>
-                            <p>Install the required dependency:</p>
-                            <ul>
-                                <li>Arch Linux:
+                            <h2>This is the best way to get the latest features and bug fixes, and also contribute to the project.</h2>
+
+                            <h2><b>Linux / MacOS</b></h2>
+                            <ul style="list-style-type: square; padding-left: 60px;">
+                                <li><span style="color: lightblue">Arch Linux</span>
                                     <pre><code class="language-shell">pacman -S base-devel qt6-base cmake pkgconf</code></pre>
                                 </li>
-                                <li>Debian/Ubuntu:
+                                <li><span style="color: lightpink">Debian / Ubuntu</span>
                                     <pre><code class="language-bash">apt install build-essential pkgconf qt6-base-dev qt6-tools-dev qt6-l10n-tools unzip zlib1g-dev cmake libgl1-mesa-dri mesa-common-dev g++</code></pre>
-                                    </li>
-                                <li>Other distros : Check your package manager for the equivalent packages</li>
+                                </li>
+                                <li><span style="color: magenta">Other distros</span>
+                                    <br>Check your package manager for the equivalent packages</li>
+
+
                             </ul>
-                            <p>Optionally install for extra features:</p>
-                            <ul>
-                                <li><code class="inline">djvulibre</code> — DjVu file support</li>
-                                <li><code class="inline">synctex</code> — SyncTeX support</li>
-                            </ul>
+
                             <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/lektra.git
 cd lektra
 ./configure # --help for options; prefix defaults to /usr
 ./install</code></pre>
+                            <em><b>NOTE</b>: You might need to run the install command with <code class="inline">sudo</code> to install to system directories.</em>
+                            <h3>Optionally install the following for extra features</h3>
+                            <ul>
+                                <li><code class="inline">djvulibre</code> — DjVu file support</li>
+                                <li><code class="inline">synctex</code> — SyncTeX support</li>
+                            </ul>
+
+                            <h2><b>Windows</b></h2>
+                            <ol style="padding-left: 60px; ">
+                                <li>Download the Qt6 library using the installer <a href="https://doc.qt.io/qt-6/get-and-install-qt.html" target="_blank">here</a>.</li>
+                                <li>Using the installer, download the latest Qt6 version and add MSVC support</li>
+                                <li>Add the Qt6 binary folder path to the environment variable <code class="inline">Path</code></li>
+                                <li>Download Visual Studio Community Edition <a href="https://visualstudio.microsoft.com/vs/community/" target="_blank">here</a>.</li>
+                                <li>Add C++ MSVC 2019 development library using the Visual Studio Installer</li>
+                                <li>Download CMake from <a href="https://cmake.org/download/" target="_blank">here</a></li>
+                            </ol>
+                            <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/lektra.git
+cd lektra
+./configure.bat</code></pre>
                             <em><b>NOTE</b>: You might need to run the install command with <code class="inline">sudo</code> to install to system directories.</em>
                         </div>
                     </div>
