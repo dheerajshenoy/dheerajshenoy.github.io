@@ -73,6 +73,11 @@
                             <span>MacOS</span>
                         </button>
 
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-windows" id="tabbtn-windows">
+                            <img src="files/windows.png"/>
+                            <span>Windows</span>
+                        </button>
+
                         <button class="tab" role="tab" aria-selected="false" aria-controls="tab-other" id="tabbtn-other">
                             <span>Build from Source</span>
                         </button>
@@ -81,7 +86,7 @@
 
                     <div class="tab-panels">
                         <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
-                            <p>Lektra is available in the <a href="https://aur.archlinux.org/packages/lektra-git"><b>Arch User Repository (AUR)</b></a></p>
+                            <p>Lektra is available in the <a href="https://aur.archlinux.org/packages/lektra-git" target="_blank"><b>Arch User Repository (AUR)</b></a></p>
                             <center><b>For the latest master branch build:</b></center>
                             <pre><code class="language-bash">paru lektra-git # (or) yay -S lektra-git</code></pre>
                             <center><b>OR</b></center><br>
@@ -94,7 +99,7 @@
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-deb" aria-labelledby="tabbtn-deb">
-                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases">releases</a> page and download the latest <b>DEB</b> package for lektra.</p>
+                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases" target="_blank">releases</a> page and download the latest <b>DEB</b> package for lektra.</p>
                             <div class="callout note">
                                 <strong>Note</strong>
                                 <p>Tested successfully on <b>Ubuntu 24.04</b></p>
@@ -102,7 +107,7 @@
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-appimage" aria-labelledby="tabbtn-appimage">
-                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases">releases</a> page and download the latest <b>AppImage</b> for lektra.</p>
+                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases" target="_blank">releases</a> page and download the latest <b>AppImage</b> for lektra.</p>
 
                         </div>
 
@@ -112,7 +117,7 @@ emaint sync -r gentoo-zh
 emerge lektra</code></pre>
                             <div class="callout note">
                                 <strong>NOTE</strong>
-                                <p>This package is maintained by <a href="https://github.com/douglarek">douglarek</a>, not by the upstream project. Please report Gentoo-specific issues to the <a href="https://github.com/microcai/gentoo-zh">gentoo-zh</a> repository.</p>
+                                <p>This package is maintained by <a href="https://github.com/douglarek" target="_blank">douglarek</a>, not by the upstream project. Please report Gentoo-specific issues to the <a href="https://github.com/microcai/gentoo-zh">gentoo-zh</a> repository.</p>
                             </div>
                         </div>
 
@@ -133,6 +138,15 @@ hdiutil verify dist/*.dmg</code></pre>
                             <div class="callout note">
                                 <strong>NOTE</strong>
                                 <p>Tested on Apple Silicon macOS.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="panel" role="tabpanel" id="tab-windows" aria-labelledby="tabbtn-windows">
+                            <p>Check out the <a href="https://github.com/dheerajshenoy/lektra/releases" target="_blank">releases</a> page and download the latest <b>EXE</b> for lektra.</p>
+                            <div class="callout note">
+                                <strong>Note</strong>
+                                <p>Tested successfully on <b>Windows 11</b></p>
                             </div>
                         </div>
 
