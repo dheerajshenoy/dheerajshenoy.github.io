@@ -82,12 +82,32 @@ pre code.language-bash {
     order: 1;
 }
 
+/* .feature-media img { */
+/*     width: 100%; */
+/*     height: auto; */
+/*     border-radius: 12px; */
+/*     display: block; */
+/*     box-shadow: 0 18px 40px rgba(0,0,0,0.35); */
+/* } */
+
+
 .feature-media img {
     width: 100%;
     height: auto;
     border-radius: 12px;
     display: block;
     box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+
+    /* Smooth transition for both the scale and the shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-media img:hover {
+    /* Zoom in by 10% without moving surrounding elements */
+    transform: scale(1.1);
+
+    /* Optional: enhance the shadow on hover for a "lifted" effect */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.45);
 }
 
 /* Text */
