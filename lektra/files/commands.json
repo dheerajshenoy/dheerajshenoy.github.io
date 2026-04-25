@@ -388,10 +388,6 @@
     "description": "Search document using regex"
   },
   {
-    "name": "search_from_here",
-    "description": "Search from current position"
-  },
-  {
     "name": "search_next",
     "description": "Jump to next search result"
   },
