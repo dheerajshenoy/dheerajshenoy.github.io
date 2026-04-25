@@ -4,6 +4,7 @@
     --text: #e1e6ff;
     --logo-text: pink;
     --muted: #aab4d6;
+    --footer-bg: #22222255;
     --line: pink;
     --accent: #7aa2ff;
     --accent2: #7dffb2;
@@ -308,4 +309,13 @@ nav {
     border-left: 1px solid rgba(255,255,255,0.15);
     padding-left: 8px;
     color: var(--text);
+}
+
+footer {
+    text-align: center;
+    padding: 24px 18px;
+    font-size: 14px;
+    color: var(--muted);
+    font-family: 'Outfit', sans-serif;
+    background: var(--footer-bg);
 }

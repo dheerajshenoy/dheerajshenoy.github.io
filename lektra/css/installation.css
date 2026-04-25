@@ -1,10 +1,5 @@
 @import "common.css";
 
-.container {
-    max-width: 80%;
-    margin: 0 auto;
-}
-
 .heading {
     text-align: center;
     color: pink;

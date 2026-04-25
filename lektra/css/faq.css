@@ -1,7 +1,23 @@
+@import "common.css";
+
 .question > strong {
     color: pink;
 }
 
+.question {
+    margin: 20px 0 10px 0;
+    font-size: 20px;
+    font-family: "Outfit";
+    font-weight: 300;
+}
+
+.answer {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    color: var(--muted);
+    font-family: "Outfit";
+    font-weight: 300;
+}
 
 .heading {
     color: pink;
