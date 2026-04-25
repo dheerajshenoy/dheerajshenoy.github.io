@@ -46,7 +46,7 @@
     font-size: 28px;
     margin: 6px 0 10px;
     letter-spacing: -.2px;
-    color: pink;
+    color: var(--accent);
 }
 
 .section h3 {
@@ -133,7 +133,7 @@ hr.sep {
 }
 
 .heading {
-    color: pink;
+    color: var(--accent);
     text-align: center;
 }
 

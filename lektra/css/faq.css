@@ -1,7 +1,7 @@
 @import "common.css";
 
 .question > strong {
-    color: pink;
+    color: var(--accent);
 }
 
 .question {
@@ -20,7 +20,7 @@
 }
 
 .heading {
-    color: pink;
+    color: var(--accent);
     text-align: center;
 }
 

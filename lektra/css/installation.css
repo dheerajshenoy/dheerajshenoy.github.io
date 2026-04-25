@@ -2,7 +2,7 @@
 
 .heading {
     text-align: center;
-    color: pink;
+    color: var(--accent);
 }
 
 .tabs {
@@ -39,7 +39,7 @@
 }
 
 .tab.active {
-    border-color: pink;
+    border-color: var(--accent);
 }
 
 .panel {

@@ -2,11 +2,11 @@
     --bg: #222233;
     --card: #111522;
     --text: #e1e6ff;
-    --logo-text: pink;
     --muted: #aab4d6;
     --footer-bg: #22222255;
-    --line: pink;
     --accent: #7aa2ff;
+    --line: accent;
+    --logo-text: accent;
     --accent2: #7dffb2;
     --shadow: 0 10px 50px 10px rgba(0, 0, 0, .35);
     --radius: 16px;
@@ -265,7 +265,7 @@ nav {
     right: 12px;
     bottom: 4px;
     height: 2px;
-    background: pink;
+    background: var(--accent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 180ms ease;
