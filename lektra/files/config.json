@@ -25,6 +25,31 @@
         "section_added": "0.6.4"
     },
     {
+        "name": "synctex",
+        "fields": [
+            {
+                "desc": "Enable synctex support",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.9",
+                "name": "enabled"
+            },
+            {
+                "desc": "Synctex editor command",
+                "type": "str",
+                "default": "\"\"",
+                "added": "0.3.0",
+                "name": "editor_command"
+            }
+        ],
+        "section_desc": "Synctex options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.6.9"
+    },
+    {
         "name": "search",
         "fields": [
             {
