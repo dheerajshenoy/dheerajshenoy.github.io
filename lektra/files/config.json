@@ -1071,11 +1071,11 @@
                 "name": "open_last_visited"
             },
             {
-                "desc": "Always open files in new window",
+                "desc": "Allow only a single instance of the application (opening a new file will open in the same instance)",
                 "type": "bool",
                 "default": "false",
-                "added": "0.5.3",
-                "name": "always_open_in_new_window"
+                "added": "0.7.1",
+                "name": "single_instance"
             },
             {
                 "desc": "Remembers last visited page number",
