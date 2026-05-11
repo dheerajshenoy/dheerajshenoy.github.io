@@ -80,6 +80,18 @@
     "description": "Jump to a specific page number"
   },
   {
+    "name": "bookmark_add",
+    "description": "Add bookmark"
+  },
+  {
+    "name": "bookmark_remove",
+    "description": "Remove bookmark"
+  },
+  {
+    "name": "bookmarks",
+    "description": "List bookmarks"
+  },
+  {
     "name": "mark_set",
     "description": "Set a named mark at current position"
   },
@@ -422,6 +434,10 @@
   {
     "name": "preview",
     "description": "Show the preview window"
+  },
+  {
+    "name": "export_highlights",
+    "description": "Export text highlight annotations"
   },
   {
     "name": "open_config",
