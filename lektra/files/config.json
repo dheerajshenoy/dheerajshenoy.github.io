@@ -891,6 +891,13 @@
                 "default": "true",
                 "added": "0.6.9",
                 "name": "flat_menu"
+            },
+            {
+                "desc": "prompt text for the outline picker",
+                "type": "str",
+                "default": "\"Outline\"",
+                "added": "0.7.1",
+                "name": "prompt"
             }
         ],
         "section_desc": "Outline options struct",
@@ -909,6 +916,13 @@
                 "default": "true",
                 "added": "0.6.9",
                 "name": "flat_menu"
+            },
+            {
+                "desc": "prompt text for the highlight search picker",
+                "type": "str",
+                "default": "\"Search Highlights\"",
+                "added": "0.7.1",
+                "name": "prompt"
             }
         ],
         "section_desc": "Highlight Search options struct",
@@ -922,11 +936,11 @@
         "name": "command_palette",
         "fields": [
             {
-                "desc": "Placeholder text for the input field",
+                "desc": "prompt text for the command palette",
                 "type": "str",
-                "default": "\"Type a command...\"",
-                "added": "0.5.4",
-                "name": "placeholder_text"
+                "default": "\"Command\"",
+                "added": "0.7.1",
+                "name": "prompt"
             },
             {
                 "desc": "Show the vertical scrollbar in the picker",
@@ -961,6 +975,13 @@
         "name": "rendering",
         "fields": [
             {
+                "desc": "Rendering backend",
+                "type": "string (\"auto\", \"opengl\", \"raster\")",
+                "default": "\"auto\"",
+                "added": "0.7.3",
+                "name": "class"
+            },
+            {
                 "desc": "Device Pixel Ratio",
                 "type": "float or table",
                 "default": "1.0",
@@ -994,14 +1015,6 @@
                 "default": "true",
                 "added": "0.6.3",
                 "name": "smooth_pixmap_transform"
-            },
-            {
-                "desc": "Rendering backend to use",
-                "type": "str",
-                "choice": "auto, raster, opengl",
-                "added": "0.6.6",
-                "default": "auto",
-                "name": "backend"
             }
         ],
         "section_desc": "Rendering options struct",
@@ -1020,6 +1033,13 @@
                 "default": "false",
                 "added": "0.3.0",
                 "name": "confirm_on_quit"
+            },
+            {
+                "desc": "Auto scroll when selecting text that is out of view",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.1",
+                "name": "auto_scroll"
             },
             {
                 "desc": "Undo limit",

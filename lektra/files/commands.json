@@ -136,6 +136,14 @@
     "description": "Rotate page counter-clockwise"
   },
   {
+    "name": "flip_horizontal",
+    "description": "Flip page horizontally"
+  },
+  {
+    "name": "flip_vertical",
+    "description": "Flip page vertically"
+  },
+  {
     "name": "location_prev",
     "description": "Go back in location history"
   },
