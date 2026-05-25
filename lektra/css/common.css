@@ -194,18 +194,19 @@ header {
     font-family: "Major Mono Display";
     font-weight: 200;
     font-size: 30px;
-    color: var(--logo-text);
     letter-spacing: 1px;
-    text-shadow: 0 0 18px rgba(122, 162, 255, 0.4);
-    transition: text-shadow 200ms ease;
-}
-
-.logo-text:hover {
-    text-shadow: 0 0 28px rgba(122, 162, 255, 0.7);
 }
 
 .logo-text a {
     text-decoration: none;
+    color: var(--logo-text);
+    text-shadow: 0 0 18px rgba(122, 162, 255, 0.4);
+    transition: text-shadow 250ms ease, color 250ms ease;
+}
+
+.logo-text a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(122, 162, 255, 1), 0 0 30px rgba(122, 162, 255, 0.7), 0 0 60px rgba(122, 162, 255, 0.4);
 }
 
 .stretcher {
@@ -346,7 +347,7 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:not(.navlink):not(.github-star):not(.logo-text a):hover {
     text-decoration: underline;
 }
 
