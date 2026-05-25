@@ -24,9 +24,9 @@ pre code.language-bash {
 }
 
 .hero {
-    padding: 30px 10px 20px 20px;
-    background: var(--accent);
-    color: black;
+    padding: 60px 10px 50px 20px;
+    background: linear-gradient(160deg, #4a6fd4 0%, #2a3f8f 60%, var(--bg) 100%);
+    color: var(--text);
     text-align: center;
 }
 
@@ -39,26 +39,60 @@ pre code.language-bash {
 }
 
 .hero-release {
+    display: inline-block;
     font-family: "Outfit";
-    padding: 0;
-    margin: 0;
-    color: black;
+    margin-top: 1.5rem;
+    padding: 10px 28px;
+    background: var(--accent);
+    color: #0a0f1e;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 150ms ease;
+}
+
+.hero-release:hover {
+    opacity: 0.85;
 }
 
 .hero-motto {
     padding: 0;
-    margin: 0;
+    margin: 0.5rem 0 0;
     font-family: "Outfit";
     font-size: 1.25rem;
     font-style: italic;
-    color: var(--motto);
+    color: rgba(225, 230, 255, 0.7);
 }
 
-.hero-platform {
-    padding: 0;
-    margin: 0;
-    font-size: 1.25rem;
+.hero-platforms {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.hero-platform-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    color: rgba(225, 230, 255, 0.5);
     font-family: "Outfit";
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.hero-platform-item img {
+    width: 28px;
+    height: 40px;
+    object-fit: contain;
+    opacity: 0.7;
+}
+
+.hero-platform-item img.platform-linux {
+    width: 40px;
 }
 
 .showcase {
@@ -72,15 +106,58 @@ pre code.language-bash {
 
 .supported-formats {
     max-width: 1100px;
-    padding: 0rem 1.5rem;
+    padding: 2.5rem 1.5rem 3rem;
     font-family: "Outfit";
     margin: 0 auto;
     font-size: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .supported-formats h2 {
     font-size: 2rem;
     color: var(--accent);
+}
+
+.format-group {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.format-label {
+    font-size: 1rem;
+    color: var(--muted, #b8bcc8);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.format-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chip {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    padding: 3px 12px;
+    font-size: 0.95rem;
+    font-family: 'JetBrainsMono', monospace;
+    letter-spacing: 0.03em;
+}
+
+.chip-optional {
+    border-color: rgba(122, 162, 255, 0.35);
+    color: var(--accent);
+}
+
+.format-note {
+    font-size: 0.9rem;
+    color: var(--muted, #b8bcc8);
+    margin-top: 0.5rem;
 }
 
 /* Each feature row */
@@ -89,8 +166,21 @@ pre code.language-bash {
     grid-template-columns: 1.15fr 0.85fr; /* image a bit larger */
     gap: 2.5rem;
     align-items: center;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.feature:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+
+/* Full-width card (no media) */
+.feature.full {
+    display: block;
+    width: 100%;
+}
 
 /* Reverse: image on the right */
 .feature.reverse {
@@ -137,6 +227,23 @@ pre code.language-bash {
     margin: 0 0 0.75rem 0;
     font-size: 2.0rem;
     color: var(--accent);
+}
+
+.feature-subtitle {
+    margin: -0.4rem 0 0.6rem 0;
+    font-size: 1rem;
+    color: var(--accent2);
+    font-style: italic;
+}
+
+.hl-toml {
+    color: #f97316;
+    font-weight: bold;
+}
+
+.hl-lua {
+    color: #a0a0f0;
+    font-weight: bold;
 }
 
 .feature-desc {

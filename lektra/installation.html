@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LEKTRA | Installation</title>
+        <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/installation.css">
         <script src="js/installation.js" defer></script>
         <script src="js/common.js" defer></script>
@@ -33,15 +34,31 @@
                     <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
                         <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
                     </svg>
-                    Star
-                    <span class="star-count">—</span>
+                    GitHub
+                    <span class="github-count">—</span>
+                </a>
+                <a href="https://codeberg.org/lektra/lektra" target="_blank" class="github-star">
+                    <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+                    Codeberg
+                    <span class="star-count codeberg-count">—</span>
                 </a>
             </nav>
         </header>
 
         <div class="container">
             <div class="section">
+
                 <div class="heading">Installation</div>
+
+                <div class="tab-panels">
+                    <div class="callout note">
+                        <strong>System Requirements</strong>
+                        <ul>
+                            <li>Qt6, CMake 3.16+, and a C++17-capable compiler</li>
+                            <li>Minimum tested OS versions: Arch Linux, Ubuntu 24.04, Windows 11, Apple Silicon macOS</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="tabs" data-tabs>
                     <div class="tab-buttons" role="tablist" aria-label="Installation instructions">
@@ -68,7 +85,7 @@
 
                         <button class="tab" role="tab" aria-selected="false" aria-controls="tab-macos" id="tabbtn-macos">
                             <img src="files/macos.png"/>
-                            <span>MacOS</span>
+                            <span>macOS</span>
                         </button>
 
                         <button class="tab" role="tab" aria-selected="false" aria-controls="tab-windows" id="tabbtn-windows">
@@ -83,12 +100,12 @@
                     </div>
 
                     <div class="tab-panels">
+
                         <div class="panel active" role="tabpanel" id="tab-arch" aria-labelledby="tabbtn-arch">
                             <p>Lektra is available in the <a href="https://aur.archlinux.org/packages/lektra-git" target="_blank"><b>Arch User Repository (AUR)</b></a></p>
-                            <center><b>For the latest master branch build:</b></center>
+                            <p class="panel-label">For the latest master branch build:</p>
                             <pre><code class="language-bash">paru lektra-git # (or) yay -S lektra-git</code></pre>
-                            <center><b>OR</b></center><br>
-                            <center><b>For the latest "stable" release:</b></center>
+                            <p class="panel-label">For the latest stable release:</p>
                             <pre><code class="language-bash">paru lektra-bin # (or) yay -S lektra-bin</code></pre>
                             <div class="callout note">
                                 <strong>Note</strong>
@@ -114,7 +131,7 @@
 emaint sync -r gentoo-zh
 emerge lektra</code></pre>
                             <div class="callout note">
-                                <strong>NOTE</strong>
+                                <strong>Note</strong>
                                 <p>This package is maintained by <a href="https://github.com/douglarek" target="_blank">douglarek</a>, not by the upstream project. Please report Gentoo-specific issues to the <a href="https://github.com/microcai/gentoo-zh">gentoo-zh</a> repository.</p>
                             </div>
                         </div>
@@ -134,7 +151,7 @@ hdiutil verify dist/*.dmg</code></pre>
                             <p>Mount the generated DMG and verify the bundled lektra.app with:</p>
                             <pre><code class="language-bash">codesign --verify --deep --strict</code></pre>
                             <div class="callout note">
-                                <strong>NOTE</strong>
+                                <strong>Note</strong>
                                 <p>Tested on Apple Silicon macOS.</p>
                             </div>
                         </div>
@@ -149,62 +166,65 @@ hdiutil verify dist/*.dmg</code></pre>
                         </div>
 
                         <div class="panel" role="tabpanel" id="tab-other" aria-labelledby="tabbtn-other">
-                            <h2>This is the best way to get the latest features and bug fixes, and also contribute to the project.</h2>
+                            <p>Building from source is the best way to get the latest features and bug fixes, and to contribute to the project.</p>
 
-                            <h2><b>Linux / MacOS</b></h2>
-                            <ul style="list-style-type: square; padding-left: 60px;">
-                                <li><span style="color: lightblue">Arch Linux</span>
+                            <h2>Linux / macOS</h2>
+                            <p>Install dependencies for your distro:</p>
+                            <ul class="distro-list">
+                                <li><span class="distro-label distro-arch">Arch Linux</span>
                                     <pre><code class="language-shell">pacman -S base-devel qt6-base cmake pkgconf</code></pre>
                                 </li>
-                                <li><span style="color: lightpink">Debian / Ubuntu</span>
+                                <li><span class="distro-label distro-debian">Debian / Ubuntu</span>
                                     <pre><code class="language-bash">apt install build-essential pkgconf qt6-base-dev qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools unzip zlib1g-dev cmake libgl1-mesa-dri mesa-common-dev g++</code></pre>
                                 </li>
-                                <li><span style="color: magenta">Other distros</span>
-                                    <br>Check your package manager for the equivalent packages</li>
-
-
+                                <li><span class="distro-label distro-other">Other distros</span>
+                                    <p>Check your package manager for the equivalent packages.</p>
+                                </li>
                             </ul>
 
                             <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/lektra.git
 cd lektra
 ./configure # --help for options; prefix defaults to /usr
 ./install</code></pre>
-                            <em><b>NOTE</b>: You might need to run the install command with <code class="inline">sudo</code> to install to system directories.</em>
-                            <h3>Optionally install the following for extra features</h3>
+                            <div class="callout note">
+                                <strong>Note</strong>
+                                <p>You might need to run <code class="inline">./install</code> with <code class="inline">sudo</code> to install to system directories.</p>
+                            </div>
+
+                            <h3>Optional dependencies</h3>
                             <ul>
                                 <li><code class="inline">djvulibre</code> — DjVu file support</li>
-                                <li><code class="inline">imagemagick &amp; imagemagick C++ development files </code> — Image files support</li>
                                 <li><code class="inline">lua</code> — Lua scripting support</li>
                             </ul>
 
-                            <h2><b>Windows</b></h2>
-                            <ol style="padding-left: 60px; ">
+                            <h2>Windows</h2>
+                            <ol class="steps-list">
                                 <li>Download the Qt6 library using the installer <a href="https://doc.qt.io/qt-6/get-and-install-qt.html" target="_blank">here</a>.</li>
-                                <li>Using the installer, download the latest Qt6 version and add MSVC support</li>
-                                <li>Add the Qt6 binary folder path to the environment variable <code class="inline">Path</code></li>
+                                <li>Using the installer, download the latest Qt6 version and add MSVC support.</li>
+                                <li>Add the Qt6 binary folder path to the environment variable <code class="inline">Path</code>.</li>
                                 <li>Download Visual Studio Community Edition <a href="https://visualstudio.microsoft.com/vs/community/" target="_blank">here</a>.</li>
-                                <li>Add C++ MSVC 2019 development library using the Visual Studio Installer</li>
-                                <li>Download CMake from <a href="https://cmake.org/download/" target="_blank">here</a></li>
+                                <li>Add C++ MSVC 2019 development library using the Visual Studio Installer.</li>
+                                <li>Download CMake from <a href="https://cmake.org/download/" target="_blank">here</a>.</li>
                             </ol>
                             <pre><code class="language-bash">git clone https://github.com/dheerajshenoy/lektra.git
 cd lektra
 ./configure.bat</code></pre>
-                            <em><b>NOTE</b>: You might need to run the install command with <code class="inline">sudo</code> to install to system directories.</em>
                         </div>
 
-                        <div class="section">
-                            <div class="heading">Getting Started</div>
-                            <p>After installation, you can launch Lektra from your application menu or by running <code class="inline">lektra</code> in the terminal. For details about command line options, run <code class="inline">lektra --help</code></p>
-
-                            <p>You can also read the manual page by running <code class="inline">man lektra</code> in the terminal.</p>
-
-                            <p>You can use LEKTRA as is, the default configuration is designed to be a good starting point for most users. However, you can customize it to your liking. Check out the <a href="configuration.html">configuration</a> page for more details.</p>
-
-                            <p>Once you start configuring, you might want to check out the <a href="commands.html">commands</a> page to see all the available commands and their default keybindings.</p>
-                        </div>
-                        <br>
                     </div>
-                </div> <!-- Installation Section -->
+                </div> <!-- Tabs End -->
+
+                <div class="section getting-started">
+                    <div class="heading">Getting Started</div>
+                    <p>After installation, you can launch Lektra from your application menu or by running <code class="inline">lektra</code> in the terminal. For details about command line options, run <code class="inline">lektra --help</code>.</p>
+
+                    <p>You can also read the manual page by running <code class="inline">man lektra</code> in the terminal.</p>
+
+                    <p>The default configuration is a good starting point for most users. When you're ready to customize, check out the <a href="configuration.html">configuration</a> and <a href="commands.html">commands</a> pages.</p>
+
+                    <p>To get familiar with LEKTRA quickly, open the built-in tutorial by running <code class="inline">lektra --tutorial</code> from the terminal, or via the <code class="inline">show_tutorial_file</code> command in the command palette (<code class="inline">Ctrl + Shift + P</code>).</p>
+                </div>
+
             </div> <!-- Container End -->
 
             <footer>

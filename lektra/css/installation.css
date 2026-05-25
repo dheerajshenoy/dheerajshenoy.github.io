@@ -62,6 +62,27 @@
 
 .section p {
     font-family: 'Outfit', ui-sans-serif;
+    font-size: 18px;
+}
+
+.panel p, .panel li, .panel em {
+    font-size: 18px;
+}
+
+.panel h2 {
+    font-size: 1.6rem;
+}
+
+.panel h3 {
+    font-size: 1.3rem;
+}
+
+.distro-label {
+    font-size: 1.1rem;
+}
+
+.getting-started p {
+    font-size: 18px;
 }
 
 .tab-panels {
@@ -82,4 +103,36 @@ ol {
 
 ul li {
     margin-bottom: 10px;
+}
+
+.panel-label {
+    text-align: center;
+    font-weight: bold;
+    margin: 1rem 0 0.25rem;
+}
+
+.distro-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.distro-label {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+}
+
+.distro-arch   { color: #1793d1; }
+.distro-debian { color: #e395a5; }
+.distro-other  { color: #c084fc; }
+
+.steps-list {
+    padding-left: 1.5rem;
+}
+
+.getting-started {
+    max-width: 70%;
+    margin: 2rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
 }

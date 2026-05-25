@@ -349,7 +349,7 @@
                 "choice": "width, height, window",
                 "added": "0.5.1",
                 "name": "initial_fit",
-                "type": "DocumentView::FitMode initial_fit ="
+                "type": "str"
             },
             {
                 "desc": "Apply auto fit when resizing window",

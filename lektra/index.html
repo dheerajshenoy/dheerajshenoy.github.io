@@ -34,8 +34,13 @@
                     <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
                         <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
                     </svg>
-                    Star
-                    <span class="star-count">—</span>
+                    GitHub
+                    <span class="github-count">—</span>
+                </a>
+                <a href="https://codeberg.org/lektra/lektra" target="_blank" class="github-star">
+                    <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+                    Codeberg
+                    <span class="star-count codeberg-count">—</span>
                 </a>
             </nav>
         </header>
@@ -44,7 +49,20 @@
             <p class="hero-tagline">High-performance <b>Document</b> &amp; <b>Image viewer</b></p>
             <p class="hero-motto">Configurable. Customizable. Powerful.</p>
             <br>
-            <p class="hero-platform">For Linux, macOS and Windows</p>
+            <div class="hero-platforms">
+                <div class="hero-platform-item">
+                    <img src="files/linux-penguin.png" alt="Linux" class="platform-linux">
+                    <span>Linux</span>
+                </div>
+                <div class="hero-platform-item">
+                    <img src="files/macos.png" alt="macOS">
+                    <span>macOS</span>
+                </div>
+                <div class="hero-platform-item">
+                    <img src="files/windows.png" alt="Windows">
+                    <span>Windows</span>
+                </div>
+            </div>
             <a href="https://github.com/dheerajshenoy/lektra/releases" class="hero-release">Latest release</a>
         </section>
 
@@ -53,13 +71,40 @@
 
             <section class="supported-formats">
                 <h2>Supported formats</h2>
-                <h3><b>Documents</b></h3>
-                PDF, XPS, OXPS, CBZ, FB2, EPUB, Mobi, DjVu<sup> 1</sup>
-                <h3><b>Images:</b></h3>
-                JPEG, PNG, TIFF, GIF, BMP, WebP, SVG
-                <br>
-
-                <p><sup>1</sup> Enabled only if <b>djvulibre</b> is installed on the system</p>
+                <div class="format-group">
+                    <span class="format-label">Documents</span>
+                    <div class="format-chips">
+                        <span class="chip">PDF</span>
+                        <span class="chip">XPS</span>
+                        <span class="chip">OXPS</span>
+                        <span class="chip">CBZ</span>
+                        <span class="chip">CBT</span>
+                        <span class="chip">FB2</span>
+                        <span class="chip">FBZ</span>
+                        <span class="chip">EPUB</span>
+                        <span class="chip">Mobi</span>
+                        <span class="chip chip-optional" title="Requires djvulibre">DjVu <sup>1</sup></span>
+                    </div>
+                </div>
+                <div class="format-group">
+                    <span class="format-label">Images</span>
+                    <div class="format-chips">
+                        <span class="chip">JPEG</span>
+                        <span class="chip">PNG</span>
+                        <span class="chip">APNG</span>
+                        <span class="chip">TIFF</span>
+                        <span class="chip">GIF</span>
+                        <span class="chip">BMP</span>
+                        <span class="chip">WebP</span>
+                        <span class="chip">SVG</span>
+                        <span class="chip">TGA</span>
+                        <span class="chip">ICO</span>
+                        <span class="chip">PPM</span>
+                        <span class="chip">PGM</span>
+                        <span class="chip">PBM</span>
+                    </div>
+                </div>
+                <p class="format-note"><sup>1</sup> Enabled only if <b>djvulibre</b> is installed on the system</p>
             </section>
         </div>
 
