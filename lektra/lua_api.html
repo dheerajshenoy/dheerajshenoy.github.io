@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LEKTRA | Commands</title>
-        <link rel="stylesheet" href="css/commands.css">
+        <title>LEKTRA | Lua API</title>
+        <link rel="stylesheet" href="css/lua_api.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/nord.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-        <script src="js/commands.js" defer></script>
+        <script src="js/lua_api.js" defer></script>
         <script src="js/common.js" defer></script>
     </head>
     <body id="top">
@@ -16,16 +16,15 @@
             <div class="logo-text"><a href="index.html">lektra</a></div>
             <div class="stretcher"></div>
             <nav>
-                <a href="index.html" class="navlink" >Home</a>
+                <a href="index.html" class="navlink">Home</a>
                 <a href="installation.html" class="navlink">Install</a>
 
-                <!-- Dropdown -->
                 <div class="navlink dropdown active">
                     ▼ Reference
                     <ul class="dropdown-content" aria-labelledby="reference-dropdown" role="menu">
                         <li><a href="configuration.html" class="navlink" role="menuitem">Configuration</a></li>
-                        <li><a href="commands.html" class="navlink active" role="menuitem" aria-current="page">Commands</a></li>
-                        <li><a href="lua_api.html" class="navlink" role="menuitem">Lua API</a></li>
+                        <li><a href="commands.html" class="navlink" role="menuitem">Commands</a></li>
+                        <li><a href="lua_api.html" class="navlink active" role="menuitem" aria-current="page">Lua API</a></li>
                     </ul>
                 </div>
 
@@ -47,26 +46,28 @@
         </header>
 
         <div class="container">
-            <div class="heading">Commands</div>
+            <div class="heading">Lua API</div>
             <main class="content">
 
                 <details class="info">
-                    <summary>Commands (click to expand)</summary>
-                    <p>Commands are the core actions that LEKTRA can perform, such as copying text, navigating pages, or opening the command palette. Each command is associated with a unique identifier and can be triggered through various input methods.</p>
-                <p>Command palette - <code class="inline">Ctrl + Shift + P</code> (on a default configuration).</p>
+                    <summary>Lua API (click to expand)</summary>
+                    <p>Lektra exposes a Lua scripting API under the global <code class="inline">lektra</code> table. You can use it in your <code class="inline">config.lua</code> to automate actions, bind custom commands, respond to events, and more.</p>
+                    <p>Config file location: <code class="inline">~/.config/lektra/config.lua</code></p>
+                    <p>Example:</p>
+                    <pre><code class="language-lua">lektra.keymap.set("scroll_down", {"j"})
 
-                <p>Example usage in config:</p>
-                <pre><code class="language-toml">[keybindings]
-selection_copy = "y,y"
-scroll_down= "j"</code></pre>
+lektra.cmd.register("my_cmd", function()
+    local view = lektra.tabs.active_view()
+    if view then view:goto_page(1) end
+end, "Jump to first page")</code></pre>
                 </details>
                 <br>
-                <input type="text" id="command-search" placeholder="Search for commands..." aria-label="Search for commands">
-                <center><span style="font-family: Outfit">Showing <span id="result-count">0</span> results</span></center>
+                <input type="text" id="lua-api-search" placeholder="Search functions..." aria-label="Search Lua API">
+                <center><span style="font-family: Outfit">Showing <span id="result-count">0</span> functions</span></center>
 
-              <div id="sections">
-                <!-- Template Holder -->
-              </div>
+                <div id="sections">
+                    <!-- Template Holder -->
+                </div>
 
             </main>
         </div>

@@ -1,0 +1,2359 @@
+[
+  {
+    "module": "lektra",
+    "module_desc": "",
+    "classes": [
+      {
+        "name": "lektra.ScreenInfo",
+        "desc": "",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "Platform-specific screen name (e.g. \"HDMI-1\")"
+          },
+          {
+            "name": "dpr",
+            "type": "number",
+            "desc": "Device pixel ratio (e.g. 2.0 on HiDPI screens)"
+          },
+          {
+            "name": "logical_dpi",
+            "type": "number",
+            "desc": "Logical dots per inch"
+          },
+          {
+            "name": "physical_dpi",
+            "type": "number",
+            "desc": "Physical dots per inch"
+          },
+          {
+            "name": "refresh_rate",
+            "type": "number",
+            "desc": "Refresh rate in Hz"
+          },
+          {
+            "name": "geometry",
+            "type": "{x:",
+            "desc": "integer, y: integer, w: integer, h: integer} Screen geometry in pixels"
+          }
+        ],
+        "methods": []
+      }
+    ],
+    "functions": []
+  },
+  {
+    "module": "lektra.view",
+    "module_desc": "",
+    "classes": [
+      {
+        "name": "Container",
+        "desc": "Represents the underlying document and rendering context for a view in Lektra.",
+        "fields": [],
+        "methods": [
+          {
+            "name": "vsplit",
+            "sig": "Container:vsplit()",
+            "desc": "Splits the view vertically, creating a new view that shares the same document. The new view will be displayed alongside the original view, allowing for side-by-side comparison or reference.",
+            "returns": "View new_view \u2014 The newly created view that shares the same document as the original view."
+          },
+          {
+            "name": "hsplit",
+            "sig": "Container:hsplit()",
+            "desc": "Splits the view horizontally, creating a new view that shares the same document. The new view will be displayed above or below the original view, allowing for side-by-side comparison or reference.",
+            "returns": "View new_view \u2014 The newly created view that shares the same document as the original view."
+          }
+        ]
+      },
+      {
+        "name": "View",
+        "desc": "Represents a View in Lektra.",
+        "fields": [],
+        "methods": [
+          {
+            "name": "pageno",
+            "sig": "View:pageno()",
+            "desc": "Returns the current page number.",
+            "returns": "integer pageno"
+          },
+          {
+            "name": "open",
+            "sig": "View:open(file, opts)",
+            "desc": "Opens a document in the view.",
+            "params": [
+              {
+                "name": "file",
+                "type": "string",
+                "desc": "The path to the document to open."
+              },
+              {
+                "name": "opts?",
+                "type": "OpenFileOptions",
+                "desc": "Optional parameters for opening the document (e.g., { fit = \"width\", zoom = 1.5 })."
+              }
+            ]
+          },
+          {
+            "name": "close",
+            "sig": "View:close()",
+            "desc": "Close the document."
+          },
+          {
+            "name": "goto_page",
+            "sig": "View:goto_page(pageno)",
+            "desc": "Goes to the specified page number.",
+            "params": [
+              {
+                "name": "pageno",
+                "type": "integer",
+                "desc": ""
+              }
+            ]
+          },
+          {
+            "name": "page_count",
+            "sig": "View:page_count()",
+            "desc": "Returns the total number of pages in the document.",
+            "returns": "integer pagecount"
+          },
+          {
+            "name": "goto_location",
+            "sig": "View:goto_location(location)",
+            "desc": "Goto the specified location in the document.",
+            "params": [
+              {
+                "name": "location",
+                "type": "Location",
+                "desc": ""
+              }
+            ]
+          },
+          {
+            "name": "location",
+            "sig": "View:location()",
+            "desc": "Returns the current location in the document.",
+            "returns": "Location location"
+          },
+          {
+            "name": "history_back",
+            "sig": "View:history_back()",
+            "desc": "Goes back to the previous location in the document history."
+          },
+          {
+            "name": "history_forward",
+            "sig": "View:history_forward()",
+            "desc": "Goes forward to the next location in the document history."
+          },
+          {
+            "name": "zoom",
+            "sig": "View:zoom()",
+            "desc": "Returns the current zoom level of the document.",
+            "returns": "number zoom"
+          },
+          {
+            "name": "properties",
+            "sig": "View:properties()",
+            "desc": "Returns a table of properties for the document in the view. The properties may include metadata such as title, author, creation date, etc., depending on the file type and what information is available.",
+            "returns": "table properties \u2014 A table containing the document properties."
+          },
+          {
+            "name": "set_zoom",
+            "sig": "View:set_zoom(zoom)",
+            "desc": "Sets the zoom level of the document.",
+            "params": [
+              {
+                "name": "zoom",
+                "type": "number",
+                "desc": "The desired zoom level (e.g., 1.0 for 100%)."
+              }
+            ]
+          },
+          {
+            "name": "fit",
+            "sig": "View:fit()",
+            "desc": "Returns the current fit mode of the document.",
+            "returns": "string mode \u2014 The current fit mode (e.g., \"width\", \"height\", \"window\")."
+          },
+          {
+            "name": "set_fit",
+            "sig": "View:set_fit(mode)",
+            "desc": "Sets the fit mode of the document.",
+            "params": [
+              {
+                "name": "mode",
+                "type": "string",
+                "desc": "The fit mode (e.g., \"width\", \"height\", \"window\")."
+              }
+            ]
+          },
+          {
+            "name": "rotation",
+            "sig": "View:rotation()",
+            "desc": "Returns the current rotation of the document in degrees.",
+            "returns": "integer rotation \u2014 The current rotation (e.g., 0, 90, 180, 270)."
+          },
+          {
+            "name": "set_rotation",
+            "sig": "View:set_rotation(rotation)",
+            "desc": "Sets the rotation of the document.",
+            "params": [
+              {
+                "name": "rotation",
+                "type": "integer",
+                "desc": "The desired rotation in degrees (e.g., 0, 90, 180, 270)."
+              }
+            ]
+          },
+          {
+            "name": "layout",
+            "sig": "View:layout()",
+            "desc": "Returns the layout mode of the document.",
+            "returns": "string layout \u2014 The current layout mode (e.g., \"single\", \"book\", \"horizontal\", \"vertical\")."
+          },
+          {
+            "name": "set_layout",
+            "sig": "View:set_layout(layout)",
+            "desc": "Sets the layout mode of the document.",
+            "params": [
+              {
+                "name": "layout",
+                "type": "string",
+                "desc": "The desired layout mode (e.g., \"single\", \"book\", \"horizontal\", \"vertical\")."
+              }
+            ]
+          },
+          {
+            "name": "has_selection",
+            "sig": "View:has_selection()",
+            "desc": "Returns true if there is a selection in the document, false otherwise.",
+            "returns": "boolean has_selection"
+          },
+          {
+            "name": "selection_text",
+            "sig": "View:selection_text(formatted, page_separator)",
+            "desc": "Returns the text of the current selection in the document.",
+            "params": [
+              {
+                "name": "formatted?",
+                "type": "boolean",
+                "desc": "Whether to return the selection text with formatting (e.g., newlines, tabs) or as plain text. Default is false (plain text)."
+              },
+              {
+                "name": "page_separator?",
+                "type": "string",
+                "desc": "An optional string to use as a separator between pages in the selection text when formatted is true. Default is \"\\n--- Page Break ---\\n\"."
+              }
+            ],
+            "returns": "string selection_text"
+          },
+          {
+            "name": "clear_selection",
+            "sig": "View:clear_selection()",
+            "desc": "Clears the current selection in the document."
+          },
+          {
+            "name": "search",
+            "sig": "View:search(query, regex)",
+            "desc": "Searches for the given query in the document and highlights the results.",
+            "params": [
+              {
+                "name": "query",
+                "type": "string",
+                "desc": "The search query to find in the document."
+              },
+              {
+                "name": "regex?",
+                "type": "boolean",
+                "desc": "Optional parameter indicating whether the query should be treated as a regular expression (default: false)."
+              }
+            ]
+          },
+          {
+            "name": "search_hit_next",
+            "sig": "View:search_hit_next()",
+            "desc": "Finds the next occurrence of the last search query and highlights it."
+          },
+          {
+            "name": "search_hit_previous",
+            "sig": "View:search_hit_previous()",
+            "desc": "Finds the previous occurrence of the last search query and highlights it."
+          },
+          {
+            "name": "search_cancel",
+            "sig": "View:search_cancel()",
+            "desc": "Cancels the current search and clears any search highlights."
+          },
+          {
+            "name": "search_hits",
+            "sig": "View:search_hits()",
+            "desc": "Returns a table of search hits for the last search query. Each hit is represented as a Location object.",
+            "returns": "Location[] hits"
+          },
+          {
+            "name": "search_hit_count",
+            "sig": "View:search_hit_count()",
+            "desc": "Returns the total number of search hits for the last search query.",
+            "returns": "integer hit_count"
+          },
+          {
+            "name": "file_path",
+            "sig": "View:file_path()",
+            "desc": "Returns the file path of the currently opened document in the view.",
+            "returns": "string file_path"
+          },
+          {
+            "name": "file_type",
+            "sig": "View:file_type()",
+            "desc": "Returns the file type of the currently opened document in the view (e.g., \"pdf\", \"epub\").",
+            "returns": "string file_type"
+          },
+          {
+            "name": "register",
+            "sig": "View:register(event, callback)",
+            "desc": "Registers a callback function for the specified event on the view.",
+            "params": [
+              {
+                "name": "event",
+                "type": "string",
+                "desc": "The name of the event to listen for (e.g., \"page_changed\", \"selection_changed\")."
+              },
+              {
+                "name": "callback",
+                "type": "function",
+                "desc": "The callback function to be called when the event occurs. The callback function will receive the view instance and any relevant event data as arguments."
+              }
+            ],
+            "returns": "integer handle \u2014 A unique handle that can be used to unregister the callback later."
+          },
+          {
+            "name": "unregister",
+            "sig": "View:unregister(event, handle)",
+            "desc": "Unregisters a callback function for the specified event on the view.",
+            "params": [
+              {
+                "name": "event",
+                "type": "string",
+                "desc": "The name of the event to stop listening for (e.g., \"page_changed\", \"selection_changed\")."
+              },
+              {
+                "name": "handle",
+                "type": "integer",
+                "desc": "The unique handle returned by the `on` method when the callback was registered."
+              }
+            ]
+          },
+          {
+            "name": "once",
+            "sig": "View:once(event, callback)",
+            "desc": "Registers a one-time callback function for the specified event on the view. The callback will be automatically unregistered after it is called once.",
+            "params": [
+              {
+                "name": "event",
+                "type": "string",
+                "desc": "The name of the event to listen for (e.g., \"page_changed\", \"selection_changed\")."
+              },
+              {
+                "name": "callback",
+                "type": "function",
+                "desc": "The callback function to be called when the event occurs. The callback function will receive the view instance and any relevant event data as arguments."
+              }
+            ]
+          },
+          {
+            "name": "register_context_menu",
+            "sig": "View:register_context_menu(menu_type, callback)",
+            "desc": "Registers a callback to customize the context menu for selections.",
+            "params": [
+              {
+                "name": "menu_type",
+                "type": "string",
+                "desc": "\"TextSelection\" or \"RegionSelection\""
+              },
+              {
+                "name": "callback",
+                "type": "function",
+                "desc": "Callback invoked with (view, menu)"
+              }
+            ],
+            "returns": "integer handle"
+          },
+          {
+            "name": "unregister_context_menu",
+            "sig": "View:unregister_context_menu(menu_type, handle)",
+            "desc": "Unregisters a context menu callback.",
+            "params": [
+              {
+                "name": "menu_type",
+                "type": "string",
+                "desc": "\"TextSelection\" or \"RegionSelection\""
+              },
+              {
+                "name": "handle",
+                "type": "integer",
+                "desc": ""
+              }
+            ]
+          },
+          {
+            "name": "is_modified",
+            "sig": "View:is_modified()",
+            "desc": "Returns true if the document in the view has unsaved changes, false otherwise."
+          },
+          {
+            "name": "save",
+            "sig": "View:save()",
+            "desc": "Saves the current document. If the document has unsaved changes, it will be saved to its current file path."
+          },
+          {
+            "name": "save_as",
+            "sig": "View:save_as(file_path)",
+            "desc": "Saves the current document to a new file path. If the document has unsaved changes, it will be saved to the specified file path.",
+            "params": [
+              {
+                "name": "file_path",
+                "type": "string",
+                "desc": "The file path to save the document to."
+              }
+            ]
+          },
+          {
+            "name": "extract_text",
+            "sig": "View:extract_text(formatted)",
+            "desc": "Returns the text content of the document in the view. This may return an empty string for certain file types (e.g., images) or if the document does not contain extractable text.",
+            "params": [
+              {
+                "name": "formatted",
+                "type": "boolean",
+                "desc": "Whether to return the text content with formatting (e.g., newlines, tabs) or as plain text. Default is false (plain text)."
+              }
+            ],
+            "returns": "string text_content"
+          },
+          {
+            "name": "id",
+            "sig": "View:id()",
+            "desc": "Returns the unique identifier of the view.",
+            "returns": "integer id"
+          },
+          {
+            "name": "spacing",
+            "sig": "View:spacing()",
+            "desc": "Returns the spacing between pages in the document view, in pixels.",
+            "returns": "integer spacing"
+          },
+          {
+            "name": "mode",
+            "sig": "View:mode()",
+            "desc": "Gets the current mode of the view",
+            "returns": "Mode mode \u2014 The current interaction mode (e.g., \"select\", \"pan\", \"zoom\")."
+          },
+          {
+            "name": "set_mode",
+            "sig": "View:set_mode(mode)",
+            "desc": "Sets the interaction mode of the view",
+            "params": [
+              {
+                "name": "mode",
+                "type": "Mode",
+                "desc": "The desired interaction mode"
+              }
+            ]
+          },
+          {
+            "name": "set_dpr",
+            "sig": "View:set_dpr(dpr)",
+            "desc": "Sets the device pixel ratio (DPR) for the view",
+            "params": [
+              {
+                "name": "dpr",
+                "type": "number",
+                "desc": "The desired device pixel ratio (e.g., 1.0 for standard displays, 2.0 for high-DPI displays). Setting the DPR can improve rendering quality on high-DPI screens."
+              }
+            ]
+          },
+          {
+            "name": "dpr",
+            "sig": "View:dpr()",
+            "desc": "Gets the current device pixel ratio (DPR) for the view",
+            "returns": "number dpr \u2014 The current device pixel ratio (e.g., 1.0 for standard displays, 2.0 for high-DPI displays)."
+          },
+          {
+            "name": "set_invert",
+            "sig": "View:set_invert(invert)",
+            "desc": "Sets whether to invert the colors of the document in the view. Inverting colors can be useful for reducing eye strain or improving readability in low-light conditions.",
+            "params": [
+              {
+                "name": "invert",
+                "type": "boolean",
+                "desc": "True to enable color inversion, false to disable it."
+              }
+            ]
+          },
+          {
+            "name": "is_invert",
+            "sig": "View:is_invert()",
+            "desc": "Gets whether color inversion is currently enabled for the document in the view.",
+            "returns": "boolean invert \u2014 True if color inversion is enabled, false otherwise."
+          },
+          {
+            "name": "is_modified",
+            "sig": "View:is_modified()",
+            "desc": "Returns if the document has unsaved changes."
+          },
+          {
+            "name": "set_layout",
+            "sig": "View:set_layout(layout)",
+            "desc": "Sets the layout mode of the document in the view. The layout mode determines how pages are arranged in the view (e.g., single page, book view, horizontal scrolling, vertical scrolling).",
+            "params": [
+              {
+                "name": "layout",
+                "type": "LayoutMode",
+                "desc": "The desired layout mode"
+              }
+            ]
+          },
+          {
+            "name": "layout",
+            "sig": "View:layout()",
+            "desc": "Gets the current layout mode of the document in the view. The layout mode determines how pages are arranged in the view (e.g., single page, book view, horizontal scrolling, vertical scrolling).",
+            "returns": "LayoutMode layout \u2014 The current layout mode"
+          },
+          {
+            "name": "portal",
+            "sig": "View:portal()",
+            "desc": "Returns the portal associated with the view, if any.",
+            "returns": "View portal \u2014 The portal view associated with the current view, or nil if there is no portal."
+          },
+          {
+            "name": "is_portal",
+            "sig": "View:is_portal()",
+            "desc": "Returns true if the view is a portal, false otherwise.",
+            "returns": "boolean is_portal \u2014 True if the view is a portal, false otherwise."
+          },
+          {
+            "name": "set_portal",
+            "sig": "View:set_portal(portal_view)",
+            "desc": "Sets the portal for the view. A portal is a secondary view that can be used to display a different document or a different part of the same document. When a portal is set for a view, the portal's content will be displayed alongside the main view, allowing for side-by-side comparison or reference.",
+            "params": [
+              {
+                "name": "portal_view",
+                "type": "View",
+                "desc": "The view to set as the portal for the current view. Setting a"
+              }
+            ]
+          },
+          {
+            "name": "set_active",
+            "sig": "View:set_active(active)",
+            "desc": "Sets the active state of the view. An active view is the one that currently has focus and receives user input. Setting a view as active will bring it to the foreground and allow the user to interact with it.",
+            "params": [
+              {
+                "name": "active",
+                "type": "boolean",
+                "desc": "True to set the view as active, false to deactivate it."
+              }
+            ]
+          },
+          {
+            "name": "is_active",
+            "sig": "View:is_active()",
+            "desc": "Returns true if the view is currently active, false otherwise. An active view is the one that currently has focus and receives user input.",
+            "returns": "boolean is_active \u2014 True if the view is active, false otherwise."
+          },
+          {
+            "name": "set_visual_line_mode",
+            "sig": "View:set_visual_line_mode(enabled)",
+            "desc": "Enables or disables visual line mode for the view. Visual line mode is a display mode that wraps lines of text at the edge of the view, allowing for easier reading of long lines without horizontal scrolling. When visual line mode is enabled, lines will be wrapped based on the width of the view, and the user can navigate through the wrapped lines as if they were separate lines.",
+            "params": [
+              {
+                "name": "enabled",
+                "type": "boolean",
+                "desc": "True to enable visual line mode, false to disable it."
+              }
+            ]
+          },
+          {
+            "name": "is_visual_line_mode",
+            "sig": "View:is_visual_line_mode()",
+            "desc": "Returns true if visual line mode is currently enabled for the view, false otherwise. Visual line mode is a display mode that wraps lines of text at the edge of the view, allowing for easier reading of long lines without horizontal scrolling.",
+            "returns": "boolean enabled \u2014 True if visual line mode is enabled, false otherwise."
+          },
+          {
+            "name": "is_thumbnail_view",
+            "sig": "View:is_thumbnail_view()",
+            "desc": "Returns true if the view is currently in thumbnail view mode, false otherwise. Thumbnail view mode is a display mode that shows small thumbnail images of each page in the document, allowing for quick navigation and overview of the document's structure.",
+            "returns": "boolean is_thumbnail \u2014 True if the view is in thumbnail view mode, false otherwise."
+          },
+          {
+            "name": "container",
+            "sig": "View:container()",
+            "desc": "Returns the Container object associated with the view.",
+            "returns": "Container container \u2014 The container object associated with the view, which provides access to the underlying document and rendering context."
+          },
+          {
+            "name": "outline",
+            "sig": "View:outline()",
+            "desc": "Returns the outline of the document (if it exists)",
+            "returns": "string[] table"
+          },
+          {
+            "name": "export_highlights",
+            "sig": "View:export_highlights(path)",
+            "desc": "",
+            "params": [
+              {
+                "name": "path",
+                "type": "string",
+                "desc": "The file path to write the JSON output to."
+              }
+            ],
+            "returns": "true | \u2014 nil result `true` on success, `nil` on failure."
+          }
+        ]
+      },
+      {
+        "name": "Location",
+        "desc": "Represents a location in a document.",
+        "fields": [
+          {
+            "name": "page",
+            "type": "integer",
+            "desc": "The page number."
+          },
+          {
+            "name": "x",
+            "type": "number",
+            "desc": "The x-coordinate on the page."
+          },
+          {
+            "name": "y",
+            "type": "number",
+            "desc": "The y-coordinate on the page."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OpenFileOptions",
+        "desc": "Options for opening a file in a view.",
+        "fields": [
+          {
+            "name": "fit",
+            "type": "string?",
+            "desc": "The fit mode to use when opening the document (e.g., \"width\", \"height\", \"window\")."
+          },
+          {
+            "name": "zoom",
+            "type": "number?",
+            "desc": "The zoom level to use when opening the document (e.g., 1.0 for 100%)."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "SearchOptions",
+        "desc": "Options for searching in a document.",
+        "fields": [
+          {
+            "name": "case_sensitive",
+            "type": "boolean?",
+            "desc": "Whether the search should be case sensitive (default: false)."
+          },
+          {
+            "name": "whole_word",
+            "type": "boolean?",
+            "desc": "Whether to match whole words only (default: false)."
+          },
+          {
+            "name": "regex",
+            "type": "boolean?",
+            "desc": "Whether the query should be treated as a regular expression (default: false"
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "HighlightEntry",
+        "desc": "",
+        "fields": [
+          {
+            "name": "page",
+            "type": "integer",
+            "desc": "The 1-based page number where the highlight appears."
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "desc": "The highlighted text content."
+          },
+          {
+            "name": "comment",
+            "type": "string?",
+            "desc": "An optional note attached to the highlight, or nil if none."
+          }
+        ],
+        "methods": []
+      }
+    ],
+    "functions": [
+      {
+        "name": "get",
+        "sig": "lektra.view.get(id)",
+        "desc": "Gets the view with the given id.",
+        "params": [
+          {
+            "name": "id?",
+            "type": "integer",
+            "desc": ""
+          }
+        ],
+        "returns": "View view"
+      },
+      {
+        "name": "current",
+        "sig": "lektra.view.current()",
+        "desc": "Returns the current View object for the active document in the current tab. `Note` If there are multiple documents open in the current tab, it will return the active document's view. If no documents are open, it will return nil.",
+        "returns": "View view"
+      },
+      {
+        "name": "list",
+        "sig": "lektra.view.list(tabindex)",
+        "desc": "Returns a table of View objects for the current tab.  `Note` If not provided, it will return all documents in the current tab.",
+        "params": [
+          {
+            "name": "tabindex?",
+            "type": "integer",
+            "desc": "The tab index to get the document for."
+          }
+        ],
+        "returns": "View[] documents"
+      }
+    ]
+  },
+  {
+    "module": "lektra.tabs",
+    "module_desc": "",
+    "classes": [
+      {
+        "name": "Tab",
+        "desc": "",
+        "fields": [],
+        "methods": [
+          {
+            "name": "id",
+            "sig": "Tab:id()",
+            "desc": "Returns the unique identifier for the tab.",
+            "returns": "integer|nil ID \u2014 The ID of the tab."
+          },
+          {
+            "name": "close",
+            "sig": "Tab:close()",
+            "desc": "Close the tab"
+          },
+          {
+            "name": "title",
+            "sig": "Tab:title()",
+            "desc": "Returns the title of the tab.",
+            "returns": "string title \u2014 The title of the tab."
+          },
+          {
+            "name": "view",
+            "sig": "Tab:view()",
+            "desc": "Returns the View object associated with the tab.",
+            "returns": "View view \u2014 The View object for the tab."
+          },
+          {
+            "name": "index",
+            "sig": "Tab:index()",
+            "desc": "Returns the index of the tab (0-based).",
+            "returns": "integer index \u2014 The index of the tab."
+          }
+        ]
+      }
+    ],
+    "functions": [
+      {
+        "name": "close",
+        "sig": "lektra.tabs.close(id)",
+        "desc": "Closes the tab with the specified unique identifier.",
+        "params": [
+          {
+            "name": "id",
+            "type": "integer",
+            "desc": "The index of the tab to close."
+          }
+        ]
+      },
+      {
+        "name": "goto",
+        "sig": "lektra.tabs.goto(id)",
+        "desc": "Switches to the tab with the specified unique identifier.",
+        "params": [
+          {
+            "name": "id",
+            "type": "integer",
+            "desc": "The index of the tab to close."
+          }
+        ]
+      },
+      {
+        "name": "last",
+        "sig": "lektra.tabs.last()",
+        "desc": "Switches to the last active tab."
+      },
+      {
+        "name": "first",
+        "sig": "lektra.tabs.first()",
+        "desc": "Switches to the first tab."
+      },
+      {
+        "name": "next",
+        "sig": "lektra.tabs.next()",
+        "desc": "Switches to the next tab."
+      },
+      {
+        "name": "prev",
+        "sig": "lektra.tabs.prev()",
+        "desc": "Switches to the previous tab."
+      },
+      {
+        "name": "move_right",
+        "sig": "lektra.tabs.move_right()",
+        "desc": "Moves the current tab to the right."
+      },
+      {
+        "name": "move_left",
+        "sig": "lektra.tabs.move_left()",
+        "desc": "Moves the current tab to the left."
+      },
+      {
+        "name": "count",
+        "sig": "lektra.tabs.count()",
+        "desc": "Returns the number of open tabs. @return integer"
+      },
+      {
+        "name": "current",
+        "sig": "lektra.tabs.current()",
+        "desc": "Returns the Tab object for the current tab.",
+        "returns": "Tab"
+      },
+      {
+        "name": "list",
+        "sig": "lektra.tabs.list()",
+        "desc": "Returns a table of tab objects @return Tab[] tabs List of Tab objects"
+      },
+      {
+        "name": "get_id",
+        "sig": "lektra.tabs.get_id(index)",
+        "desc": "Returns the stable unique identifier for a tab index (0-based).",
+        "params": [
+          {
+            "name": "index",
+            "type": "integer",
+            "desc": ""
+          }
+        ],
+        "returns": "string id"
+      }
+    ]
+  },
+  {
+    "module": "lektra.cmd",
+    "module_desc": "",
+    "classes": [
+      {
+        "name": "CommandEntry",
+        "desc": "",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the command."
+          },
+          {
+            "name": "desc?",
+            "type": "string",
+            "desc": "A description of the command."
+          }
+        ],
+        "methods": []
+      }
+    ],
+    "functions": [
+      {
+        "name": "register",
+        "sig": "lektra.cmd.register(name, callback, desc)",
+        "desc": "",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the command to register."
+          },
+          {
+            "name": "callback",
+            "type": "function",
+            "desc": "The function to call when the command is executed. It should accept a single argument, which is a table of the command's arguments."
+          },
+          {
+            "name": "desc?",
+            "type": "string",
+            "desc": "A description of the command, which will be shown in the help menu."
+          }
+        ]
+      },
+      {
+        "name": "unregister",
+        "sig": "lektra.cmd.unregister(name)",
+        "desc": "Unregisters a command with the given name.",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the command to unregister."
+          }
+        ]
+      },
+      {
+        "name": "execute",
+        "sig": "lektra.cmd.execute(name, args)",
+        "desc": "Executes a command with the given name and arguments.",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the command to execute."
+          },
+          {
+            "name": "args?",
+            "type": "table",
+            "desc": "A table of arguments to pass to the command's callback function."
+          }
+        ],
+        "returns": "boolean True \u2014 if the command was found and executed successfully, false otherwise."
+      },
+      {
+        "name": "list",
+        "sig": "lektra.cmd.list()",
+        "desc": "Lists all registered commands.",
+        "returns": "table CommandEntry[] \u2014 table of all registered commands"
+      },
+      {
+        "name": "alias",
+        "sig": "lektra.cmd.alias(name, target)",
+        "desc": "Creates an alias for a command.",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the alias to create."
+          },
+          {
+            "name": "target",
+            "type": "string",
+            "desc": "The name of the command that the alias should point to."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "lektra.keymap",
+    "module_desc": "",
+    "classes": [],
+    "functions": [
+      {
+        "name": "set",
+        "sig": "lektra.keymap.set(name, keys)",
+        "desc": "Sets a key mapping in Lektra.",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the key mapping (e.g., \"save\", \"open\", \"close\")."
+          },
+          {
+            "name": "keys",
+            "type": "string[]",
+            "desc": "An array of key combinations to associate with the specified action (e.g., {\"Ctrl+S\", \"Cmd+S\"})."
+          }
+        ]
+      },
+      {
+        "name": "unset",
+        "sig": "lektra.keymap.unset(name)",
+        "desc": "Unsets key mappings of command in Lektra.",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the key mapping to unset (e.g., \"save\", \"open\", \"close\")."
+          }
+        ]
+      },
+      {
+        "name": "get",
+        "sig": "lektra.keymap.get(name)",
+        "desc": "Retrieves the key mapping for a given action in Lektra.",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the key mapping to retrieve (e.g., \"save\", \"open\", \"close\")."
+          }
+        ],
+        "returns": "string[] keys \u2014 An array of key combinations associated with the specified action. If no mapping exists, returns an empty array."
+      }
+    ]
+  },
+  {
+    "module": "lektra.mousemap",
+    "module_desc": "",
+    "classes": [],
+    "functions": [
+      {
+        "name": "set",
+        "sig": "lektra.mousemap.set(name, value)",
+        "desc": "Sets a mouse mapping in Lektra.",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the mouse mapping (e.g., \"preview\", \"pan\", \"zoom\")."
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "desc": "The mouse action to trigger the mapping (e.g., \"LeftButton\", \"RightButton\", \"MiddleButton\") + optional modifiers (e.g., \"Ctrl\", \"Shift\")."
+          }
+        ]
+      },
+      {
+        "name": "unset",
+        "sig": "lektra.mousemap.unset(name)",
+        "desc": "Unsets a mouse mapping in Lektra.",
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "desc": "The name of the mouse mapping to unset (e.g., \"preview\", \"pan\", \"zoom\")."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "lektra.event",
+    "module_desc": "",
+    "classes": [],
+    "functions": [
+      {
+        "name": "register",
+        "sig": "lektra.event.register(event, callback)",
+        "desc": "Registers a callback to be called when the specified event is triggered.",
+        "params": [
+          {
+            "name": "event",
+            "type": "EventType",
+            "desc": ""
+          },
+          {
+            "name": "callback",
+            "type": "fun(arg:",
+            "desc": "any)"
+          }
+        ],
+        "returns": "integer handle"
+      },
+      {
+        "name": "unregister",
+        "sig": "lektra.event.unregister(event, handle)",
+        "desc": "Unregisters a callback from the specified event.",
+        "params": [
+          {
+            "name": "event",
+            "type": "EventType",
+            "desc": "The name of the event to stop listening for."
+          },
+          {
+            "name": "handle",
+            "type": "integer",
+            "desc": "The unique identifier of the registered callback to unregister, as returned by `lektra.event.register`."
+          }
+        ]
+      },
+      {
+        "name": "once",
+        "sig": "lektra.event.once(event, callback)",
+        "desc": "Registers a callback to be called when the specified event is triggered. The callback is called once and then automatically unregistered.",
+        "params": [
+          {
+            "name": "event",
+            "type": "EventType",
+            "desc": ""
+          },
+          {
+            "name": "callback",
+            "type": "fun(arg:",
+            "desc": "any)"
+          }
+        ],
+        "returns": "integer handle"
+      },
+      {
+        "name": "clear",
+        "sig": "lektra.event.clear(event)",
+        "desc": "Clears all registered callbacks for the specified event.",
+        "params": [
+          {
+            "name": "event",
+            "type": "EventType",
+            "desc": "The name of the event to clear callbacks for."
+          }
+        ]
+      },
+      {
+        "name": "count",
+        "sig": "lektra.event.count(event)",
+        "desc": "Returns the number of registered callbacks for the specified event.",
+        "params": [
+          {
+            "name": "event",
+            "type": "EventType",
+            "desc": "The name of the event to count callbacks for."
+          }
+        ],
+        "returns": "integer count \u2014 The number of registered callbacks for the specified event."
+      }
+    ]
+  },
+  {
+    "module": "lektra.bookmarks",
+    "module_desc": "",
+    "classes": [
+      {
+        "name": "Bookmark",
+        "desc": "",
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "desc": "bookmark uuid"
+          },
+          {
+            "name": "file_path",
+            "type": "string",
+            "desc": "filepath of the bookmark"
+          },
+          {
+            "name": "pageno",
+            "type": "integer",
+            "desc": "page number of the bookmark (0-based)"
+          },
+          {
+            "name": "x",
+            "type": "integer",
+            "desc": "xlocation"
+          },
+          {
+            "name": "y",
+            "type": "integer",
+            "desc": "ylocation"
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "desc": "datetime of when the bookmark was created"
+          }
+        ],
+        "methods": []
+      }
+    ],
+    "functions": [
+      {
+        "name": "add",
+        "sig": "lektra.bookmarks.add(bookmark)",
+        "desc": "",
+        "params": [
+          {
+            "name": "bookmark",
+            "type": "Bookmark",
+            "desc": ""
+          }
+        ]
+      },
+      {
+        "name": "remove",
+        "sig": "lektra.bookmarks.remove(id)",
+        "desc": "Removes a bookmark with the id `id`"
+      },
+      {
+        "name": "list",
+        "sig": "lektra.bookmarks.list()",
+        "desc": "Lists all the bookmarks",
+        "returns": "Bookmark[] bookmarks \u2014 list of bookmarks"
+      },
+      {
+        "name": "goto",
+        "sig": "lektra.bookmarks.goto(id)",
+        "desc": "Goes to the bookmark with the id `id`",
+        "params": [
+          {
+            "name": "id",
+            "type": "integer",
+            "desc": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "lektra.ui",
+    "module_desc": "",
+    "classes": [
+      {
+        "name": "MenuItem",
+        "desc": "",
+        "fields": [
+          {
+            "name": "label",
+            "type": "string",
+            "desc": "Label to show in the menu for this item"
+          },
+          {
+            "name": "callback",
+            "type": "function",
+            "desc": "Function to call when this menu item is selected"
+          },
+          {
+            "name": "submenu?",
+            "type": "MenuItem[]",
+            "desc": "Optional list of submenu items to show when this menu item is hovered over, if this field is present the \"callback\" field will be ignored"
+          },
+          {
+            "name": "icon?",
+            "type": "string",
+            "desc": "Optional path to an icon file to show next to the menu item"
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "Menu",
+        "desc": "",
+        "fields": [
+          {
+            "name": "show",
+            "type": "fun():",
+            "desc": "nil Show the menu at the current cursor position"
+          },
+          {
+            "name": "add_item",
+            "type": "fun(label:",
+            "desc": "string, callback?: function): nil Add an item to the menu"
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "FileDialogOptions",
+        "desc": "",
+        "fields": [
+          {
+            "name": "title",
+            "type": "string",
+            "desc": "Title of the file dialog"
+          },
+          {
+            "name": "directory",
+            "type": "string",
+            "desc": "Initial directory to open in the file dialog, default is the current working directory"
+          },
+          {
+            "name": "filter",
+            "type": "string",
+            "desc": "File filter to apply in the file dialog, default is \"*.*\""
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "PickerOptions",
+        "desc": "",
+        "fields": [
+          {
+            "name": "flat",
+            "type": "boolean",
+            "desc": "Whether to show items in a flat list or a tree view, default is false (tree view)"
+          },
+          {
+            "name": "columns",
+            "type": "table",
+            "desc": "List of column names to display in the picker, default is {\"Value\"}"
+          },
+          {
+            "name": "on_accept",
+            "type": "function",
+            "desc": "Callback function that is called when the user accepts the picker dialog, receives the selected item as an argument"
+          },
+          {
+            "name": "on_cancel",
+            "type": "function",
+            "desc": "Callback function that is called when the user cancels the picker dialog"
+          }
+        ],
+        "methods": []
+      }
+    ],
+    "functions": [
+      {
+        "name": "messagebox",
+        "sig": "lektra.ui.messagebox(title , message, type)",
+        "desc": "",
+        "params": [
+          {
+            "name": "title",
+            "type": "string",
+            "desc": ""
+          },
+          {
+            "name": "message",
+            "type": "string",
+            "desc": ""
+          },
+          {
+            "name": "type?",
+            "type": "string",
+            "desc": "\"info\", \"warning\", \"error\", default is \"info\""
+          }
+        ]
+      },
+      {
+        "name": "message",
+        "sig": "lektra.ui.message(message, duration)",
+        "desc": "Shows a message to the user in the status bar",
+        "params": [
+          {
+            "name": "message",
+            "type": "string",
+            "desc": "Message to show in the status bar"
+          },
+          {
+            "name": "duration?",
+            "type": "number",
+            "desc": "Duration in seconds to show the message, default is 5 seconds"
+          }
+        ]
+      },
+      {
+        "name": "input",
+        "sig": "lektra.ui.input(title, prompt)",
+        "desc": "Shows an input dialog to the user with `QInputDialog` and returns the input as a string",
+        "params": [
+          {
+            "name": "title",
+            "type": "string",
+            "desc": ""
+          },
+          {
+            "name": "prompt",
+            "type": "string",
+            "desc": ""
+          }
+        ],
+        "returns": "string"
+      },
+      {
+        "name": "picker",
+        "sig": "lektra.ui.picker(prompt, items, options)",
+        "desc": "Shows a picker dialog to the user and returns the selected item as a string. Items can be heirarchical specified as a table of tables, can be strings or numbers, but will be converted to strings for display",
+        "params": [
+          {
+            "name": "prompt",
+            "type": "string",
+            "desc": ""
+          },
+          {
+            "name": "items",
+            "type": "table",
+            "desc": ""
+          },
+          {
+            "name": "options?",
+            "type": "PickerOptions",
+            "desc": ""
+          }
+        ],
+        "returns": "string"
+      },
+      {
+        "name": "file_dialog",
+        "sig": "lektra.ui.file_dialog(mode, options)",
+        "desc": "Shows a file dialog to the user and returns the selected file path as a string",
+        "params": [
+          {
+            "name": "mode",
+            "type": "string",
+            "desc": "\"open\" or \"save\""
+          },
+          {
+            "name": "options",
+            "type": "FileDialogOptions",
+            "desc": "Options for the file dialog"
+          }
+        ],
+        "returns": "string[] FilePaths \u2014 List of selected file paths"
+      },
+      {
+        "name": "color_dialog",
+        "sig": "lektra.ui.color_dialog(colors, default_color)",
+        "desc": "Shows a color picker dialog to the user and returns the selected color as a string in hex format (e.g., \"#RRGGBB\")",
+        "params": [
+          {
+            "name": "colors",
+            "type": "string[]",
+            "desc": "List of color options to show in the color picker, specified as hex color strings (e.g., \"#FF0000\" for red)"
+          },
+          {
+            "name": "default_color",
+            "type": "string",
+            "desc": "Default color to be selected when the color picker is shown, specified as a hex color string (e.g., \"#00FF00\" for green)"
+          }
+        ],
+        "returns": "string Selected \u2014 color in hex format (e.g., \"#RRGGBBAA\")"
+      },
+      {
+        "name": "menu",
+        "sig": "lektra.ui.menu(menu_items)",
+        "desc": "Shows a context menu to the user with the given items and options",
+        "params": [
+          {
+            "name": "menu_items",
+            "type": "MenuItem[]",
+            "desc": "List of menu items to show in the context menu, each item is a table with a \"label\" field (string), \"callback\" field (function) and an optional \"icon\" field (string, path to an icon file)"
+          }
+        ],
+        "returns": "Menu"
+      }
+    ]
+  },
+  {
+    "module": "lektra.opt",
+    "module_desc": "",
+    "classes": [
+      {
+        "name": "Screen",
+        "desc": "",
+        "fields": [
+          {
+            "name": "description",
+            "type": "string",
+            "desc": "Description of the screen/monitor (e.g. \"desc:AU Optronics 0xE3AC\")."
+          },
+          {
+            "name": "scale",
+            "type": "number",
+            "desc": "Scale factor for the screen (e.g. 1.0 for standard DPI, 1.5 for HiDPI)."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptPage",
+        "desc": "",
+        "fields": [
+          {
+            "name": "bg",
+            "type": "integer",
+            "desc": "Background color (ARGB integer)."
+          },
+          {
+            "name": "fg",
+            "type": "integer",
+            "desc": "Foreground color (ARGB integer)."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptSynctex",
+        "desc": "",
+        "fields": [
+          {
+            "name": "editor_command",
+            "type": "string",
+            "desc": "Command used to open the source editor."
+          },
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "desc": "Whether SyncTeX support is active."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptSearch",
+        "desc": "",
+        "fields": [
+          {
+            "name": "absolute_jump",
+            "type": "boolean",
+            "desc": "Jump to the match page even if already on it."
+          },
+          {
+            "name": "highlight_matches",
+            "type": "boolean",
+            "desc": "Highlight all search matches."
+          },
+          {
+            "name": "index_color",
+            "type": "integer",
+            "desc": "Color of the current match highlight (ARGB integer)."
+          },
+          {
+            "name": "match_color",
+            "type": "integer",
+            "desc": "Color of non-current match highlights (ARGB integer)."
+          },
+          {
+            "name": "progressive",
+            "type": "boolean",
+            "desc": "Enable progressive (incremental) search."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptAnnotationsHighlight",
+        "desc": "",
+        "fields": [
+          {
+            "name": "color",
+            "type": "integer",
+            "desc": "Highlight annotation color (ARGB integer)."
+          },
+          {
+            "name": "comment",
+            "type": "boolean",
+            "desc": "Show comment text for highlights."
+          },
+          {
+            "name": "comment_font_size",
+            "type": "integer",
+            "desc": "Font size of the comment text."
+          },
+          {
+            "name": "comment_marker",
+            "type": "boolean",
+            "desc": "Show the comment marker icon."
+          },
+          {
+            "name": "glow_color",
+            "type": "integer",
+            "desc": "Glow color around the highlight (ARGB integer)."
+          },
+          {
+            "name": "glow_width",
+            "type": "integer",
+            "desc": "Width of the glow effect in pixels."
+          },
+          {
+            "name": "hover_glow",
+            "type": "boolean",
+            "desc": "Show glow only on hover."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptAnnotationsRect",
+        "desc": "",
+        "fields": [
+          {
+            "name": "color",
+            "type": "integer",
+            "desc": "Rectangle annotation color (ARGB integer)."
+          },
+          {
+            "name": "comment",
+            "type": "boolean",
+            "desc": "Show comment text for rectangles."
+          },
+          {
+            "name": "comment_font_size",
+            "type": "integer",
+            "desc": "Font size of the comment text."
+          },
+          {
+            "name": "comment_marker",
+            "type": "boolean",
+            "desc": "Show the comment marker icon."
+          },
+          {
+            "name": "glow_color",
+            "type": "integer",
+            "desc": "Glow color around the rectangle (ARGB integer)."
+          },
+          {
+            "name": "glow_width",
+            "type": "integer",
+            "desc": "Width of the glow effect in pixels."
+          },
+          {
+            "name": "hover_glow",
+            "type": "boolean",
+            "desc": "Show glow only on hover."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptAnnotationsPopup",
+        "desc": "",
+        "fields": [
+          {
+            "name": "color",
+            "type": "integer",
+            "desc": "Popup annotation color (ARGB integer)."
+          },
+          {
+            "name": "comment",
+            "type": "boolean",
+            "desc": "Show comment text for popups."
+          },
+          {
+            "name": "comment_font_size",
+            "type": "integer",
+            "desc": "Font size of the comment text."
+          },
+          {
+            "name": "glow_color",
+            "type": "integer",
+            "desc": "Glow color around the popup (ARGB integer)."
+          },
+          {
+            "name": "glow_width",
+            "type": "integer",
+            "desc": "Width of the glow effect in pixels."
+          },
+          {
+            "name": "hover_glow",
+            "type": "boolean",
+            "desc": "Show glow only on hover."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptAnnotations",
+        "desc": "",
+        "fields": [
+          {
+            "name": "highlight",
+            "type": "OptAnnotationsHighlight",
+            "desc": ""
+          },
+          {
+            "name": "rect",
+            "type": "OptAnnotationsRect",
+            "desc": ""
+          },
+          {
+            "name": "popup",
+            "type": "OptAnnotationsPopup",
+            "desc": ""
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptThumbnailPanel",
+        "desc": "",
+        "fields": [
+          {
+            "name": "show_page_numbers",
+            "type": "boolean",
+            "desc": "Show page numbers under thumbnails."
+          },
+          {
+            "name": "panel_width",
+            "type": "integer",
+            "desc": "Width of the thumbnail panel in pixels."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptPortal",
+        "desc": "",
+        "fields": [
+          {
+            "name": "border_color",
+            "type": "integer",
+            "desc": "Portal border color (ARGB integer)."
+          },
+          {
+            "name": "border_width",
+            "type": "integer",
+            "desc": "Portal border width in pixels."
+          },
+          {
+            "name": "dim_inactive",
+            "type": "boolean",
+            "desc": "Dim inactive portals."
+          },
+          {
+            "name": "respect_parent",
+            "type": "boolean",
+            "desc": "Portal respects the parent view's zoom/fit."
+          },
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "desc": "Whether portals are enabled."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptWindow",
+        "desc": "",
+        "fields": [
+          {
+            "name": "bg",
+            "type": "integer",
+            "desc": "Window background color (ARGB integer)."
+          },
+          {
+            "name": "accent",
+            "type": "integer",
+            "desc": "Accent color (ARGB integer)."
+          },
+          {
+            "name": "fullscreen",
+            "type": "boolean",
+            "desc": "Start in fullscreen mode."
+          },
+          {
+            "name": "menubar",
+            "type": "boolean",
+            "desc": "Show the menu bar."
+          },
+          {
+            "name": "startup_tab",
+            "type": "boolean",
+            "desc": "Open a new tab on startup."
+          },
+          {
+            "name": "title_format",
+            "type": "string",
+            "desc": "Printf-style format string for the window title."
+          },
+          {
+            "name": "initial_size",
+            "type": "integer[]",
+            "desc": "Two-element array `{width, height}` for the initial window size."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptLayout",
+        "desc": "",
+        "fields": [
+          {
+            "name": "initial_fit",
+            "type": "FitMode",
+            "desc": "Fit mode applied when a document is first opened."
+          },
+          {
+            "name": "auto_resize",
+            "type": "boolean",
+            "desc": "Automatically resize the view to fit when the window resizes."
+          },
+          {
+            "name": "mode",
+            "type": "LayoutMode",
+            "desc": "Page layout mode (single, vertical, horizontal, book)."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptStatusbar",
+        "desc": "",
+        "fields": [
+          {
+            "name": "padding",
+            "type": "integer[]",
+            "desc": "Four-element array `{top, right, bottom, left}` padding in pixels."
+          },
+          {
+            "name": "visible",
+            "type": "boolean",
+            "desc": "Whether the status bar is shown."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptZoom",
+        "desc": "",
+        "fields": [
+          {
+            "name": "anchor_to_mouse",
+            "type": "boolean",
+            "desc": "Zoom anchored to the mouse cursor position."
+          },
+          {
+            "name": "factor",
+            "type": "number",
+            "desc": "Zoom step multiplier applied per scroll tick."
+          },
+          {
+            "name": "level",
+            "type": "number",
+            "desc": "Current zoom level (1.0 = 100%)."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptSelection",
+        "desc": "",
+        "fields": [
+          {
+            "name": "color",
+            "type": "integer",
+            "desc": "Text selection highlight color (ARGB integer)."
+          },
+          {
+            "name": "copy_on_select",
+            "type": "boolean",
+            "desc": "Automatically copy selected text to clipboard."
+          },
+          {
+            "name": "drag_threshold",
+            "type": "integer",
+            "desc": "Pixel distance before a drag is recognized."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptSplit",
+        "desc": "",
+        "fields": [
+          {
+            "name": "dim_inactive",
+            "type": "boolean",
+            "desc": "Dim the inactive split pane."
+          },
+          {
+            "name": "dim_inactive_opacity",
+            "type": "number",
+            "desc": "Opacity of the inactive pane when dimmed (0.0\u20131.0)."
+          },
+          {
+            "name": "focus_follows_mouse",
+            "type": "boolean",
+            "desc": "Focus a split pane when the mouse enters it."
+          },
+          {
+            "name": "mouse_follows_focus",
+            "type": "boolean",
+            "desc": "Warp the mouse to the focused pane."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptScrollbars",
+        "desc": "",
+        "fields": [
+          {
+            "name": "auto_hide",
+            "type": "boolean",
+            "desc": "Automatically hide scrollbars when idle."
+          },
+          {
+            "name": "hide_timeout",
+            "type": "number",
+            "desc": "Seconds of inactivity before scrollbars hide."
+          },
+          {
+            "name": "horizontal",
+            "type": "boolean",
+            "desc": "Show the horizontal scrollbar."
+          },
+          {
+            "name": "search_hits",
+            "type": "boolean",
+            "desc": "Show search hit markers on the scrollbar track."
+          },
+          {
+            "name": "size",
+            "type": "integer",
+            "desc": "Scrollbar track width in pixels."
+          },
+          {
+            "name": "vertical",
+            "type": "boolean",
+            "desc": "Show the vertical scrollbar."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptJumpMarker",
+        "desc": "",
+        "fields": [
+          {
+            "name": "color",
+            "type": "integer",
+            "desc": "Jump marker color (ARGB integer)."
+          },
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "desc": "Whether jump markers are shown."
+          },
+          {
+            "name": "fade_duration",
+            "type": "number",
+            "desc": "Duration in seconds for the fade-out animation."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptLinks",
+        "desc": "",
+        "fields": [
+          {
+            "name": "boundary",
+            "type": "boolean",
+            "desc": "Draw a boundary box around detected links."
+          },
+          {
+            "name": "detect_urls",
+            "type": "boolean",
+            "desc": "Detect plain-text URLs as clickable links."
+          },
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "desc": "Whether link detection and navigation is active."
+          },
+          {
+            "name": "url_regex",
+            "type": "string",
+            "desc": "Regular expression used to detect URLs."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptLinkHints",
+        "desc": "",
+        "fields": [
+          {
+            "name": "bg",
+            "type": "integer",
+            "desc": "Link hint background color (ARGB integer)."
+          },
+          {
+            "name": "fg",
+            "type": "integer",
+            "desc": "Link hint foreground/text color (ARGB integer)."
+          },
+          {
+            "name": "size",
+            "type": "number",
+            "desc": "Font size for link hint labels."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptTabs",
+        "desc": "",
+        "fields": [
+          {
+            "name": "auto_hide",
+            "type": "boolean",
+            "desc": "Hide the tab bar when only one tab is open."
+          },
+          {
+            "name": "closable",
+            "type": "boolean",
+            "desc": "Show a close button on each tab."
+          },
+          {
+            "name": "full_path",
+            "type": "boolean",
+            "desc": "Display the full file path as the tab title."
+          },
+          {
+            "name": "lazy_load",
+            "type": "boolean",
+            "desc": "Defer loading of background tabs until they are activated."
+          },
+          {
+            "name": "movable",
+            "type": "boolean",
+            "desc": "Allow tabs to be dragged and reordered."
+          },
+          {
+            "name": "visible",
+            "type": "boolean",
+            "desc": "Whether the tab bar is shown."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptPicker",
+        "desc": "",
+        "fields": [
+          {
+            "name": "width",
+            "type": "number",
+            "desc": "Picker widget width (as a fraction of the window or in pixels)."
+          },
+          {
+            "name": "height",
+            "type": "number",
+            "desc": "Picker widget height."
+          },
+          {
+            "name": "border",
+            "type": "boolean",
+            "desc": "Draw a border around the picker."
+          },
+          {
+            "name": "alternating_row_color",
+            "type": "boolean",
+            "desc": "Alternate row background colors in the picker list."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptOutline",
+        "desc": "",
+        "fields": [
+          {
+            "name": "indent_width",
+            "type": "integer",
+            "desc": "Pixels to indent each outline level."
+          },
+          {
+            "name": "show_page_number",
+            "type": "boolean",
+            "desc": "Show the page number next to each outline entry."
+          },
+          {
+            "name": "flat_menu",
+            "type": "boolean",
+            "desc": "Display the outline as a flat list instead of a tree."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptHighlightSearch",
+        "desc": "",
+        "fields": [
+          {
+            "name": "flat_menu",
+            "type": "boolean",
+            "desc": "Display search results as a flat list."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptCommandPalette",
+        "desc": "",
+        "fields": [
+          {
+            "name": "prompt",
+            "type": "string",
+            "desc": "Placeholder text shown in the command palette input."
+          },
+          {
+            "name": "vscrollbar",
+            "type": "boolean",
+            "desc": "Show a vertical scrollbar in the command palette."
+          },
+          {
+            "name": "show_shortcuts",
+            "type": "boolean",
+            "desc": "Show keyboard shortcuts next to commands."
+          },
+          {
+            "name": "description",
+            "type": "boolean",
+            "desc": "Show command descriptions in the palette."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptRendering",
+        "desc": "",
+        "fields": [
+          {
+            "name": "antialiasing",
+            "type": "boolean",
+            "desc": "Enable antialiasing for page rendering."
+          },
+          {
+            "name": "antialiasing_bits",
+            "type": "integer",
+            "desc": "Number of multisampling bits for antialiasing (e.g. 4, 8)."
+          },
+          {
+            "name": "text_antialiasing",
+            "type": "boolean",
+            "desc": "Enable text-specific antialiasing."
+          },
+          {
+            "name": "smooth_pixmap_transform",
+            "type": "boolean",
+            "desc": "Use smooth (bilinear) scaling for pixmaps."
+          },
+          {
+            "name": "backend",
+            "type": "Backend",
+            "desc": "Rendering backend"
+          },
+          {
+            "name": "scale",
+            "type": "number|Screen",
+            "desc": "Scale factors for different device pixel ratios (e.g. `{ [1] = 1.0, [2] = 1.5 }`)."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptBehavior",
+        "desc": "",
+        "fields": [
+          {
+            "name": "confirm_on_quit",
+            "type": "boolean",
+            "desc": "Show a confirmation dialog before quitting."
+          },
+          {
+            "name": "undo_limit",
+            "type": "integer",
+            "desc": "Maximum number of undo steps."
+          },
+          {
+            "name": "cache_pages",
+            "type": "integer",
+            "desc": "Number of rendered pages to keep in the page cache."
+          },
+          {
+            "name": "preload_pages",
+            "type": "integer",
+            "desc": "Number of pages to pre-render ahead of the current page."
+          },
+          {
+            "name": "auto_reload",
+            "type": "boolean",
+            "desc": "Automatically reload the document when the file changes on disk."
+          },
+          {
+            "name": "invert_mode",
+            "type": "boolean",
+            "desc": "Start with colour inversion enabled."
+          },
+          {
+            "name": "dont_invert_images",
+            "type": "boolean",
+            "desc": "Exclude images from colour inversion."
+          },
+          {
+            "name": "open_last_visited",
+            "type": "boolean",
+            "desc": "Reopen the last visited document on startup."
+          },
+          {
+            "name": "single_instance",
+            "type": "boolean",
+            "desc": "Enforce a single application instance."
+          },
+          {
+            "name": "remember_last_visited",
+            "type": "boolean",
+            "desc": "Remember and restore the last visited page."
+          },
+          {
+            "name": "recent_files",
+            "type": "boolean",
+            "desc": "Track recently opened files."
+          },
+          {
+            "name": "num_recent_files",
+            "type": "integer",
+            "desc": "Maximum number of recent files to remember."
+          },
+          {
+            "name": "page_history_limit",
+            "type": "integer",
+            "desc": "Maximum number of entries in the page-navigation history."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptPreviewSizeRatio",
+        "desc": "",
+        "fields": [
+          {
+            "name": "width",
+            "type": "number",
+            "desc": "Width of the preview as a fraction of the window width."
+          },
+          {
+            "name": "height",
+            "type": "number",
+            "desc": "Height of the preview as a fraction of the window height."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptPreview",
+        "desc": "",
+        "fields": [
+          {
+            "name": "size_ratio",
+            "type": "OptPreviewSizeRatio",
+            "desc": "Table with `width` and `height` ratio fields."
+          },
+          {
+            "name": "border_radius",
+            "type": "integer",
+            "desc": "Corner radius of the preview popup in pixels."
+          },
+          {
+            "name": "close_on_click_outside",
+            "type": "boolean",
+            "desc": "Close the preview when clicking outside it."
+          },
+          {
+            "name": "opacity",
+            "type": "number",
+            "desc": "Opacity of the preview popup (0.0\u20131.0)."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptMisc",
+        "desc": "",
+        "fields": [
+          {
+            "name": "color_dialog_colors",
+            "type": "string[]",
+            "desc": "Preset colours shown in the colour picker (e.g. `\"#FF112233\"`)."
+          }
+        ],
+        "methods": []
+      }
+    ],
+    "functions": []
+  },
+  {
+    "module": "lektra.utils",
+    "module_desc": "",
+    "classes": [],
+    "functions": [
+      {
+        "name": "print",
+        "sig": "lektra.utils.print(...)",
+        "desc": "Pretty prints a Lua value to the console, similar to `print` but with better formatting for tables and other complex types"
+      },
+      {
+        "name": "open_url",
+        "sig": "lektra.utils.open_url(url)",
+        "desc": "Opens the specified URL in the user's default web browser.",
+        "params": [
+          {
+            "name": "url",
+            "type": "string",
+            "desc": "The URL to open"
+          }
+        ]
+      },
+      {
+        "name": "platform",
+        "sig": "lektra.utils.platform()",
+        "desc": "Returns the operating system platform name",
+        "returns": "string platform \u2014 Can be one of \"linux\" | \"windows\" | \"macos\" | \"unknown\""
+      }
+    ]
+  },
+  {
+    "module": "lektra.capabilities",
+    "module_desc": "",
+    "classes": [],
+    "functions": [
+      {
+        "name": "image",
+        "sig": "lektra.capabilities.image()",
+        "desc": "Returns true if lektra is compiled with image support",
+        "returns": "boolean image_support"
+      },
+      {
+        "name": "synctex",
+        "sig": "lektra.capabilities.synctex()",
+        "desc": "Returns true if lektra is compiled with synctex support",
+        "returns": "boolean synctex_support"
+      },
+      {
+        "name": "djvu",
+        "sig": "lektra.capabilities.djvu()",
+        "desc": "Returns true if lektra is compiled with djvu support",
+        "returns": "boolean djvu_support"
+      }
+    ]
+  },
+  {
+    "module": "lektra.version",
+    "module_desc": "",
+    "classes": [],
+    "functions": [
+      {
+        "name": "full",
+        "sig": "lektra.version.full()",
+        "desc": "Returns the version of lektra",
+        "returns": "string version \u2014 String representation of \"major.minor.patch\""
+      },
+      {
+        "name": "major",
+        "sig": "lektra.version.major()",
+        "desc": "Returns the major number of version of lektra",
+        "returns": "integer major_version"
+      },
+      {
+        "name": "minor",
+        "sig": "lektra.version.minor()",
+        "desc": "Returns the minor number of version of lektra",
+        "returns": "integer minor_version"
+      },
+      {
+        "name": "patch",
+        "sig": "lektra.version.patch()",
+        "desc": "Returns the patch number of version of lektra",
+        "returns": "integer patch_version"
+      }
+    ]
+  }
+]

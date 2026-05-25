@@ -1,0 +1,280 @@
+@import "common.css";
+
+:root {
+    --line: rgba(255, 255, 255, 0.10);
+    --text: rgba(255, 255, 255, 0.85);
+
+    --item-bg: #2e3440;
+    --name-bg: #212529;
+    --name-fg: #e9ecef;
+    --module-accent: #7aa2ff;
+    --class-accent: #7dffb2;
+    --sig-color: #7dffb2;
+    --label-color: #8b949e;
+    --muted: #adb5bd;
+}
+
+.content {
+    padding: 18px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.content p {
+    font-family: 'Outfit';
+}
+
+#sections {
+    padding: 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* ── Module section ─────────────────────────────────────────────────────────── */
+
+.module-section {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 32px 36px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.module-section h2 {
+    margin: 0 0 14px;
+    font-family: 'Outfit';
+    font-size: 22px;
+}
+
+.module-name {
+    font-family: 'JetBrainsMono', monospace;
+    color: var(--module-accent);
+    background: rgba(122, 162, 255, 0.10);
+    padding: 3px 10px;
+    border-radius: 7px;
+    font-size: 1.05em;
+}
+
+.module-desc {
+    font-family: 'Outfit';
+    color: var(--muted);
+    margin: 0 0 18px;
+    font-size: 18px;
+}
+
+/* ── Class block ───────────────────────────────────────────────────────────── */
+
+.class-block {
+    margin-bottom: 32px;
+}
+
+.class-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.class-name {
+    font-family: 'JetBrainsMono', monospace;
+    color: var(--class-accent);
+    background: rgba(125, 255, 178, 0.08);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.95em;
+}
+
+.class-desc {
+    font-family: 'Outfit';
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* ── Fields table (for struct-like classes) ─────────────────────────────────── */
+
+.fields-table,
+.params-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Outfit';
+    font-size: 16px;
+    margin: 6px 0 10px;
+}
+
+.fields-table td,
+.params-table td {
+    padding: 8px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fields-table td:first-child,
+.params-table td:first-child {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.fields-table td:nth-child(2),
+.params-table td:nth-child(2) {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.field-name,
+.param-name {
+    font-family: 'JetBrainsMono', monospace;
+    color: var(--name-fg);
+    background: var(--name-bg);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.88em;
+}
+
+.field-desc,
+.param-desc {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.type-tag {
+    font-family: 'JetBrainsMono', monospace;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.88em;
+}
+
+/* ── Method / function list ─────────────────────────────────────────────────── */
+
+.method-list,
+.func-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.func-item {
+    background: var(--item-bg);
+    border-radius: 10px;
+    padding: 18px 22px;
+    transition: box-shadow 0.2s ease;
+}
+
+.func-item:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.func-header {
+    margin-bottom: 6px;
+}
+
+.func-sig {
+    font-family: 'JetBrainsMono', monospace;
+    font-weight: 600;
+    color: var(--sig-color);
+    background: rgba(125, 255, 178, 0.08);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    word-break: break-all;
+}
+
+.func-desc {
+    font-family: 'Outfit';
+    color: var(--text);
+    margin: 8px 0 6px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Parameters */
+.func-params {
+    margin: 8px 0 4px;
+}
+
+/* Returns */
+.func-returns {
+    font-family: 'Outfit';
+    font-size: 16px;
+    color: var(--text);
+    margin: 6px 0 0;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.return-name {
+    font-family: 'JetBrainsMono', monospace;
+    color: var(--name-fg);
+    background: var(--name-bg);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.88em;
+}
+
+.return-desc {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* Label */
+.label {
+    color: var(--label-color);
+    font-size: 13px;
+    font-family: 'Outfit';
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.func-returns .label {
+    display: inline;
+    margin-bottom: 0;
+}
+
+/* Search */
+#lua-api-search {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 28px;
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+}
+
+.info {
+    margin-top: 0.5rem;
+    font-size: 1.0rem;
+    color: var(--name-fg);
+    font-family: 'Outfit', sans-serif;
+}
+
+.heading {
+    color: var(--accent);
+    text-align: center;
+}
+
+pre {
+    margin: 10px 0 0;
+    padding: 14px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+code {
+    font-family: 'JetBrainsMono', ui-monospace, monospace;
+}
+
+code.inline {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 90%;
+}
