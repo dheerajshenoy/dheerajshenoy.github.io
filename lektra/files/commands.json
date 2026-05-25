@@ -252,6 +252,10 @@
     "description": "Show recently opened files"
   },
   {
+    "name": "file_picker",
+    "description": "Open file picker"
+  },
+  {
     "name": "annot_edit_mode",
     "description": "Toggle annotation select mode"
   },
@@ -278,6 +282,14 @@
   {
     "name": "selection_mode_region",
     "description": "Switch to region selection mode"
+  },
+  {
+    "name": "narrow_to_region",
+    "description": "Narrow view to selected region"
+  },
+  {
+    "name": "wide_region",
+    "description": "Exit narrow region (widen)"
   },
   {
     "name": "fit_width",

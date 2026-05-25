@@ -217,6 +217,20 @@
                 "default": "0.15",
                 "added": "0.6.9",
                 "name": "panel_width"
+            },
+            {
+                "desc": "Font size (in points) for page number labels in the thumbnail",
+                "type": "int",
+                "default": "10",
+                "added": "0.7.4",
+                "name": "font_size"
+            },
+            {
+                "desc": "Highlight the thumbnail of the currently visible page with a",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.4",
+                "name": "highlight_current_page"
             }
         ],
         "section_desc": "Thumbnail panel options struct",
@@ -263,6 +277,13 @@
                 "default": "false",
                 "added": "0.6.5",
                 "name": "dim_inactive"
+            },
+            {
+                "desc": "Split direction for the portal view (\"vertical\", \"horizontal\", or",
+                "type": "str",
+                "default": "\"vertical\"",
+                "added": "0.7.4",
+                "name": "split"
             }
         ],
         "section_desc": "Portal options struct",
@@ -313,7 +334,7 @@
             {
                 "desc": "Title format for the window title",
                 "type": "str",
-                "default": "\"{} - lektra\"",
+                "default": "\"%1 - lektra\"",
                 "added": "0.3.0",
                 "name": "title_format"
             },
@@ -349,7 +370,7 @@
                 "choice": "width, height, window",
                 "added": "0.5.1",
                 "name": "initial_fit",
-                "type": "str"
+                "type": "DocumentView::FitMode initial_fit ="
             },
             {
                 "desc": "Apply auto fit when resizing window",
@@ -1051,14 +1072,14 @@
             {
                 "desc": "Number of pages to cache page",
                 "type": "int",
-                "default": "10",
+                "default": "5",
                 "added": "0.5.3",
                 "name": "cache_pages"
             },
             {
                 "desc": "Preload pages",
                 "type": "int",
-                "default": "2",
+                "default": "1",
                 "added": "0.6.3",
                 "name": "preload_pages"
             },
@@ -1068,6 +1089,13 @@
                 "default": "true",
                 "added": "0.3.0",
                 "name": "auto_reload"
+            },
+            {
+                "desc": "Cache the password for password-protected files so that auto-reload can re-authenticate without prompting. Disable if you prefer the password not to persist in memory beyond initial unlock.",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.4",
+                "name": "cache_password"
             },
             {
                 "desc": "Invert color mode (aka dark mode)",
