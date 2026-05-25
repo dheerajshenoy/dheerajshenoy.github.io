@@ -327,3 +327,9 @@ footer {
     font-family: 'Outfit', sans-serif;
     background: var(--footer-bg);
 }
+
+a {
+    color: orange;
+    text-decoration: none;
+}
+

@@ -1,14 +1,15 @@
 @import "common.css";
 
+
 .question > strong {
     color: var(--accent);
 }
 
 .question {
     margin: 20px 0 10px 0;
-    font-size: 20px;
     font-family: "Outfit";
     font-weight: 300;
+    font-size: 1.5rem;
 }
 
 .answer {
