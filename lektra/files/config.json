@@ -279,7 +279,7 @@
                 "name": "dim_inactive"
             },
             {
-                "desc": "Split direction for the portal view (\"vertical\", \"horizontal\", or",
+                "desc": "Split direction for the portal view (\"vertical\", \"horizontal\",",
                 "type": "str",
                 "default": "\"vertical\"",
                 "added": "0.7.4",
@@ -599,6 +599,27 @@
                 "default": "0.5f",
                 "added": "0.6.2",
                 "name": "dim_inactive_opacity"
+            },
+            {
+                "desc": "Show a border around the focused split",
+                "type": "bool",
+                "default": "false",
+                "added": "0.6.3",
+                "name": "focus_border"
+            },
+            {
+                "desc": "Color of the focus border (ARGB hex)",
+                "type": "uint32_t",
+                "default": "0xFF4FC3F7",
+                "added": "0.6.3",
+                "name": "focus_border_color"
+            },
+            {
+                "desc": "Width of the focus border in pixels",
+                "type": "int",
+                "default": "2",
+                "added": "0.6.3",
+                "name": "focus_border_width"
             }
         ],
         "section_desc": "Split options struct",
