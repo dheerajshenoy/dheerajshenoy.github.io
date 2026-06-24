@@ -620,6 +620,20 @@
                 "default": "2",
                 "added": "0.6.3",
                 "name": "focus_border_width"
+            },
+            {
+                "desc": "Show a badge in the corner of a maximized split",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.3",
+                "name": "maximize_indicator"
+            },
+            {
+                "desc": "Color of the maximize badge (ARGB hex)",
+                "type": "uint32_t",
+                "default": "0xCC2979FF",
+                "added": "0.6.3",
+                "name": "maximize_indicator_color"
             }
         ],
         "section_desc": "Split options struct",
@@ -1096,6 +1110,13 @@
                 "default": "5",
                 "added": "0.5.3",
                 "name": "cache_pages"
+            },
+            {
+                "desc": "Maximum size of MuPDF's internal store in megabytes. The store holds decoded embedded images, fonts, and glyph bitmaps. Reduce this if memory usage is too high; increase if you notice slow re-renders after scrolling through image-heavy documents.",
+                "type": "int",
+                "default": "64",
+                "added": "0.8.0",
+                "name": "mupdf_store_size"
             },
             {
                 "desc": "Preload pages",

@@ -1857,9 +1857,34 @@
             "desc": "Opacity of the inactive pane when dimmed (0.0\u20131.0)."
           },
           {
+            "name": "focus_border",
+            "type": "boolean",
+            "desc": "Draw a border around the currently focused split."
+          },
+          {
+            "name": "focus_border_color",
+            "type": "integer",
+            "desc": "Border color as an ARGB hex integer (e.g. 0xFF4FC3F7)."
+          },
+          {
+            "name": "focus_border_width",
+            "type": "integer",
+            "desc": "Border thickness in pixels."
+          },
+          {
             "name": "focus_follows_mouse",
             "type": "boolean",
             "desc": "Focus a split pane when the mouse enters it."
+          },
+          {
+            "name": "maximize_indicator",
+            "type": "boolean",
+            "desc": "Show a badge in the corner of the maximized split."
+          },
+          {
+            "name": "maximize_indicator_color",
+            "type": "integer",
+            "desc": "Badge color as an ARGB hex integer (e.g. 0xCC2979FF)."
           },
           {
             "name": "mouse_follows_focus",
