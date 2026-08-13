@@ -292,7 +292,11 @@
     "description": "Narrow view to selected region"
   },
   {
-    "name": "wide_region",
+    "name": "narrow_to_pages",
+    "description": "Narrow view to a page range (e.g. '5 10' or '5-10')"
+  },
+  {
+    "name": "widen_region",
     "description": "Exit narrow region (widen)"
   },
   {
@@ -408,6 +412,18 @@
     "description": "Open document outline picker"
   },
   {
+    "name": "generate_outline",
+    "description": "Generate outline from document text (font-size heuristic)"
+  },
+  {
+    "name": "export_outline",
+    "description": "Export outline to JSON file"
+  },
+  {
+    "name": "load_outline",
+    "description": "Load outline from JSON file"
+  },
+  {
     "name": "picker_highlight_search",
     "description": "Search within highlights"
   },
@@ -438,6 +454,14 @@
   {
     "name": "search_cancel",
     "description": "Cancel current search and clear highlights"
+  },
+  {
+    "name": "search_below",
+    "description": "Search document from the current page forward"
+  },
+  {
+    "name": "search_above",
+    "description": "Search document from the current page backward"
   },
   {
     "name": "layout_single",
