@@ -121,9 +121,14 @@ function addFeatures() {
     features.forEach((feature, index) => {
         const div = document.createElement("div");
         div.className = `feature${index % 2 !== 0 ? " reverse" : ""}`;
+        const isGif = feature.media.src.endsWith('.gif');
+        const mediaSrc = isGif ? feature.media.src.replace(/\.gif$/, '.webm') : feature.media.src;
+        const mediaHTML = isGif
+            ? `<video autoplay loop muted playsinline><source src="${mediaSrc}" type="video/webm"></video>`
+            : `<img src="${mediaSrc}" alt="${feature.media.alt}">`;
         div.innerHTML = `
             <div class="feature-media">
-                <img src="${feature.media.src}" alt="${feature.media.alt}">
+                ${mediaHTML}
             </div>
             <div class="feature-body">
                 <h3 class="feature-title">${feature.title}</h3>
