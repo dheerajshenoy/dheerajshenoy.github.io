@@ -110,7 +110,6 @@ const otherFeatures = [
     "<b>Session management</b> — save and restore open documents and layout",
     "<b>Customizable keybindings</b> — bind any command to any key",
     "<b>URL detection</b> — automatic detection of non-PDF URLs in documents",
-    "<b>Narrow to Region</b> — focus any rectangular area of a page (Emacs-style)",
     "<b>File Picker</b> — Emacs-style finder with directory navigation and tab completion",
     "<b>Rotation &amp; Flip</b> — rotate pages or flip horizontally / vertically",
 ];
