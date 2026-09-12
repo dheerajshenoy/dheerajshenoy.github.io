@@ -92,6 +92,10 @@
     "description": "List bookmarks"
   },
   {
+    "name": "bookmark_export",
+    "description": "Export bookmarks to a JSON file"
+  },
+  {
     "name": "mark_set",
     "description": "Set a named mark at current position"
   },
@@ -224,6 +228,14 @@
     "description": "Open file (do what I mean)"
   },
   {
+    "name": "file_open_window",
+    "description": "Open file in a new window"
+  },
+  {
+    "name": "open_file_new_window",
+    "description": "Open file in a new window"
+  },
+  {
     "name": "file_close",
     "description": "Close current file"
   },
@@ -290,6 +302,10 @@
   {
     "name": "narrow_to_region",
     "description": "Narrow view to selected region"
+  },
+  {
+    "name": "narrow_to_section",
+    "description": "Narrow view to a document section from the outline"
   },
   {
     "name": "narrow_to_pages",
@@ -542,5 +558,9 @@
   {
     "name": "show_about",
     "description": "Show about dialog"
+  },
+  {
+    "name": "donate",
+    "description": "Show donate / support dialog"
   }
 ]

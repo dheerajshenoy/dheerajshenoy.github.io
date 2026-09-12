@@ -325,6 +325,13 @@
                 "name": "menubar"
             },
             {
+                "desc": "Show standard-style icons next to menu items in the menubar. Turn off for a text-only menu; icons are set on every action regardless so this flag toggles their visibility at runtime.",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.8",
+                "name": "show_menu_icons"
+            },
+            {
                 "desc": "Show startup widget tab",
                 "type": "bool",
                 "default": "true",
@@ -859,6 +866,14 @@
                 "default": "true",
                 "added": "0.6.0",
                 "name": "lazy_load"
+            },
+            {
+                "desc": "Where a newly opened tab is placed in the tab bar",
+                "type": "str",
+                "choice": "end, start, after_current",
+                "default": "end",
+                "added": "0.7.8",
+                "name": "class"
             }
         ],
         "section_desc": "Tab options struct",
@@ -1110,6 +1125,13 @@
                 "default": "true",
                 "added": "0.7.1",
                 "name": "auto_scroll"
+            },
+            {
+                "desc": "Quit LEKTRA when the last open tab is closed. When false (the default), an empty window remains \u2014 the startup widget may be shown if that path is taken. `confirm_on_quit` still applies.",
+                "type": "bool",
+                "default": "false",
+                "added": "0.7.8",
+                "name": "close_on_last_tab"
             },
             {
                 "desc": "Undo limit",
