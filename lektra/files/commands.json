@@ -528,6 +528,10 @@
     "description": "Highlight current text selection"
   },
   {
+    "name": "high_contrast",
+    "description": "Toggle high-contrast tone stretch"
+  },
+  {
     "name": "invert_color",
     "description": "Toggle inverted colour rendering"
   },

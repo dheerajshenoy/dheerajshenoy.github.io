@@ -1614,11 +1614,6 @@
         "desc": "",
         "fields": [
           {
-            "name": "color",
-            "type": "integer",
-            "desc": "Popup annotation color (ARGB integer)."
-          },
-          {
             "name": "comment",
             "type": "boolean",
             "desc": "Show comment text for popups."
@@ -1742,6 +1737,11 @@
             "desc": "Show the menu bar."
           },
           {
+            "name": "show_menu_icons",
+            "type": "boolean",
+            "desc": "Show standard icons next to menubar items (toggles Qt::AA_DontShowIconsInMenus)."
+          },
+          {
             "name": "startup_tab",
             "type": "boolean",
             "desc": "Open a new tab on startup."
@@ -1777,6 +1777,135 @@
             "name": "mode",
             "type": "LayoutMode",
             "desc": "Page layout mode (single, vertical, horizontal, book)."
+          },
+          {
+            "name": "spacing",
+            "type": "integer",
+            "desc": "Gap between pages in pixels."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptStatusbarComponentMode",
+        "desc": "",
+        "fields": [
+          {
+            "name": "icon",
+            "type": "boolean",
+            "desc": "Show the interaction mode as an icon."
+          },
+          {
+            "name": "show",
+            "type": "boolean",
+            "desc": "Whether the interaction-mode indicator is shown at all."
+          },
+          {
+            "name": "text",
+            "type": "boolean",
+            "desc": "Show the interaction mode as text (e.g. \"Select\", \"Pan\")."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptStatusbarComponentPageNumber",
+        "desc": "",
+        "fields": [
+          {
+            "name": "show",
+            "type": "boolean",
+            "desc": "Show the current page number."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptStatusbarComponentSession",
+        "desc": "",
+        "fields": [
+          {
+            "name": "show",
+            "type": "boolean",
+            "desc": "Show the active session name."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptStatusbarComponentZoom",
+        "desc": "",
+        "fields": [
+          {
+            "name": "show",
+            "type": "boolean",
+            "desc": "Show the current zoom level."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptStatusbarComponentFileName",
+        "desc": "",
+        "fields": [
+          {
+            "name": "full_path",
+            "type": "boolean",
+            "desc": "Show the full file path instead of just the name."
+          },
+          {
+            "name": "show",
+            "type": "boolean",
+            "desc": "Show the file name."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptStatusbarComponentProgress",
+        "desc": "",
+        "fields": [
+          {
+            "name": "show",
+            "type": "boolean",
+            "desc": "Show the reading-progress bar."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptStatusbarComponents",
+        "desc": "",
+        "fields": [
+          {
+            "name": "mode",
+            "type": "OptStatusbarComponentMode",
+            "desc": ""
+          },
+          {
+            "name": "pagenumber",
+            "type": "OptStatusbarComponentPageNumber",
+            "desc": ""
+          },
+          {
+            "name": "session",
+            "type": "OptStatusbarComponentSession",
+            "desc": ""
+          },
+          {
+            "name": "zoom",
+            "type": "OptStatusbarComponentZoom",
+            "desc": ""
+          },
+          {
+            "name": "filename",
+            "type": "OptStatusbarComponentFileName",
+            "desc": ""
+          },
+          {
+            "name": "progress",
+            "type": "OptStatusbarComponentProgress",
+            "desc": ""
           }
         ],
         "methods": []
@@ -1788,12 +1917,17 @@
           {
             "name": "padding",
             "type": "integer[]",
-            "desc": "Four-element array `{top, right, bottom, left}` padding in pixels."
+            "desc": "Four-element array `{left, top, right, bottom}` padding in pixels."
           },
           {
             "name": "visible",
             "type": "boolean",
             "desc": "Whether the status bar is shown."
+          },
+          {
+            "name": "components",
+            "type": "OptStatusbarComponents",
+            "desc": "Per-component visibility toggles."
           }
         ],
         "methods": []
@@ -2017,6 +2151,11 @@
             "desc": "Show a close button on each tab."
           },
           {
+            "name": "elide_mode",
+            "type": "TabsElideMode",
+            "desc": "Where to elide long tab titles."
+          },
+          {
             "name": "full_path",
             "type": "boolean",
             "desc": "Display the full file path as the tab title."
@@ -2027,14 +2166,56 @@
             "desc": "Defer loading of background tabs until they are activated."
           },
           {
+            "name": "location",
+            "type": "TabsLocation",
+            "desc": "Where the tab bar sits in the main window."
+          },
+          {
             "name": "movable",
             "type": "boolean",
             "desc": "Allow tabs to be dragged and reordered."
           },
           {
+            "name": "open_position",
+            "type": "TabsOpenPosition",
+            "desc": "Where a newly opened tab is placed in the tab bar."
+          },
+          {
             "name": "visible",
             "type": "boolean",
             "desc": "Whether the tab bar is shown."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptPickerShadow",
+        "desc": "",
+        "fields": [
+          {
+            "name": "blur_radius",
+            "type": "integer",
+            "desc": "Shadow blur radius in pixels."
+          },
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "desc": "Draw a drop shadow behind the picker."
+          },
+          {
+            "name": "offset_x",
+            "type": "integer",
+            "desc": "Horizontal shadow offset in pixels."
+          },
+          {
+            "name": "offset_y",
+            "type": "integer",
+            "desc": "Vertical shadow offset in pixels."
+          },
+          {
+            "name": "opacity",
+            "type": "integer",
+            "desc": "Shadow opacity (0\u2013255)."
           }
         ],
         "methods": []
@@ -2062,6 +2243,16 @@
             "name": "alternating_row_color",
             "type": "boolean",
             "desc": "Alternate row background colors in the picker list."
+          },
+          {
+            "name": "prompt",
+            "type": "string",
+            "desc": "Placeholder text shown in the picker's search box."
+          },
+          {
+            "name": "shadow",
+            "type": "OptPickerShadow",
+            "desc": "Drop-shadow sub-table."
           }
         ],
         "methods": []
@@ -2071,19 +2262,34 @@
         "desc": "",
         "fields": [
           {
+            "name": "flat_menu",
+            "type": "boolean",
+            "desc": "Display the outline as a flat list instead of a tree."
+          },
+          {
+            "name": "generate_heading_ratio",
+            "type": "number",
+            "desc": "Minimum font-size ratio (vs body text) for a line to be treated as a heading by `generate_outline`."
+          },
+          {
+            "name": "generate_max_levels",
+            "type": "integer",
+            "desc": "Maximum number of heading tiers `generate_outline` will produce."
+          },
+          {
             "name": "indent_width",
             "type": "integer",
             "desc": "Pixels to indent each outline level."
           },
           {
+            "name": "prompt",
+            "type": "string",
+            "desc": "Placeholder text shown in the outline picker's search box."
+          },
+          {
             "name": "show_page_number",
             "type": "boolean",
             "desc": "Show the page number next to each outline entry."
-          },
-          {
-            "name": "flat_menu",
-            "type": "boolean",
-            "desc": "Display the outline as a flat list instead of a tree."
           }
         ],
         "methods": []
@@ -2096,6 +2302,11 @@
             "name": "flat_menu",
             "type": "boolean",
             "desc": "Display search results as a flat list."
+          },
+          {
+            "name": "prompt",
+            "type": "string",
+            "desc": "Placeholder text shown in the highlight-search picker's search box."
           }
         ],
         "methods": []
@@ -2157,9 +2368,9 @@
             "desc": "Rendering backend"
           },
           {
-            "name": "scale",
-            "type": "number|Screen",
-            "desc": "Scale factors for different device pixel ratios (e.g. `{ [1] = 1.0, [2] = 1.5 }`)."
+            "name": "dpr",
+            "type": "number|table<string,",
+            "desc": "number> Device pixel ratio: a single number for every screen, or a table keyed by screen name (e.g. `{ [\"eDP-1\"] = 1.5, [\"HDMI-A-1\"] = 1.0 }`)."
           }
         ],
         "methods": []
@@ -2169,14 +2380,14 @@
         "desc": "",
         "fields": [
           {
-            "name": "confirm_on_quit",
+            "name": "auto_reload",
             "type": "boolean",
-            "desc": "Show a confirmation dialog before quitting."
+            "desc": "Automatically reload the document when the file changes on disk."
           },
           {
-            "name": "undo_limit",
-            "type": "integer",
-            "desc": "Maximum number of undo steps."
+            "name": "auto_scroll",
+            "type": "boolean",
+            "desc": "Scroll to keep an out-of-view text selection visible."
           },
           {
             "name": "cache_pages",
@@ -2184,14 +2395,39 @@
             "desc": "Number of rendered pages to keep in the page cache."
           },
           {
-            "name": "preload_pages",
-            "type": "integer",
-            "desc": "Number of pages to pre-render ahead of the current page."
+            "name": "cache_password",
+            "type": "boolean",
+            "desc": "Keep the password for encrypted PDFs in memory so auto-reload can re-authenticate."
           },
           {
-            "name": "auto_reload",
+            "name": "close_on_last_tab",
             "type": "boolean",
-            "desc": "Automatically reload the document when the file changes on disk."
+            "desc": "Quit LEKTRA when the last tab is closed (confirm_on_quit still applies)."
+          },
+          {
+            "name": "confirm_on_quit",
+            "type": "boolean",
+            "desc": "Show a confirmation dialog before quitting."
+          },
+          {
+            "name": "dont_invert_images",
+            "type": "boolean",
+            "desc": "Exclude images from colour inversion and high-contrast stretch."
+          },
+          {
+            "name": "high_contrast",
+            "type": "boolean",
+            "desc": "High-contrast tone stretch applied after tint / invert (accessibility)."
+          },
+          {
+            "name": "high_contrast_black_point",
+            "type": "integer",
+            "desc": "Pixel value \u2264 this becomes pure black (0-255)."
+          },
+          {
+            "name": "high_contrast_white_point",
+            "type": "integer",
+            "desc": "Pixel value \u2265 this becomes pure white (0-255)."
           },
           {
             "name": "invert_mode",
@@ -2199,29 +2435,9 @@
             "desc": "Start with colour inversion enabled."
           },
           {
-            "name": "dont_invert_images",
-            "type": "boolean",
-            "desc": "Exclude images from colour inversion."
-          },
-          {
-            "name": "open_last_visited",
-            "type": "boolean",
-            "desc": "Reopen the last visited document on startup."
-          },
-          {
-            "name": "single_instance",
-            "type": "boolean",
-            "desc": "Enforce a single application instance."
-          },
-          {
-            "name": "remember_last_visited",
-            "type": "boolean",
-            "desc": "Remember and restore the last visited page."
-          },
-          {
-            "name": "recent_files",
-            "type": "boolean",
-            "desc": "Track recently opened files."
+            "name": "mupdf_store_size",
+            "type": "integer",
+            "desc": "Maximum size of MuPDF's internal decoded-image / glyph store, in MB."
           },
           {
             "name": "num_recent_files",
@@ -2229,9 +2445,39 @@
             "desc": "Maximum number of recent files to remember."
           },
           {
+            "name": "open_last_visited",
+            "type": "boolean",
+            "desc": "Reopen the last visited document on startup."
+          },
+          {
             "name": "page_history_limit",
             "type": "integer",
-            "desc": "Maximum number of entries in the page-navigation history."
+            "desc": "Maximum number of entries in the page-navigation history (parsed from TOML key `page_history`)."
+          },
+          {
+            "name": "preload_pages",
+            "type": "integer",
+            "desc": "Number of pages to pre-render ahead of the current page."
+          },
+          {
+            "name": "recent_files",
+            "type": "boolean",
+            "desc": "Track recently opened files."
+          },
+          {
+            "name": "remember_last_visited",
+            "type": "boolean",
+            "desc": "Remember and restore the last visited page."
+          },
+          {
+            "name": "single_instance",
+            "type": "boolean",
+            "desc": "Enforce a single application instance."
+          },
+          {
+            "name": "undo_limit",
+            "type": "integer",
+            "desc": "Maximum number of undo steps."
           }
         ],
         "methods": []
