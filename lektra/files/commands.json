@@ -172,6 +172,18 @@
     "description": "Set zoom to a specific level"
   },
   {
+    "name": "font_size_increase",
+    "description": "Increase text size (reflowable documents)"
+  },
+  {
+    "name": "font_size_decrease",
+    "description": "Decrease text size (reflowable documents)"
+  },
+  {
+    "name": "font_size_reset",
+    "description": "Reset text size to default (reflowable documents)"
+  },
+  {
     "name": "split_horizontal",
     "description": "Split view horizontally"
   },

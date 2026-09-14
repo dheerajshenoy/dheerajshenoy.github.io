@@ -2334,6 +2334,16 @@
             "name": "description",
             "type": "boolean",
             "desc": "Show command descriptions in the palette."
+          },
+          {
+            "name": "sort_by_frequency",
+            "type": "boolean",
+            "desc": "Sort commands by how often you've picked them from the palette (most-used first, smex-style). Usage counts persist across sessions when persist_frequency is true."
+          },
+          {
+            "name": "persist_frequency",
+            "type": "boolean",
+            "desc": "Persist command-palette usage counts to disk so sort_by_frequency ranking survives across restarts. When false, usage is still tracked for the current session but nothing is loaded/saved to disk."
           }
         ],
         "methods": []

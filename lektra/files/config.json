@@ -1047,6 +1047,20 @@
                 "default": "false",
                 "added": "0.6.5",
                 "name": "description"
+            },
+            {
+                "desc": "Sort commands by how often you've picked them from the",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.8",
+                "name": "sort_by_frequency"
+            },
+            {
+                "desc": "Persist command-palette usage counts to disk",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.8",
+                "name": "persist_frequency"
             }
         ],
         "section_desc": "Command Palette options struct",
