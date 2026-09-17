@@ -1051,11 +1051,11 @@
       {
         "name": "register",
         "sig": "lektra.event.register(event, callback)",
-        "desc": "Registers a callback to be called when the specified event is triggered.",
+        "desc": "Registers a callback to be called when the specified event is triggered. `event` accepts either the string name (\"OnPageChanged\") or the `lektra.event.EventType` enum value \u2014 the string form is recommended: it's shorter and (unlike the enum form) editors reliably infer the callback argument's type from it.",
         "params": [
           {
             "name": "event",
-            "type": "EventType",
+            "type": "EventType|string",
             "desc": ""
           },
           {
@@ -1073,7 +1073,7 @@
         "params": [
           {
             "name": "event",
-            "type": "EventType",
+            "type": "EventType|string",
             "desc": "The name of the event to stop listening for."
           },
           {
@@ -1086,11 +1086,11 @@
       {
         "name": "once",
         "sig": "lektra.event.once(event, callback)",
-        "desc": "Registers a callback to be called when the specified event is triggered. The callback is called once and then automatically unregistered.",
+        "desc": "Registers a callback to be called when the specified event is triggered. The callback is called once and then automatically unregistered. See `lektra.event.register` for the `event` argument's accepted forms.",
         "params": [
           {
             "name": "event",
-            "type": "EventType",
+            "type": "EventType|string",
             "desc": ""
           },
           {
@@ -1108,7 +1108,7 @@
         "params": [
           {
             "name": "event",
-            "type": "EventType",
+            "type": "EventType|string",
             "desc": "The name of the event to clear callbacks for."
           }
         ]
@@ -1120,7 +1120,7 @@
         "params": [
           {
             "name": "event",
-            "type": "EventType",
+            "type": "EventType|string",
             "desc": "The name of the event to count callbacks for."
           }
         ],
