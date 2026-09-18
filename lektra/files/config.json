@@ -231,6 +231,13 @@
                 "default": "true",
                 "added": "0.7.4",
                 "name": "highlight_current_page"
+            },
+            {
+                "desc": "Automatically scroll the thumbnail panel to keep the",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.8",
+                "name": "sync_scroll"
             }
         ],
         "section_desc": "Thumbnail panel options struct",
