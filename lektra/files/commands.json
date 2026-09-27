@@ -16,6 +16,10 @@
     "description": "Toggle thumbnail panel"
   },
   {
+    "name": "llm_view",
+    "description": "Toggle LLM chat panel"
+  },
+  {
     "name": "presentation_mode",
     "description": "Toggle presentation mode"
   },

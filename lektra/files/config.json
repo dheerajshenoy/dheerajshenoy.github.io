@@ -831,11 +831,12 @@
                 "name": "auto_hide"
             },
             {
-                "desc": "Show the tab close buttons",
-                "type": "bool",
-                "default": "true",
+                "desc": "When to show the tab close (x) button",
+                "type": "str",
+                "choice": "all, current, hidden",
+                "default": "all",
                 "added": "0.3.0",
-                "name": "closable"
+                "name": "class"
             },
             {
                 "desc": "Tabs can be rearranged",
@@ -1211,14 +1212,14 @@
                 "name": "high_contrast"
             },
             {
-                "desc": "Pixel value (0-255) below which high-contrast pushes to pure black.",
+                "desc": "Pixel value (0-255) below which high-contrast pushes to pure",
                 "type": "int",
                 "default": "40",
                 "added": "0.7.8",
                 "name": "high_contrast_black_point"
             },
             {
-                "desc": "Pixel value (0-255) above which high-contrast pushes to pure white.",
+                "desc": "Pixel value (0-255) above which high-contrast pushes to pure",
                 "type": "int",
                 "default": "220",
                 "added": "0.7.8",
