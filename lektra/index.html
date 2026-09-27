@@ -64,7 +64,7 @@
                     <span>Windows</span>
                 </div>
             </div>
-            <a href="https://github.com/dheerajshenoy/lektra/releases" class="hero-release">Latest release</a>
+            <a href="https://github.com/dheerajshenoy/lektra/releases" class="hero-release">Latest release <span class="hero-release-version"></span></a>
         </section>
 
         <div class="container">
@@ -85,6 +85,13 @@
                         <span class="chip">EPUB</span>
                         <span class="chip">Mobi</span>
                         <span class="chip chip-optional" title="Requires djvulibre">DjVu <sup>1</sup></span>
+                        <span class="chip">HTML</span>
+                        <span class="chip chip-limited" title="Limited support">XHTML <sup>2</sup></span>
+                        <span class="chip">Markdown</span>
+                        <span class="chip">TXT</span>
+                        <span class="chip chip-limited" title="Limited support">DOCX <sup>2</sup></span>
+                        <span class="chip chip-limited" title="Limited support">XLSX <sup>2</sup></span>
+                        <span class="chip chip-limited" title="Limited support">PPTX <sup>2</sup></span>
                     </div>
                 </div>
                 <div class="format-group">
@@ -97,7 +104,7 @@
                         <span class="chip">GIF</span>
                         <span class="chip">BMP</span>
                         <span class="chip">WebP</span>
-                        <span class="chip">SVG</span>
+                        <span class="chip chip-optional" title="Enhanced rendering requires librsvg and Cairo">SVG <sup>1</sup></span>
                         <span class="chip">TGA</span>
                         <span class="chip">ICO</span>
                         <span class="chip">PPM</span>
@@ -105,7 +112,8 @@
                         <span class="chip">PBM</span>
                     </div>
                 </div>
-                <p class="format-note"><sup>1</sup> Enabled only if <b>djvulibre</b> is installed on the system</p>
+                <p class="format-note"><sup>1</sup> Optional runtime libraries — DjVu requires <b>djvulibre</b>; SVG rendering is enhanced via <b>librsvg</b> and <b>Cairo</b> when available (falls back to Qt's built-in renderer otherwise)</p>
+                <p class="format-note"><sup>2</sup> Limited support — basic layout and text are shown, but complex formatting, embedded objects, and some styling may not render correctly</p>
             </section>
         </div>
 

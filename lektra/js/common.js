@@ -10,6 +10,17 @@ async function getStars() {
     } catch {}
 }
 
+async function getLatestRelease() {
+    try {
+        const release = await fetch('https://api.github.com/repos/dheerajshenoy/lektra/releases/latest').then(r => r.json());
+        const version = release.tag_name;
+        if (!version) return;
+        const el = document.querySelector('.hero-release-version');
+        if (el) el.textContent = `(${version})`;
+    } catch {}
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     getStars();
+    getLatestRelease();
 });

@@ -154,6 +154,11 @@ pre code.language-bash {
     color: var(--accent);
 }
 
+.chip-limited {
+    border-color: rgba(255, 140, 90, 0.35);
+    color: var(--color-warn);
+}
+
 .format-note {
     font-size: 0.9rem;
     color: var(--muted, #b8bcc8);
