@@ -552,6 +552,38 @@
         "section_added": "0.3.0"
     },
     {
+        "name": "reflow",
+        "fields": [
+            {
+                "desc": "Font family for the text (any installed font, or serif,",
+                "type": "str",
+                "default": "\"\"",
+                "added": "0.7.9",
+                "name": "font_family"
+            },
+            {
+                "desc": "Font size in points",
+                "type": "float",
+                "default": "11.0f",
+                "added": "0.7.9",
+                "name": "font_size"
+            },
+            {
+                "desc": "Line spacing as a multiple of the font size (e.g. 1.4). 0 uses",
+                "type": "float",
+                "default": "0.0f",
+                "added": "0.7.9",
+                "name": "line_spacing"
+            }
+        ],
+        "section_desc": "Text style for reflowable documents (EPUB, FB2, MOBI)",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.9"
+    },
+    {
         "name": "selection",
         "fields": [
             {

@@ -485,6 +485,12 @@
             ]
           },
           {
+            "name": "opt",
+            "sig": "View:opt()",
+            "desc": "This view's local options, a copy of the global options taken when the view was created (a split copies the view it was split from). Writing to it changes only this view and applies immediately; `lektra.opt` sets the global default and the current view. Has the same per-view sections as `lektra.opt` (page, search, annotations, layout, zoom, selection, split, scrollbars, jump_marker, links, link_hints, rendering, behavior), not app-wide ones like tabs or statusbar. Using a table after its view is closed raises an error.",
+            "returns": "table"
+          },
+          {
             "name": "region_select_image",
             "sig": "View:region_select_image(callback)",
             "desc": "Same interaction as `region_select`, but `callback` is passed the selected region rendered as a base64-encoded PNG string instead of the rect \u2014 handy for feeding a screenshot region to an OCR/vision-model API or saving it out via `io.open` plus a base64 decoder. The string is empty if the dragged region didn't land on a rendered page.",
@@ -633,6 +639,173 @@
               }
             ],
             "returns": "true | \u2014 nil result `true` on success, `nil` on failure."
+          },
+          {
+            "name": "links",
+            "sig": "View:links(pageno)",
+            "desc": "",
+            "params": [
+              {
+                "name": "pageno?",
+                "type": "integer",
+                "desc": "Page (default: current page)."
+              }
+            ],
+            "returns": "PageLink[] links"
+          },
+          {
+            "name": "follow_link",
+            "sig": "View:follow_link(link)",
+            "desc": "Follows a link, as if it had been clicked (jumps, or opens an external address).",
+            "params": [
+              {
+                "name": "link",
+                "type": "PageLink",
+                "desc": "A link from `View:links()`."
+              }
+            ],
+            "returns": "boolean ok \u2014 False if the link doesn't exist."
+          },
+          {
+            "name": "link_hints",
+            "sig": "View:link_hints(mode)",
+            "desc": "Starts link hint mode in the current tab, like the `link_hint_visit` and `link_hint_copy` commands. The view must be the current tab.",
+            "params": [
+              {
+                "name": "mode?",
+                "type": "\"visit\"|\"copy\"",
+                "desc": "\"visit\" follows the chosen link (default); \"copy\" copies its address."
+              }
+            ],
+            "returns": "boolean started"
+          },
+          {
+            "name": "select_range",
+            "sig": "View:select_range(from, to)",
+            "desc": "Selects the text between two positions, in reading order. Both pages must be rendered (visible or preloaded), so call this after the page has shown up (e.g. from `OnPageChanged` or a timer).",
+            "params": [
+              {
+                "name": "from",
+                "type": "PagePosition|number[]",
+                "desc": "`{page=, x=, y=}` or `{page, x, y}`."
+              },
+              {
+                "name": "to",
+                "type": "PagePosition|number[]",
+                "desc": ""
+              }
+            ],
+            "returns": "boolean selected \u2014 False if the pages aren't rendered or have no text."
+          },
+          {
+            "name": "select_region",
+            "sig": "View:select_region(pageno, x0, y0, x1, y1)",
+            "desc": "Selects the text inside a rectangle on one page (from its top-left corner to its bottom-right, in reading order). Same requirements as `View:select_range`.",
+            "params": [
+              {
+                "name": "pageno",
+                "type": "integer",
+                "desc": ""
+              },
+              {
+                "name": "x0",
+                "type": "number",
+                "desc": ""
+              },
+              {
+                "name": "y0",
+                "type": "number",
+                "desc": ""
+              },
+              {
+                "name": "x1",
+                "type": "number",
+                "desc": ""
+              },
+              {
+                "name": "y1",
+                "type": "number",
+                "desc": ""
+              }
+            ],
+            "returns": "boolean selected"
+          },
+          {
+            "name": "scroll",
+            "sig": "View:scroll(dx, dy)",
+            "desc": "Scrolls by a number of pixels. Positive values scroll right and down.",
+            "params": [
+              {
+                "name": "dx?",
+                "type": "integer",
+                "desc": ""
+              },
+              {
+                "name": "dy?",
+                "type": "integer",
+                "desc": ""
+              }
+            ]
+          },
+          {
+            "name": "scroll_to",
+            "sig": "View:scroll_to(x, y)",
+            "desc": "Scrolls to an absolute position in pixels. Omit an axis to leave it unchanged.",
+            "params": [
+              {
+                "name": "x?",
+                "type": "integer",
+                "desc": ""
+              },
+              {
+                "name": "y?",
+                "type": "integer",
+                "desc": ""
+              }
+            ]
+          },
+          {
+            "name": "scroll_position",
+            "sig": "View:scroll_position()",
+            "desc": "Current scroll position and its limits, in pixels.",
+            "returns": "integer max_y"
+          },
+          {
+            "name": "visible_pages",
+            "sig": "View:visible_pages()",
+            "desc": "Pages currently on screen, in order.",
+            "returns": "integer[] pages"
+          },
+          {
+            "name": "page_size",
+            "sig": "View:page_size(pageno)",
+            "desc": "Size of a page in points (before rotation and zoom). Loads the page if needed, so the size is exact.",
+            "params": [
+              {
+                "name": "pageno?",
+                "type": "integer",
+                "desc": "Page (default: current page)."
+              }
+            ],
+            "returns": "number? height"
+          },
+          {
+            "name": "page_sizes",
+            "sig": "View:page_sizes(first, last)",
+            "desc": "",
+            "params": [
+              {
+                "name": "first?",
+                "type": "integer",
+                "desc": "First page (default: 1)."
+              },
+              {
+                "name": "last?",
+                "type": "integer",
+                "desc": "Last page (default: last page)."
+              }
+            ],
+            "returns": "PageSize[] sizes"
           }
         ]
       },
@@ -715,6 +888,124 @@
             "name": "comment",
             "type": "string?",
             "desc": "An optional note attached to the highlight, or nil if none."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "PageRect",
+        "desc": "",
+        "fields": [
+          {
+            "name": "x0",
+            "type": "number",
+            "desc": ""
+          },
+          {
+            "name": "y0",
+            "type": "number",
+            "desc": ""
+          },
+          {
+            "name": "x1",
+            "type": "number",
+            "desc": ""
+          },
+          {
+            "name": "y1",
+            "type": "number",
+            "desc": ""
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "PageLink",
+        "desc": "",
+        "fields": [
+          {
+            "name": "page",
+            "type": "integer",
+            "desc": "Page the link is on."
+          },
+          {
+            "name": "index",
+            "type": "integer",
+            "desc": "Position in the page's link list."
+          },
+          {
+            "name": "rect",
+            "type": "PageRect",
+            "desc": "Where the link is on its page."
+          },
+          {
+            "name": "uri",
+            "type": "string",
+            "desc": "The link's address."
+          },
+          {
+            "name": "type",
+            "type": "\"page\"|\"section\"|\"fit_v\"|\"fit_h\"|\"location\"|\"external\"",
+            "desc": ""
+          },
+          {
+            "name": "target_page",
+            "type": "integer?",
+            "desc": "Page an internal link goes to."
+          },
+          {
+            "name": "target_x",
+            "type": "number?",
+            "desc": "Position on the target page."
+          },
+          {
+            "name": "target_y",
+            "type": "number?",
+            "desc": "Position on the target page."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "PagePosition",
+        "desc": "",
+        "fields": [
+          {
+            "name": "page",
+            "type": "integer",
+            "desc": ""
+          },
+          {
+            "name": "x",
+            "type": "number",
+            "desc": ""
+          },
+          {
+            "name": "y",
+            "type": "number",
+            "desc": ""
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "PageSize",
+        "desc": "",
+        "fields": [
+          {
+            "name": "width",
+            "type": "number",
+            "desc": ""
+          },
+          {
+            "name": "height",
+            "type": "number",
+            "desc": ""
+          },
+          {
+            "name": "known",
+            "type": "boolean",
+            "desc": "False if the page was never loaded and this is the document's default size."
           }
         ],
         "methods": []
@@ -817,7 +1108,7 @@
           {
             "name": "id",
             "type": "integer",
-            "desc": "The index of the tab to close."
+            "desc": "The index of the tab to switch to."
           }
         ]
       },
@@ -879,6 +1170,109 @@
           }
         ],
         "returns": "string id"
+      },
+      {
+        "name": "selected",
+        "sig": "lektra.tabs.selected()",
+        "desc": "Returns the indices of the selected tabs (0-based).",
+        "returns": "integer[] indices"
+      },
+      {
+        "name": "select",
+        "sig": "lektra.tabs.select(index, selected)",
+        "desc": "Selects or deselects a tab.",
+        "params": [
+          {
+            "name": "index",
+            "type": "integer",
+            "desc": "Tab index (0-based)."
+          },
+          {
+            "name": "selected?",
+            "type": "boolean",
+            "desc": "Default: true."
+          }
+        ]
+      },
+      {
+        "name": "select_all",
+        "sig": "lektra.tabs.select_all()",
+        "desc": "Selects every tab."
+      },
+      {
+        "name": "clear_selection",
+        "sig": "lektra.tabs.clear_selection()",
+        "desc": "Clears the tab selection."
+      },
+      {
+        "name": "close_selected",
+        "sig": "lektra.tabs.close_selected(indices)",
+        "desc": "Closes tabs the same way as clicking their close button.",
+        "params": [
+          {
+            "name": "indices?",
+            "type": "integer[]",
+            "desc": "Tabs to close (default: the selected tabs, else the current tab)."
+          }
+        ]
+      },
+      {
+        "name": "merge",
+        "sig": "lektra.tabs.merge(mode, indices)",
+        "desc": "Merges tabs into one tab, with each document in its own split.",
+        "params": [
+          {
+            "name": "mode",
+            "type": "\"vertical\"|\"horizontal\"",
+            "desc": "Direction the splits are laid out in."
+          },
+          {
+            "name": "indices?",
+            "type": "integer[]",
+            "desc": "Tabs to merge (default: the selected tabs, else the current tab)."
+          }
+        ]
+      },
+      {
+        "name": "split_out",
+        "sig": "lektra.tabs.split_out(indices)",
+        "desc": "Moves the splits of tabs into separate tabs, the opposite of `merge`.",
+        "params": [
+          {
+            "name": "indices?",
+            "type": "integer[]",
+            "desc": "Tabs to split up (default: the selected tabs, else the current tab)."
+          }
+        ]
+      },
+      {
+        "name": "move_to_window",
+        "sig": "lektra.tabs.move_to_window(indices)",
+        "desc": "Moves tabs into a new window.",
+        "params": [
+          {
+            "name": "indices?",
+            "type": "integer[]",
+            "desc": "Tabs to move (default: the selected tabs, else the current tab)."
+          }
+        ]
+      },
+      {
+        "name": "save_session",
+        "sig": "lektra.tabs.save_session(name, indices)",
+        "desc": "Saves tabs as a session.",
+        "params": [
+          {
+            "name": "name?",
+            "type": "string",
+            "desc": "Session name; omit to be asked for one."
+          },
+          {
+            "name": "indices?",
+            "type": "integer[]",
+            "desc": "Tabs to save (default: the selected tabs, else the current tab)."
+          }
+        ]
       }
     ]
   },
@@ -2368,6 +2762,28 @@
             "name": "persist_frequency",
             "type": "boolean",
             "desc": "Persist command-palette usage counts to disk so sort_by_frequency ranking survives across restarts. When false, usage is still tracked for the current session but nothing is loaded/saved to disk."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptReflow",
+        "desc": "",
+        "fields": [
+          {
+            "name": "font_family",
+            "type": "string",
+            "desc": "Font family for reflowable documents (installed font, serif, sans-serif or monospace); empty keeps the document's own."
+          },
+          {
+            "name": "font_size",
+            "type": "number",
+            "desc": "Font size in points."
+          },
+          {
+            "name": "line_spacing",
+            "type": "number",
+            "desc": "Line spacing as a multiple of the font size; 0 keeps the document's own."
           }
         ],
         "methods": []

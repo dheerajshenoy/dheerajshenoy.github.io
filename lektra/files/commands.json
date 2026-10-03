@@ -16,6 +16,94 @@
     "description": "Toggle thumbnail panel"
   },
   {
+    "name": "trim_margins",
+    "description": "Toggle trim margins (hide blank page margins)"
+  },
+  {
+    "name": "tabs_select_toggle",
+    "description": "Toggle selection of the current tab"
+  },
+  {
+    "name": "tabs_select_all",
+    "description": "Select all tabs"
+  },
+  {
+    "name": "tabs_select_clear",
+    "description": "Clear tab selection"
+  },
+  {
+    "name": "tab_rename",
+    "description": "Rename the current tab (empty name resets it)"
+  },
+  {
+    "name": "tabs_close_selected",
+    "description": "Close the selected tabs"
+  },
+  {
+    "name": "tabs_merge_vertical",
+    "description": "Merge the selected tabs into a vertical split"
+  },
+  {
+    "name": "tabs_merge_horizontal",
+    "description": "Merge the selected tabs into a horizontal split"
+  },
+  {
+    "name": "tabs_split_out",
+    "description": "Move the splits of the selected tabs into separate tabs"
+  },
+  {
+    "name": "tabs_move_to_window",
+    "description": "Move the selected tabs to a new window"
+  },
+  {
+    "name": "tabs_save_session",
+    "description": "Save the selected tabs as a session (optional name)"
+  },
+  {
+    "name": "caret_mode",
+    "description": "Toggle caret mode (keyboard text cursor)"
+  },
+  {
+    "name": "caret_left",
+    "description": "Caret mode: move left"
+  },
+  {
+    "name": "caret_right",
+    "description": "Caret mode: move right"
+  },
+  {
+    "name": "caret_up",
+    "description": "Caret mode: move up"
+  },
+  {
+    "name": "caret_down",
+    "description": "Caret mode: move down"
+  },
+  {
+    "name": "caret_line_start",
+    "description": "Caret mode: move to start of line"
+  },
+  {
+    "name": "caret_line_end",
+    "description": "Caret mode: move to end of line"
+  },
+  {
+    "name": "caret_select_left",
+    "description": "Caret mode: extend selection left"
+  },
+  {
+    "name": "caret_select_right",
+    "description": "Caret mode: extend selection right"
+  },
+  {
+    "name": "caret_select_up",
+    "description": "Caret mode: extend selection up"
+  },
+  {
+    "name": "caret_select_down",
+    "description": "Caret mode: extend selection down"
+  },
+  {
     "name": "llm_view",
     "description": "Toggle LLM chat panel"
   },
@@ -26,6 +114,10 @@
   {
     "name": "fullscreen",
     "description": "Toggle fullscreen"
+  },
+  {
+    "name": "run_last_command",
+    "description": "Run the last command again"
   },
   {
     "name": "command_palette",
@@ -232,6 +324,10 @@
     "description": "Open file in new tab"
   },
   {
+    "name": "file_open_no_history",
+    "description": "Open file in new tab without adding it to recent files"
+  },
+  {
     "name": "file_open_vsplit",
     "description": "Open file in vertical split"
   },
@@ -284,6 +380,10 @@
     "description": "Show recently opened files"
   },
   {
+    "name": "files_recent_clean",
+    "description": "Remove recent-files entries whose file no longer exists on disk"
+  },
+  {
     "name": "file_picker",
     "description": "Open file picker"
   },
@@ -318,6 +418,10 @@
   {
     "name": "narrow_to_region",
     "description": "Narrow view to selected region"
+  },
+  {
+    "name": "zoom_to_selection",
+    "description": "Select a region and zoom in to fill it"
   },
   {
     "name": "narrow_to_section",
