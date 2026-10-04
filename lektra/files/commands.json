@@ -684,6 +684,14 @@
     "description": "Show about dialog"
   },
   {
+    "name": "check_for_updates",
+    "description": "Check whether a newer release is available"
+  },
+  {
+    "name": "whats_new",
+    "description": "Show what changed in this version"
+  },
+  {
     "name": "donate",
     "description": "Show donate / support dialog"
   }

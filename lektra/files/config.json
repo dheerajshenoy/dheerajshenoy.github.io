@@ -212,28 +212,28 @@
                 "name": "show_page_numbers"
             },
             {
-                "desc": "Relative width of the thumbnail panel (compared to the main",
+                "desc": "Relative width of the thumbnail panel (compared to the main view)",
                 "type": "float",
                 "default": "0.15",
                 "added": "0.6.9",
                 "name": "panel_width"
             },
             {
-                "desc": "Font size (in points) for page number labels in the thumbnail",
+                "desc": "Font size (in points) for page number labels in the thumbnail panel",
                 "type": "int",
                 "default": "10",
                 "added": "0.7.4",
                 "name": "font_size"
             },
             {
-                "desc": "Highlight the thumbnail of the currently visible page with a",
+                "desc": "Highlight the thumbnail of the currently visible page with a border",
                 "type": "bool",
                 "default": "true",
                 "added": "0.7.4",
                 "name": "highlight_current_page"
             },
             {
-                "desc": "Automatically scroll the thumbnail panel to keep the",
+                "desc": "Automatically scroll the thumbnail panel to keep the currently visible page's thumbnail in view as pages change",
                 "type": "bool",
                 "default": "true",
                 "added": "0.7.8",
@@ -286,7 +286,7 @@
                 "name": "dim_inactive"
             },
             {
-                "desc": "Split direction for the portal view (\"vertical\", \"horizontal\",",
+                "desc": "Split direction for the portal view (\"vertical\", \"horizontal\", or \"smart\" \u2014 picks vertical when the view is wider than tall, horizontal otherwise)",
                 "type": "str",
                 "default": "\"vertical\"",
                 "added": "0.7.4",
@@ -407,6 +407,57 @@
         "section_default": "",
         "section_note": "",
         "section_added": "0.5.1"
+    },
+    {
+        "name": "statusbar",
+        "fields": [
+            {
+                "desc": "Show statusbar",
+                "type": "bool",
+                "default": "true",
+                "added": "0.5.5",
+                "name": "visible"
+            },
+            {
+                "desc": "Padding",
+                "type": "table",
+                "note": "Order is left, top, right, down. A single number sets all four",
+                "default": "[2, 2, 2, 2]",
+                "added": "0.5.5",
+                "name": "padding"
+            },
+            {
+                "desc": "Which modules the statusbar shows and where. A list of items is one row, a list of lists is several rows. The modules are session, filename, page, zoom, progress, mode, portal and narrow. Items are placed from left to right, and the free space goes to the gaps: \"|\" is a gap that takes all of it, { stretch = 2 } a gap that takes twice the share of another, { spacer = 12 } a gap of 12 px. A module can also be a table, { module = \"filename\", stretch = 1, min_width = 80, max_width = 400, margin = 4, align = \"right\" }, and with at (0 to 1, the position along the bar) and anchor (\"left\", \"center\" or \"right\", the edge of the item put there) it is placed at a fixed position instead: { module = \"page\", at = 0.5, anchor = \"center\" }. { text = \"|\" } shows a piece of text, for example a separator. A module that is not listed is not shown",
+                "type": "list",
+                "default": "[\"session\", \"filename\", \"portal\", \"narrow\", \"|\", \"progress\", \"mode\", { module = \"page\", at = 0.5, anchor = \"center\" }]",
+                "added": "0.7.9",
+                "name": "layout"
+            }
+        ],
+        "section_desc": "Statusbar options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.5.5"
+    },
+    {
+        "name": "statusbar.component",
+        "fields": [
+            {
+                "desc": "Show session name in the statusbar (if in session)",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.0",
+                "name": "show"
+            }
+        ],
+        "section_desc": "Statusbar component options struct. These are individual component in the statusbar that can be toggled on/off independently of the entire statusbar visibility.",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.0"
     },
     {
         "name": "statusbar.component.filename",
@@ -555,7 +606,7 @@
         "name": "reflow",
         "fields": [
             {
-                "desc": "Font family for the text (any installed font, or serif,",
+                "desc": "Font family for the text (any installed font, or serif, sans-serif, monospace). Empty uses the document's own fonts",
                 "type": "str",
                 "default": "\"\"",
                 "added": "0.7.9",
@@ -569,7 +620,7 @@
                 "name": "font_size"
             },
             {
-                "desc": "Line spacing as a multiple of the font size (e.g. 1.4). 0 uses",
+                "desc": "Line spacing as a multiple of the font size (e.g. 1.4). 0 uses the document's own spacing",
                 "type": "float",
                 "default": "0.0f",
                 "added": "0.7.9",
@@ -804,6 +855,34 @@
                 "default": "R\"((https?://|www\\.)[^\\s<>()\\\"']+)\"",
                 "added": "0.5.3",
                 "name": "url_regex"
+            },
+            {
+                "desc": "Show a small preview of where an internal link goes when hovering over it, instead of the plain tooltip",
+                "type": "bool",
+                "default": "false",
+                "added": "0.7.9",
+                "name": "hover_preview"
+            },
+            {
+                "desc": "Milliseconds to hover over a link before its preview shows",
+                "type": "int",
+                "default": "350",
+                "added": "0.7.9",
+                "name": "hover_preview_delay"
+            },
+            {
+                "desc": "Width of the hover preview in pixels",
+                "type": "int",
+                "default": "480",
+                "added": "0.7.9",
+                "name": "hover_preview_width"
+            },
+            {
+                "desc": "Height of the hover preview in pixels",
+                "type": "int",
+                "default": "240",
+                "added": "0.7.9",
+                "name": "hover_preview_height"
             }
         ],
         "section_desc": "Links options struct",
@@ -868,7 +947,7 @@
                 "choice": "all, current, hidden",
                 "default": "all",
                 "added": "0.3.0",
-                "name": "class"
+                "name": "close_button_mode"
             },
             {
                 "desc": "Tabs can be rearranged",
@@ -913,7 +992,7 @@
                 "choice": "end, start, after_current",
                 "default": "end",
                 "added": "0.7.8",
-                "name": "class"
+                "name": "open_position"
             }
         ],
         "section_desc": "Tab options struct",
@@ -922,6 +1001,52 @@
         "section_default": "",
         "section_note": "",
         "section_added": "0.3.0"
+    },
+    {
+        "name": "picker",
+        "fields": [
+            {
+                "desc": "Width of picker in pixels (if greater than 1) or relative to the window width (0.0 - 1.0, if float)",
+                "type": "int",
+                "default": "600",
+                "added": "0.6.9",
+                "name": "width"
+            },
+            {
+                "desc": "Height of picker in pixels (if greater than 1) or relative to the window height (0.0 - 1.0, if float)",
+                "type": "int",
+                "default": "400",
+                "added": "0.6.9",
+                "name": "height"
+            },
+            {
+                "desc": "Show stylish border around picker",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.0",
+                "name": "border"
+            },
+            {
+                "desc": "Enable alternating row colors in the picker list",
+                "type": "bool",
+                "default": "true",
+                "added": "0.6.8",
+                "name": "alternating_row_color"
+            },
+            {
+                "desc": "Prompt text for the picker",
+                "type": "str",
+                "default": "\"\"",
+                "added": "0.7.1",
+                "name": "prompt"
+            }
+        ],
+        "section_desc": "Picker options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.6.0"
     },
     {
         "name": "Picker.Keys",
@@ -1089,14 +1214,14 @@
                 "name": "description"
             },
             {
-                "desc": "Sort commands by how often you've picked them from the",
+                "desc": "Sort commands by how often you've picked them from the command palette (most-used first), smex-style. Usage counts persist across sessions when persist_frequency is on.",
                 "type": "bool",
                 "default": "true",
                 "added": "0.7.8",
                 "name": "sort_by_frequency"
             },
             {
-                "desc": "Persist command-palette usage counts to disk",
+                "desc": "Persist command-palette usage counts to disk (command_usage.json in the app data directory) so sort_by_frequency ranking survives across restarts. When off, usage is still tracked in-memory for the current session (so sort_by_frequency still works within one run) but nothing is loaded or saved to disk, and any previously saved history file is left untouched.",
                 "type": "bool",
                 "default": "true",
                 "added": "0.7.8",
@@ -1118,7 +1243,7 @@
                 "type": "string (\"auto\", \"opengl\", \"raster\")",
                 "default": "\"auto\"",
                 "added": "0.7.3",
-                "name": "class"
+                "name": "backend"
             },
             {
                 "desc": "Device Pixel Ratio",
@@ -1244,14 +1369,14 @@
                 "name": "high_contrast"
             },
             {
-                "desc": "Pixel value (0-255) below which high-contrast pushes to pure",
+                "desc": "Pixel value (0-255) below which high-contrast pushes to pure black.",
                 "type": "int",
                 "default": "40",
                 "added": "0.7.8",
                 "name": "high_contrast_black_point"
             },
             {
-                "desc": "Pixel value (0-255) above which high-contrast pushes to pure",
+                "desc": "Pixel value (0-255) above which high-contrast pushes to pure white.",
                 "type": "int",
                 "default": "220",
                 "added": "0.7.8",
@@ -1398,5 +1523,137 @@
         "section_default": "",
         "section_note": "",
         "section_added": "0.7.0"
+    },
+    {
+        "name": "updates",
+        "fields": [
+            {
+                "desc": "Once a day, check in the background whether a newer Lektra release is available and say so in a banner. This is one request to the GitHub releases API: nothing about you or your documents is sent. The check_for_updates command works whatever this is set to",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.9",
+                "name": "check"
+            },
+            {
+                "desc": "After Lektra has been updated, show a banner that opens the list of changes. The list is always available from Help > What's New",
+                "type": "bool",
+                "default": "false",
+                "added": "0.7.9",
+                "name": "whats_new"
+            }
+        ],
+        "section_desc": "Update checking and release notes",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.9"
+    },
+    {
+        "name": "donate",
+        "fields": [
+            {
+                "desc": "Now and then show a small banner saying that Lektra can be supported. It appears only after a few weeks of use, at most twice a year, and \"Don't ask again\" turns it off for good",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.9",
+                "name": "reminders"
+            }
+        ],
+        "section_desc": "Support reminders",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.9"
+    },
+    {
+        "name": "llm_view",
+        "fields": [
+            {
+                "desc": "Show the LLM view when Lektra starts",
+                "type": "bool",
+                "default": "false",
+                "added": "0.7.9",
+                "name": "show_at_startup"
+            },
+            {
+                "desc": "Run the Lua script the assistant writes as soon as its reply is complete, instead of waiting for you to press Run. The script gets the same access to Lektra as your init.lua, in a restricted environment (no io, os.execute, require, load or ffi)",
+                "type": "bool",
+                "default": "false",
+                "added": "0.7.9",
+                "name": "auto_run"
+            },
+            {
+                "desc": "Let the assistant act through tools (run_command, run_lua and lookup_api) and look up the Lua API only when it needs it, which keeps every request small. Turn this off for models that do not support tool calling (many local models): the whole Lua API is then sent with every request and the assistant replies with Lua code blocks that you run with the Run button",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.9",
+                "name": "tools"
+            },
+            {
+                "desc": "Save LLM chats to disk so earlier conversations can be reopened from the History menu of the panel. Chats are stored as plain JSON files in Lektra's data folder (llm_chats)",
+                "type": "bool",
+                "default": "true",
+                "added": "0.7.9",
+                "name": "save_history"
+            },
+            {
+                "desc": "Font size (in points) of the text in the LLM panel: messages, code and math. 0 uses the application's font size",
+                "type": "float",
+                "default": "0.0f",
+                "added": "0.7.9",
+                "name": "font_size"
+            },
+            {
+                "desc": "Show the LLM view in a separate window",
+                "type": "bool",
+                "default": "false",
+                "added": "0.7.8",
+                "name": "separate_window"
+            },
+            {
+                "desc": "Location of the LLM view when not in a separate window",
+                "type": "str",
+                "choice": "left, right, top, bottom",
+                "default": "right",
+                "added": "0.7.8",
+                "name": "dock_area"
+            },
+            {
+                "desc": "Model to use for LLM view",
+                "type": "str",
+                "default": "\"qwen-9b-chat\"",
+                "added": "0.7.8",
+                "name": "model"
+            },
+            {
+                "desc": "API key for the LLM model (empty for local models)",
+                "type": "str",
+                "default": "\"\"",
+                "added": "0.7.8",
+                "name": "api_key"
+            },
+            {
+                "desc": "API URL for the LLM model",
+                "type": "str",
+                "default": "\"\"",
+                "added": "0.7.8",
+                "name": "api_url"
+            },
+            {
+                "desc": "Extra body to send in the API request (JSON format)",
+                "type": "map",
+                "default": "\"\"",
+                "added": "0.7.8",
+                "name": "extra_body"
+            }
+        ],
+        "section_desc": "LLM View options struct",
+        "section_choice": "",
+        "section_type": "struct",
+        "section_default": "",
+        "section_note": "",
+        "section_added": "0.7.8"
     }
 ]

@@ -49,20 +49,100 @@
     "classes": [
       {
         "name": "Container",
-        "desc": "Represents the underlying document and rendering context for a view in Lektra.",
+        "desc": "The splits of a tab. Get one with `View:container()`.",
         "fields": [],
         "methods": [
           {
             "name": "vsplit",
-            "sig": "Container:vsplit()",
-            "desc": "Splits the view vertically, creating a new view that shares the same document. The new view will be displayed alongside the original view, allowing for side-by-side comparison or reference.",
-            "returns": "View new_view \u2014 The newly created view that shares the same document as the original view."
+            "sig": "Container:vsplit(file)",
+            "desc": "Splits the focused view, putting a new view beside it (with a vertical divider, like the `split_vertical` command). The new view shows the same document unless a file is given.",
+            "params": [
+              {
+                "name": "file?",
+                "type": "string",
+                "desc": "Document to open in the new view."
+              }
+            ],
+            "returns": "View? new_view \u2014 The new view; nil if the split could not be made."
           },
           {
             "name": "hsplit",
-            "sig": "Container:hsplit()",
-            "desc": "Splits the view horizontally, creating a new view that shares the same document. The new view will be displayed above or below the original view, allowing for side-by-side comparison or reference.",
-            "returns": "View new_view \u2014 The newly created view that shares the same document as the original view."
+            "sig": "Container:hsplit(file)",
+            "desc": "Splits the focused view, putting a new view below it (like the `split_horizontal` command).",
+            "params": [
+              {
+                "name": "file?",
+                "type": "string",
+                "desc": "Document to open in the new view."
+              }
+            ],
+            "returns": "View? new_view \u2014 The new view; nil if the split could not be made."
+          },
+          {
+            "name": "views",
+            "sig": "Container:views()",
+            "desc": "All views (splits) in the tab.",
+            "returns": "View[] views"
+          },
+          {
+            "name": "view_count",
+            "sig": "Container:view_count()",
+            "desc": "Number of splits in the tab.",
+            "returns": "integer count"
+          },
+          {
+            "name": "view",
+            "sig": "Container:view()",
+            "desc": "The focused view.",
+            "returns": "View? view"
+          },
+          {
+            "name": "focus",
+            "sig": "Container:focus(target)",
+            "desc": "Moves focus to a split.",
+            "params": [
+              {
+                "name": "target",
+                "type": "View|\"left\"|\"right\"|\"up\"|\"down\"",
+                "desc": "A view, or a direction from the focused split."
+              }
+            ]
+          },
+          {
+            "name": "close_view",
+            "sig": "Container:close_view(view)",
+            "desc": "Closes a split. The last remaining split is never closed.",
+            "params": [
+              {
+                "name": "view?",
+                "type": "View",
+                "desc": "Split to close (default: the focused one)."
+              }
+            ],
+            "returns": "boolean closed"
+          },
+          {
+            "name": "close_others",
+            "sig": "Container:close_others(view)",
+            "desc": "Closes every split except one.",
+            "params": [
+              {
+                "name": "view?",
+                "type": "View",
+                "desc": "Split to keep (default: the focused one)."
+              }
+            ]
+          },
+          {
+            "name": "toggle_maximize",
+            "sig": "Container:toggle_maximize()",
+            "desc": "Maximizes the focused split, or restores it if it is already maximized."
+          },
+          {
+            "name": "is_maximized",
+            "sig": "Container:is_maximized()",
+            "desc": "",
+            "returns": "boolean maximized"
           }
         ]
       },
@@ -420,7 +500,7 @@
           {
             "name": "extract_text",
             "sig": "View:extract_text(formatted)",
-            "desc": "Returns the text content of the document in the view. This may return an empty string for certain file types (e.g., images) or if the document does not contain extractable text.",
+            "desc": "Returns the text of the current page. This may return an empty string for certain file types (e.g., images) or if the page does not contain extractable text. Use `View:page_text()` for another page.",
             "params": [
               {
                 "name": "formatted",
@@ -429,6 +509,24 @@
               }
             ],
             "returns": "string text_content"
+          },
+          {
+            "name": "page_text",
+            "sig": "View:page_text(pageno, formatted)",
+            "desc": "Returns the text of a page, \"\" if it has none (e.g. a scanned page or an image).",
+            "params": [
+              {
+                "name": "pageno?",
+                "type": "integer",
+                "desc": "Page number, 1-based (default: the current page)."
+              },
+              {
+                "name": "formatted?",
+                "type": "boolean",
+                "desc": "Keep the layout (newlines, tabs) instead of plain text. Default false."
+              }
+            ],
+            "returns": "string? text \u2014 nil if the page does not exist."
           },
           {
             "name": "id",
@@ -1073,6 +1171,18 @@
             "returns": "string title \u2014 The title of the tab."
           },
           {
+            "name": "rename",
+            "sig": "Tab:rename(title)",
+            "desc": "Gives the tab a title of its own, kept until it is reset.",
+            "params": [
+              {
+                "name": "title?",
+                "type": "string",
+                "desc": "New title; nil or an empty string restores the default (the file name)."
+              }
+            ]
+          },
+          {
             "name": "view",
             "sig": "Tab:view()",
             "desc": "Returns the View object associated with the tab.",
@@ -1157,6 +1267,23 @@
         "name": "list",
         "sig": "lektra.tabs.list()",
         "desc": "Returns a table of tab objects @return Tab[] tabs List of Tab objects"
+      },
+      {
+        "name": "rename",
+        "sig": "lektra.tabs.rename(index, title)",
+        "desc": "Gives a tab a title of its own, kept until it is reset.",
+        "params": [
+          {
+            "name": "index",
+            "type": "integer",
+            "desc": "Tab index (0-based)."
+          },
+          {
+            "name": "title?",
+            "type": "string",
+            "desc": "New title; nil or an empty string restores the default (the file name)."
+          }
+        ]
       },
       {
         "name": "get_id",
@@ -1556,33 +1683,33 @@
         "fields": [
           {
             "name": "id",
-            "type": "integer",
-            "desc": "bookmark uuid"
+            "type": "string",
+            "desc": "Bookmark uuid."
           },
           {
             "name": "file_path",
             "type": "string",
-            "desc": "filepath of the bookmark"
+            "desc": "File the bookmark is in."
           },
           {
             "name": "pageno",
             "type": "integer",
-            "desc": "page number of the bookmark (0-based)"
+            "desc": "Page number of the bookmark (1-based)."
           },
           {
             "name": "x",
-            "type": "integer",
-            "desc": "xlocation"
+            "type": "number",
+            "desc": "Horizontal position on the page."
           },
           {
             "name": "y",
-            "type": "integer",
-            "desc": "ylocation"
+            "type": "number",
+            "desc": "Vertical position on the page."
           },
           {
             "name": "created",
             "type": "string",
-            "desc": "datetime of when the bookmark was created"
+            "desc": "When the bookmark was created."
           }
         ],
         "methods": []
@@ -1595,34 +1722,18 @@
         "desc": "",
         "params": [
           {
-            "name": "bookmark",
-            "type": "Bookmark",
-            "desc": ""
+            "name": "bookmark?",
+            "type": "{file_path?:",
+            "desc": "string, pageno?: integer, x?: number, y?: number} Where to put it (pageno is 1-based); anything left out comes from the current view."
           }
-        ]
-      },
-      {
-        "name": "remove",
-        "sig": "lektra.bookmarks.remove(id)",
-        "desc": "Removes a bookmark with the id `id`"
+        ],
+        "returns": "string id \u2014 The new bookmark's id."
       },
       {
         "name": "list",
         "sig": "lektra.bookmarks.list()",
         "desc": "Lists all the bookmarks",
         "returns": "Bookmark[] bookmarks \u2014 list of bookmarks"
-      },
-      {
-        "name": "goto",
-        "sig": "lektra.bookmarks.goto(id)",
-        "desc": "Goes to the bookmark with the id `id`",
-        "params": [
-          {
-            "name": "id",
-            "type": "integer",
-            "desc": ""
-          }
-        ]
       }
     ]
   },
@@ -1882,12 +1993,12 @@
         "desc": "",
         "fields": [
           {
-            "name": "bg",
+            "name": "bg?",
             "type": "integer",
             "desc": "Background color (ARGB integer)."
           },
           {
-            "name": "fg",
+            "name": "fg?",
             "type": "integer",
             "desc": "Foreground color (ARGB integer)."
           }
@@ -1899,12 +2010,12 @@
         "desc": "",
         "fields": [
           {
-            "name": "editor_command",
+            "name": "editor_command?",
             "type": "string",
             "desc": "Command used to open the source editor."
           },
           {
-            "name": "enabled",
+            "name": "enabled?",
             "type": "boolean",
             "desc": "Whether SyncTeX support is active."
           }
@@ -1916,27 +2027,27 @@
         "desc": "",
         "fields": [
           {
-            "name": "absolute_jump",
+            "name": "absolute_jump?",
             "type": "boolean",
             "desc": "Jump to the match page even if already on it."
           },
           {
-            "name": "highlight_matches",
+            "name": "highlight_matches?",
             "type": "boolean",
             "desc": "Highlight all search matches."
           },
           {
-            "name": "index_color",
+            "name": "index_color?",
             "type": "integer",
             "desc": "Color of the current match highlight (ARGB integer)."
           },
           {
-            "name": "match_color",
+            "name": "match_color?",
             "type": "integer",
             "desc": "Color of non-current match highlights (ARGB integer)."
           },
           {
-            "name": "progressive",
+            "name": "progressive?",
             "type": "boolean",
             "desc": "Enable progressive (incremental) search."
           }
@@ -1948,37 +2059,37 @@
         "desc": "",
         "fields": [
           {
-            "name": "color",
+            "name": "color?",
             "type": "integer",
             "desc": "Highlight annotation color (ARGB integer)."
           },
           {
-            "name": "comment",
+            "name": "comment?",
             "type": "boolean",
             "desc": "Show comment text for highlights."
           },
           {
-            "name": "comment_font_size",
+            "name": "comment_font_size?",
             "type": "integer",
             "desc": "Font size of the comment text."
           },
           {
-            "name": "comment_marker",
+            "name": "comment_marker?",
             "type": "boolean",
             "desc": "Show the comment marker icon."
           },
           {
-            "name": "glow_color",
+            "name": "glow_color?",
             "type": "integer",
             "desc": "Glow color around the highlight (ARGB integer)."
           },
           {
-            "name": "glow_width",
+            "name": "glow_width?",
             "type": "integer",
             "desc": "Width of the glow effect in pixels."
           },
           {
-            "name": "hover_glow",
+            "name": "hover_glow?",
             "type": "boolean",
             "desc": "Show glow only on hover."
           }
@@ -1990,37 +2101,37 @@
         "desc": "",
         "fields": [
           {
-            "name": "color",
+            "name": "color?",
             "type": "integer",
             "desc": "Rectangle annotation color (ARGB integer)."
           },
           {
-            "name": "comment",
+            "name": "comment?",
             "type": "boolean",
             "desc": "Show comment text for rectangles."
           },
           {
-            "name": "comment_font_size",
+            "name": "comment_font_size?",
             "type": "integer",
             "desc": "Font size of the comment text."
           },
           {
-            "name": "comment_marker",
+            "name": "comment_marker?",
             "type": "boolean",
             "desc": "Show the comment marker icon."
           },
           {
-            "name": "glow_color",
+            "name": "glow_color?",
             "type": "integer",
             "desc": "Glow color around the rectangle (ARGB integer)."
           },
           {
-            "name": "glow_width",
+            "name": "glow_width?",
             "type": "integer",
             "desc": "Width of the glow effect in pixels."
           },
           {
-            "name": "hover_glow",
+            "name": "hover_glow?",
             "type": "boolean",
             "desc": "Show glow only on hover."
           }
@@ -2032,27 +2143,27 @@
         "desc": "",
         "fields": [
           {
-            "name": "comment",
+            "name": "comment?",
             "type": "boolean",
             "desc": "Show comment text for popups."
           },
           {
-            "name": "comment_font_size",
+            "name": "comment_font_size?",
             "type": "integer",
             "desc": "Font size of the comment text."
           },
           {
-            "name": "glow_color",
+            "name": "glow_color?",
             "type": "integer",
             "desc": "Glow color around the popup (ARGB integer)."
           },
           {
-            "name": "glow_width",
+            "name": "glow_width?",
             "type": "integer",
             "desc": "Width of the glow effect in pixels."
           },
           {
-            "name": "hover_glow",
+            "name": "hover_glow?",
             "type": "boolean",
             "desc": "Show glow only on hover."
           }
@@ -2064,17 +2175,17 @@
         "desc": "",
         "fields": [
           {
-            "name": "highlight",
+            "name": "highlight?",
             "type": "OptAnnotationsHighlight",
             "desc": ""
           },
           {
-            "name": "rect",
+            "name": "rect?",
             "type": "OptAnnotationsRect",
             "desc": ""
           },
           {
-            "name": "popup",
+            "name": "popup?",
             "type": "OptAnnotationsPopup",
             "desc": ""
           }
@@ -2086,12 +2197,12 @@
         "desc": "",
         "fields": [
           {
-            "name": "show_page_numbers",
+            "name": "show_page_numbers?",
             "type": "boolean",
             "desc": "Show page numbers under thumbnails."
           },
           {
-            "name": "panel_width",
+            "name": "panel_width?",
             "type": "integer",
             "desc": "Width of the thumbnail panel in pixels."
           }
@@ -2103,27 +2214,27 @@
         "desc": "",
         "fields": [
           {
-            "name": "border_color",
+            "name": "border_color?",
             "type": "integer",
             "desc": "Portal border color (ARGB integer)."
           },
           {
-            "name": "border_width",
+            "name": "border_width?",
             "type": "integer",
             "desc": "Portal border width in pixels."
           },
           {
-            "name": "dim_inactive",
+            "name": "dim_inactive?",
             "type": "boolean",
             "desc": "Dim inactive portals."
           },
           {
-            "name": "respect_parent",
+            "name": "respect_parent?",
             "type": "boolean",
             "desc": "Portal respects the parent view's zoom/fit."
           },
           {
-            "name": "enabled",
+            "name": "enabled?",
             "type": "boolean",
             "desc": "Whether portals are enabled."
           }
@@ -2135,42 +2246,42 @@
         "desc": "",
         "fields": [
           {
-            "name": "bg",
+            "name": "bg?",
             "type": "integer",
             "desc": "Window background color (ARGB integer)."
           },
           {
-            "name": "accent",
+            "name": "accent?",
             "type": "integer",
             "desc": "Accent color (ARGB integer)."
           },
           {
-            "name": "fullscreen",
+            "name": "fullscreen?",
             "type": "boolean",
             "desc": "Start in fullscreen mode."
           },
           {
-            "name": "menubar",
+            "name": "menubar?",
             "type": "boolean",
             "desc": "Show the menu bar."
           },
           {
-            "name": "show_menu_icons",
+            "name": "show_menu_icons?",
             "type": "boolean",
             "desc": "Show standard icons next to menubar items (toggles Qt::AA_DontShowIconsInMenus)."
           },
           {
-            "name": "startup_tab",
+            "name": "startup_tab?",
             "type": "boolean",
             "desc": "Open a new tab on startup."
           },
           {
-            "name": "title_format",
+            "name": "title_format?",
             "type": "string",
             "desc": "Printf-style format string for the window title."
           },
           {
-            "name": "initial_size",
+            "name": "initial_size?",
             "type": "integer[]",
             "desc": "Two-element array `{width, height}` for the initial window size."
           }
@@ -2182,22 +2293,22 @@
         "desc": "",
         "fields": [
           {
-            "name": "initial_fit",
+            "name": "initial_fit?",
             "type": "FitMode",
             "desc": "Fit mode applied when a document is first opened."
           },
           {
-            "name": "auto_resize",
+            "name": "auto_resize?",
             "type": "boolean",
             "desc": "Automatically resize the view to fit when the window resizes."
           },
           {
-            "name": "mode",
+            "name": "mode?",
             "type": "LayoutMode",
             "desc": "Page layout mode (single, vertical, horizontal, book)."
           },
           {
-            "name": "spacing",
+            "name": "spacing?",
             "type": "integer",
             "desc": "Gap between pages in pixels."
           }
@@ -2209,17 +2320,17 @@
         "desc": "",
         "fields": [
           {
-            "name": "icon",
+            "name": "icon?",
             "type": "boolean",
             "desc": "Show the interaction mode as an icon."
           },
           {
-            "name": "show",
+            "name": "show?",
             "type": "boolean",
             "desc": "Whether the interaction-mode indicator is shown at all."
           },
           {
-            "name": "text",
+            "name": "text?",
             "type": "boolean",
             "desc": "Show the interaction mode as text (e.g. \"Select\", \"Pan\")."
           }
@@ -2231,7 +2342,7 @@
         "desc": "",
         "fields": [
           {
-            "name": "show",
+            "name": "show?",
             "type": "boolean",
             "desc": "Show the current page number."
           }
@@ -2243,7 +2354,7 @@
         "desc": "",
         "fields": [
           {
-            "name": "show",
+            "name": "show?",
             "type": "boolean",
             "desc": "Show the active session name."
           }
@@ -2255,7 +2366,7 @@
         "desc": "",
         "fields": [
           {
-            "name": "show",
+            "name": "show?",
             "type": "boolean",
             "desc": "Show the current zoom level."
           }
@@ -2267,12 +2378,12 @@
         "desc": "",
         "fields": [
           {
-            "name": "full_path",
+            "name": "full_path?",
             "type": "boolean",
             "desc": "Show the full file path instead of just the name."
           },
           {
-            "name": "show",
+            "name": "show?",
             "type": "boolean",
             "desc": "Show the file name."
           }
@@ -2284,7 +2395,7 @@
         "desc": "",
         "fields": [
           {
-            "name": "show",
+            "name": "show?",
             "type": "boolean",
             "desc": "Show the reading-progress bar."
           }
@@ -2296,34 +2407,91 @@
         "desc": "",
         "fields": [
           {
-            "name": "mode",
+            "name": "mode?",
             "type": "OptStatusbarComponentMode",
             "desc": ""
           },
           {
-            "name": "pagenumber",
+            "name": "pagenumber?",
             "type": "OptStatusbarComponentPageNumber",
             "desc": ""
           },
           {
-            "name": "session",
+            "name": "session?",
             "type": "OptStatusbarComponentSession",
             "desc": ""
           },
           {
-            "name": "zoom",
+            "name": "zoom?",
             "type": "OptStatusbarComponentZoom",
             "desc": ""
           },
           {
-            "name": "filename",
+            "name": "filename?",
             "type": "OptStatusbarComponentFileName",
             "desc": ""
           },
           {
-            "name": "progress",
+            "name": "progress?",
             "type": "OptStatusbarComponentProgress",
             "desc": ""
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "StatusbarLayoutItem",
+        "desc": "",
+        "fields": [
+          {
+            "name": "module?",
+            "type": "StatusbarModule",
+            "desc": "The module to show."
+          },
+          {
+            "name": "text?",
+            "type": "string",
+            "desc": "A fixed piece of text, e.g. a separator."
+          },
+          {
+            "name": "spacer?",
+            "type": "number",
+            "desc": "A gap of this many pixels."
+          },
+          {
+            "name": "stretch?",
+            "type": "number",
+            "desc": "Share of the free space this item takes (default 0: its natural width). A gap with a stretch pushes what follows away from what precedes."
+          },
+          {
+            "name": "min_width?",
+            "type": "integer",
+            "desc": "Narrowest width in pixels."
+          },
+          {
+            "name": "max_width?",
+            "type": "integer",
+            "desc": "Widest width in pixels."
+          },
+          {
+            "name": "margin?",
+            "type": "integer|integer[]",
+            "desc": "Space around it: a number, or `{left, right}`."
+          },
+          {
+            "name": "align?",
+            "type": "\"left\"|\"center\"|\"right\"",
+            "desc": "Where it sits inside its slot when the slot is wider."
+          },
+          {
+            "name": "at?",
+            "type": "number",
+            "desc": "Place it at this position along the bar (0 to 1) instead of in the flow."
+          },
+          {
+            "name": "anchor?",
+            "type": "\"left\"|\"center\"|\"right\"",
+            "desc": "With `at`: which edge of the item is put at that position (default left)."
           }
         ],
         "methods": []
@@ -2333,17 +2501,22 @@
         "desc": "",
         "fields": [
           {
-            "name": "padding",
-            "type": "integer[]",
-            "desc": "Four-element array `{left, top, right, bottom}` padding in pixels."
+            "name": "layout?",
+            "type": "(StatusbarModule|\"|\"|StatusbarLayoutItem)[]|(StatusbarModule|\"|\"|StatusbarLayoutItem)[][]",
+            "desc": "Which modules the statusbar shows and where: one list is one row, a list of lists is several rows. Items are placed left to right and the free space goes to the gaps. Example: `{\"session\", \"filename\", \"|\", {module = \"page\", at = 0.5, anchor = \"center\"}, \"zoom\", \"progress\", \"mode\"}`."
           },
           {
-            "name": "visible",
+            "name": "padding?",
+            "type": "integer|integer[]",
+            "desc": "Padding in pixels: one number for all four sides, or a four-element array `{left, top, right, bottom}`. Reading it gives the array."
+          },
+          {
+            "name": "visible?",
             "type": "boolean",
             "desc": "Whether the status bar is shown."
           },
           {
-            "name": "components",
+            "name": "components?",
             "type": "OptStatusbarComponents",
             "desc": "Per-component visibility toggles."
           }
@@ -2355,17 +2528,17 @@
         "desc": "",
         "fields": [
           {
-            "name": "anchor_to_mouse",
+            "name": "anchor_to_mouse?",
             "type": "boolean",
             "desc": "Zoom anchored to the mouse cursor position."
           },
           {
-            "name": "factor",
+            "name": "factor?",
             "type": "number",
             "desc": "Zoom step multiplier applied per scroll tick."
           },
           {
-            "name": "level",
+            "name": "level?",
             "type": "number",
             "desc": "Current zoom level (1.0 = 100%)."
           }
@@ -2377,17 +2550,17 @@
         "desc": "",
         "fields": [
           {
-            "name": "color",
+            "name": "color?",
             "type": "integer",
             "desc": "Text selection highlight color (ARGB integer)."
           },
           {
-            "name": "copy_on_select",
+            "name": "copy_on_select?",
             "type": "boolean",
             "desc": "Automatically copy selected text to clipboard."
           },
           {
-            "name": "drag_threshold",
+            "name": "drag_threshold?",
             "type": "integer",
             "desc": "Pixel distance before a drag is recognized."
           }
@@ -2399,47 +2572,47 @@
         "desc": "",
         "fields": [
           {
-            "name": "dim_inactive",
+            "name": "dim_inactive?",
             "type": "boolean",
             "desc": "Dim the inactive split pane."
           },
           {
-            "name": "dim_inactive_opacity",
+            "name": "dim_inactive_opacity?",
             "type": "number",
             "desc": "Opacity of the inactive pane when dimmed (0.0\u20131.0)."
           },
           {
-            "name": "focus_border",
+            "name": "focus_border?",
             "type": "boolean",
             "desc": "Draw a border around the currently focused split."
           },
           {
-            "name": "focus_border_color",
+            "name": "focus_border_color?",
             "type": "integer",
             "desc": "Border color as an ARGB hex integer (e.g. 0xFF4FC3F7)."
           },
           {
-            "name": "focus_border_width",
+            "name": "focus_border_width?",
             "type": "integer",
             "desc": "Border thickness in pixels."
           },
           {
-            "name": "focus_follows_mouse",
+            "name": "focus_follows_mouse?",
             "type": "boolean",
             "desc": "Focus a split pane when the mouse enters it."
           },
           {
-            "name": "maximize_indicator",
+            "name": "maximize_indicator?",
             "type": "boolean",
             "desc": "Show a badge in the corner of the maximized split."
           },
           {
-            "name": "maximize_indicator_color",
+            "name": "maximize_indicator_color?",
             "type": "integer",
             "desc": "Badge color as an ARGB hex integer (e.g. 0xCC2979FF)."
           },
           {
-            "name": "mouse_follows_focus",
+            "name": "mouse_follows_focus?",
             "type": "boolean",
             "desc": "Warp the mouse to the focused pane."
           }
@@ -2451,32 +2624,32 @@
         "desc": "",
         "fields": [
           {
-            "name": "auto_hide",
+            "name": "auto_hide?",
             "type": "boolean",
             "desc": "Automatically hide scrollbars when idle."
           },
           {
-            "name": "hide_timeout",
+            "name": "hide_timeout?",
             "type": "number",
             "desc": "Seconds of inactivity before scrollbars hide."
           },
           {
-            "name": "horizontal",
+            "name": "horizontal?",
             "type": "boolean",
             "desc": "Show the horizontal scrollbar."
           },
           {
-            "name": "search_hits",
+            "name": "search_hits?",
             "type": "boolean",
             "desc": "Show search hit markers on the scrollbar track."
           },
           {
-            "name": "size",
+            "name": "size?",
             "type": "integer",
             "desc": "Scrollbar track width in pixels."
           },
           {
-            "name": "vertical",
+            "name": "vertical?",
             "type": "boolean",
             "desc": "Show the vertical scrollbar."
           }
@@ -2488,17 +2661,17 @@
         "desc": "",
         "fields": [
           {
-            "name": "color",
+            "name": "color?",
             "type": "integer",
             "desc": "Jump marker color (ARGB integer)."
           },
           {
-            "name": "enabled",
+            "name": "enabled?",
             "type": "boolean",
             "desc": "Whether jump markers are shown."
           },
           {
-            "name": "fade_duration",
+            "name": "fade_duration?",
             "type": "number",
             "desc": "Duration in seconds for the fade-out animation."
           }
@@ -2510,22 +2683,42 @@
         "desc": "",
         "fields": [
           {
-            "name": "boundary",
+            "name": "boundary?",
             "type": "boolean",
             "desc": "Draw a boundary box around detected links."
           },
           {
-            "name": "detect_urls",
+            "name": "detect_urls?",
             "type": "boolean",
             "desc": "Detect plain-text URLs as clickable links."
           },
           {
-            "name": "enabled",
+            "name": "enabled?",
             "type": "boolean",
             "desc": "Whether link detection and navigation is active."
           },
           {
-            "name": "url_regex",
+            "name": "hover_preview?",
+            "type": "boolean",
+            "desc": "Hovering an internal link shows a preview of its target, instead of the tooltip."
+          },
+          {
+            "name": "hover_preview_delay?",
+            "type": "integer",
+            "desc": "Milliseconds to hover before the preview shows."
+          },
+          {
+            "name": "hover_preview_height?",
+            "type": "integer",
+            "desc": "Height of the hover preview in pixels."
+          },
+          {
+            "name": "hover_preview_width?",
+            "type": "integer",
+            "desc": "Width of the hover preview in pixels."
+          },
+          {
+            "name": "url_regex?",
             "type": "string",
             "desc": "Regular expression used to detect URLs."
           }
@@ -2537,17 +2730,17 @@
         "desc": "",
         "fields": [
           {
-            "name": "bg",
+            "name": "bg?",
             "type": "integer",
             "desc": "Link hint background color (ARGB integer)."
           },
           {
-            "name": "fg",
+            "name": "fg?",
             "type": "integer",
             "desc": "Link hint foreground/text color (ARGB integer)."
           },
           {
-            "name": "size",
+            "name": "size?",
             "type": "number",
             "desc": "Font size for link hint labels."
           }
@@ -2559,47 +2752,47 @@
         "desc": "",
         "fields": [
           {
-            "name": "auto_hide",
+            "name": "auto_hide?",
             "type": "boolean",
             "desc": "Hide the tab bar when only one tab is open."
           },
           {
-            "name": "close_button_mode",
+            "name": "close_button_mode?",
             "type": "TabsCloseButtonMode",
             "desc": "When to show the tab close (x) button."
           },
           {
-            "name": "elide_mode",
+            "name": "elide_mode?",
             "type": "TabsElideMode",
             "desc": "Where to elide long tab titles."
           },
           {
-            "name": "full_path",
+            "name": "full_path?",
             "type": "boolean",
             "desc": "Display the full file path as the tab title."
           },
           {
-            "name": "lazy_load",
+            "name": "lazy_load?",
             "type": "boolean",
             "desc": "Defer loading of background tabs until they are activated."
           },
           {
-            "name": "location",
+            "name": "location?",
             "type": "TabsLocation",
             "desc": "Where the tab bar sits in the main window."
           },
           {
-            "name": "movable",
+            "name": "movable?",
             "type": "boolean",
             "desc": "Allow tabs to be dragged and reordered."
           },
           {
-            "name": "open_position",
+            "name": "open_position?",
             "type": "TabsOpenPosition",
             "desc": "Where a newly opened tab is placed in the tab bar."
           },
           {
-            "name": "visible",
+            "name": "visible?",
             "type": "boolean",
             "desc": "Whether the tab bar is shown."
           }
@@ -2611,27 +2804,27 @@
         "desc": "",
         "fields": [
           {
-            "name": "blur_radius",
+            "name": "blur_radius?",
             "type": "integer",
             "desc": "Shadow blur radius in pixels."
           },
           {
-            "name": "enabled",
+            "name": "enabled?",
             "type": "boolean",
             "desc": "Draw a drop shadow behind the picker."
           },
           {
-            "name": "offset_x",
+            "name": "offset_x?",
             "type": "integer",
             "desc": "Horizontal shadow offset in pixels."
           },
           {
-            "name": "offset_y",
+            "name": "offset_y?",
             "type": "integer",
             "desc": "Vertical shadow offset in pixels."
           },
           {
-            "name": "opacity",
+            "name": "opacity?",
             "type": "integer",
             "desc": "Shadow opacity (0\u2013255)."
           }
@@ -2643,32 +2836,32 @@
         "desc": "",
         "fields": [
           {
-            "name": "width",
+            "name": "width?",
             "type": "number",
             "desc": "Picker widget width (as a fraction of the window or in pixels)."
           },
           {
-            "name": "height",
+            "name": "height?",
             "type": "number",
             "desc": "Picker widget height."
           },
           {
-            "name": "border",
+            "name": "border?",
             "type": "boolean",
             "desc": "Draw a border around the picker."
           },
           {
-            "name": "alternating_row_color",
+            "name": "alternating_row_color?",
             "type": "boolean",
             "desc": "Alternate row background colors in the picker list."
           },
           {
-            "name": "prompt",
+            "name": "prompt?",
             "type": "string",
             "desc": "Placeholder text shown in the picker's search box."
           },
           {
-            "name": "shadow",
+            "name": "shadow?",
             "type": "OptPickerShadow",
             "desc": "Drop-shadow sub-table."
           }
@@ -2680,32 +2873,32 @@
         "desc": "",
         "fields": [
           {
-            "name": "flat_menu",
+            "name": "flat_menu?",
             "type": "boolean",
             "desc": "Display the outline as a flat list instead of a tree."
           },
           {
-            "name": "generate_heading_ratio",
+            "name": "generate_heading_ratio?",
             "type": "number",
             "desc": "Minimum font-size ratio (vs body text) for a line to be treated as a heading by `generate_outline`."
           },
           {
-            "name": "generate_max_levels",
+            "name": "generate_max_levels?",
             "type": "integer",
             "desc": "Maximum number of heading tiers `generate_outline` will produce."
           },
           {
-            "name": "indent_width",
+            "name": "indent_width?",
             "type": "integer",
             "desc": "Pixels to indent each outline level."
           },
           {
-            "name": "prompt",
+            "name": "prompt?",
             "type": "string",
             "desc": "Placeholder text shown in the outline picker's search box."
           },
           {
-            "name": "show_page_number",
+            "name": "show_page_number?",
             "type": "boolean",
             "desc": "Show the page number next to each outline entry."
           }
@@ -2717,12 +2910,12 @@
         "desc": "",
         "fields": [
           {
-            "name": "flat_menu",
+            "name": "flat_menu?",
             "type": "boolean",
             "desc": "Display search results as a flat list."
           },
           {
-            "name": "prompt",
+            "name": "prompt?",
             "type": "string",
             "desc": "Placeholder text shown in the highlight-search picker's search box."
           }
@@ -2734,34 +2927,96 @@
         "desc": "",
         "fields": [
           {
-            "name": "prompt",
+            "name": "prompt?",
             "type": "string",
             "desc": "Placeholder text shown in the command palette input."
           },
           {
-            "name": "vscrollbar",
+            "name": "vscrollbar?",
             "type": "boolean",
             "desc": "Show a vertical scrollbar in the command palette."
           },
           {
-            "name": "show_shortcuts",
+            "name": "show_shortcuts?",
             "type": "boolean",
             "desc": "Show keyboard shortcuts next to commands."
           },
           {
-            "name": "description",
+            "name": "description?",
             "type": "boolean",
             "desc": "Show command descriptions in the palette."
           },
           {
-            "name": "sort_by_frequency",
+            "name": "sort_by_frequency?",
             "type": "boolean",
             "desc": "Sort commands by how often you've picked them from the palette (most-used first, smex-style). Usage counts persist across sessions when persist_frequency is true."
           },
           {
-            "name": "persist_frequency",
+            "name": "persist_frequency?",
             "type": "boolean",
             "desc": "Persist command-palette usage counts to disk so sort_by_frequency ranking survives across restarts. When false, usage is still tracked for the current session but nothing is loaded/saved to disk."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptLLMView",
+        "desc": "",
+        "fields": [
+          {
+            "name": "api_key?",
+            "type": "string",
+            "desc": "API key for the LLM endpoint (empty for local models)."
+          },
+          {
+            "name": "api_url?",
+            "type": "string",
+            "desc": "Chat-completions URL of the LLM endpoint."
+          },
+          {
+            "name": "auto_run?",
+            "type": "boolean",
+            "desc": "Run the Lua the assistant writes as soon as its reply is complete, without pressing Run."
+          },
+          {
+            "name": "dock_area?",
+            "type": "\"left\"|\"right\"|\"top\"|\"bottom\"",
+            "desc": "Where the panel is docked."
+          },
+          {
+            "name": "extra_body?",
+            "type": "table",
+            "desc": "Extra fields merged into every request body."
+          },
+          {
+            "name": "font_size?",
+            "type": "number",
+            "desc": "Font size in points of the text in the panel; 0 uses the application's font size."
+          },
+          {
+            "name": "model?",
+            "type": "string",
+            "desc": "Model name sent with each request."
+          },
+          {
+            "name": "save_history?",
+            "type": "boolean",
+            "desc": "Save chats to disk so they can be reopened from the History menu."
+          },
+          {
+            "name": "separate_window?",
+            "type": "boolean",
+            "desc": "Show the panel in a separate window."
+          },
+          {
+            "name": "show_at_startup?",
+            "type": "boolean",
+            "desc": "Open the LLM panel when Lektra starts."
+          },
+          {
+            "name": "tools?",
+            "type": "boolean",
+            "desc": "Let the assistant use tools (run_command, run_lua, lookup_api) and look up the Lua API on demand instead of receiving all of it with every request. Turn off for models without tool calling."
           }
         ],
         "methods": []
@@ -2771,17 +3026,17 @@
         "desc": "",
         "fields": [
           {
-            "name": "font_family",
+            "name": "font_family?",
             "type": "string",
             "desc": "Font family for reflowable documents (installed font, serif, sans-serif or monospace); empty keeps the document's own."
           },
           {
-            "name": "font_size",
+            "name": "font_size?",
             "type": "number",
             "desc": "Font size in points."
           },
           {
-            "name": "line_spacing",
+            "name": "line_spacing?",
             "type": "number",
             "desc": "Line spacing as a multiple of the font size; 0 keeps the document's own."
           }
@@ -2793,32 +3048,32 @@
         "desc": "",
         "fields": [
           {
-            "name": "antialiasing",
+            "name": "antialiasing?",
             "type": "boolean",
             "desc": "Enable antialiasing for page rendering."
           },
           {
-            "name": "antialiasing_bits",
+            "name": "antialiasing_bits?",
             "type": "integer",
             "desc": "Number of multisampling bits for antialiasing (e.g. 4, 8)."
           },
           {
-            "name": "text_antialiasing",
+            "name": "text_antialiasing?",
             "type": "boolean",
             "desc": "Enable text-specific antialiasing."
           },
           {
-            "name": "smooth_pixmap_transform",
+            "name": "smooth_pixmap_transform?",
             "type": "boolean",
             "desc": "Use smooth (bilinear) scaling for pixmaps."
           },
           {
-            "name": "backend",
+            "name": "backend?",
             "type": "Backend",
             "desc": "Rendering backend"
           },
           {
-            "name": "dpr",
+            "name": "dpr?",
             "type": "number|table<string,",
             "desc": "number> Device pixel ratio: a single number for every screen, or a table keyed by screen name (e.g. `{ [\"eDP-1\"] = 1.5, [\"HDMI-A-1\"] = 1.0 }`)."
           }
@@ -2830,102 +3085,102 @@
         "desc": "",
         "fields": [
           {
-            "name": "auto_reload",
+            "name": "auto_reload?",
             "type": "boolean",
             "desc": "Automatically reload the document when the file changes on disk."
           },
           {
-            "name": "auto_scroll",
+            "name": "auto_scroll?",
             "type": "boolean",
             "desc": "Scroll to keep an out-of-view text selection visible."
           },
           {
-            "name": "cache_pages",
+            "name": "cache_pages?",
             "type": "integer",
             "desc": "Number of rendered pages to keep in the page cache."
           },
           {
-            "name": "cache_password",
+            "name": "cache_password?",
             "type": "boolean",
             "desc": "Keep the password for encrypted PDFs in memory so auto-reload can re-authenticate."
           },
           {
-            "name": "close_on_last_tab",
+            "name": "close_on_last_tab?",
             "type": "boolean",
             "desc": "Quit LEKTRA when the last tab is closed (confirm_on_quit still applies)."
           },
           {
-            "name": "confirm_on_quit",
+            "name": "confirm_on_quit?",
             "type": "boolean",
             "desc": "Show a confirmation dialog before quitting."
           },
           {
-            "name": "dont_invert_images",
+            "name": "dont_invert_images?",
             "type": "boolean",
             "desc": "Exclude images from colour inversion and high-contrast stretch."
           },
           {
-            "name": "high_contrast",
+            "name": "high_contrast?",
             "type": "boolean",
             "desc": "High-contrast tone stretch applied after tint / invert (accessibility)."
           },
           {
-            "name": "high_contrast_black_point",
+            "name": "high_contrast_black_point?",
             "type": "integer",
             "desc": "Pixel value \u2264 this becomes pure black (0-255)."
           },
           {
-            "name": "high_contrast_white_point",
+            "name": "high_contrast_white_point?",
             "type": "integer",
             "desc": "Pixel value \u2265 this becomes pure white (0-255)."
           },
           {
-            "name": "invert_mode",
+            "name": "invert_mode?",
             "type": "boolean",
             "desc": "Start with colour inversion enabled."
           },
           {
-            "name": "mupdf_store_size",
+            "name": "mupdf_store_size?",
             "type": "integer",
             "desc": "Maximum size of MuPDF's internal decoded-image / glyph store, in MB."
           },
           {
-            "name": "num_recent_files",
+            "name": "num_recent_files?",
             "type": "integer",
             "desc": "Maximum number of recent files to remember."
           },
           {
-            "name": "open_last_visited",
+            "name": "open_last_visited?",
             "type": "boolean",
             "desc": "Reopen the last visited document on startup."
           },
           {
-            "name": "page_history_limit",
+            "name": "page_history_limit?",
             "type": "integer",
             "desc": "Maximum number of entries in the page-navigation history (parsed from TOML key `page_history`)."
           },
           {
-            "name": "preload_pages",
+            "name": "preload_pages?",
             "type": "integer",
             "desc": "Number of pages to pre-render ahead of the current page."
           },
           {
-            "name": "recent_files",
+            "name": "recent_files?",
             "type": "boolean",
             "desc": "Track recently opened files."
           },
           {
-            "name": "remember_last_visited",
+            "name": "remember_last_visited?",
             "type": "boolean",
             "desc": "Remember and restore the last visited page."
           },
           {
-            "name": "single_instance",
+            "name": "single_instance?",
             "type": "boolean",
             "desc": "Enforce a single application instance."
           },
           {
-            "name": "undo_limit",
+            "name": "undo_limit?",
             "type": "integer",
             "desc": "Maximum number of undo steps."
           }
@@ -2937,12 +3192,12 @@
         "desc": "",
         "fields": [
           {
-            "name": "width",
+            "name": "width?",
             "type": "number",
             "desc": "Width of the preview as a fraction of the window width."
           },
           {
-            "name": "height",
+            "name": "height?",
             "type": "number",
             "desc": "Height of the preview as a fraction of the window height."
           }
@@ -2954,24 +3209,53 @@
         "desc": "",
         "fields": [
           {
-            "name": "size_ratio",
+            "name": "size_ratio?",
             "type": "OptPreviewSizeRatio",
             "desc": "Table with `width` and `height` ratio fields."
           },
           {
-            "name": "border_radius",
+            "name": "border_radius?",
             "type": "integer",
             "desc": "Corner radius of the preview popup in pixels."
           },
           {
-            "name": "close_on_click_outside",
+            "name": "close_on_click_outside?",
             "type": "boolean",
             "desc": "Close the preview when clicking outside it."
           },
           {
-            "name": "opacity",
+            "name": "opacity?",
             "type": "number",
             "desc": "Opacity of the preview popup (0.0\u20131.0)."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptUpdates",
+        "desc": "",
+        "fields": [
+          {
+            "name": "check?",
+            "type": "boolean",
+            "desc": "Check once a day, in the background, whether a newer release is available. The check_for_updates command works whatever this is."
+          },
+          {
+            "name": "whats_new?",
+            "type": "boolean",
+            "desc": "After an update, show a banner that opens the list of changes."
+          }
+        ],
+        "methods": []
+      },
+      {
+        "name": "OptDonate",
+        "desc": "",
+        "fields": [
+          {
+            "name": "reminders?",
+            "type": "boolean",
+            "desc": "Now and then show a small banner saying that Lektra can be supported (rarely, and \"Don't ask again\" turns it off)."
           }
         ],
         "methods": []
@@ -2981,7 +3265,7 @@
         "desc": "",
         "fields": [
           {
-            "name": "color_dialog_colors",
+            "name": "color_dialog_colors?",
             "type": "string[]",
             "desc": "Preset colours shown in the colour picker (e.g. `\"#FF112233\"`)."
           }
