@@ -104,14 +104,15 @@ const features = [
 ];
 
 const otherFeatures = [
-    "<b>Bookmarks</b> — full support for both local and global bookmarks (similar to Vim's)",
+    "<b>Bookmarks</b> — Full support for both local and global bookmarks (similar to Vim's)",
     "<b>Marks</b> — Vim-style marks for quick in-document navigation",
-    "<b>Lazy loading tabs</b> — open many files without upfront memory cost",
-    "<b>Session management</b> — save and restore open documents and layout",
-    "<b>Customizable keybindings</b> — bind any command to any key",
-    "<b>URL detection</b> — automatic detection of non-PDF URLs in documents",
+    "<b>Lazy loading tabs</b> — Open many files without upfront memory cost",
+    "<b>Session management</b> — Save and restore open documents and layout",
+    "<b>Customizable keybindings</b> — Bind any command to any key",
+    "<b>URL detection</b> — Automatic detection of non-PDF URLs in documents",
     "<b>File Picker</b> — Emacs-style finder with directory navigation and tab completion",
-    "<b>Rotation &amp; Flip</b> — rotate pages or flip horizontally / vertically",
+    "<b>Rotation &amp; Flip</b> — Rotate pages or flip horizontally / vertically",
+    "<b>Sync View</b> — Synchronize scroll, zoom, fit etc. between multiple views in the same tab",
 ];
 
 function addFeatures() {
