@@ -13,7 +13,7 @@ const features = [
 
     {
         title: "Annotation Support",
-        desc: "Add highlights, rectangles, and popup annotations — each with the ability to attach comments.",
+        desc: "Add highlights, underlines, squiggly underlines, strikeouts, rectangles, ellipses, polygons, inline notes, images and popup annotations — each with the ability to attach comments. Move, resize and turn them in edit mode, with undo and redo.",
         media: { type: "img", src: "files/Highlight Annotation.gif", alt: "Highlight Annotation" }
     },
 
@@ -62,7 +62,7 @@ const features = [
 
     {
         title: "Layouts",
-        desc: "Choose between <b>top to bottom</b>, <b>left to right</b>, <b>book</b> and <b>single</b> layouts.",
+        desc: "Choose between <b>top to bottom</b>, <b>left to right</b>, <b>book</b>, <b>grid</b> and <b>single</b> layouts.",
         media: { type: "img", src: "files/Layouts.gif", alt: "Layouts Demo" }
     },
 
@@ -112,6 +112,13 @@ const otherFeatures = [
     "<b>URL detection</b> — Automatic detection of non-PDF URLs in documents",
     "<b>File Picker</b> — Emacs-style finder with directory navigation and tab completion",
     "<b>Rotation &amp; Flip</b> — Rotate pages or flip horizontally / vertically",
+    "<b>Redaction</b> — Permanently remove marked text and images, saved as a new copy",
+    "<b>Save to new file</b> — Keep the original and save annotations to a copy",
+    "<b>Image annotations</b> — Place, move, resize and rotate images on a page",
+    "<b>BibTeX</b> — Copy the BibTeX entry of the paper you are reading",
+    "<b>Drag image out</b> — Drag a page into another program",
+    "<b>LLM assistant</b> — Chat about the document and run commands and Lua scripts (experimental)",
+    "<b>Move splits out</b> — Move splits into their own windows or tabs",
     "<b>Sync View</b> — Synchronize scroll, zoom, fit etc. between multiple views in the same tab",
 ];
 
