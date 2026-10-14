@@ -104,13 +104,14 @@
                     <span class="format-label">Images</span>
                     <div class="format-chips">
                         <span class="chip">JPEG</span>
+                        <span class="chip chip-optional" title="Requires libjxl">JXL <sup>3</sup></span>
                         <span class="chip">PNG</span>
                         <span class="chip">APNG</span>
                         <span class="chip">TIFF</span>
                         <span class="chip">GIF</span>
                         <span class="chip">BMP</span>
                         <span class="chip">WebP</span>
-                        <span class="chip chip-optional" title="Enhanced rendering requires librsvg and Cairo">SVG <sup>1</sup></span>
+                        <span class="chip chip-optional" title="Enhanced rendering requires librsvg and Cairo">SVG <sup>4</sup></span>
                         <span class="chip">TGA</span>
                         <span class="chip">ICO</span>
                         <span class="chip">PPM</span>
@@ -118,8 +119,10 @@
                         <span class="chip">PBM</span>
                     </div>
                 </div>
-                <p class="format-note"><sup>1</sup> Optional runtime libraries — DjVu requires <b>djvulibre</b>; SVG rendering is enhanced via <b>librsvg</b> and <b>Cairo</b> when available (falls back to Qt's built-in renderer otherwise)</p>
-                <p class="format-note"><sup>2</sup> Limited support — basic layout and text are shown, but complex formatting, embedded objects, and some styling may not render correctly</p>
+                <p class="format-note"><sup>1</sup>Optional runtime libraries — DjVu requires <b>djvulibre</b></p>
+                <p class="format-note"><sup>2</sup>Limited support — basic layout and text are shown, but complex formatting, embedded objects, and some styling may not render correctly</p>
+                <p class="format-note"><sup>3</sup>Optional runtime libraries — JXL requires <b>libjxl</b></p>
+                <p class="format-note"><sup>4</sup>SVG rendering is enhanced via <b>librsvg</b> and <b>Cairo</b> when available (falls back to Qt's built-in renderer otherwise)</p>
             </section>
         </div>
 
