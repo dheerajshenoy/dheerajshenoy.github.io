@@ -34,6 +34,41 @@
         .catch(() => {});
 })();
 
+// Light shell highlighting for the code boxes of the installation section
+(() => {
+    const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const span = (cls, t) => `<span class="tok-${cls}">${esc(t)}</span>`;
+    const re =
+        /(#.*)|("[^"]*"|'[^']*')|(\$\{?\w+\}?)|(&&|\|\||[|;])|(\s--?[A-Za-z][\w-]*(?:=\S*)?)|(https?:\/\/\S+)|(\S+)|(\s+)/g;
+    const highlight = (line) => {
+        let out = "",
+            expectCmd = true,
+            m;
+        re.lastIndex = 0;
+        while ((m = re.exec(line))) {
+            const [t, comment, str, vari, op, flag, url, word, space] = m;
+            if (comment) out += span("comment", t);
+            else if (str) out += span("str", t);
+            else if (vari) out += span("var", t);
+            else if (op) {
+                out += span("op", t);
+                expectCmd = true;
+            } else if (flag) out += esc(flag.match(/^\s*/)[0]) + span("flag", flag.trim());
+            else if (url) out += span("url", t);
+            else if (word) {
+                if (expectCmd) {
+                    out += span(t === "sudo" ? "sudo" : "cmd", t);
+                    expectCmd = t === "sudo";
+                } else out += esc(t);
+            } else out += esc(space);
+        }
+        return out;
+    };
+    document.querySelectorAll(".install pre").forEach((pre) => {
+        pre.innerHTML = pre.textContent.split("\n").map(highlight).join("\n");
+    });
+})();
+
 // Copy buttons on the code boxes of the installation section
 (() => {
     document.querySelectorAll(".install pre").forEach((pre) => {

@@ -637,3 +637,30 @@ footer a:hover {
     color: #fff;
     opacity: 1;
 }
+.tok-comment {
+    color: #8a7966;
+    font-style: italic;
+}
+.tok-cmd {
+    color: #ffb27a;
+    font-weight: 700;
+}
+.tok-sudo {
+    color: #ff6a1a;
+    font-weight: 700;
+}
+.tok-flag {
+    color: #7fd1c8;
+}
+.tok-str {
+    color: #c3e88d;
+}
+.tok-var {
+    color: #e6a0ff;
+}
+.tok-op {
+    color: #ff6a1a;
+}
+.tok-url {
+    color: #82aaff;
+}
