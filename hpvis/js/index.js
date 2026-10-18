@@ -33,3 +33,44 @@
         })
         .catch(() => {});
 })();
+
+// Copy buttons on the code boxes of the installation section
+(() => {
+    document.querySelectorAll(".install pre").forEach((pre) => {
+        const box = document.createElement("div");
+        box.className = "code";
+        pre.parentNode.insertBefore(box, pre);
+        box.appendChild(pre);
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "copy";
+        btn.textContent = "Copy";
+        btn.setAttribute("aria-label", "Copy to clipboard");
+        box.appendChild(btn);
+
+        let timer;
+        btn.addEventListener("click", async () => {
+            const text = pre.textContent.trim();
+            try {
+                await navigator.clipboard.writeText(text);
+            } catch {
+                const ta = document.createElement("textarea");
+                ta.value = text;
+                ta.style.position = "fixed";
+                ta.style.opacity = "0";
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand("copy");
+                ta.remove();
+            }
+            btn.textContent = "Copied!";
+            btn.classList.add("done");
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                btn.textContent = "Copy";
+                btn.classList.remove("done");
+            }, 1500);
+        });
+    });
+})();

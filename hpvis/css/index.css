@@ -498,3 +498,142 @@ footer a:hover {
 .hero-title .sub {
     color: #f6ece0;
 }
+
+.libs {
+    columns: 2 380px;
+    column-gap: 56px;
+}
+.libs li {
+    break-inside: avoid;
+    counter-increment: none;
+    padding-left: 0;
+}
+.libs li::before {
+    content: none;
+}
+
+/* Dependencies and installation */
+.install {
+    padding: 72px 0 24px;
+}
+.install .wrap {
+    padding-top: 0;
+}
+.install h3 {
+    margin: 44px 0 12px;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+}
+.install h4 {
+    margin: 0 0 8px;
+    font:
+        700 0.8rem "Noto Sans Mono",
+        ui-monospace,
+        Menlo,
+        monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--or);
+}
+.install p {
+    max-width: 44em;
+}
+.install .note {
+    max-width: none;
+    margin: 14px 0 0;
+    color: var(--mute);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+.install .note code {
+    white-space: nowrap;
+}
+.install pre {
+    margin: 0;
+    background: #0d0804;
+    color: #ffe9d8;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--or);
+    padding: 16px 18px;
+    font:
+        0.84rem/1.65 "Noto Sans Mono",
+        ui-monospace,
+        Menlo,
+        monospace;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    padding-right: 76px;
+}
+.install code {
+    font-family: "Noto Sans Mono", ui-monospace, Menlo, monospace;
+    font-size: 0.88em;
+    color: var(--or);
+}
+.distros {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+.deps {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+.deps th,
+.deps td {
+    text-align: left;
+    padding: 9px 14px 9px 0;
+    border-top: 1px solid var(--rule);
+    vertical-align: top;
+}
+.deps th {
+    border-top: 2px solid var(--or);
+    font:
+        700 0.75rem "Noto Sans Mono",
+        ui-monospace,
+        Menlo,
+        monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.deps td:first-child {
+    font-weight: 700;
+    width: 46%;
+}
+.deps td:last-child {
+    color: var(--mute);
+}
+.code {
+    position: relative;
+}
+.copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font:
+        0.72rem "Noto Sans Mono",
+        ui-monospace,
+        Menlo,
+        monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    padding: 2px 10px;
+    cursor: pointer;
+    opacity: 0.75;
+}
+.copy:hover,
+.copy:focus-visible {
+    opacity: 1;
+    border-color: var(--or);
+    color: var(--or);
+}
+.copy.done {
+    background: var(--or);
+    border-color: var(--or);
+    color: #fff;
+    opacity: 1;
+}

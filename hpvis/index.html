@@ -12,7 +12,8 @@
             <nav>
                 <a class="logo" href="#">Hp<i>Vis</i></a
                 ><span class="sp"></span> <a href="#features">Index</a><a href="#figures">Figures</a
-                ><a href="#cli">Command line</a>
+                ><a href="#libraries">Libraries</a><a href="#cli">Command line</a
+                ><a href="#install">Install</a>
                 <a href="https://github.com/dheerajshenoy/hpvis" target="_blank" rel="noopener">
                     Source &#8599;
                     <span class="stars" id="stars" hidden><i>&#9733;</i> <span></span></span>
@@ -27,9 +28,9 @@
                 </div>
                 <div class="tag">
                     <p>
-                    HpVis is a viewer for <b>HEALPix</b> maps. The projection and the pixel lookup
-                        happen per pixel on the GPU, so a nside&nbsp;2048 map still turns under your
-                        mouse.
+                        HpVis is a viewer for <b>HEALPix</b> maps. The projection and the pixel
+                        lookup happen per pixel on the GPU, so a nside&nbsp;2048 map still turns
+                        under your mouse.
                     </p>
                     <div class="meta">
                         Qt 6 &middot; OpenGL &middot; C++20<br />FITS &middot; NPY &middot; NPZ<br />AGPL-3.0
@@ -187,11 +188,91 @@
                     </figure>
                 </div>
             </section>
+            <section id="libraries">
+                <h2><small>&sect;3</small>Libraries used</h2>
+                <ul class="idx libs">
+                    <li>
+                        <b><a href="https://www.qt.io" target="_blank" rel="noopener">Qt 6</a></b>
+                        <span>Interface, OpenGL rendering and plots</span>
+                    </li>
+                    <li>
+                        <b
+                            ><a href="https://healpix.sourceforge.io" target="_blank" rel="noopener"
+                                >HEALPix C++</a
+                            ></b
+                        >
+                        <span>Pixelization and spherical harmonic transforms</span>
+                    </li>
+                    <li>
+                        <b
+                            ><a
+                                href="https://gitlab.mpcdf.mpg.de/mtr/libsharp"
+                                target="_blank"
+                                rel="noopener"
+                                >libsharp</a
+                            ></b
+                        >
+                        <span>Spherical harmonic transforms backend</span>
+                    </li>
+                    <li>
+                        <b
+                            ><a
+                                href="https://github.com/LSSTDESC/NaMaster"
+                                target="_blank"
+                                rel="noopener"
+                                >NaMaster</a
+                            ></b
+                        >
+                        <span>Mask-corrected power spectra (MASTER)</span>
+                    </li>
+                    <li>
+                        <b
+                            ><a
+                                href="https://github.com/lesgourg/class_public"
+                                target="_blank"
+                                rel="noopener"
+                                >CLASS</a
+                            ></b
+                        >
+                        <span>Theory spectra and CMB realizations</span>
+                    </li>
+                    <li>
+                        <b
+                            ><a
+                                href="https://heasarc.gsfc.nasa.gov/fitsio/"
+                                target="_blank"
+                                rel="noopener"
+                                >CFITSIO</a
+                            ></b
+                        >
+                        <span>Reading and writing FITS files</span>
+                    </li>
+                    <li>
+                        <b
+                            ><a href="https://libzip.org" target="_blank" rel="noopener"
+                                >libzip</a
+                            ></b
+                        >
+                        <span>Reading NumPy .npz files</span>
+                    </li>
+                    <li>
+                        <b
+                            ><a
+                                href="https://github.com/p-ranav/argparse"
+                                target="_blank"
+                                rel="noopener"
+                                >argparse</a
+                            ></b
+                        >
+                        <span>Command-line arguments</span>
+                    </li>
+                </ul>
+            </section>
         </div>
 
         <section class="term" id="cli">
             <div class="wrap">
-                <h2><small>&sect;3</small>From the shell</h2>
+                <h2><small>&sect;4</small>Command line</h2>
                 <pre><u># open a map</u>
 <i>$</i> hpvis samples/wmap_W_iqu_nside32.fits
 <u># pick a look</u>
@@ -207,20 +288,139 @@
                     ><code>--mask</code><code>--output</code><code>--info</code><code>--stats</code>
                 </div>
                 <p style="margin-top: 34px">
-                    Needs Qt 6, CFITSIO and libzip; HEALPix, libsharp and NaMaster are vendored.
-                    Build steps for Arch, Debian and friends are in the
-                    <a
-                        href="https://github.com/dheerajshenoy/hpvis/blob/main/INSTALLATION.md"
-                        target="_blank"
-                        rel="noopener"
-                        >installation guide</a
-                    >, and the full manual is the
+                    Every option is described in the
                     <a
                         href="https://github.com/dheerajshenoy/hpvis/blob/main/docs/USAGE.md"
                         target="_blank"
                         rel="noopener"
                         >usage guide</a
                     >.
+                </p>
+            </div>
+        </section>
+
+        <section class="install" id="install">
+            <div class="wrap">
+                <h2><small>&sect;5</small>Dependencies and installation</h2>
+
+                <h3>Dependencies</h3>
+                <p>
+                    HEALPix C++, libsharp, NaMaster and CLASS are built from the vendored sources,
+                    so you only install the rest from your distribution.
+                </p>
+                <table class="deps">
+                    <thead>
+                        <tr>
+                            <th>Dependency</th>
+                            <th>Needed for</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>C and C++20 compiler (GCC or Clang)</td>
+                            <td>everything</td>
+                        </tr>
+                        <tr>
+                            <td>CMake 3.22+, make, pkg-config</td>
+                            <td>build system</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Qt 6.8+ (Core, Gui, Widgets, OpenGLWidgets, Concurrent, Graphs, Svg)
+                            </td>
+                            <td>interface</td>
+                        </tr>
+                        <tr>
+                            <td>OpenMP</td>
+                            <td>parallel code</td>
+                        </tr>
+                        <tr>
+                            <td>CFITSIO</td>
+                            <td>reading and writing FITS files (system package)</td>
+                        </tr>
+                        <tr>
+                            <td>libzip</td>
+                            <td>reading .npz files (system package)</td>
+                        </tr>
+                        <tr>
+                            <td>autoconf, automake, libtool</td>
+                            <td>building the vendored HEALPix, libsharp and NaMaster</td>
+                        </tr>
+                        <tr>
+                            <td>GSL, FFTW3 (with OpenMP), a CBLAS implementation</td>
+                            <td>NaMaster power spectra</td>
+                        </tr>
+                        <tr>
+                            <td>git</td>
+                            <td>fetching the submodules</td>
+                        </tr>
+                        <tr>
+                            <td>pandoc (optional)</td>
+                            <td>generating the man page</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Install the packages</h3>
+                <div class="distros">
+                    <div>
+                        <h4>Arch Linux</h4>
+                        <pre>
+sudo pacman -S base-devel cmake git pkgconf qt6-base qt6-graphs cfitsio libzip gsl fftw cblas-openblas autoconf automake libtool pandoc</pre
+                        >
+                    </div>
+                    <div>
+                        <h4>Debian / Ubuntu</h4>
+                        <pre>
+sudo apt install build-essential cmake git pkg-config qt6-base-dev qt6-graphs-dev libgl-dev libcfitsio-dev libzip-dev libgsl-dev libfftw3-dev libopenblas-dev autoconf automake libtool pandoc</pre
+                        >
+                    </div>
+                    <div>
+                        <h4>Fedora</h4>
+                        <pre>
+sudo dnf install gcc-c++ cmake git pkgconf-pkg-config qt6-qtbase-devel qt6-qtgraphs-devel cfitsio-devel libzip-devel gsl-devel fftw-devel openblas-devel autoconf automake libtool pandoc</pre
+                        >
+                    </div>
+                </div>
+                <p class="note">
+                    Package names vary between distributions and releases. If one is not found,
+                    search for the library name.
+                </p>
+
+                <h3>Build</h3>
+                <pre>
+git clone --recurse-submodules https://github.com/dheerajshenoy/hpvis
+cd hpvis
+cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+./build/hpvis</pre
+                >
+                <p class="note">
+                    The first build is slow because it compiles HEALPix and NaMaster. If you cloned
+                    without <code>--recurse-submodules</code>, run
+                    <code>git submodule update --init --recursive</code>. Pass
+                    <code>-DWITH_NAMASTER=OFF</code> to build without power spectrum support.
+                </p>
+
+                <h3>Install</h3>
+                <pre>
+sudo cmake --install build
+
+# or without root
+cmake -B build -S . -DCMAKE_INSTALL_PREFIX=$HOME/.local
+cmake --build build -j &amp;&amp; cmake --install build</pre
+                >
+                <p class="note">
+                    This installs the <code>hpvis</code> binary, the bundled shared libraries in
+                    <code>lib/hpvis/</code> and the man page. For a prefix in your home directory,
+                    make sure <code>$HOME/.local/bin</code> is in your <code>PATH</code>. More in
+                    the
+                    <a
+                        href="https://github.com/dheerajshenoy/hpvis/blob/main/INSTALLATION.md"
+                        target="_blank"
+                        rel="noopener"
+                        >installation guide</a
+                    >, including troubleshooting.
                 </p>
             </div>
         </section>
