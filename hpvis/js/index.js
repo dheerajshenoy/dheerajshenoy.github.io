@@ -109,3 +109,17 @@
         });
     });
 })();
+
+// Highlight the nav link of the section currently in view
+(() => {
+    const links = [...document.querySelectorAll('nav a[href^="#"]')].filter((a) => a.hash.length > 1);
+    const secs = links.map((a) => document.querySelector(a.hash)).filter(Boolean);
+    const update = () => {
+        const y = window.scrollY + 120;
+        let cur = null;
+        for (const s of secs) if (s.getBoundingClientRect().top + window.scrollY <= y) cur = s.id;
+        links.forEach((a) => a.classList.toggle("active", a.hash === "#" + cur));
+    };
+    addEventListener("scroll", update, { passive: true });
+    update();
+})();

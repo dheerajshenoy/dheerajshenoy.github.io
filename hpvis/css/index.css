@@ -75,6 +75,7 @@
 }
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 64px;
 }
 body {
     overflow-x: clip;
@@ -114,7 +115,13 @@ nav {
     display: flex;
     gap: 22px;
     align-items: center;
-    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 14px max(24px, calc((100% - 1100px) / 2 + 24px));
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
     font-size: 0.82rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -123,11 +130,39 @@ nav a {
     color: var(--ink);
     text-decoration: none;
 }
-nav a:hover {
+nav a:hover,
+nav a.active {
     color: var(--or);
 }
 nav .sp {
     flex: 1;
+}
+nav .support {
+    position: relative;
+}
+nav .support summary {
+    cursor: pointer;
+    list-style: none;
+}
+nav .support summary::-webkit-details-marker {
+    display: none;
+}
+nav .support summary:hover,
+nav .support[open] summary {
+    color: var(--or);
+}
+nav .support .menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 11rem;
+    padding: 12px 16px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
 }
 nav .logo {
     font-family: "Noto Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
