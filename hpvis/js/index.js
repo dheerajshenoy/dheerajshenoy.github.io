@@ -21,3 +21,15 @@
         if (e.key === "Escape") close();
     });
 })();
+
+(() => {
+    const el = document.getElementById("stars");
+    fetch("https://api.github.com/repos/dheerajshenoy/hpvis")
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((d) => {
+            if (typeof d.stargazers_count !== "number") return;
+            el.querySelector("span").textContent = d.stargazers_count.toLocaleString();
+            el.hidden = false;
+        })
+        .catch(() => {});
+})();

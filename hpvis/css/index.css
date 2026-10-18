@@ -1,3 +1,66 @@
+@font-face {
+    font-family: "Orbitron";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/Orbitron-Bold.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Outfit";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/outfit-v15-latin-700.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Major Mono Display";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/major-mono-display-v18-latin-regular.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Serif";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/noto-serif-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Serif";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/noto-serif-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Serif";
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/noto-serif-latin-900-normal.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Serif";
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+    src: url("../fonts/noto-serif-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Sans Mono";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/noto-sans-mono-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Sans Mono";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("../fonts/noto-sans-mono-latin-700-normal.woff2") format("woff2");
+}
 :root {
     --paper: #120d08;
     --ink: #f6ece0;
@@ -14,11 +77,13 @@ html {
     scroll-behavior: smooth;
 }
 body {
+    overflow-x: clip;
     margin: 0;
     background: var(--paper);
     color: var(--ink);
     font:
-        17px/1.65 "Iowan Old Style",
+        17px/1.65 "Noto Serif",
+        "Iowan Old Style",
         "Palatino Linotype",
         Georgia,
         serif;
@@ -38,7 +103,7 @@ button,
 pre,
 figcaption,
 .idx b {
-    font-family: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
+    font-family: "Noto Sans Mono", ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
 }
 .wrap {
     max-width: 1100px;
@@ -53,7 +118,6 @@ nav {
     font-size: 0.82rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    border-bottom: 2px solid var(--or);
 }
 nav a {
     color: var(--ink);
@@ -66,16 +130,19 @@ nav .sp {
     flex: 1;
 }
 nav .logo {
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 0;
+    font-family: "Noto Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: none;
 }
 nav .logo i {
     font-style: normal;
     color: var(--or);
 }
 .hero {
-    padding: 56px 0 24px;
+    padding: 0 0 24px;
 }
 .hero h1 {
     font-size: clamp(3.6rem, 13vw, 9.5rem);
@@ -87,7 +154,8 @@ nav .logo i {
 }
 .hero .sub {
     font:
-        1rem ui-monospace,
+        1rem "Noto Sans Mono",
+        ui-monospace,
         Menlo,
         monospace;
     text-transform: uppercase;
@@ -143,7 +211,7 @@ h2 {
     align-items: baseline;
 }
 h2 small {
-    font-family: ui-monospace, Menlo, monospace;
+    font-family: "Noto Sans Mono", ui-monospace, Menlo, monospace;
     font-size: 0.8rem;
     color: var(--or);
     letter-spacing: 0.05em;
@@ -176,7 +244,8 @@ h2 small {
     left: 0;
     top: 16px;
     font:
-        700 0.8rem ui-monospace,
+        700 0.8rem "Noto Sans Mono",
+        ui-monospace,
         Menlo,
         monospace;
     color: var(--or);
@@ -271,7 +340,8 @@ figure img:hover {
 #lb p {
     margin: 0;
     font:
-        0.8rem ui-monospace,
+        0.8rem "Noto Sans Mono",
+        ui-monospace,
         Menlo,
         monospace;
     text-transform: uppercase;
@@ -291,7 +361,7 @@ figure img:hover {
     border: 1.5px solid var(--ink);
     padding: 3px 12px;
     cursor: pointer;
-    font-family: ui-monospace, Menlo, monospace;
+    font-family: "Noto Sans Mono", ui-monospace, Menlo, monospace;
 }
 /* terminal */
 .term {
@@ -350,11 +420,81 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 8px 24px;
-    font-family: ui-monospace, Menlo, monospace;
+    font-family: "Noto Sans Mono", ui-monospace, Menlo, monospace;
 }
 footer a {
     color: var(--ink);
 }
 footer a:hover {
     color: var(--or);
+}
+
+.stars {
+    margin-left: 8px;
+    padding: 1px 8px;
+    border: 1.5px solid var(--or);
+    color: var(--or);
+    font-size: 0.75rem;
+    letter-spacing: 0;
+}
+.stars[hidden] {
+    display: none;
+}
+.stars i {
+    font-style: normal;
+    font-size: 1.15rem;
+    line-height: 1;
+    vertical-align: -0.1em;
+}
+
+/* Rotating rainbow behind the title, as in the About dialog of the app */
+@property --hue-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+.hero-title {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    border: solid var(--or);
+    border-width: 2px 0;
+    padding: clamp(80px, 14vw, 150px) max(24px, calc(50vw - 526px)) 18px;
+}
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0) 70%),
+        conic-gradient(
+            from var(--hue-angle) at 65% 65%,
+            hsl(0 66% 55%),
+            hsl(51 66% 55%),
+            hsl(103 66% 55%),
+            hsl(154 66% 55%),
+            hsl(206 66% 55%),
+            hsl(257 66% 55%),
+            hsl(309 66% 55%),
+            hsl(360 66% 55%)
+        );
+    opacity: 0.7;
+    animation: hue-turn 14s linear infinite;
+}
+@keyframes hue-turn {
+    to {
+        --hue-angle: 360deg;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg {
+        animation: none;
+    }
+}
+.hero-title h1 {
+    color: #fff;
+}
+.hero-title .sub {
+    color: #f6ece0;
 }
