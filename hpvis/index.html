@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HpVis | A Modern HEALPix Viewer</title>
+<meta name="description" content="HpVis is a GPU-accelerated viewer for HEALPix maps.">
+<style>
+:root{--paper:#120d08;--ink:#f6ece0;--or:#ff6a1a;--or2:#2a1a0e;--mute:#a8957f;--rule:#4a3a2b;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 "Iowan Old Style","Palatino Linotype",Georgia,serif}
+::selection{background:var(--or);color:#fff}
+a{color:var(--or);text-underline-offset:3px}
+.mono,nav,.lbl,button,pre,figcaption,.idx b{font-family:ui-monospace,"JetBrains Mono","SF Mono",Menlo,monospace}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{display:flex;gap:22px;align-items:center;padding:18px 0;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid var(--or)}
+nav a{color:var(--ink);text-decoration:none}nav a:hover{color:var(--or)}
+nav .sp{flex:1}
+nav .logo{font-weight:800;font-size:1rem;letter-spacing:0}
+nav .logo i{font-style:normal;color:var(--or)}
+.hero{padding:56px 0 24px}
+.hero h1{font-size:clamp(3.6rem,13vw,9.5rem);line-height:.88;margin:0;font-weight:900;letter-spacing:-.05em}
+.hero .sub{font:1rem ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--mute);margin-top:14px}
+.hero h1 em{font-style:normal;color:var(--or)}
+.hero .tag{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:28px;align-items:end}
+.hero p{margin:0;font-size:1.3rem;max-width:30em}
+.hero .meta{font-size:.8rem;color:var(--mute);text-align:right;text-transform:uppercase;letter-spacing:.08em}
+@media(max-width:760px){.hero .tag{grid-template-columns:1fr}.hero .meta{text-align:left}}
+.hero-fig{margin-top:40px}
+/* sections */
+section{padding:72px 0 0}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.05;margin:0 0 28px;letter-spacing:-.03em;display:flex;gap:16px;align-items:baseline}
+h2 small{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;color:var(--or);letter-spacing:.05em}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.idx{list-style:none;margin:0;padding:0;counter-reset:i}
+.idx li{counter-increment:i;padding:14px 0 14px 46px;border-top:1px solid var(--rule);position:relative}
+.idx li::before{content:counter(i,decimal-leading-zero);position:absolute;left:0;top:16px;font:700 .8rem ui-monospace,Menlo,monospace;color:var(--or)}
+.idx b{display:block;font-size:.95rem}
+.idx span{color:var(--mute);font-size:.95rem;line-height:1.5;display:block}
+/* figures */
+.figs{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+@media(max-width:760px){.figs{grid-template-columns:1fr}}
+figure{margin:0}
+figure img{display:block;width:100%;border:2px solid var(--or);box-shadow:9px 9px 0 var(--or)}
+figcaption{margin-top:18px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+figcaption b{color:var(--or)}
+.zh{margin-left:10px;color:var(--mute);text-transform:none;letter-spacing:0;font-style:italic;font-size:.72rem}
+figure img{cursor:zoom-in;transition:transform .2s ease;position:relative}
+figure img:hover{transform:scale(1.03);z-index:2}
+@media(prefers-reduced-motion:reduce){figure img{transition:none}}
+#lb{position:fixed;inset:0;z-index:100;background:rgba(10,6,3,.94);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;cursor:zoom-out}
+#lb.open{display:flex}
+#lb img:hover{transform:none}
+#lb img{max-width:100%;max-height:calc(100vh - 110px);border:2px solid var(--or);box-shadow:9px 9px 0 var(--or);cursor:zoom-out}
+#lb p{margin:0;font:.8rem ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--ink)}
+#lb p b{color:var(--or)}
+#lb button{position:absolute;top:16px;right:20px;font-size:.85rem;background:transparent;color:var(--ink);border:1.5px solid var(--ink);padding:3px 12px;cursor:pointer;font-family:ui-monospace,Menlo,monospace}
+/* terminal */
+.term{background:#ff5a00;color:#fff;margin-top:72px;padding:64px 0}
+.term h2{color:#fff}.term h2 small{color:#1c1208}
+.term pre{margin:0;background:#0d0804;color:#ffe9d8;padding:22px 24px;font-size:.88rem;line-height:1.7;overflow-x:auto;box-shadow:9px 9px 0 rgba(0,0,0,.25)}
+.term pre i{color:#ff8a4d;font-style:normal;user-select:none}
+.term pre u{text-decoration:none;color:#8a7966}
+.term p{max-width:44em}
+.term a{color:#fff}
+.flags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.flags code{border:1.5px solid #fff;padding:1px 9px;font-size:.78rem}
+footer{padding:36px 0 48px;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;display:flex;flex-wrap:wrap;gap:8px 24px;font-family:ui-monospace,Menlo,monospace}
+footer a{color:var(--ink)}footer a:hover{color:var(--or)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a class="logo" href="#">Hp<i>Vis</i></a><span class="sp"></span>
+  <a href="#features">Index</a><a href="#figures">Figures</a><a href="#cli">Command line</a>
+  <a href="https://github.com/dheerajshenoy/hpvis" target="_blank" rel="noopener">Source &#8599;</a>
+</nav>
+
+<header class="hero">
+  <h1>Hp<em>Vis</em></h1>
+  <div class="sub">A modern HEALPix viewer</div>
+  <div class="tag">
+    <p>HpVis is a viewer for HEALPix maps. The projection and the pixel lookup happen per pixel on the GPU, so a nside&nbsp;2048 map still turns under your mouse.</p>
+    <div class="meta">Qt 6 &middot; OpenGL &middot; C++20<br>FITS &middot; NPY &middot; NPZ<br>AGPL-3.0</div>
+  </div>
+
+  <figure class="hero-fig"><img src="images/home.png" alt="HpVis main window"><figcaption><b>Fig. 1</b> &mdash; The main window <span class="zh">click to enlarge</span></figcaption></figure>
+</header>
+
+<section id="features">
+  <h2><small>&sect;1</small>What it does</h2>
+  <div class="cols">
+    <ul class="idx">
+      <li><b>Fourteen projections</b><span>Mollweide to Gnomonic, from inside like the sky or outside like a globe, with sliders, poles and right-click recentering.</span></li>
+      <li><b>Three sky frames</b><span>Galactic, Ecliptic and Equatorial, converted on the GPU from the map's own COORDSYS. Or a free trackball.</span></li>
+      <li><b>FITS, NPY and NPZ</b><span>RING and NESTED. The toolbar picks the HDU and column, or the array and row.</span></li>
+      <li><b>Colour</b><span>Fifteen colormaps and your own, linear, log and asinh scales, percentile range, colour bar.</span></li>
+      <li><b>Masks</b><span>Load several, toggle, invert, hide or dim the masked pixels.</span></li>
+    </ul>
+    <ul class="idx" style="counter-reset:i 5">
+      <li><b>Power spectra</b><span>TT, TE, EE, BB, TB, EB, corrected for masks with MASTER, apodization, bandpowers and E/B purification.</span></li>
+      <li><b>Map expressions</b><span>Any expression of several maps. The result opens as a new tab and saves as FITS.</span></li>
+      <li><b>Analysis</b><span>Statistics, FITS headers, derivatives, E/B maps, unit conversion, random CMB realizations.</span></li>
+      <li><b>Workspace</b><span>Tabs, a file explorer dock, drag and drop, sessions that come back, and a shortcut for nearly every command.</span></li>
+      <li><b>Export</b><span>Images of the view, and plots as PNG, SVG or PDF in screen colours or black on white.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="figures">
+  <h2><small>&sect;2</small>Figures</h2>
+  <div class="figs">
+    <figure><img src="images/orthographic_projection.png" alt="Orthographic projection"><figcaption><b>Fig. 2</b> &mdash; Orthographic projection <span class="zh">click to enlarge</span></figcaption></figure>
+    <figure><img src="images/experssion_engine.png" alt="Map expression evaluation"><figcaption><b>Fig. 3</b> &mdash; Expressions over several maps <span class="zh">click to enlarge</span></figcaption></figure>
+    <figure><img src="images/masks.png" alt="Masks"><figcaption><b>Fig. 4</b> &mdash; Masks <span class="zh">click to enlarge</span></figcaption></figure>
+    <figure><img src="images/power_spectrum.png" alt="Power spectrum"><figcaption><b>Fig. 5</b> &mdash; Power spectrum <span class="zh">click to enlarge</span></figcaption></figure>
+    <figure><img src="images/colormaps.png" alt="Colormaps and scales"><figcaption><b>Fig. 6</b> &mdash; Colormaps and scales <span class="zh">click to enlarge</span></figcaption></figure>
+    <figure><img src="images/projections.png" alt="Projections"><figcaption><b>Fig. 7</b> &mdash; Projections <span class="zh">click to enlarge</span></figcaption></figure>
+    <figure><img src="images/statistics.png" alt="Statistics and FITS header"><figcaption><b>Fig. 8</b> &mdash; Statistics and FITS header <span class="zh">click to enlarge</span></figcaption></figure>
+    <figure><img src="images/file_explorer.png" alt="File explorer and tabs"><figcaption><b>Fig. 9</b> &mdash; File explorer and tabs <span class="zh">click to enlarge</span></figcaption></figure>
+  </div>
+</section>
+</div>
+
+<section class="term" id="cli">
+  <div class="wrap">
+    <h2><small>&sect;3</small>From the shell</h2>
+<pre><u># open a map</u>
+<i>$</i> hpvis samples/wmap_W_iqu_nside32.fits
+<u># pick a look</u>
+<i>$</i> hpvis -p orthographic -m inferno -g map.fits
+<u># render to a file, no window</u>
+<i>$</i> hpvis --mask mask.fits --output out.png map.fits
+<u># what's inside?</u>
+<i>$</i> hpvis --info map.fits
+<i>$</i> hpvis --hdu 2 --column 3 maps.npz</pre>
+    <div class="flags"><code>--projection</code><code>--colormap</code><code>--cscale</code><code>--orientation</code><code>--view</code><code>--graticule</code><code>--mask</code><code>--output</code><code>--info</code><code>--stats</code></div>
+    <p style="margin-top:34px">Needs Qt 6, CFITSIO and libzip; HEALPix, libsharp and NaMaster are vendored. Build steps for Arch, Debian and friends are in the <a href="https://github.com/dheerajshenoy/hpvis/blob/main/INSTALLATION.md" target="_blank" rel="noopener">installation guide</a>, and the full manual is the <a href="https://github.com/dheerajshenoy/hpvis/blob/main/docs/USAGE.md" target="_blank" rel="noopener">usage guide</a>.</p>
+  </div>
+</section>
+
+<div class="wrap"><footer>
+  <span>HpVis by <a href="../index.html">Dheeraj Vittal Shenoy</a></span>
+  <a href="https://github.com/dheerajshenoy/hpvis" target="_blank" rel="noopener">GitHub</a>
+  <a href="https://healpix.sourceforge.io/" target="_blank" rel="noopener">About HEALPix</a>
+</footer></div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image preview"><button type="button" aria-label="Close">Close &#10005;</button><img alt=""><p></p></div>
+<script>
+(()=>{
+const lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('p');
+const close=()=>{lb.classList.remove('open');document.body.style.overflow='';};
+document.querySelectorAll('figure img').forEach(i=>i.addEventListener('click',()=>{
+  im.src=i.src;im.alt=i.alt;const c=i.parentElement.querySelector('figcaption');cap.innerHTML=c?c.innerHTML.replace(/<span class="zh">.*?<\/span>/,''):'';
+  lb.classList.add('open');document.body.style.overflow='hidden';
+}));
+lb.addEventListener('click',close);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+</script>
+</body>
+</html>
