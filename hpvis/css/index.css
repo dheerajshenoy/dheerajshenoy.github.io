@@ -664,3 +664,51 @@ footer a:hover {
 .tok-url {
     color: #82aaff;
 }
+
+/* Feature groups */
+.fgroups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px 56px;
+}
+.fgroup h3 {
+    margin: 0 0 12px;
+    padding-top: 10px;
+    border-top: 2px solid var(--or);
+    font:
+        700 0.85rem "Noto Sans Mono",
+        ui-monospace,
+        Menlo,
+        monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.fgroup ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.fgroup li {
+    position: relative;
+    padding: 5px 0 5px 20px;
+    color: var(--mute);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.fgroup li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.95em;
+    width: 7px;
+    height: 7px;
+    background: var(--or);
+}
+.fgroup li b {
+    color: var(--ink);
+}
+.fgroup li code {
+    font-family: "Noto Sans Mono", ui-monospace, Menlo, monospace;
+    font-size: 0.85em;
+    color: var(--or);
+}

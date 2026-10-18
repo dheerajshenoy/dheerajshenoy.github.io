@@ -11,7 +11,7 @@
         <div class="wrap">
             <nav>
                 <a class="logo" href="#">Hp<i>Vis</i></a
-                ><span class="sp"></span> <a href="#features">Index</a><a href="#figures">Figures</a
+                ><span class="sp"></span> <a href="#features">Features</a><a href="#figures">Figures</a
                 ><a href="#libraries">Libraries</a><a href="#cli">Command line</a
                 ><a href="#install">Install</a>
                 <a href="https://github.com/dheerajshenoy/hpvis" target="_blank" rel="noopener">
@@ -47,81 +47,170 @@
             </header>
 
             <section id="features">
-                <h2><small>&sect;1</small>What it does</h2>
-                <div class="cols">
-                    <ul class="idx">
-                        <li>
-                            <b>Fourteen projections</b
-                            ><span
-                                >Mollweide to Gnomonic, from inside like the sky or outside like a
-                                globe, with sliders, poles and right-click recentering.</span
-                            >
-                        </li>
-                        <li>
-                            <b>Three sky frames</b
-                            ><span
-                                >Galactic, Ecliptic and Equatorial, converted on the GPU from the
-                                map's own COORDSYS. Or a free trackball.</span
-                            >
-                        </li>
-                        <li>
-                            <b>FITS, NPY and NPZ</b
-                            ><span
-                                >RING and NESTED. The toolbar picks the HDU and column, or the array
-                                and row.</span
-                            >
-                        </li>
-                        <li>
-                            <b>Colour</b
-                            ><span
-                                >Fifteen colormaps and your own, linear, log and asinh scales,
-                                percentile range, colour bar.</span
-                            >
-                        </li>
-                        <li>
-                            <b>Masks</b
-                            ><span
-                                >Load several, toggle, invert, hide or dim the masked pixels.</span
-                            >
-                        </li>
-                    </ul>
-                    <ul class="idx" style="counter-reset: i 5">
-                        <li>
-                            <b>Power spectra</b
-                            ><span
-                                >TT, TE, EE, BB, TB, EB, corrected for masks with MASTER,
-                                apodization, bandpowers and E/B purification.</span
-                            >
-                        </li>
-                        <li>
-                            <b>Map expressions</b
-                            ><span
-                                >Any expression of several maps. The result opens as a new tab and
-                                saves as FITS.</span
-                            >
-                        </li>
-                        <li>
-                            <b>Analysis</b
-                            ><span
-                                >Statistics, FITS headers, derivatives, E/B maps, unit conversion,
-                                random CMB realizations.</span
-                            >
-                        </li>
-                        <li>
-                            <b>Workspace</b
-                            ><span
-                                >Tabs, a file explorer dock, drag and drop, sessions that come back,
-                                and a shortcut for nearly every command.</span
-                            >
-                        </li>
-                        <li>
-                            <b>Export</b
-                            ><span
-                                >Images of the view, and plots as PNG, SVG or PDF in screen colours
-                                or black on white.</span
-                            >
-                        </li>
-                    </ul>
+                <h2><small>&sect;1</small>Features</h2>
+                <div class="fgroups">
+                    <div class="fgroup">
+                        <h3>Viewing</h3>
+                        <ul>
+                            <li>
+                                <b>14 projections:</b> Mollweide, Hammer, Aitoff, Equirectangular,
+                                Mercator, Sinusoidal, Lambert cylindrical, Gall-Peters, Werner,
+                                Orthographic, Azimuthal equidistant, Lambert azimuthal, Gnomonic and
+                                Stereographic
+                            </li>
+                            <li>Seen from the inside (the sky) or the outside (a globe)</li>
+                            <li>
+                                Galactic, Ecliptic and Equatorial frames, converted on the GPU from
+                                the map's own <code>COORDSYS</code>, or a free trackball
+                            </li>
+                            <li>
+                                Interactive sky rotation with sliders, poles and right-click
+                                recentering
+                            </li>
+                            <li>
+                                Zoom, pan, pinch, touchpad gestures, shift-drag to zoom to a region,
+                                double-click to reset
+                            </li>
+                            <li>Minimap and graticule with adjustable spacing and color</li>
+                            <li>
+                                Pixel grid of any nside (1 to 8192), with optional pixel numbers
+                            </li>
+                            <li>RING and NESTED pixel ordering</li>
+                        </ul>
+                    </div>
+                    <div class="fgroup">
+                        <h3>Files and workspace</h3>
+                        <ul>
+                            <li>FITS, NumPy <code>.npy</code> and <code>.npz</code> files</li>
+                            <li>Toolbar choosers for HDU and column, or array and row</li>
+                            <li>Several maps open at once in tabs</li>
+                            <li>File explorer dock, drag and drop, recent files</li>
+                            <li>Sessions: the open files come back at the next start</li>
+                            <li>
+                                Streaming of very large maps (up to nside 8192) that loads
+                                full-resolution tiles as you zoom
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fgroup">
+                        <h3>Color</h3>
+                        <ul>
+                            <li>15 built-in colormaps, plus your own from CSV or JSON files</li>
+                            <li>Linear, logarithmic and asinh scales, with a softening control</li>
+                            <li>
+                                Adjustable color range and percentile auto-range that clips extreme
+                                pixels
+                            </li>
+                            <li>Color bar, background and unseen-pixel colors</li>
+                            <li>Reverse any colormap</li>
+                        </ul>
+                    </div>
+                    <div class="fgroup">
+                        <h3>Masks</h3>
+                        <ul>
+                            <li>
+                                Load several masks, toggle and invert them, then hide or dim the
+                                masked pixels
+                            </li>
+                            <li>
+                                Mask Builder: threshold, galactic cut and disc rules, joined with
+                                AND, OR or Subtract
+                            </li>
+                            <li>
+                                Edge taper, and the sky fraction with <code>w2</code> and
+                                <code>w4</code> shown as you edit
+                            </li>
+                            <li>Paint a mask by hand</li>
+                            <li>Open a built mask as a map and save it as FITS</li>
+                        </ul>
+                    </div>
+                    <div class="fgroup">
+                        <h3>Statistics</h3>
+                        <ul>
+                            <li>Min, max, mean, rms and standard deviation of the map</li>
+                            <li>
+                                Statistics of a region: rectangle, ellipse, polygon or great-circle
+                                line
+                            </li>
+                            <li>
+                                Histogram with bins, density, log axis, outlier clipping and mask
+                                options
+                            </li>
+                            <li>
+                                Compare histograms of two maps as an overlay, ratio or difference
+                            </li>
+                            <li>FITS header viewer</li>
+                        </ul>
+                    </div>
+                    <div class="fgroup">
+                        <h3>Power spectrum</h3>
+                        <ul>
+                            <li>TT, and TE, EE, BB, TB, EB when the HDU has Q and U</li>
+                            <li>
+                                Mask correction with the MASTER method (NaMaster), with C1, C2 or
+                                smooth apodization
+                            </li>
+                            <li>Bandpowers, and E/B purification</li>
+                            <li>Divide by the pixel window and by a Gaussian or custom beam</li>
+                            <li>
+                                Theory curves (Planck 2018 best fit), optionally binned with the
+                                bandpower windows
+                            </li>
+                            <li>
+                                Compare other maps as an overlay, ratio or difference, or load
+                                curves from a file
+                            </li>
+                            <li>Cross-spectrum of two maps, a null test with no noise bias</li>
+                            <li>Export to CSV, PNG, SVG or PDF</li>
+                        </ul>
+                    </div>
+                    <div class="fgroup">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li>
+                                Operate on Maps: add, subtract, multiply, divide, mean, absolute
+                                difference, maximum, minimum, or any expression of several maps
+                            </li>
+                            <li>Change Resolution, by averaging pixels or through the harmonics</li>
+                            <li>
+                                Beam smoothing (Gaussian or custom window, or deconvolve) and
+                                multipole filters (low-pass, high-pass, band-pass, band-stop)
+                            </li>
+                            <li>
+                                Derivatives (Laplacian, gradient magnitude) and E and B maps of a
+                                polarized map
+                            </li>
+                            <li>
+                                Unit conversion between K, mK, uK (CMB or Rayleigh-Jeans) and Jy/sr,
+                                MJy/sr
+                            </li>
+                            <li>Data Transform: nonlinear functions applied to the values</li>
+                            <li>
+                                Generate Random Map: Gaussian or uniform noise, or a CMB realization
+                                (T, or T, Q, U)
+                            </li>
+                            <li>Every result opens as a new tab and saves as FITS</li>
+                        </ul>
+                    </div>
+                    <div class="fgroup">
+                        <h3>Export and interface</h3>
+                        <ul>
+                            <li>Save the view as PNG, JPEG or BMP, or copy it to the clipboard</li>
+                            <li>
+                                Plots as PNG, or vector SVG and PDF in screen colors or black on
+                                white
+                            </li>
+                            <li>
+                                Command line: render to a file, list HDUs, print statistics, no
+                                window needed
+                            </li>
+                            <li>Settings dialog for the defaults of new maps</li>
+                            <li>
+                                Menus grouped by topic with icons, and a rebindable shortcut for
+                                almost every command
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
@@ -142,26 +231,6 @@
                         <img src="images/experssion_engine.png" alt="Map expression evaluation" />
                         <figcaption>
                             <b>Fig. 3</b> &mdash; Expressions over several maps
-                            <span class="zh">click to enlarge</span>
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <img src="images/masks.png" alt="Masks" />
-                        <figcaption>
-                            <b>Fig. 4</b> &mdash; Masks <span class="zh">click to enlarge</span>
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <img src="images/power_spectrum.png" alt="Power spectrum" />
-                        <figcaption>
-                            <b>Fig. 5</b> &mdash; Power spectrum
-                            <span class="zh">click to enlarge</span>
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <img src="images/statistics.png" alt="Statistics and FITS header" />
-                        <figcaption>
-                            <b>Fig. 6</b> &mdash; Statistics and FITS header
                             <span class="zh">click to enlarge</span>
                         </figcaption>
                     </figure>
