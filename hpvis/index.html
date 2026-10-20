@@ -437,7 +437,19 @@ sudo apt install build-essential cmake git pkg-config qt6-base-dev qt6-graphs-de
 sudo dnf install gcc-c++ cmake git pkgconf-pkg-config qt6-qtbase-devel qt6-qtgraphs-devel cfitsio-devel libzip-devel gsl-devel fftw-devel openblas-devel autoconf automake libtool pandoc</pre
                         >
                     </div>
+                    <div>
+                        <h4>macOS (Homebrew, untested)</h4>
+                        <pre>
+xcode-select --install
+brew install cmake git pkgconf qt cfitsio libzip gsl fftw openblas libomp autoconf automake libtool pandoc</pre
+                        >
+                    </div>
                 </div>
+                <p class="note">
+                    These macOS steps are untested. Apple Clang has no bundled OpenMP, so <code>libomp</code> is required.
+                    If CMake cannot find Qt, OpenMP or OpenBLAS, point it at Homebrew by adding
+                    <code>-DCMAKE_PREFIX_PATH="$(brew --prefix)"</code> to the configure step.
+                </p>
                 <p class="note">
                     Package names vary between distributions and releases. If one is not found,
                     search for the library name.
