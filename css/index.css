@@ -151,3 +151,20 @@ hr {
     background: linear-gradient(to right, #444, transparent);
     margin: 0 0 24px 0;
 }
+
+.cv-link {
+    display: inline-block;
+    margin: 14px 0 10px;
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    color: #eee;
+    text-decoration: none;
+    border: 1px solid red;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.cv-link:hover {
+    background: red;
+    color: #fff;
+}
