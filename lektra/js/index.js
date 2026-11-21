@@ -48,6 +48,12 @@ const features = [
     },
 
     {
+        title: "Link Hover Preview",
+        desc: "Hover over a link to preview its destination without leaving the current page.",
+        media: { type: "img", src: "files/link_hover_preview.png", alt: "Link Hover Preview" }
+    },
+
+    {
         title: "Narrow Mode",
         desc: "Focus on a specific part of a document by narrowing to a drawn region, a page range, or a section from the outline.\
         Scrolling, search, and navigation stay confined to the narrowed area. Exit with <code>widen_region</code>.",
@@ -74,7 +80,7 @@ const features = [
 
     {
         title: "Preview",
-        desc: "Open a floating preview window to peek at any location in the document without losing your place.",
+        desc: "Open a floating preview window to peek at any location in the document without losing your place. Similar to Link Hover Preview, but the preview is navigable.",
         media: { type: "img", src: "files/preview.gif", alt: "Preview Demo" }
     },
 
@@ -93,6 +99,13 @@ const features = [
         title: "Configure with <span class='hl-toml'>TOML</span> or <span class='hl-lua'>Lua</span>",
         desc: "Use a simple, readable TOML file for configuration — or go further and configure everything through Lua for full programmatic control.",
         media: { type: "img", src: "files/config.png", alt: "TOML config" }
+    },
+
+    {
+        title: "LLM View",
+        subtitle: "Experimental",
+        desc: "Chat with an LLM about the document you are reading. Demo uses the <code>qwen3.5-4b</code> model.",
+        media: { type: "img", src: "files/llm_view_image.png", alt: "LLM View" }
     },
 
     {
